@@ -1,15 +1,30 @@
 @charset "utf-8";
 /*主页响应式栅格系统*/
-@media (max-width:1299px) {
-  .container {width: 960px}
+@media (max-width:767px) {
+	.container {width: 100%;}
+	.protipsplmedia{padding-left: 0px;}
+}
+@media (min-width:768px) and (max-width:991px) {
+	.container {width: 100%;}
+	.protipsplmedia{padding-left: 5px; padding-right: 5px;}
+}
+@media (min-width:992px) and (max-width:1199px) {
+	.container {width: 100%;}
+	.protipsplmedia{padding-left: 30px;}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+	.container {width: 1200px}
+	.protipsplmedia{padding-left: 50px;}
 }
 @media (min-width:1300px) {
-  .container {width: 1200px}
+	.container {width: 1200px}
+	.protipsplmedia{padding-left: 50px;}
 }
 
 .mt--2{margin-top: -2px;}
 .h-26{height: 26px;}
 .h-600{height: 600px;}
+.min-h-120{min-height: 120px;}
 .line-h-26{line-height: 26px;}
 .pl-50{padding-left: 50px;}
 .pb-80{padding-bottom: 80px;}

@@ -47,4 +47,8 @@ $(document).ready(function() {
         $(this).find(".mainswiper-pagination-bullet-div").removeClass("banneraniv1");
         $(this).find(".mainswiper-pagination-bullet-div").addClass("banneraniv2");
     });
+    /*宽度控制*/
+    var protipswidth = $(".swiper-container-tipsv1").width()/4;
+    var protipssideheight = $(".protipssidev1").height();
+    $(".protipssidev2").css("height",protipssideheight);
 });
