@@ -14,7 +14,7 @@ $(document).ready(function() {
     $(document).click(function() {
         $('.mainsearchinput').fadeOut();
     });
-    /*添加阴影*/
+    /*首页添加阴影*/
     $(".shodow-tip").mouseenter(function() {
         $(this).addClass("sha-rightv1");
         $(this).find(".shodow-tips").addClass("sha-leftv1");
@@ -51,4 +51,11 @@ $(document).ready(function() {
     var protipswidth = $(".swiper-container-tipsv1").width()/4;
     var protipssideheight = $(".protipssidev1").height();
     $(".protipssidev2").css("height",protipssideheight);
+    /*商品页添加阴影*/
+    $(".shopprotips").mouseenter(function() {
+        $(this).addClass("sha-allv1");
+    });
+    $(".shopprotips").mouseleave(function() {
+        $(this).removeClass("sha-allv1");
+    });
 });
