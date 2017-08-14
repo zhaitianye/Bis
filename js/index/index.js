@@ -58,4 +58,77 @@ $(document).ready(function() {
     $(".shopprotips").mouseleave(function() {
         $(this).removeClass("sha-allv1");
     });
+    /*商品页图片转换*/
+    $(".produ-min-tips").mouseenter(function() {
+        var produsrc = $(this).attr("src");
+        $(".produ-max-show").attr("src",produsrc);
+        $(this).siblings("img").removeClass("bor-col-309DE2");
+        $(this).addClass("bor-col-309DE2");
+        $(this).removeClass("bor-col-B2B2B2");
+    });
+    $(".produ-min-tips").mouseleave(function() {
+        $(this).addClass("bor-col-B2B2B2");
+    });
+    /*商品页数量增加减*/
+    $(".produ-min").click(function() {  
+        var t = $(this).siblings('.produ-text-box');
+        if(t.val()==""||undefined||null){  
+            t.val(0);  
+        }  
+        t.val(parseInt(t.val()) - 1)  
+        if(parseInt(t.val()) < 0) {  
+            t.val(0);  
+        }
+    })  
+    $(".produ-max").click(function() {  
+        var t = $(this).siblings('.produ-text-box');
+        if(t.val()==""||undefined||null){  
+            t.val(0);  
+        }  
+        t.val(parseInt(t.val()) + 1);
+    })
+    /*商品页焦点边框颜色*/
+    $(".produ-text-outerbox").mouseenter(function(){
+        $(".produ-text-outerbox").removeClass("bor-col-B2B2B2");
+        $(".produ-text-outerbox").addClass("bor-col-309DE2");
+    });
+      $(".produ-text-outerbox").mouseleave(function(){
+        $(".produ-text-outerbox").removeClass("bor-col-309DE2");
+        $(".produ-text-outerbox").addClass("bor-col-B2B2B2");
+    });
+    /*选项卡切换*/
+    $(".prode-describev1").click(function() {  
+        $(".prode-describev1").addClass("col-309DE2");
+        $(".prode-describev2").removeClass("col-309DE2");
+        $(".prode-describev3").removeClass("col-309DE2");
+        $(".prode-describev1-show").show();
+        $(".prode-describev2-show").hide();
+        $(".prode-describev3-show").hide();
+    })
+    $(".prode-describev2").click(function() {  
+        $(".prode-describev2").addClass("col-309DE2");
+        $(".prode-describev1").removeClass("col-309DE2");
+        $(".prode-describev3").removeClass("col-309DE2");
+        $(".prode-describev2-show").show();
+        $(".prode-describev1-show").hide();
+        $(".prode-describev3-show").hide();
+    })
+    $(".prode-describev3").click(function() {  
+        $(".prode-describev3").addClass("col-309DE2");
+        $(".prode-describev1").removeClass("col-309DE2");
+        $(".prode-describev2").removeClass("col-309DE2");
+        $(".prode-describev3-show").show();
+        $(".prode-describev1-show").hide();
+        $(".prode-describev2-show").hide();
+    })
+    /*浮层定位*/
+    $(window).scroll(function(){
+    var floatscroll =  $(".header").height()+$(".cont-other").height();+$(".prode-desc-tit").height();
+        if($(this).scrollTop()>floatscroll){
+            $(".sha-prode-floatv1").show();
+        }
+        else{
+            $(".sha-prode-floatv1").hide();
+        }
+    });
 });
