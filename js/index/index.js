@@ -131,4 +131,43 @@ $(document).ready(function() {
             $(".sha-prode-floatv1").hide();
         }
     });
+    /*确认订单页收货地址*/
+    /*鼠标移动*/
+    $(".conanorder-tips").mouseenter(function() {
+        $(this).addClass("bor-col-309DE2");
+    });
+    $(".conanorder-tips").mouseleave(function() {
+        $(this).removeClass("bor-col-309DE2");
+        $(this).addClass("bor-col-7A7A7A");
+    });
+    $(".conanorder-tipsadd").mouseenter(function() {
+        $(this).addClass("bor-col-309DE2");
+        $(this).find(".conanorder-tips-add").removeClass("col-B2B2B2");
+        $(this).find(".conanorder-tips-add").addClass("col-309DE2");
+        $(this).find(".conanorder-tips-addv2").removeClass("bg-eee");
+        $(this).find(".conanorder-tips-addv2").addClass("bg-309DE2");
+    });
+    $(".conanorder-tipsadd").mouseleave(function() {
+        $(this).removeClass("bor-col-309DE2");
+        $(this).addClass("bor-col-7A7A7A");
+        $(this).find(".conanorder-tips-add").addClass("col-B2B2B2");
+        $(this).find(".conanorder-tips-add").removeClass("col-309DE2");
+        $(this).find(".conanorder-tips-addv2").addClass("bg-eee");
+        $(this).find(".conanorder-tips-addv2").removeClass("bg-309DE2");
+    });
+    $(".conanorder-moreaddress").mouseenter(function() {
+        $(this).find("i").removeClass("col-252525");
+        $(this).find("i").addClass("col-white");
+    });
+    $(".conanorder-moreaddress").mouseleave(function() {
+        $(this).find("i").addClass("col-252525");
+        $(this).find("i").removeClass("col-white");
+    });
+    /*鼠标点击*/
+    $(".conanorder-tips").click(function() {
+        $(".conanorder-tips").removeClass("bor-col-activate");
+        $(".conanorder-tips-alter").hide();
+        $(this).find(".conanorder-tips-alter").show();
+        $(this).addClass("bor-col-activate");
+    });
 });
