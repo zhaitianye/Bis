@@ -21,6 +21,10 @@
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .zoomLens{width: 150px !important;height: 150px !important;}
+        .zoomWindow{border-width: 1px !important;width: 400px !important;height: 400px !important;}
+    </style>
 </head>
 <body>
     <header class="clear full-w min-h-120 header">
@@ -73,13 +77,21 @@
                 <div class="clear pt-40 full-w bor bor-b bor-col-B2B2B2">
                     <div class="clear col-sm-7 pl-20">
                         <div class="clear col-md-2 pl-0 pr-0 pull-left">
-                            <img class="full-w bor bor-col-B2B2B2 bor-col-309DE2 produ-min-tips" src="../../img/net_shopping/producttips-big1.png" alt="">
-                            <img class="bor bor-col-B2B2B2 mt-10 produ-min-tips" src="../../img/net_shopping/producttips2.png" alt="">
-                            <img class="bor bor-col-B2B2B2 mt-10 produ-min-tips" src="../../img/net_shopping/producttips3.png" alt="">
-                            <img class="bor bor-col-B2B2B2 mt-10 produ-min-tips" src="../../img/net_shopping/producttips4.png" alt="">
+                            <a href="#" class="prode-zoom-img" data-image="../../img/net_shopping/producttips1-small.png" data-zoom-image="../../img/net_shopping/producttips1-large.png">
+                               <img class="full-w bor bor-col-B2B2B2 bor-col-309DE2 produ-min-tips " src="../../img/net_shopping/producttips1-thumb.png" />
+                            </a>
+                            <a href="#" class="prode-zoom-img" data-image="../../img/net_shopping/producttips2-small.jpg" data-zoom-image="../../img/net_shopping/producttips2-large.jpg">
+                               <img class="full-w bor bor-col-B2B2B2 produ-min-tips mt-20 " src="../../img/net_shopping/producttips2-thumb.jpg" />
+                            </a>
+                            <a href="#" class="prode-zoom-img" data-image="../../img/net_shopping/producttips3-small.png" data-zoom-image="../../img/net_shopping/producttips3-large.png">
+                               <img class="full-w bor bor-col-B2B2B2 produ-min-tips mt-20 " src="../../img/net_shopping/producttips3-thumb.png" />
+                            </a>
+                            <a href="#" class="prode-zoom-img" data-image="../../img/net_shopping/producttips4-small.jpg" data-zoom-image="../../img/net_shopping/producttips4-large.jpg">
+                               <img class="full-w bor bor-col-B2B2B2 produ-min-tips mt-20 " src="../../img/net_shopping/producttips4-thumb.jpg" />
+                            </a>
                         </div>
-                        <div class="claer col-md-10 pd-40 pull-left">
-                            <img class="full-w mt-10 produ-max-show" src="../../img/net_shopping/producttips-big1.png" alt="">
+                        <div class="claer col-md-10 pl-40 pr-40 pb-40 pt-20 pull-left">
+                            <img id="prode-zoom-main" class="full-w mt-10 produ-max-show" src="../../img/net_shopping/producttips1-small.png" data-zoom-image="../../img/net_shopping/producttips1-large.png" alt="" >
                         </div>
                     </div>
                     <div class="clear col-sm-5">
@@ -151,7 +163,7 @@
             <div class="clear container h-60 bg-white affix t-0 pr-0 pl-0 sha-prode-floatv1 dis-n">
                 <div class="clear col-sm-3 pl-0 pr-0">
                     <div class="pull-left">
-                        <img class="img-40 mg-10" src="../../img/net_shopping/producttips1.png" alt="">
+                        <img class="img-40 mg-10" src="../../img/net_shopping/producttips1-small.png" alt="">
                     </div>
                     <p class="h-20 line-h-20 col-757575 f-18 family-h mt-10">
                         HC3A250 悉心心电仪
@@ -254,9 +266,18 @@
     </footer>
     <script src="../../js/comm/jquery.min.js"></script>
     <script src="../../js/comm/bootstrap.js"></script>
-    <script src="../../js/comm/swiper.jquery.min.js"></script>
+    <script src="../../js/comm/jquery.elevatezoom.js"></script>
     <script src="../../js/comm/base.js"></script>
     <script src="../../js/index/index.js"></script>
+    <script>
+        $("#prode-zoom-main").elevateZoom({
+            gallery: 'gallery_01',
+            cursor: 'pointer',
+            galleryActiveClass: 'active',
+            easing : true,
+        });
+    </script>
+    
 </body>
 
 </html>
