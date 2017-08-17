@@ -170,7 +170,6 @@ $(document).ready(function() {
         $(".conanorder-moreaddress").show();
         $(".conanorder-moreaddresspullup").hide();
     });
-    console.log(conblocklength);
     /*鼠标移动*/
     $(".conanorder-tips").mouseenter(function() {
         $(this).addClass("bor-col-309DE2");
@@ -329,7 +328,6 @@ $(document).ready(function() {
         var caddress = $(".conanorder-tips-showmsg-address").text();
         var cemal = $(".conanorder-tips-showmsg-emal").val();
         var cabout = $(".conanorder-tips-showmsg-about").val();
-        console.log(cname + cphone + caddress + cemal + cabout);
         $(".inrename").val(cname);
         $(".inrephone").val(cphone);
         $(".inreaddress").val(caddress);
@@ -338,4 +336,35 @@ $(document).ready(function() {
         $(".show-revise-shippingaddress").find(".show-div-shipping").animate({ 'top': '-6px', 'font-size': '12px' }, 10);
         document.documentElement.style.overflow = "hidden";
     });
+    /*订单提交成功页弹出微信二维码*/
+    $(".weixinpay").click(function() {
+        $(".show-weixinpay").fadeIn();
+    });
+    $(".show-weixinpay").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".weixinpay-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".show-weixinpay").fadeOut();
+        };
+    });
+    /*订单提交成功页弹出支付宝二维码*/
+    $(".zhifubaopay").click(function() {
+        $(".show-zhifubaopay").fadeIn();
+    });
+    $(".show-zhifubaopay").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".zhifubaopay-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".show-zhifubaopay").fadeOut();
+        };
+    });
+    /*订单提交成功页支付方式的边框颜色改变*/
+    $(".pay-way").find("img").mouseenter(function() {
+        $(this).addClass("bor-col-309DE2");
+    });
+    $(".pay-way").find("img").mouseleave(function() {
+        $(this).removeClass("bor-col-309DE2");
+    });
+
+
 });
