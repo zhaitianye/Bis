@@ -135,6 +135,42 @@ $(document).ready(function() {
         }
     });
     /*确认订单页收货地址*/
+    /*页面加载完毕后进行收货地址的初始排序*/
+    var conblocklength = $(".conanorder-block").length
+    if (conblocklength < 4) {
+        $(".conanorder-moreaddress").hide();
+    } else {
+        $(".conanorder-moreaddress").show();
+        for (var i = 3; i < conblocklength; i++) {
+            var strtips = " .conanorder-block:eq(" + i + ")";
+            $(strtips).hide();
+        }
+    }
+    $(".conanorder-moreaddress").click(function() {
+        if (conblocklength < 8) {
+            for (var i = 0; i < conblocklength; i++) {
+                var strtips = " .conanorder-block:eq(" + i + ")";
+                $(strtips).show();
+            }
+        } else {
+            for (var i = 0; i < 7; i++) {
+                var strtips = " .conanorder-block:eq(" + i + ")";
+                $(strtips).show();
+            }
+        };
+        $(".conanorder-moreaddress").hide();
+        $(".conanorder-moreaddresspullup").show();
+
+    });
+    $(".conanorder-moreaddresspullup").click(function() {
+        for (var i = 3; i < conblocklength; i++) {
+            var strtips = " .conanorder-block:eq(" + i + ")";
+            $(strtips).hide();
+        }
+        $(".conanorder-moreaddress").show();
+        $(".conanorder-moreaddresspullup").hide();
+    });
+    console.log(conblocklength);
     /*鼠标移动*/
     $(".conanorder-tips").mouseenter(function() {
         $(this).addClass("bor-col-309DE2");
@@ -168,17 +204,14 @@ $(document).ready(function() {
         $(this).find("i").addClass("col-252525");
         $(this).find("i").removeClass("col-white");
     });
-    /*页面加载完毕后执行电话加密*/
-    /*var cphonelength = $(".conanorder-tips-phone").length
-    for (var i=0;i<cphonelength;i++)
-    {   
-        var cphoneunencryptionstr =".conanorder-tips-phone:eq("+i+")"
-        var cphoneunencryption = $(cphoneunencryptionstr).text();
-
-
-        console.log(cphoneunencryption);
-    }*/
-
+    $(".conanorder-moreaddresspullup").mouseenter(function() {
+        $(this).find("i").removeClass("col-252525");
+        $(this).find("i").addClass("col-white");
+    });
+    $(".conanorder-moreaddresspullup").mouseleave(function() {
+        $(this).find("i").addClass("col-252525");
+        $(this).find("i").removeClass("col-white");
+    });
     /*页面加载完毕后执行初始地址赋值*/
     var cphonelength = $(".conanorder-tips-phone").length
     if (cphonelength > 0) {
@@ -192,13 +225,9 @@ $(document).ready(function() {
         $(".conanorder-tips-showmsg-address").text(cfirstaddress);
         $(".conanorder-tips-showmsg-emal").val(cfirstemal);
         $(".conanorder-tips-showmsg-about").val(cfirstabout);
-    }
-    else
-    {
+    } else {
         $(".conanorder-tips-showmsg-name").text("请添加收货地址！");
     }
-
-    //console.log(cphoneencryption2);
     /*鼠标点击收货地址发生的变化*/
     $(".conanorder-tips").click(function() {
         $(".conanorder-tips").removeClass("bor-col-activate");
@@ -208,7 +237,6 @@ $(document).ready(function() {
         var caddress = $(this).find(".conanorder-tips-address").text();
         var cemal = $(this).find(".conanorder-tips-emal").val();
         var cabout = $(this).find(".conanorder-tips-about").val();
-        console.log(cname + cphone + caddress + cemal + cabout);
         $(".conanorder-tips-showmsg-name").text(cname);
         $(".conanorder-tips-showmsg-phone").text(cphone);
         $(".conanorder-tips-showmsg-address").text(caddress);
@@ -223,37 +251,91 @@ $(document).ready(function() {
     $(".show-input-shipping").mouseleave(function() {
         $(this).addClass("bor-col-B2B2B2");
         $(this).removeClass("bor-col-999");
-    }); 
-    $(".show-input-shipping").focusin(function(){
+    });
+    $(".show-input-shipping").focusin(function() {
         var shipplaceholder = $(this).siblings(".show-input-shipping-value").val();
+        var thispoint = $(this);
         $(this).addClass("bor-col-309DE2");
         $(this).siblings(".show-div-shipping").addClass("col-309DE2");
-        $(this).siblings(".show-div-shipping").animate({'top':'-6px','font-size':'12px'},300);
-        $(this).attr("placeholder",shipplaceholder);
+        $(this).siblings(".show-div-shipping").animate({ 'top': '-6px', 'font-size': '12px' }, 300);
+        setTimeout(function() { thispoint.attr("placeholder", shipplaceholder) }, 300);
     });
 
-    $(".show-input-shipping").focusout(function(){
-        var shipinputval =  $(this).val();
-        if (shipinputval == ""||undefined||null||NaN) {
-            $(this).siblings(".show-div-shipping").animate({'top':'11px','font-size':'14px'},300);
-        }
-        else{ 
-        }
-        $(this).attr("placeholder","");
+    $(".show-input-shipping").focusout(function() {
+        var shipinputval = $(this).val();
+        if (shipinputval == "" || undefined || null || NaN) {
+            $(this).siblings(".show-div-shipping").animate({ 'top': '11px', 'font-size': '14px' }, 300);
+        } else {}
+        $(this).attr("placeholder", "");
         $(this).removeClass("bor-col-309DE2");
         $(this).siblings(".show-div-shipping").removeClass("col-309DE2");
-        
+    });
+    /*添加收货地址弹出层*/
+    $(".conanorder-tipsadd").click(function() {
+        if (conblocklength < 7) {
+            $(".show-add-shippingaddress").fadeIn();
+            document.documentElement.style.overflow = "hidden";
+        } else {
+            $(".show-full-shippingaddress").fadeIn();
+            document.documentElement.style.overflow = "hidden";
+        }        
+    });
+    $(".show-add-shippingaddress").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".show-add-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".show-add-shippingaddress").fadeOut();
+            document.documentElement.style.overflow = "scroll";
+        };
+    });
+    $(".show-full-shippingaddress").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".show-full-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".show-add-shippingaddress").fadeOut();
+            document.documentElement.style.overflow = "scroll";
+        };
+    });
+
+    /*修改收货地址弹出层*/
+    $(".conanorder-tips-alter").click(function() {
+        $(".show-revise-shippingaddress").fadeIn();
+        var cname = $(this).parent().siblings().find(".conanorder-tips-name").text();
+        var cphone = $(this).parent().siblings().find(".conanorder-tips-phone").text();
+        var caddress = $(this).parent().siblings().find(".conanorder-tips-address").text();
+        var cemal = $(this).parent().siblings(".conanorder-tips-emal").val();
+        var cabout = $(this).parent().siblings(".conanorder-tips-about").val();
+        console.log(cname + cphone + caddress + cemal + cabout);
+        $(".inrename").val(cname);
+        $(".inrephone").val(cphone);
+        $(".inreaddress").val(caddress);
+        $(".inreemail").val(cemal);
+        $(".inreabout").val(cabout);
+        $(".show-revise-shippingaddress").find(".show-div-shipping").animate({ 'top': '-6px', 'font-size': '12px' }, 10);
+        document.documentElement.style.overflow = "hidden";
+    });
+    $(".show-revise-shippingaddress").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".show-revise-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".show-revise-shippingaddress").fadeOut();
+            document.documentElement.style.overflow = "scroll";
+        };
+    });
+    $(".main-order-tips-alter").click(function() {
+        $(".show-revise-shippingaddress").fadeIn();
+        var cname = $(".conanorder-tips-showmsg-name").text();
+        var cphone = $(".conanorder-tips-showmsg-phone").text();
+        var caddress = $(".conanorder-tips-showmsg-address").text();
+        var cemal = $(".conanorder-tips-showmsg-emal").val();
+        var cabout = $(".conanorder-tips-showmsg-about").val();
+        console.log(cname + cphone + caddress + cemal + cabout);
+        $(".inrename").val(cname);
+        $(".inrephone").val(cphone);
+        $(".inreaddress").val(caddress);
+        $(".inreemail").val(cemal);
+        $(".inreabout").val(cabout);
+        $(".show-revise-shippingaddress").find(".show-div-shipping").animate({ 'top': '-6px', 'font-size': '12px' }, 10);
+        document.documentElement.style.overflow = "hidden";
     });
 });
-
-/* 弹出层*/
-/*function payshow_show(){
-  $(".payshow").show();
-}
-$(".payshow").on("click",function(event){
-     event.stopPropagation();
-     var target=event.target;
-     if (!$(target).closest(".modal-content").length>0||$(target).attr("class").indexOf("close-mod")!=-1) {
-        $(".payshow").hide()
-     };
-})*/
