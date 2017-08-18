@@ -109,9 +109,6 @@ $(document).ready(function(){
         $(".back").attr("src","../../img/bisserve/backv2.png");
       });
 });
-
-
-
 /* 弹出层*/
 function payshow_show(){
   $(".payshow").show();
