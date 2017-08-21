@@ -3,6 +3,7 @@
 .bg-A4E276{background: #A4E276}
 .bg-64C47E{background: #64C47E}
 .bg-white-sel{background: white !important;}
+.bg-F7F3F2{background-color: #F7F3F2;}
 .t-14{top: 14px;}
 .t-50{top: 50px;}
 .w-45s{width: 45%;}
@@ -12,6 +13,7 @@
 .bor-col-F2F2F2{border-color: #F2F2F2 !important}
 .bor-col-e1e1e1{border-color: #e1e1e1 !important}
 .col-808080{color: #808080;}
+.col-363634{color: #363634;}
 .col-646464{color: #646464;}
 .col-FF5C6F{color: #FF5C6F}
 .col-E47A36{color: #E47A36}
@@ -31,6 +33,22 @@
 .bor-none{border: none;}
 @media (max-width: 350px){
   .img-25vmed{width:20px;height: 20px;}
+
 }
 .f-w-600{font-weight: 600;}
 .min-h-100s{min-height: 100%;}
+.img-40{width: 40px;height: 40px;}
+.img-15{width: 15px;height: 15px;}
+
+@media (min-width:350px) {
+  .img-25-30-mlr{width: 30px;height: 30px;margin-left: 10px;margin-right: 10px;line-height: 30px;font-size: 14px;}
+  .w-350-245{width: 350px;}
+}
+@media (max-width: 349px){
+  .img-25-30-mlr{width: 25px;height: 25px;margin-left: 10px;margin-right: 10px;line-height: 25px; font-size: 12px;}
+  .w-350-245{width: 315px;}
+}
+.unread-report{border-radius: 50%;background-color: #EE7071;}
+.read-report{border-radius: 50%;border: 1px solid #EE7071;}
+.now-today{border-radius: 50%;background-color: #F88B1D;}
+.select-day{border-radius: 50%;border: 1px solid black;}
