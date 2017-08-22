@@ -46,7 +46,7 @@
                         50+3次
                     </div>
                     <div class="col-A4E276 f-20 dis-ib h-25 pull-left line-h-25 col-xs-6 pl-0 pr-0 pos-r">
-                        1000元
+                        <span class="col-A4E276">1000</span>元
                         <span class="pd-2 pos-a bor bor-col-red radius-5 t--5 r--10 col-red f-12">
                             最优惠
                         </span>
@@ -57,7 +57,7 @@
                 </p>
             </div>
             <div class="col-xs-4">
-                <button type="button" class="btn btn-success pull-right mg-8 bg-A4E276 bor-none" onclick="payshow_show()">
+                <button type="button" class="btn btn-success pull-right mg-8 bg-A4E276 bor-none buyv1">
                     购买
                 </button>
             </div>
@@ -71,7 +71,7 @@
                         20+1次
                     </div>
                     <div class="col-A4E276 f-20 dis-ib h-25 pull-left line-h-25 col-xs-6 pl-0 pr-0">
-                        400元
+                        <span class="col-A4E276">400</span>元
                     </div>
                 </div>
                 <p class="col-999 pt-8 pb-5">
@@ -79,7 +79,7 @@
                 </p>
             </div>
             <div class="col-xs-4">
-                <button type="button" class="btn btn-success pull-right mg-8 bg-A4E276 bor-none" onclick="payshow_show()">
+                <button type="button" class="btn btn-success pull-right mg-8 bg-A4E276 bor-none buyv2">
                     购买
                 </button>
             </div>
@@ -104,7 +104,7 @@
                 </p>
             </div>
             <div class="col-xs-4">
-                <button type="button" class="btn btn-success pull-right mg-8 bg-A4E276 bor-none" onclick="payshow_show()">
+                <button type="button" class="btn btn-success pull-right mg-8 bg-A4E276 bor-none buyv3">
                     购买
                 </button>
             </div>
@@ -193,7 +193,7 @@
                 </p>
             </div>
             <div class="col-xs-4">
-                <button type="button" class="btn btn-success pull-right mg-8 bg-64C47E bor-none" onclick="payshow_show()">
+                <button type="button" class="btn btn-success pull-right mg-8 bg-64C47E bor-none buyv4">
                     购买
                 </button>
             </div>
@@ -215,7 +215,7 @@
                 </p>
             </div>
             <div class="col-xs-4">
-                <button type="button" class="btn btn-success pull-right mg-8 bg-64C47E bor-none" onclick="payshow_show()">
+                <button type="button" class="btn btn-success pull-right mg-8 bg-64C47E bor-none buyv5">
                     购买
                 </button>
             </div>
@@ -240,7 +240,7 @@
                 </p>
             </div>
             <div class="col-xs-4">
-                <button type="button" class="btn btn-success pull-right mg-8 bg-64C47E bor-none" onclick="payshow_show()">
+                <button type="button" class="btn btn-success pull-right mg-8 bg-64C47E bor-none buyv6">
                     购买
                 </button>
             </div>
@@ -313,6 +313,18 @@
             <div class="clear bor bor-b pt-5 pb-5 bor-col-f3 ml-10 mr-10 mb-20"></div>
         </div>
     </div>
+    <!-- 两个隐藏框，数据调用要用到 -->
+    <!-- 数据类型 -->
+    <input id="servicetype" type="hidden" value="">
+    <!-- 数据次数 -->
+    <input id="servicenumber" type="hidden" value="">
+    <!-- 6个id -->
+    <input id="serviceidv1" type="hidden" value="111111">
+    <input id="serviceidv2" type="hidden" value="222222">
+    <input id="serviceidv3" type="hidden" value="333322233">
+    <input id="serviceidv4" type="hidden" value="444444">
+    <input id="serviceidv5" type="hidden" value="555555">
+    <input id="serviceidv6" type="hidden" value="666666">
     <!-- 弹出层 -->
         <div class="payshow affix t-0 l-0 z-9999 rgba-50 full-wh overflow-h dis-n">
             <div class="pos-a b-15 l-0 full-w">
