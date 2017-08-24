@@ -22,6 +22,7 @@
 .col-64C47E{color: #64C47E}
 .col-5F5F5F{color: #5F5F5F}
 .h-5{height: 5px;}
+.h-56{height: 56px;}
 .t-13{top: 13px;}
 .r-10{right: 10px;}
 .r-15{right: 15px;}
@@ -52,3 +53,22 @@
 .read-report{border-radius: 50%;border: 1px solid #EE7071;}
 .now-today{border-radius: 50%;background-color: #F88B1D;}
 .select-day{border-radius: 50%;border: 1px solid black;}
+/*设置列表页滚动条凹槽的样式*/
+.iScrollVerticalScrollbar {
+    position: absolute;
+    z-index: 999;
+    width: 5px;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    height: 100%;
+    border-radius: 10px;
+}
+/*设置列表页滚动条的样式*/
+.iScrollIndicator {
+    
+    width: 100%;
+    background: #444;
+    border-radius: 10px;
+    height: 30%;
+}

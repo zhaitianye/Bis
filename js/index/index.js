@@ -73,24 +73,6 @@ $(document).ready(function() {
     $(".prode-zoom-img").mouseleave(function() {
         $(this).find("img").addClass("bor-col-B2B2B2");
     });
-    /*商品页数量增加减*/
-    $(".produ-min").click(function() {
-        var t = $(this).siblings('.produ-text-box');
-        if (t.val() == "" || undefined || null) {
-            t.val(0);
-        }
-        t.val(parseInt(t.val()) - 1)
-        if (parseInt(t.val()) < 0) {
-            t.val(0);
-        }
-    })
-    $(".produ-max").click(function() {
-        var t = $(this).siblings('.produ-text-box');
-        if (t.val() == "" || undefined || null) {
-            t.val(0);
-        }
-        t.val(parseInt(t.val()) + 1);
-    })
     /*商品页焦点边框颜色*/
     $(".produ-text-outerbox").mouseenter(function() {
         $(".produ-text-outerbox").removeClass("bor-col-B2B2B2");
@@ -100,40 +82,31 @@ $(document).ready(function() {
         $(".produ-text-outerbox").removeClass("bor-col-309DE2");
         $(".produ-text-outerbox").addClass("bor-col-B2B2B2");
     });
-    /*选项卡切换*/
-    $(".prode-describev1").click(function() {
-        $(".prode-describev1").addClass("col-309DE2");
-        $(".prode-describev2").removeClass("col-309DE2");
-        $(".prode-describev3").removeClass("col-309DE2");
-        $(".prode-describev1-show").show();
-        $(".prode-describev2-show").hide();
-        $(".prode-describev3-show").hide();
-    })
-    $(".prode-describev2").click(function() {
-        $(".prode-describev2").addClass("col-309DE2");
-        $(".prode-describev1").removeClass("col-309DE2");
-        $(".prode-describev3").removeClass("col-309DE2");
-        $(".prode-describev2-show").show();
-        $(".prode-describev1-show").hide();
-        $(".prode-describev3-show").hide();
-    })
-    $(".prode-describev3").click(function() {
-        $(".prode-describev3").addClass("col-309DE2");
-        $(".prode-describev1").removeClass("col-309DE2");
-        $(".prode-describev2").removeClass("col-309DE2");
-        $(".prode-describev3-show").show();
-        $(".prode-describev1-show").hide();
-        $(".prode-describev2-show").hide();
-    })
-    /*浮层定位*/
+
+    /*商品页菜单浮层定位*/
     $(window).scroll(function() {
-        var floatscroll = $(".header").height() + $(".cont-other").height(); + $(".prode-desc-tit").height();
+        var floatscroll = $(".header").height();
         if ($(this).scrollTop() > floatscroll) {
-            $(".sha-prode-floatv1").show();
+            $(".flo-menuv2-aff").show();
         } else {
-            $(".sha-prode-floatv1").hide();
+            $(".flo-menuv2-aff").hide();
         }
     });
+    /*商品页悉心平安服务边框*/
+    $(".shieldframe").click(function() {
+        if ($(".shieldframe").hasClass("bor-col-activate")) {
+            $(this).removeClass("bor-col-activate");
+            $(".shieldframe_circle").css("background-color", "#B1B1B1");
+            $(".shieldframe_sel").val("0");
+        } else {
+            $(this).addClass("bor-col-activate");
+            $(".shieldframe_circle").css("background-color", "#309DE2");
+            $(".shieldframe_sel").val("1");
+        }
+
+    });
+
+
     /*确认订单页收货地址*/
     /*页面加载完毕后进行收货地址的初始排序*/
     var conblocklength = $(".conanorder-block").length
@@ -277,7 +250,7 @@ $(document).ready(function() {
         } else {
             $(".show-full-shippingaddress").fadeIn();
             document.documentElement.style.overflow = "hidden";
-        }        
+        }
     });
     $(".show-add-shippingaddress").on("click", function(event) {
         event.stopPropagation();

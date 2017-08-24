@@ -21,10 +21,19 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-        .zoomLens{width: 150px !important;height: 150px !important;}
-        .zoomWindow{border-width: 1px !important;width: 400px !important;height: 400px !important;}
+    .zoomLens {
+        width: 150px !important;
+        height: 150px !important;
+    }
+
+    .zoomWindow {
+        border-width: 1px !important;
+        width: 400px !important;
+        height: 400px !important;
+    }
     </style>
 </head>
+
 <body>
     <header class="clear full-w min-h-120 header">
         <div class="container">
@@ -39,10 +48,8 @@
                         <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">简</a></li>
                         <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">繁</a></li>
                         <li class="pull-left pr-5 col-333 cur-d hovecol-black">
-                        <i class="icon-shopping-cart pr-5 f-14 col-333 hovecol-black"></i>
-                            购物车(
-                        <a class="col-333" href="">0</a>
-                        )
+                            <i class="icon-shopping-cart pr-5 f-14 col-333 hovecol-black"></i> 购物车(
+                            <a class="col-333" href="">0</a> )
                         </li>
                         <li class="pull-left pr-5 pl-5 bg-eee hovebg-ddd mainsearch">
                             <input type="text" class="h-26 line-h-26 w-100 mt--2 mb-2 bor bor-col-ccc dis-n mainsearchinput">
@@ -63,41 +70,58 @@
             </div>
         </div>
     </header>
+    <div class="clear full-w bor bor-t bor-col-D6D6D6 sha-float-titlev1 flo-menuv2">
+        <div class="container pt-20 pb-20 clear line-h-20">
+            <span class="col-black family-h pull-left cur-d f-20 ">HC3A250 悉心心电仪器</span>
+            <span class="col-black family-h pull-right cur-d f-12">
+                <span class="t-nonehove hovecol-309DE2 col-black">概述</span>
+            <span>|</span>
+            <span class="t-nonehove hovecol-309DE2 col-black">参数</span>
+            <span>|</span>
+            <span class="t-nonehove hovecol-309DE2 col-black">用户评价</span>
+            </span>
+        </div>
+    </div>
+    <div class="clear full-w bor bor-t bor-col-D6D6D6 sha-float-titlev1 affix t-0 l-0 bg-white z-999 dis-n flo-menuv2-aff">
+        <div class="container pt-20 pb-20 clear line-h-20">
+            <span class="col-black family-h pull-left cur-d f-20 ">HC3A250 悉心心电仪器</span>
+            <span class="col-black family-h pull-right cur-d f-12">
+                <span class="t-nonehove hovecol-309DE2 col-black">概述</span>
+            <span>|</span>
+            <span class="t-nonehove hovecol-309DE2 col-black">参数</span>
+            <span>|</span>
+            <span class="t-nonehove hovecol-309DE2 col-black">用户评价</span>
+            </span>
+        </div>
+    </div>
     <div class="wrap">
         <div class="container pl-0 pr-0">
-            <div class="clear cont-other">
-                <p class="pt-10 pb-10 pl-15 pr-15 line-h-20 bg-f5f5f5 cur-d ">
-                    <a class="col-666 t-nonehove hovecol-309DE2" href="">首页 </a>
-                    >
-                    <a class="col-333 t-nonehove hovecol-309DE2" href="">网上商城</a>
-                    >
-                    <span class="col-252525 t-nonehove">HC3A250 悉心心电仪</span>
-                </p>
-                <div class="clear pt-40 full-w bor bor-b bor-col-B2B2B2">
-                    <div class="clear col-sm-7 pl-20">
-                        <div class="clear col-md-2 pl-0 pr-0 pull-left">
-                            <a href="#" class="prode-zoom-img" data-image="../../img/net_shopping/producttips1-small.png" data-zoom-image="../../img/net_shopping/producttips1-large.png">
-                               <img class="full-w bor bor-col-B2B2B2 bor-col-309DE2 produ-min-tips " src="../../img/net_shopping/producttips1-thumb.png" />
-                            </a>
-                            <a href="#" class="prode-zoom-img" data-image="../../img/net_shopping/producttips2-small.jpg" data-zoom-image="../../img/net_shopping/producttips2-large.jpg">
-                               <img class="full-w bor bor-col-B2B2B2 produ-min-tips mt-20 " src="../../img/net_shopping/producttips2-thumb.jpg" />
-                            </a>
-                            <a href="#" class="prode-zoom-img" data-image="../../img/net_shopping/producttips3-small.png" data-zoom-image="../../img/net_shopping/producttips3-large.png">
-                               <img class="full-w bor bor-col-B2B2B2 produ-min-tips mt-20 " src="../../img/net_shopping/producttips3-thumb.png" />
-                            </a>
-                            <a href="#" class="prode-zoom-img" data-image="../../img/net_shopping/producttips4-small.jpg" data-zoom-image="../../img/net_shopping/producttips4-large.jpg">
-                               <img class="full-w bor bor-col-B2B2B2 produ-min-tips mt-20 " src="../../img/net_shopping/producttips4-thumb.jpg" />
-                            </a>
+            <div class="clear cont-other pb-40">
+                <div class="clear full-w ">
+                    <div class="clear w-500 pull-left">
+                        <div class="claer col-md-12 pd-50 pull-left text-center">
+                            <img id="prode-zoom-main" class="img-500 produ-max-show" src="../../img/net_shopping/producttips1-small.png" data-zoom-image="../../img/net_shopping/producttips1-large.png" alt="">
                         </div>
-                        <div class="claer col-md-10 pl-40 pr-40 pb-40 pt-20 pull-left">
-                            <img id="prode-zoom-main" class="full-w mt-10 produ-max-show" src="../../img/net_shopping/producttips1-small.png" data-zoom-image="../../img/net_shopping/producttips1-large.png" alt="" >
+                        <div class="clear col-md-12 mt-20 mb-20 pl-0 pr-0 pull-left">
+                            <div class="prode-zoom-img clear dis-ib cur-p mr-10 ml-20 pull-left" data-image="../../img/net_shopping/producttips1-small.png" data-zoom-image="../../img/net_shopping/producttips1-large.png">
+                                <img class="img-100 bor bor-col-B2B2B2 bor-col-309DE2 produ-min-tips " src="../../img/net_shopping/producttips1-thumb.png" />
+                            </div>
+                            <div class="prode-zoom-img clear dis-ib cur-p ml-10 mr-10 pull-left" data-image="../../img/net_shopping/producttips2-small.jpg" data-zoom-image="../../img/net_shopping/producttips2-large.jpg">
+                                <img class="img-100 bor bor-col-B2B2B2 produ-min-tips" src="../../img/net_shopping/producttips2-thumb.jpg" />
+                            </div>
+                            <div class="prode-zoom-img clear dis-ib cur-p ml-10 mr-10 pull-left" data-image="../../img/net_shopping/producttips3-small.png" data-zoom-image="../../img/net_shopping/producttips3-large.png">
+                                <img class="img-100 bor bor-col-B2B2B2 produ-min-tips" src="../../img/net_shopping/producttips3-thumb.png" />
+                            </div>
+                            <div class="prode-zoom-img clear dis-ib cur-p ml-10 mr-20 pull-left" data-image="../../img/net_shopping/producttips4-small.jpg" data-zoom-image="../../img/net_shopping/producttips4-large.jpg">
+                                <img class="img-100 bor bor-col-B2B2B2 produ-min-tips" src="../../img/net_shopping/producttips4-thumb.jpg" />
+                            </div>
                         </div>
                     </div>
-                    <div class="clear col-sm-5">
+                    <div class="clear w-500 pull-left pt-20 pl-25 pr-25">
                         <p class="f-30 col-black family-h h-30 line-h-30 mt-10 mb-10">
                             HC3A250 悉心心电仪
                         </p>
-                        <p class="f-18 col-616161 min-h-125 family-hs line-h-25 mt-10 mb-10">
+                        <p class="f-18 col-616161 min-h-125 family-hs line-h-25">
                             3通道导联 33g轻巧设计 120小时超强续航
                         </p>
                         <div class="clear line-h-25 pt-20 pb-20 bor bor-l-none bor-r-none bor-col-B2B2B2">
@@ -108,84 +132,97 @@
                                 元
                             </span>
                         </div>
-                        <div class="clear mt-40 mb-40 full-w h-40">
-                            <div class="clear bor bor-col-B2B2B2 pull-left cur-d select-none produ-text-outerbox">
-                                <div class="pull-left h-40 w-40 produ-min cur-p text-center">
-                                    <span class="f-14 f-w icon-minus pos-r t-13"></span>
-                                </div>
-                                <input class="f-14 ml-15 mr-15 bor-none w-25 text-center produ-text-box h-40" value="1" type="text" maxlength="3" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();">
-                                <div class="pull-right h-40 w-40 produ-max cur-p text-center">
-                                    <span class="f-14 f-w icon-plus pos-r t-13"></span>
-                                </div>
+                        <div class="clear mt-30 mb-30 full-w h-40">
+                            <div class="w-150 h-40 line-h-40 text-center f-18 col-black pull-left bor-col-309DE2 bor cur-p ">
+                                标&nbsp;&nbsp;配
                             </div>
                         </div>
-                        <div class="clear pt-30 pb-30 bor bor-l-none bor-r-none bor-col-B2B2B2">
+                        <div class="clear mb-30 full-w bor bor-col-B2B2B2 bor-col-activate cur-p shieldframe">
+                            <!-- 此框的选中状态1为选中，0为未选中 -->
+                            <input class="shieldframe_sel" type="hidden" value="1">
+                            <div class="clear w-100 pull-left pd-35">
+                                <div class="clear img-30 bg-309DE2 full-radius text-center line-h-30 shieldframe_circle">
+                                    <img class="img-20 pos-r t--2" src="../../img/net_shopping/ico_ok.png" alt="">
+                                </div>
+                            </div>
+                            <div class="clear w-248 pull-left pt-25 pb-20">
+                                <div class="clear pull-left mr-10">
+                                    <img class="pos-r t--2" src="../../img/net_shopping/shield.png" alt="">
+                                </div>
+                                <div class="clear pull-left">
+                                    <p class="col-black f-18 family-h line-h-25">
+                                        悉心平安服务
+                                        <span class="col-309DE2 f-12">
+                                        了解服务详情
+                                    </span>
+                                    </p>
+                                    <p class="col-aaa f-12 family-h line-h-20">
+                                        居家外出&nbsp;身体不适&nbsp;一键通知亲人
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="clear w-100 pull-left pt-10 pb-20">
+                                <p class="clear pr-20 pb-10 line-h-30 col-309DE2 f-14">
+                                    <a class="t-nonehove col-309DE2 pull-right hovecol-309DE2 " href="">选购</a>
+                                </p>
+                                <p class="clear line-h-20 pr-20">
+                                    <span class="col-aaa f-12 family-h pull-right">100元/月</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="clear pt-20 pb-20 bor bor-l-none bor-r-none bor-col-B2B2B2">
                             <div class="clear col-md-8 pl-0 pr-10">
-                                <button class="btn btn-primary full-w btn-lg radius-0 bg-309DE2 bor-col-309DE2 hovbg-2D90CF" onclick="document.location='HK_Order.html';">加入购物车</button>
+                                <button class="btn btn-primary full-w btn-lg radius-0 bg-309DE2 bor-none hovbg-2D90CF" onclick="document.location='HK_Order.html';">加入购物车</button>
                             </div>
                             <div class="clear col-md-4 pl-10 pr-0">
-                                <button class="btn btn-primary btn-lg radius-0 bg-309DE2 bor-col-309DE2 hovbg-2D90CF" onclick="document.location='HK_Order.html';">立即购买</button>
+                                <button class="btn btn-primary btn-lg radius-0 bg-9BD2F4 bor-none hovbg-9BD2F4" onclick="document.location='HK_Order.html';">立即购买</button>
                             </div>
                         </div>
                         <p class="pt-10 pb-10 line-h-30 f-16 ">
                             <img class="img-20 mr-5 pos-r t--2" src="../../img/net_shopping/find-more.png" alt="">
-                            <a class="col-616161 hovecol-309DE2 t-nonehove" href="">查看更多心脏健康产品</a>
+                            <a class="col-616161 hovecol-309DE2 t-nonehove" href="">返回首页查看更多心脏健康产品</a>
                         </p>
                     </div>
-                </div>
-            </div>
-            <div class="clear pt-20 pb-20 text-center f-20 prode-desc-tit">
-                <span class="mr-50 col-309DE2 hovecol-309DE2 cur-p prode-describev1">
-                    详情描述
-                </span>
-                |
-                <span class="ml-50 mr-50 col-616161 hovecol-309DE2 cur-p prode-describev2">
-                    产品规格
-                </span>
-                |
-                <span class="ml-50 mr-50 col-616161 hovecol-309DE2 cur-p prode-describev3">
-                    疾病相关
-                </span>
-            </div>
-            <div class="clear bg-fafafa full-w mb-20">
-                <div class="clear full-w prode-describev1-show">
-                    <img class="full-w" src="../../img/net_shopping/prode-describev1.png" alt="">
-                </div>
-                <div class="clear full-w prode-describev2-show dis-n">
-                   <img class="full-w" src="../../img/net_shopping/prode-describev2.jpg" alt="">
-                </div>
-                <div class="clear full-w prode-describev3-show dis-n">
-                   <img class="full-w" src="../../img/net_shopping/prode-describev3.jpg" alt="">
-                </div>
-            </div>
-            <!-- 浮层 -->
-            <div class="clear container h-60 bg-white affix t-0 pr-0 pl-0 sha-prode-floatv1 dis-n">
-                <div class="clear col-sm-3 pl-0 pr-0">
-                    <div class="pull-left">
-                        <img class="img-40 mg-10" src="../../img/net_shopping/producttips1-small.png" alt="">
+                    <div class="clear w-200 pull-left pt-20 pl-10 pr-10">
+                        <div class="pos-r clear text-center line-h-20 f-16 col-black pb-20">
+                            相关产品
+                            <div class="pos-a bor bor-b w-50 t-10 l-0">
+                            </div>
+                            <div class="pos-a bor bor-b w-50 t-10 r-0">
+                            </div>
+                        </div>
+                        <div class="clear pos-r img-180 bor bor-col-B2B2B2 pull-left mt-10 mb-10">
+                            <img class="full-wh" src="../../img/net_shopping/produ-right-tipsv1.png" alt="">
+                            <div class="clear h-25 line-h-25 rgba-d2d2d2-20 pos-a b-0 l-0 pl-10 pr-10 full-w">
+                                <a class="col-727272 t-nonehove hovecol-309DE2" href="">一次性电极贴片&nbsp;4片20元</a>
+                            </div>
+                        </div>
+                        <div class="clear pos-r img-180 bor bor-col-B2B2B2 pull-left mt-10 mb-10">
+                            <img class="full-wh" src="../../img/net_shopping/produ-right-tipsv2.jpg" alt="">
+                            <div class="clear h-25 line-h-25 rgba-d2d2d2-20 pos-a b-0 l-0 pl-10 pr-10 full-w">
+                                <a class="col-727272 t-nonehove hovecol-309DE2" href="">USB&nbsp;micro&nbsp;数据线&nbsp;1条30元</a>
+                            </div>
+                        </div>
+                        <div class="clear pos-r img-180 bor bor-col-B2B2B2 pull-left mt-10 mb-10">
+                            <img class="full-wh" src="../../img/net_shopping/produ-right-tipsv3.jpg" alt="">
+                            <div class="clear h-25 line-h-25 rgba-d2d2d2-20 pos-a b-0 l-0 pl-10 pr-10 full-w">
+                                <a class="col-727272 t-nonehove hovecol-309DE2" href="">APP一键呼救&nbsp;100元/月
+                            </div>
+                        </div>
                     </div>
-                    <p class="h-20 line-h-20 col-757575 f-18 family-h mt-10">
-                        HC3A250 悉心心电仪
-                    </p>
-                    <p class="h-20 line-h-20 col-309DE2 f-16 family-h mb-10">
-                        1800元
-                    </p>
                 </div>
-                <div class="clear col-sm-6 pl-0 pr-0 text-center f-20 pt-20 pb-20">
-                    <span class="mr-50 col-309DE2 hovecol-309DE2 cur-p prode-describev1">
-                        详情描述
-                    </span>
-                    |
-                    <span class="ml-50 mr-50 col-616161 hovecol-309DE2 cur-p prode-describev2">
-                        产品规格
-                    </span>
-                    |
-                    <span class="ml-50 mr-50 col-616161 hovecol-309DE2 cur-p prode-describev3">
-                        疾病相关
-                    </span>
+            </div>
+            <div class="clear h-500 pro_first_floor pt-40">
+                <div class="clear col-sm-3 pt-230 pb-230 bor bor-r bor-col-B2B2B2">
+                    <p class="f-20 col-black text-center line-h-40">外观</p>
                 </div>
-                <div class="clear col-sm-2 pd-10 pull-right">
-                    <button class="btn btn-primary full-w btn-lg radius-0 bg-309DE2 bor-col-309DE2 hovbg-2D90CF">加入购物车</button>
+                <div class="clear col-sm-9">
+                    <div class="clear col-sm-6">
+                        <img class="img-200" src="../../img/net_shopping/producttips1-small.png" alt="">
+                    </div>
+                    <div class="clear col-sm-6">
+                        111
+                    </div>
                 </div>
             </div>
         </div>
@@ -269,14 +306,13 @@
     <script src="../../js/comm/base.js"></script>
     <script src="../../js/index/index.js"></script>
     <script>
-        $("#prode-zoom-main").elevateZoom({
-            gallery: 'gallery_01',
-            cursor: 'pointer',
-            galleryActiveClass: 'active',
-            easing : true,
-        });
+    $("#prode-zoom-main").elevateZoom({
+        gallery: 'gallery_01',
+        cursor: 'pointer',
+        galleryActiveClass: 'active',
+        easing: true,
+    });
     </script>
-    
 </body>
 
 </html>

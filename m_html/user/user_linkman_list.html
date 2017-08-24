@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- necessary -->
+    <meta name="keywords" content="1,2,3">
+    <meta name="description" content="">
+    <!-- description -->
+    <meta name="renderer" content="webkit">
+    <title>联系人列表</title>
+    <!-- base -->
+    <link href="../../css/comm/bootstrap.css" rel="stylesheet">
+    <link href="../../css/comm/base.css" rel="stylesheet">
+    <link href="../../css/m/m_user.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- 校验部分css -->
+    <style>
+    label.error {
+        margin: 5px 5px;
+        color: #c00;
+    }
+    </style>
+</head>
+
+<body>
+    <form class="form-group link-man-validate" action="">
+        <div class="clear full-w pl-25 pr-25 mt-20">
+            <p class="f-18 col-7a7a7a f-w line-h-30 h-30 mt-5 mb-5">
+                姓名
+            </p>
+            <input class="form-control mb-10" type="text" placeholder="张先生" name="link_name">
+            <p class="f-18 col-7a7a7a f-w line-h-30 h-30 mt-5 mb-5">
+                手机号码
+            </p>
+            <div class="clear full-w pos-r mb-5 mt-5">
+                <select class="form-control sele-arrows-none">
+                    <option value="0086">中国（+86）</option>
+                    <option value="00852">香港（+852）</option>
+                    <option value="001">美国（+1）</option>
+                    <option value="0044">英国（+44）</option>
+                </select>
+                <img class="pos-a t-5 r-12 z-9 img-25" src="../../img/m/user/sel-arrow.png" alt="">
+            </div>
+            <input class="form-control mb-10 mt-10" type="text" placeholder="13800138000" name="link_phone">
+            <p class="f-18 col-7a7a7a f-w line-h-30 h-30 mt-5 mb-5">
+                通知方式
+            </p>
+            <div class="clear full-w mt-10 mb-20">
+                <div class="col-xs-6 pl-0 pr-0">
+                    <p class="f-14 col-7a7a7a f-w line-h-30 h-30 way-pho-p">
+                        电话方式接收 <img class="img-30 ml-10 sel-ph-img" src="../../img/m/user/sele-right.png" alt="">
+                        <input type="radio" class="dis-n sel-radio sel-phone" checked="checked" name="wayfor" value="phoneway">
+                    </p>
+                </div>
+                <div class="col-xs-6 pl-0 pr-0">
+                    <p class="f-14 col-7a7a7a f-w line-h-30 h-30 way-mai-p">
+                        短信方式接收 <img class="img-30 ml-10 sel-em-img" src="../../img/m/user/sele-none.png" alt="">
+                        <input type="radio" class="dis-n sel-radio sel-email" name="wayfor" value="mailway">
+                    </p>
+                </div>
+            </div>
+            <div class="clear full-w mt-40">
+                <button type="submit" class="btn full-w bg-E5934C col-white f-16 active-col-white">保存联系人</button>
+            </div>
+        </div>
+    </form>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/jquery.validate.min.js"></script>
+    <script src="../../js/comm/jquery.validate.messages_zh.js"></script>
+    <script src="../../js/m/m_linkmanvalidate.js"></script>
+    <script src="../../js/comm/bootstrap.js"></script>
+    <script src="../../js/comm/base.js"></script>
+    <script src="../../js/m/m_user.js"></script>
+</body>
+
+</html>
