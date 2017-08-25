@@ -28,6 +28,7 @@
 .h-36{height: 36px;}
 .h-75{height: 75px;}
 .h-65{height: 65px;}
+.h-300{height: 300px;}
 .h-400{height: 400px;}
 .h-500{height: 500px;}
 .h-600{height: 600px;}
@@ -37,6 +38,7 @@
 .t-20{top: 20px;}
 .t-30s{top: 30%;}
 .l-15{left: 15px;}
+.l-50s{left: 50%;}
 .min-h-40{min-height: 40px;}
 .min-h-120{min-height: 120px;}
 .min-h-125{min-height: 125px;}
@@ -48,9 +50,12 @@
 .line-h-80{line-height: 80px;}
 .pb-80{padding-bottom: 80px;}
 .pb-230{padding-bottom: 230px;}
+.pl-85{padding-left: 85px;}
 .pl-90{padding-left: 90px;}
+.pl-100{padding-left: 100px;}
 .pr-90{padding-right: 90px;}
 .pt-100{padding-top: 100px;}
+.pt-130{padding-top: 130px;}
 .pt-230{padding-top: 230px;}
 .w-25{width: 25px;}
 .w-40{width: 40px;}
@@ -68,6 +73,7 @@
 .col-252525{color: #252525;}
 .col-4a4a4a{color: #4a4a4a;}
 .col-616161{color: #616161;}
+.col-b4b4b4{color: #b4b4b4;}
 .col-8c8c8c{color: #8c8c8c;}
 .col-9a9a9a{color: #9a9a9a;}
 .col-727272{color: #727272;}
@@ -199,7 +205,9 @@ to {height:0%;}
 }
 .rgba-90{background: rgba(0,0,0,0.9)}
 .img-100{width: 100px;height: 100px;}
+.img-250{width: 250px;height: 250px;}
 .img-400{width: 400px;height: 400px;}
+.img-500{width: 500px;height: 500px;}
 .img-180{width: 180px;height: 180px;}
 .img-80{width: 80px;height: 80px;}
 .img-40{width: 40px;height: 40px;}
@@ -211,3 +219,105 @@ to {height:0%;}
 }
 .rgba-60{background: rgba(0,0,0,0.6)}
 .rgba-d2d2d2-20{background: rgba(210,210,210,0.2)}
+/* 商品详细页响应式 */
+.containerv2 {padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto}
+@media (min-width:768px) and (max-width:991px) {
+	.containerv2 {width: 750px}
+	.pd-50-30-ipad{padding: 30px;}
+	.plr-10-5-ipad{padding-right: 5px;padding-left: 5px;}
+	.mtb-20-5-ipad{margin-top: 5px;margin-bottom: 5px;}
+	.f-30-20-ipad{font-size: 20px;}
+	.plr-25-5{padding-right: 5px;padding-left: 5px;}
+	.pt-20-5-ipad{padding-top: 5px;}
+	.f-18-14-ipad{font-size: 14px;}
+	.mtb-10-5-ipad{margin-top: 5px;margin-bottom: 5px;}
+	.min-h-125-60{min-height: 60px;}
+	.bor-col-B2B2B2-hide-ipad{border:none;}
+	.ptb-20-0-ipad{padding-top: 0px;padding-bottom: 0px;}
+	.mtb-30-5-ipad{margin-top: 5px;margin-bottom: 5px;}
+	.w-150-100-ipad{width: 100px;}
+	.h-40-30-ipad{height: 30px;}
+	.line-h-40-30-ipad{line-height: 30px;}
+	.ptb-35-16-ipad{padding-top: 16px;padding-bottom: 10px;}
+	.pt-30-10-ipad{padding-top: 10px;}
+	.img-30-20{width: 20px;height: 20px;}
+	.img-20-14{width: 14px;height: 14px;}
+	.t--2--6-ipad{top: -6px;}
+	.line-h-25-30-ipad{line-height: 30px;}
+	.mb-30-10-ipad{margin-bottom: 10px;}
+}
+@media (min-width:992px) and (max-width:1199px) {
+	.containerv2 {width: 970px}
+	.pd-50-30-ipad{padding: 30px;}
+	.plr-10-5-ipad{padding-right: 5px;padding-left: 5px;}
+	.mtb-20-5-ipad{margin-top: 5px;margin-bottom: 5px;}
+	.f-30-20-ipad{font-size: 20px;}
+	.plr-25-5{padding-right: 5px;padding-left: 5px;}
+	.pt-20-5-ipad{padding-top: 5px;}
+	.f-18-14-ipad{font-size: 14px;}
+	.mtb-10-5-ipad{margin-top: 5px;margin-bottom: 5px;}
+	.min-h-125-60{min-height: 60px;}
+	.bor-col-B2B2B2-hide-ipad{border:none;}
+	.ptb-20-0-ipad{padding-top: 0px;padding-bottom: 0px;}
+	.mtb-30-5-ipad{margin-top: 5px;margin-bottom: 5px;}
+	.w-150-100-ipad{width: 100px;}
+	.h-40-30-ipad{height: 30px;}
+	.line-h-40-30-ipad{line-height: 30px;}
+	.ptb-35-16-ipad{padding-top: 16px;padding-bottom: 10px;}
+	.pt-30-10-ipad{padding-top: 10px;}
+	.img-30-20{width: 20px;height: 20px;}
+	.img-20-14{width: 14px;height: 14px;}
+	.t--2--6-ipad{top: -6px;}
+	.line-h-25-30-ipad{line-height: 30px;}
+	.mb-30-10-ipad{margin-bottom: 10px;}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+	.containerv2 {width: 1200px}
+	.pd-50-30-ipad{padding: 50px;}
+	.plr-10-5-ipad{padding-right: 10px;padding-left: 10px;}
+	.mtb-20-5-ipad{margin-top: 20px;margin-bottom: 20px;}
+	.f-30-20-ipad{font-size: 30px;}
+	.plr-25-5{padding-right: 25px;padding-left: 25px;}
+	.pt-20-5-ipad{padding-top: 20px;}
+	.f-18-14-ipad{font-size: 18px;}
+	.mtb-10-5-ipad{margin-top: 10px;margin-bottom: 10px;}
+	.min-h-125-60{min-height: 125px;}
+	.bor-col-B2B2B2-hide-ipad{border-color: #B2B2B2;}
+	.ptb-20-0-ipad{padding-top: 20px;padding-bottom: 20px;}
+	.mtb-30-5-ipad{margin-top: 30px;margin-bottom: 30px;}
+	.w-150-100-ipad{width: 150px;}
+	.h-40-30-ipad{height: 40px;}
+	.line-h-40-30-ipad{line-height: 40px;}
+	.ptb-35-16-ipad{padding-top: 35px;padding-bottom: 35px;}
+	.pt-30-10-ipad{padding-top: 30px;}
+	.img-30-20{width: 30px;height: 30px;}
+	.img-20-14{width: 20px;height: 20px;}
+	.t--2--6-ipad{top: -2px;}
+	.line-h-25-30-ipad{line-height: 25px;}
+	.mb-30-10-ipad{margin-bottom: 30px;}
+}
+@media (min-width:1300px) {
+	.containerv2 {width: 1200px}
+	.pd-50-30-ipad{padding: 50px;}
+	.plr-10-5-ipad{padding-right: 10px;padding-left: 10px;}
+	.mtb-20-5-ipad{margin-top: 20px;margin-bottom: 20px;}
+	.f-30-20-ipad{font-size: 30px;}
+	.plr-25-5{padding-right: 25px;padding-left: 25px;}
+	.pt-20-5-ipad{padding-top: 20px;}
+	.f-18-14-ipad{font-size: 18px;}
+	.mtb-10-5-ipad{margin-top: 10px;margin-bottom: 10px;}
+	.min-h-125-60{min-height: 125px;}
+	.bor-col-B2B2B2-hide-ipad{border-color: #B2B2B2;}
+	.ptb-20-0-ipad{padding-top: 20px;padding-bottom: 20px;}
+	.mtb-30-5-ipad{margin-top: 30px;margin-bottom: 30px;}
+	.w-150-100-ipad{width: 150px;}
+	.h-40-30-ipad{height: 40px;}
+	.line-h-40-30-ipad{line-height: 40px;}
+	.ptb-35-16-ipad{padding-top: 35px;padding-bottom: 35px;}
+	.pt-30-10-ipad{padding-top: 30px;}
+	.img-30-20{width: 30px;height: 30px;}
+	.img-20-14{width: 20px;height: 20px;}
+	.t--2--6-ipad{top: -2px;}
+	.line-h-25-30-ipad{line-height: 25px;}
+	.mb-30-10-ipad{margin-bottom: 30px;}
+}
