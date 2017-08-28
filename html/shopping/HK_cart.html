@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- necessary -->
+    <meta name="keywords" content="1,2,3">
+    <meta name="description" content="">
+    <!-- description -->
+    <meta name="renderer" content="webkit">
+    <title>碧沙康健_我的购物车</title>
+    <!-- base -->
+    <link href="../../ctrl/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../css/comm/bootstrap.css" rel="stylesheet">
+    <link href="../../css/comm/base.css" rel="stylesheet">
+    <link href="../../css/index/index.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header class="clear full-w min-h-120">
+        <div class="container">
+            <div class="col-xs-2 pt-35 pb-35 pl-0 pr-0">
+                <img src="../../img/index/logov1.png" alt="">
+            </div>
+            <div class="clear col-xs-10 pl-0 pr-0">
+                <div class="col-xs-12 pt-20 pl-0 pr-0">
+                    <ul class="clear h-30 line-h-30 pull-right">
+                        <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">注册</a></li>
+                        <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">登录</a></li>
+                        <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">简</a></li>
+                        <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">繁</a></li>
+                        <li class="pull-left pr-5 col-333 cur-d hovecol-black">
+                        <i class="icon-shopping-cart pr-5 f-14 col-333 hovecol-black"></i>
+                            购物车(
+                        <a class="col-333" href="">0</a>
+                        )
+                        </li>
+                        <li class="pull-left pr-5 pl-5 bg-eee hovebg-ddd mainsearch">
+                            <input type="text" class="h-26 line-h-26 w-100 mt--4 mb-2 bor bor-col-ccc dis-n mainsearchinput">
+                            <span class="col-333 t-nonehove cur-p" href=""><i class="icon-search pr-5 f-14"></i>搜索</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 pt-15 pl-0 pr-0">
+                    <ul class="col-xs-10 clo-md-9 pull-left mainnav clear dis-ib pl-0 pr-0">
+                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7 " href="../index.html">首页</a></li>
+                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7" href="">关于碧沙</a></li>
+                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7 navborpitch" href="">网上商城</a></li>
+                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7" href="">健康咨询</a></li>
+                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7" href="">购物指南</a></li>
+                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7" href="">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="wrap">
+        <div class="container pl-0 pr-0">
+            <p class="pt-10 pb-10 pl-15 pr-15 line-h-20 bg-f5f5f5 cur-d">
+                <a class="col-666 t-nonehove hovecol-309DE2" href="">首页 </a>
+                >
+                <a class="col-333 t-nonehove hovecol-309DE2" href="">购物车</a>
+            </p>
+            <p class="col-252525 f-26 pd-20 ">
+                我的购物车
+            </p>
+            <div class="clear full-w bg-f5f5f5 pd-15 cur-d">
+                <div class="clear full-w bg-white">
+                    <div class="clear col-sm-2 pl-0 pr-0 pt-20 pb-20 line-h-30">
+                        <div class="clear col-sm-8 pl-0 pr-0">
+                            <div class="img-25 pull-right bg-9a9a9a bg-activate text-center mt-3 car-checkall is-checkall">
+                                <img class="pos-r t--4 img-20 cur-p" src="..\..\img\net_shopping\ico_ok.png" alt="">
+                            </div>
+                        </div>
+                        <div class="clear col-sm-4 pl-0 pr-0 text-center col-252525 f-16">
+                            全选
+                        </div>
+                    </div>
+                    <div class="clear col-sm-3 pl-0 pr-0 pt-20 pb-20 line-h-30 text-center col-252525 f-16">商品名称</div>
+                    <div class="clear col-sm-1 pl-0 pr-0 pt-20 pb-20 line-h-30 text-right pr-15 col-252525 f-16">单价</div>
+                    <div class="clear col-sm-2 pl-0 pr-0 pt-20 pb-20 line-h-30 text-center col-252525 f-16">数量</div>
+                    <div class="clear col-sm-2 pl-0 pr-0 pt-20 pb-20 line-h-30 text-right pr-40 col-252525 f-16">小计</div>
+                    <div class="clear col-sm-2 pl-0 pr-0 pt-20 pb-20 line-h-30 pl-40 col-252525 f-16">操作</div>
+                </div>
+                <!-- 套餐部分 -->
+                <div class="clear full-w bg-white mt-4 mb-4 car-kinds is-checkbox car-combo">
+                    <div class="clear full-w pl-0 pr-0 mb-10">
+                        <div class="clear col-sm-2 pl-0 pr-0 pt-10 pb-10 line-h-30">
+                            <div class="clear col-sm-8 pl-0 pr-0 pt-20 pb-20">
+                                <div class="img-25 pull-right bg-9a9a9a bg-activate cur-p text-center mt-3 car-checktips is-check">
+                                    <img class="pos-r t--4 img-20 cur-p" src="..\..\img\net_shopping\ico_ok.png" alt="">
+                                </div>
+                            </div>
+                            <div class="clear col-sm-4 pl-0 pr-0 pt-20 pb-20 text-center col-252525 f-16">   
+                            </div>
+                        </div>
+                        <div class="clear col-sm-3 pl-0 pr-0 pt-10 pb-10 line-h-30 text-center col-252525 f-16">
+                            <div class="clear col-sm-3 pl-0 pr-0 pos-r">
+                                <img class="full-w" src="..\..\img\net_shopping\producttips1-small.png" alt="">
+                                <div class="clear pos-a b--21 l-25 img-25 triangle-cart-up">
+                                </div>
+                            </div>
+                            <div class="clear col-sm-9 pl-0 pr-0 pt-20 pb-20 text-left pl-15">
+                                <span class="col-252525">HC3A250 悉心心电仪</span>
+                            </div>
+                        </div>
+                        <div class="clear col-sm-1 pl-0 pr-0 pt-30 pb-30 line-h-30 text-right pr-15 col-252525 f-16">
+                            <!-- 单价 -->
+                            <span class="col-252525">1800</span>元
+                        </div>
+                        <div class="clear col-sm-2 pl-0 pr-0 pt-30 pb-30 line-h-30 text-center col-252525 f-16">
+                            <div class="col-sm-6 pos-r pl-0 pr-0 col-sm-offset-3 line-h-20 h-20 mt-5 mb-5">
+                                <!-- 物品的信息JS获取用 -->
+                                <input class="cart-tips-id" type="hidden" value="3deefiandhbfg">
+                                <input class="cart-price" type="hidden" value="1800">
+                                <span class="pos-a img-20 t-2 l-5 f-16 f-w cur-p cart-combo-min">-</span>
+                                <input class="full-w bor-col-B2B2B2 bor text-center focus-input-pri cart-combo-textbox" maxlength="4" type="text" value="1">
+                                <span class="pos-a img-20 t-2 r-5 f-16 f-w cur-p cart-combo-add">+</span>
+                            </div>
+                        </div>
+                        <div class="clear col-sm-2 pl-0 pr-0 pt-30 pb-30 line-h-30 text-right pr-40 col-309DE2 f-16">
+                            <span class="col-309DE2 cart-total">1800</span>元
+                        </div>
+                        <div class="clear col-sm-2 pl-0 pr-0 pt-30 pb-30 line-h-30 pl-40 col-252525 f-16">
+                            <span class="img-30 pd-5 cur-p car-tipsdel">
+                                <img class="img-20" src="..\..\img\net_shopping\close.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                    <!-- 套餐循环部分 -->
+                    <div class="clear col-sm-12 pl-0 mb-10 pr-0 bg-white h-60 line-h-60 car-combo-tips">
+                        <!-- 本套餐的部分信息 -->
+                        <input class="car-combo-tips-id" type="hidden" value="21esdfsxccve">
+                        <div class="clear col-sm-3 col-sm-offset-2 bg-eee pl-0 pr-0">
+                            <div class="clear col-sm-3 pl-0 pr-0 ">
+                                <div class="clear img-40 pull-left bg-white ml-15 mt-10 mb-10">
+                                    <img class="img-30 dis-ib pull-left mg-5" src="..\..\img\net_shopping\shieldv2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="clear col-sm-9 pl-0 pr-0 text-left pl-15 f-14">
+                                <span class="col-252525">悉心APP平安服务包月</span>
+                            </div>
+                            
+                        </div>
+                        <div class="clear col-sm-1 bg-eee pl-0 text-right pr-15 f-14 col-252525 t-through">
+                            <span class="col-252525 car-combo-tips-unp">100</span>元
+                        </div>
+                        <div class="clear col-sm-2 bg-eee pl-0 pr-0 text-center f-14 col-252525 car-combo-tips-numcase">
+                            1
+                        </div>
+                        <div class="clear col-sm-2 bg-eee pl-0 text-right pr-40 col-309DE2 t-through">
+                            <span class="col-309DE2">300</span>元
+                        </div>
+                        <div class="clear col-sm-1 bg-eee pl-0 pr-0 h-60">
+                        </div>
+                    </div>
+                    <div class="clear col-sm-12 pl-0 mb-10 pr-0 bg-white h-60 line-h-60 car-combo-tips">
+                        <!-- 本套餐的部分信息 -->
+                        <input class="car-combo-tips-id" type="hidden" value="21esdfsxccve">
+                        <div class="clear col-sm-3 col-sm-offset-2 bg-eee pl-0 pr-0">
+                            <div class="clear col-sm-3 pl-0 pr-0 ">
+                                <div class="clear img-40 pull-left bg-white ml-15 mt-10 mb-10">
+                                    <img class="img-30 dis-ib pull-left mg-5" src="..\..\img\net_shopping\shieldv2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="clear col-sm-9 pl-0 pr-0 text-left pl-15 f-14">
+                                <span class="col-252525">悉心APP平安服务包月</span>
+                            </div>
+                            
+                        </div>
+                        <div class="clear col-sm-1 bg-eee pl-0 text-right pr-15 f-14 col-252525 t-through">
+                            <span class="col-252525 car-combo-tips-unp">100</span>元
+                        </div>
+                        <div class="clear col-sm-2 bg-eee pl-0 pr-0 text-center f-14 col-252525 car-combo-tips-numcase">
+                            1
+                        </div>
+                        <div class="clear col-sm-2 bg-eee pl-0 text-right pr-40 col-309DE2 t-through">
+                            <span class="col-309DE2">300</span>元
+                        </div>
+                        <div class="clear col-sm-1 bg-eee pl-0 pr-0 h-60">
+                        </div>
+                    </div>
+                </div>
+                <!-- 单品部分 -->
+                <div class="clear full-w bg-white mt-4 mb-4 car-kinds is-checkbox">
+                    <div class="clear col-sm-2 pl-0 pr-0 pt-10 pb-10 line-h-30">
+                        <div class="clear col-sm-8 pl-0 pr-0 pt-20 pb-20">
+                            <div class="img-25 pull-right bg-9a9a9a bg-activate cur-p text-center mt-3 car-checktips is-check">
+                                <img class="pos-r t--4 img-20 cur-p" src="..\..\img\net_shopping\ico_ok.png" alt="">
+                            </div>
+                        </div>
+                        <div class="clear col-sm-4 pl-0 pr-0 pt-20 pb-20 text-center col-252525 f-16">   
+                        </div>
+                    </div>
+                    <div class="clear col-sm-3 pl-0 pr-0 pt-10 pb-10 line-h-30 text-center col-252525 f-16">
+                        <div class="clear col-sm-3 pl-0 pr-0">
+                            <img class="full-w" src="..\..\img\net_shopping\producttips1-small.png" alt="">
+                        </div>
+                        <div class="clear col-sm-9 pl-0 pr-0 pt-20 pb-20 text-left pl-15">
+                            <span class="col-252525">HC3A250 悉心心电仪</span>
+                        </div>
+                    </div>
+                    <div class="clear col-sm-1 pl-0 pr-0 pt-30 pb-30 line-h-30 text-right pr-15 col-252525 f-16">
+                        <!-- 单价 -->
+                        <span class="col-252525">1800</span>元
+                    </div>
+                    <div class="clear col-sm-2 pl-0 pr-0 pt-30 pb-30 line-h-30 text-center col-252525 f-16">
+                        <div class="col-sm-6 pos-r pl-0 pr-0 col-sm-offset-3 line-h-20 h-20 mt-5 mb-5">
+                            <!-- 物品的信息JS获取用 -->
+                            <input class="cart-tips-id" type="hidden" value="3deefiandhbfg">
+                            <input class="cart-price" type="hidden" value="1800">
+                            <span class="pos-a img-20 t-2 l-5 f-16 f-w cur-p cart-min">-</span>
+                            <input class="full-w bor-col-B2B2B2 bor text-center focus-input-pri cart-textbox" maxlength="4" type="text" value="1">
+                            <span class="pos-a img-20 t-2 r-5 f-16 f-w cur-p cart-add">+</span>
+                        </div>
+                    </div>
+                    <div class="clear col-sm-2 pl-0 pr-0 pt-30 pb-30 line-h-30 text-right pr-40 col-309DE2 f-16">
+                        <span class="col-309DE2 cart-total">1800</span>元
+                    </div>
+                    <div class="clear col-sm-2 pl-0 pr-0 pt-30 pb-30 line-h-30 pl-40 col-252525 f-16">
+                        <span class="img-30 pd-5 cur-p car-tipsdel">
+                            <img class="img-20" src="..\..\img\net_shopping\close.png" alt="">
+                        </span>
+                    </div>
+                </div>
+                <div class="clear full-w bg-white mt-20 mb-4">
+                    <div class="clear w11s pl-0 pr-0 pt-10 pb-10 line-h-30 pull-left">
+                        <div class="img-25 pull-right bg-309DE2 text-center mt-3 full-radius bg-f5f5f5 cur-p">
+                            <i class="icon-plus col-white f-14 pos-r t--2"></i>
+                        </div>
+                    </div>
+                    <div class="clear pull-left pl-15 pr-0 pt-10 pb-10 line-h-30 col-252525 f-14">
+                        悉心心电仪专属 15分钟心电统计报告 ￥20/次<a class="hovecol-309DE2 t-nonehove pl-5" href="">查看服务细节</a>
+                    </div>
+                </div>
+                <div class="clear full-w bg-white mt-4 mb-20">
+                    <div class="clear w11s pl-0 pr-0 pt-10 pb-10 line-h-30 pull-left">
+                        <div class="img-25 pull-right bg-309DE2 text-center mt-3 full-radius bg-f5f5f5 cur-o">
+                            <i class="icon-plus col-white f-14 pos-r t--2"></i>
+                        </div>
+                    </div>
+                    <div class="clear pull-left pl-15 pr-0 pt-10 pb-10 line-h-30 col-252525 f-14">
+                        悉心心电仪专属 24小时心电统计报告 ￥50/次<a class="hovecol-309DE2 t-nonehove pl-5" href="">查看服务细节</a>
+                    </div>
+                </div>
+                <div class="clear full-w bg-white">
+                    <div class="clear col-sm-3 col-sm-offset-1 pl-0 pr-0 h-60 line-h-60 col-252525 f-16">
+                        <span class="col-252525">继续购物</span>
+                        <span class="col-252525 pl-5 pr-5">|</span>
+                        <span class="col-252525">共</span>
+                        <span class="col-309DE2 tot-num-of-kinds"></span>
+                        <span class="col-252525">件商品，已选则</span>
+                        <span class="col-309DE2 tot-num-of-goods"></span>
+                        <span class="col-252525">件</span>
+                    </div>
+                    <div class="clear col-sm-5 pl-0 pr-0 h-60 line-h-55 col-252525 f-16 pl-30">
+                        <span class="col-252525 ">活动优惠:减</span>
+                        <span class="col-252525 pl-5 pr-5">0</span>
+                        <span class="col-252525">元</span>
+                        <span class="col-252525 pl-10 pr-10">|</span>
+                        <span class="col-309DE2 pl-5 pr-5">合计（不含运费）:</span>
+                        <span class="col-309DE2 pl-5 pr-5 f-24 tot-num-of-totprice"></span>
+                        <span class="col-309DE2 pl-5 pr-5">元</span>
+                    </div>
+                    <div class="clear col-sm-3 pl-0 pr-0 line-h-60 h-60">
+                        <button class="bor-none full-wh bg-309DE2 col-white f-24 text-center pos-r t--2 hovbg-38B3FF">
+                            去结算
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear show-carisdel affix t-0 l-0 z-999 full-wh rgba-30 dis-n">
+        <div class="pos-a t-30s l-0 full-w">
+            <div class="w-400 mg-0-auto clear pos-r bg-white carisdel-content">
+                <div class="pt-15 pb-15 line-h-30 pos-r f-18 pl-20 pr-20 col-4a4a4a full-w bg-f5f5f5">
+                    确定删除此商品么？
+                    <img class="pos-a t-20 r-20 img-20 close-mod cur-p" src="../../img/net_shopping/close.png" alt="">
+                </div>
+                <div class="clear full-w bg-white pt-20 pb-20">
+                    <!-- 需要删除物品的id -->
+                    <input class="show-carisdelid" type="hidden" value="">
+                    <div class="col-sm-6 text-center">
+                        <button class="bor-none bg-309DE2 col-white f-16 pt-5 pb-5 pl-20 pr-20 text-center pos-r t--2 hovbg-38B3FF">确定</button>
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <button class="bor-none bg-309DE2 col-white f-16 pt-5 pb-5 pl-20 pr-20 text-center pos-r t--2 hovbg-38B3FF">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="full-w bg-E9E9E9 footer">
+        <div class="container pt-20 pb-20">
+            <div class="col-xs-2">
+                <ul class="">
+                    <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">关于碧沙</a></li>
+                    <li class="pt-20"><a class="col-8c8c8c t-nonehove hovecol-999" href="">公司简介</a></li>
+                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">服务宗旨</a></li>
+                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">经营理念</a></li>
+                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">经营理念</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-2">
+                <ul class="">
+                    <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">网上商店</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-2">
+                <ul class="">
+                    <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">健康咨询</a></li>
+                    <li class="pt-20"><a class="col-8c8c8c t-nonehove hovecol-999" href="">新品推荐</a></li>
+                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">最新动态</a></li>
+                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">健康新闻</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-2">
+                <ul class="">
+                    <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">购物指南</a></li>
+                    <li class="pt-20"><a class="col-8c8c8c t-nonehove hovecol-999" href="">购物流程</a></li>
+                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">送货详情</a></li>
+                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">付款方式</a></li>
+                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">常见问题</a></li>
+                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">售后政策</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-2">
+                <ul class="">
+                    <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">联络我们</a></li>
+                    <li class="pt-20"><a class="col-8c8c8c t-nonehove hovecol-999" href="">联络我们</a></li>
+                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">免责声明</a></li>
+                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">隐私原则</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-2">
+                <ul class="">
+                    <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">关于我们</a></li>
+                    <li class="clear pt-20">
+                        <div class="pull-left pr-20">
+                            <a href=""><img src="../../img/index/sharetips1.png" alt=""></a>
+                        </div>
+                        <div class="pull-left">
+                            <a href=""><img src="../../img/index/sharetips2.png" alt=""></a>
+                        </div>
+                    </li>
+                    <li class="clear pt-10">
+                        <div class="pull-left pr-20">
+                            <a href=""><img src="../../img/index/sharetips3.png" alt=""></a>
+                        </div>
+                        <div class="pull-left">
+                            <a href=""><img src="../../img/index/sharetips4.png" alt=""></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container pt-10 pb-10">
+            <p class="text-center col-8c8c8c line-h-20 cur-d">
+                本网站内所示之图片只供参考
+            </p>
+            <p class="text-center col-8c8c8c line-h-20 cur-d">
+                Copyright©2017. <a class="col-8c8c8c t-nonehove hovecol-999" href="">碧沙科技有限公司</a> All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/bootstrap.js"></script>
+    <script src="../../js/comm/base.js"></script>
+    <script src="../../js/index/index.js"></script>
+</body>
+
+</html>

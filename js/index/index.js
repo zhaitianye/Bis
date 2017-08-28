@@ -95,43 +95,40 @@ $(document).ready(function() {
     /*商品页楼层定位*/
     $(".sf-pointer").click(function() {
         var speed = 200;
-        var headHeight = $(".header").height()+$(".flo-menuv2").height()+$(".flo-menuv2-aff").height()+$(".cont-other").height()+$(".pro_first_floor").height();
+        var headHeight = $(".header").height() + $(".flo-menuv2").height() + $(".flo-menuv2-aff").height() + $(".cont-other").height() + $(".pro_first_floor").height();
         $('body,html').animate({ scrollTop: headHeight }, speed);
         return false;
     });
     /*商品页返回顶部*/
-    $(window).scroll(function(){  
+    $(window).scroll(function() {
         //下面这句主要是获取网页的总高度，主要是考虑兼容性所以把Ie支持的documentElement也写了，这个方法至少支持IE8  
-        var htmlHeight=document.body.scrollHeight||document.documentElement.scrollHeight;  
+        var htmlHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
         //clientHeight是网页在浏览器中的可视高度，  
-        var clientHeight=document.body.clientHeight||document.documentElement.clientHeight;  
+        var clientHeight = document.body.clientHeight || document.documentElement.clientHeight;
         //scrollTop是浏览器滚动条的top位置，  
-        var scrollTop=document.body.scrollTop||document.documentElement.scrollTop;  
+        var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
         //通过判断滚动条的top位置与可视网页之和与整个网页的高度是否相等来决定是否加载内容；  
-        
-        var headerheight = $(".header").height()+$(".flo-menuv2").height()+$(".flo-menuv2-aff").height();
+
+        var headerheight = $(".header").height() + $(".flo-menuv2").height() + $(".flo-menuv2-aff").height();
         var bannerheight = $(".cont-other").height();
-        if(scrollTop<headerheight){  
+        if (scrollTop < headerheight) {
             $(".hk-upbtn").hide();
         }
-        if(scrollTop>=headerheight && scrollTop<headerheight+bannerheight){  
-            var vss = (scrollTop-headerheight)/bannerheight;
-            var strvss = "rgba(155,210,244,"+vss+")"
+        if (scrollTop >= headerheight && scrollTop < headerheight + bannerheight) {
+            var vss = (scrollTop - headerheight) / bannerheight;
+            var strvss = "rgba(155,210,244," + vss + ")"
             $(".hk-upbtn").show();
-            $(".hk-upbtn").css({"background":strvss});
+            $(".hk-upbtn").css({ "background": strvss });
         }
-        if(scrollTop>=headerheight+bannerheight){  
+        if (scrollTop >= headerheight + bannerheight) {
             $(".hk-upbtn").show();
             $(".hk-upbtn").addClass("bg-9BD2F4");
         }
     })
-    $(".hk-upbtn").click(function(){
-        var speed=200;
-        $('body,html').animate({ scrollTop: 0}, speed);
+    $(".hk-upbtn").click(function() {
+        var speed = 200;
+        $('body,html').animate({ scrollTop: 0 }, speed);
     });
-
-
-
     /*商品页悉心平安服务边框*/
     $(".shieldframe").click(function() {
         if ($(".shieldframe").hasClass("bor-col-activate")) {
@@ -145,8 +142,6 @@ $(document).ready(function() {
         }
 
     });
-
-
     /*确认订单页收货地址*/
     /*页面加载完毕后进行收货地址的初始排序*/
     var conblocklength = $(".conanorder-block").length
@@ -378,6 +373,181 @@ $(document).ready(function() {
     $(".pay-way").find("img").mouseleave(function() {
         $(this).removeClass("bor-col-309DE2");
     });
+    /*购物车页面的商品单品价格相关的计算*/
+    $(".cart-add").click(function() {
+        var t = $(this).siblings(".cart-textbox");
+        var pri = $(this).siblings(".cart-price");
+        var tot = $(this).parent().parent().next().find(".cart-total");
+        if (t.val() == "" || undefined || null) {
+            t.val(0);
+        }
+        t.val(parseInt(t.val()) + 1)
+        setTotal(t, pri, tot);
+    })
+    $(".cart-min").click(function() {
+        var t = $(this).siblings(".cart-textbox");
+        var pri = $(this).siblings(".cart-price");
+        var tot = $(this).parent().parent().next().find(".cart-total");
+        if (t.val() == "" || undefined || null) {
+            t.val(0);
+        }
+        t.val(parseInt(t.val()) - 1)
+        if (t.val() < "0") {
+            t.val(0);
+        }
+        setTotal(t, pri, tot);
+    })
+    $(".cart-textbox").keyup(function() {
+        var t = $(this);
+        var pri = $(this).siblings(".cart-price");
+        var tot = $(this).parent().parent().next().find(".cart-total");
+        if (parseInt(t.val()) == "" || undefined || null || isNaN(t.val())) {
+            t.val(0);
+        }
+        setTotal(t, pri, tot);
+    })
 
+    function setTotal(t, pri, tot) {
+        var num = t.val();
+        if (parseInt(num) == "" || undefined || null) {
+            num = 0;
+        }
+        var p = pri.val();
+        var s = parseInt(num) * parseFloat(p);
+        if (s == undefined || null || isNaN(parseInt(s))) {
+            s = 0;
+        }
+        $(tot).html(s.toFixed(0));
+        countalltips();
+    }
+    /*购物车页面的删除物品的弹出层*/
+    $(".car-tipsdel").click(function() {
+        var cid = $(this).parent().parent().find(".cart-tips-id").val();
+        $(".show-carisdelid").val(cid);
+        $(".show-carisdel").show();
+    });
+    $(".show-carisdel").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".carisdel-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".show-carisdel").hide();
+        };
+    });
+    /*购物车页面的复选框*/
+    $(".car-checkall").click(function() {
+        var ischecked = $(this).hasClass("is-checkall");
+        if (ischecked) {
+            $(".car-checkall").removeClass("is-checkall");
+            $(".car-checkall").removeClass("bg-activate");
+            $(".car-checktips").removeClass("is-check");
+            $(".car-checktips").removeClass("bg-activate");
+            $(".car-kinds").removeClass("is-checkbox");
+        } else {
+            $(".car-checkall").addClass("is-checkall");
+            $(".car-checkall").addClass("bg-activate");
+            $(".car-checktips").addClass("is-check");
+            $(".car-checktips").addClass("bg-activate");
+            $(".car-kinds").addClass("is-checkbox");
+        }
+        countalltips();
+    });
+    $(".car-checktips").click(function() {
+        var thischecktips = $(this);
+        var ischeckedtips = $(this).hasClass("is-check");
+        if (ischeckedtips) {
+            thischecktips.removeClass("is-check");
+            $(".car-checkall").removeClass("is-checkall");
+            $(".car-checkall").removeClass("bg-activate");
+            thischecktips.removeClass("bg-activate");
+            thischecktips.parent().parent().parent().removeClass("is-checkbox");
+        } else {
+            thischecktips.addClass("is-check");
+            thischecktips.addClass("bg-activate");
+            thischecktips.parent().parent().parent().addClass("is-checkbox");
+            var allchecktips = $(".car-checktips").length;
+            function isallture() {
+                for (var i = 0; i < allchecktips; i++) {
+                    var checkeq = ".car-checktips:eq(" + i + ")"
+                    var truele = $(checkeq).hasClass("is-check");
+                    if (truele) {
+                    } else {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            if (isallture()) {
+                $(".car-checkall").addClass("is-checkall");
+                $(".car-checkall").addClass("bg-activate");
+            }else{
+            }
+        }
+        countalltips();
+    });
+    /*购物车页面计算总计和总件数等数据的函数*/
+    countalltips();
+    function countalltips(){
+        var allcheckbox = $(".is-checkbox").length;
+        var allnumofcase = 0;
+        var allnumoftotprices = 0;
+        for (var i = 0; i < allcheckbox; i++) {
+            var carttextboxtips = ".is-checkbox:eq(" + i + ")"
+            allnumofcase += parseInt($(carttextboxtips).find(".cart-textbox").val());
+            allnumoftotprices += parseInt($(carttextboxtips).find(".cart-total").text());
+        }
+        $(".tot-num-of-kinds").text(allcheckbox);
+        $(".tot-num-of-goods").text(allnumofcase);
+        console.log(allnumoftotprices);
+        $(".tot-num-of-totprice").text(allnumoftotprices.toFixed(2));
+    }
+    /*购物车套餐商品的价格计算以及其他部分*/
+    $(".cart-combo-add").click(function() {
+        var t = $(this).siblings(".cart-combo-textbox");
+        var pri = $(this).siblings(".cart-price");
+        var tot = $(this).parent().parent().next().find(".cart-total");
+        if (t.val() == "" || undefined || null) {
+            t.val(0);
+        }
+        t.val(parseInt(t.val()) + 1)
+        setcomboTotal(t, pri, tot);
+    })
+    $(".cart-combo-min").click(function() {
+        var t = $(this).siblings(".cart-combo-textbox");
+        var pri = $(this).siblings(".cart-price");
+        var tot = $(this).parent().parent().next().find(".cart-total");
+        if (t.val() == "" || undefined || null) {
+            t.val(0);
+        }
+        t.val(parseInt(t.val()) - 1)
+        if (t.val() < "0") {
+            t.val(0);
+        }
+        setcomboTotal(t, pri, tot);
+    })
+    $(".cart-combo-textbox").keyup(function() {
+        var t = $(this);
+        var pri = $(this).siblings(".cart-price");
+        var tot = $(this).parent().parent().next().find(".cart-total");
+        if (parseInt(t.val()) == "" || undefined || null || isNaN(t.val())) {
+            t.val(0);
+        }
+        setcomboTotal(t, pri, tot);
+    })
 
+    function setcomboTotal(t, pri, tot) {
+        var num = t.val();
+        var combotipsnumcase = t.parent().parent().parent().siblings(".car-combo-tips").find(".car-combo-tips-numcase");
+        console.log(ssss);
+        if (parseInt(num) == "" || undefined || null) {
+            num = 0;
+        }
+        var p = pri.val();
+        var s = parseInt(num) * parseFloat(p);
+        if (s == undefined || null || isNaN(parseInt(s))) {
+            s = 0;
+        }
+        $(tot).html(s.toFixed(0));
+        countalltips();
+    }
+    
 });
