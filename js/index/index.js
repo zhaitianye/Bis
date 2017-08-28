@@ -92,6 +92,46 @@ $(document).ready(function() {
             $(".flo-menuv2-aff").hide();
         }
     });
+    /*商品页楼层定位*/
+    $(".sf-pointer").click(function() {
+        var speed = 200;
+        var headHeight = $(".header").height()+$(".flo-menuv2").height()+$(".flo-menuv2-aff").height()+$(".cont-other").height()+$(".pro_first_floor").height();
+        $('body,html').animate({ scrollTop: headHeight }, speed);
+        return false;
+    });
+    /*商品页返回顶部*/
+    $(window).scroll(function(){  
+        //下面这句主要是获取网页的总高度，主要是考虑兼容性所以把Ie支持的documentElement也写了，这个方法至少支持IE8  
+        var htmlHeight=document.body.scrollHeight||document.documentElement.scrollHeight;  
+        //clientHeight是网页在浏览器中的可视高度，  
+        var clientHeight=document.body.clientHeight||document.documentElement.clientHeight;  
+        //scrollTop是浏览器滚动条的top位置，  
+        var scrollTop=document.body.scrollTop||document.documentElement.scrollTop;  
+        //通过判断滚动条的top位置与可视网页之和与整个网页的高度是否相等来决定是否加载内容；  
+        
+        var headerheight = $(".header").height()+$(".flo-menuv2").height()+$(".flo-menuv2-aff").height();
+        var bannerheight = $(".cont-other").height();
+        if(scrollTop<headerheight){  
+            $(".hk-upbtn").hide();
+        }
+        if(scrollTop>=headerheight && scrollTop<headerheight+bannerheight){  
+            var vss = (scrollTop-headerheight)/bannerheight;
+            var strvss = "rgba(155,210,244,"+vss+")"
+            $(".hk-upbtn").show();
+            $(".hk-upbtn").css({"background":strvss});
+        }
+        if(scrollTop>=headerheight+bannerheight){  
+            $(".hk-upbtn").show();
+            $(".hk-upbtn").addClass("bg-9BD2F4");
+        }
+    })
+    $(".hk-upbtn").click(function(){
+        var speed=200;
+        $('body,html').animate({ scrollTop: 0}, speed);
+    });
+
+
+
     /*商品页悉心平安服务边框*/
     $(".shieldframe").click(function() {
         if ($(".shieldframe").hasClass("bor-col-activate")) {

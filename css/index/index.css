@@ -33,10 +33,12 @@
 .h-500{height: 500px;}
 .h-600{height: 600px;}
 .r-20{right: 20px;}
+.r-40{right: 40px;}
 .t-11{top: 11px;}
 .t-13{top: 13px;}
 .t-20{top: 20px;}
 .t-30s{top: 30%;}
+.t-80s{top: 80%;}
 .l-15{left: 15px;}
 .l-50s{left: 50%;}
 .min-h-40{min-height: 40px;}
@@ -220,7 +222,7 @@ to {height:0%;}
 .rgba-60{background: rgba(0,0,0,0.6)}
 .rgba-d2d2d2-20{background: rgba(210,210,210,0.2)}
 /* 商品详细页响应式 */
-.containerv2 {padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto}
+.containerv2 {margin-right: auto; margin-left: auto}
 @media (min-width:768px) and (max-width:991px) {
 	.containerv2 {width: 750px}
 	.pd-50-30-ipad{padding: 30px;}
@@ -234,7 +236,7 @@ to {height:0%;}
 	.min-h-125-60{min-height: 60px;}
 	.bor-col-B2B2B2-hide-ipad{border:none;}
 	.ptb-20-0-ipad{padding-top: 0px;padding-bottom: 0px;}
-	.mtb-30-5-ipad{margin-top: 5px;margin-bottom: 5px;}
+	.mtb-30-10-ipad{margin-top: 10px;margin-bottom: 10px;}
 	.w-150-100-ipad{width: 100px;}
 	.h-40-30-ipad{height: 30px;}
 	.line-h-40-30-ipad{line-height: 30px;}
@@ -245,6 +247,13 @@ to {height:0%;}
 	.t--2--6-ipad{top: -6px;}
 	.line-h-25-30-ipad{line-height: 30px;}
 	.mb-30-10-ipad{margin-bottom: 10px;}
+	.line-h-45-30-ipad{line-height: 30px;}
+	.h-45-30-ipad{height: 30px;}
+	.ptb-20-10-ipad{padding-top: 10px;padding-bottom: 10px;}
+	.pb-20-0-ipad{padding-bottom: 0px;}
+	.f-16-14-ipad{font-size: 14px;}
+	.pl-100-0-ipad{padding-left: 0px;}
+	.plr-0-10-ipad{padding-left: 10px;padding-right: 10px;}
 }
 @media (min-width:992px) and (max-width:1199px) {
 	.containerv2 {width: 970px}
@@ -258,8 +267,8 @@ to {height:0%;}
 	.mtb-10-5-ipad{margin-top: 5px;margin-bottom: 5px;}
 	.min-h-125-60{min-height: 60px;}
 	.bor-col-B2B2B2-hide-ipad{border:none;}
-	.ptb-20-0-ipad{padding-top: 0px;padding-bottom: 0px;}
-	.mtb-30-5-ipad{margin-top: 5px;margin-bottom: 5px;}
+	.ptb-20-0-ipad{padding-top: 20px;padding-bottom: 20px;}
+	.mtb-30-10-ipad{margin-top: 20px;margin-bottom: 20px;}
 	.w-150-100-ipad{width: 100px;}
 	.h-40-30-ipad{height: 30px;}
 	.line-h-40-30-ipad{line-height: 30px;}
@@ -270,6 +279,13 @@ to {height:0%;}
 	.t--2--6-ipad{top: -6px;}
 	.line-h-25-30-ipad{line-height: 30px;}
 	.mb-30-10-ipad{margin-bottom: 10px;}
+	.line-h-45-30-ipad{line-height: 30px;}
+	.h-45-30-ipad{height: 30px;}
+	.ptb-20-10-ipad{padding-top: 20px;padding-bottom: 20px;}
+	.pb-20-0-ipad{padding-bottom: 0px;}
+	.f-16-14-ipad{font-size: 14px;}
+	.pl-100-0-ipad{padding-left: 0px;}
+	.plr-0-10-ipad{padding-left: 10px;padding-right: 10px;}
 }
 @media (min-width:1200px) and (max-width:1299px) {
 	.containerv2 {width: 1200px}
@@ -284,7 +300,7 @@ to {height:0%;}
 	.min-h-125-60{min-height: 125px;}
 	.bor-col-B2B2B2-hide-ipad{border-color: #B2B2B2;}
 	.ptb-20-0-ipad{padding-top: 20px;padding-bottom: 20px;}
-	.mtb-30-5-ipad{margin-top: 30px;margin-bottom: 30px;}
+	.mtb-30-10-ipad{margin-top: 30px;margin-bottom: 30px;}
 	.w-150-100-ipad{width: 150px;}
 	.h-40-30-ipad{height: 40px;}
 	.line-h-40-30-ipad{line-height: 40px;}
@@ -295,6 +311,13 @@ to {height:0%;}
 	.t--2--6-ipad{top: -2px;}
 	.line-h-25-30-ipad{line-height: 25px;}
 	.mb-30-10-ipad{margin-bottom: 30px;}
+	.line-h-45-30-ipad{line-height: 45px;}
+	.h-45-30-ipad{height: 45px;}
+	.ptb-20-10-ipad{padding-top: 20px;padding-bottom: 20px;}
+	.pb-20-10-ipad{padding-bottom: 20px;}
+	.f-16-14-ipad{font-size: 16px;}
+	.pl-100-0-ipad{padding-left: 100px;}
+	.plr-0-10-ipad{padding-left: 0px;padding-right: 0px;}
 }
 @media (min-width:1300px) {
 	.containerv2 {width: 1200px}
@@ -309,7 +332,7 @@ to {height:0%;}
 	.min-h-125-60{min-height: 125px;}
 	.bor-col-B2B2B2-hide-ipad{border-color: #B2B2B2;}
 	.ptb-20-0-ipad{padding-top: 20px;padding-bottom: 20px;}
-	.mtb-30-5-ipad{margin-top: 30px;margin-bottom: 30px;}
+	.mtb-30-10-ipad{margin-top: 30px;margin-bottom: 30px;}
 	.w-150-100-ipad{width: 150px;}
 	.h-40-30-ipad{height: 40px;}
 	.line-h-40-30-ipad{line-height: 40px;}
@@ -320,4 +343,11 @@ to {height:0%;}
 	.t--2--6-ipad{top: -2px;}
 	.line-h-25-30-ipad{line-height: 25px;}
 	.mb-30-10-ipad{margin-bottom: 30px;}
+	.line-h-45-30-ipad{line-height: 45px;}
+	.h-45-30-ipad{height: 45px;}
+	.ptb-20-10-ipad{padding-top: 20px;padding-bottom: 20px;}
+	.pb-20-10-ipad{padding-bottom: 20px;}
+	.f-16-14-ipad{font-size: 16px;}
+	.pl-100-0-ipad{padding-left: 100px;}
+	.plr-0-10-ipad{padding-left: 0px;padding-right: 0px;}
 }
