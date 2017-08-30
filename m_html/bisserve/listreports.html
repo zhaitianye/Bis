@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <!-- necessary -->
     <meta name="keywords" content="1,2,3">
     <meta name="description" content="">
@@ -12,13 +12,16 @@
     <meta name="renderer" content="webkit">
     <title>报告列表</title>
     <!-- base -->
-    <link href="../../css/comm/bootstrap.css" rel="stylesheet">
-    <link href="../../css/comm/base.css" rel="stylesheet">
+    <link href="../../css/comm/base-m.css" rel="stylesheet">
+    <link href="../../css/comm/mescroll.min.css" rel="stylesheet">
     <link href="../../css/m/bisserve.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+        * { -webkit-touch-callout:none; -webkit-user-select:none; -webkit-tap-highlight-color:transparent; }
+    </style>
 </head>
 
 <body class="min-h-100s bg-F2F2F2">
@@ -61,203 +64,43 @@
                 </p>
             </div>
         </div>
-        <div id="wrapper" class="clear pos-r overflow-h">
-            <div id="scroller" class="pos-a t-0 l-0 bg-ddd">
-                <input class="listallnumbs" type="hidden" value="40">
-                <div class="h-30 line-h-30 text-center bg-F2F2F2 dis-n" id="scroller_up">下拉刷新</div>
-                <ul class="clear list" id="list">
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/15reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                15分钟快速监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-FF2E24 f-14 pull-right dis-ib mr-20">未读</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/24reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                24小时深度监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-E47A36 f-14 pull-right dis-ib mr-20">报告生成中</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/15reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                15分钟快速监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-FF2E24 f-14 pull-right dis-ib mr-20">未读</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/24reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                24小时深度监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-E47A36 f-14 pull-right dis-ib mr-20">报告生成中</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/15reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                15分钟快速监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-FF2E24 f-14 pull-right dis-ib mr-20">未读</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/24reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                24小时深度监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-E47A36 f-14 pull-right dis-ib mr-20">报告生成中</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/15reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                15分钟快速监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-FF2E24 f-14 pull-right dis-ib mr-20">未读</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/24reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                24小时深度监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-E47A36 f-14 pull-right dis-ib mr-20">报告生成中</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/15reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                15分钟快速监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-FF2E24 f-14 pull-right dis-ib mr-20">未读</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/24reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                24小时深度监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-E47A36 f-14 pull-right dis-ib mr-20">报告生成中</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/15reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                15分钟快速监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-FF2E24 f-14 pull-right dis-ib mr-20">未读</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/24reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                24小时深度监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-E47A36 f-14 pull-right dis-ib mr-20">报告生成中</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/15reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                15分钟快速监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-FF2E24 f-14 pull-right dis-ib mr-20">未读</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
-                        <div class="col-xs-3 pl-20 pr-20">
-                            <img src="../../img/listreports/24reportsv1.png" class="full-w" alt="">
-                        </div>
-                        <div class="col-xs-9 pl-15 pr-0">
-                            <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
-                                24小时深度监测报告
-                            </p>
-                            <p class="f-16 col-5F5F5F f-w pt-10 ">
-                                2017/6/20 18:34:43 <span class="col-E47A36 f-14 pull-right dis-ib mr-20">报告生成中</span>
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-                <div class="h-30 line-h-30 text-center bg-F2F2F2 dis-n" id="scroller_down">上拉加载更多</div>
-            </div>
+        <!-- 滑动区域 -->
+        <div id="mescroll" class="clear pos-r overflow-h bg-ddd mescroll">
+            <!--展示上拉加载的数据列表-->
+            <ul id="dataList" class="data-list">
+                <!-- <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
+                    <div class="col-xs-3 pl-20 pr-20">
+                        <img src="../../img/listreports/15reportsv1.png" class="full-w" alt="">
+                    </div>
+                    <div class="col-xs-9 pl-15 pr-0">
+                        <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
+                            15分钟快速监测报告
+                        </p>
+                        <p class="f-16 col-5F5F5F f-w pt-10 ">
+                            2017/6/20 18:34:43 <span class="col-FF2E24 f-14 pull-right dis-ib mr-20">未读</span>
+                        </p>
+                    </div>
+                </li>
+                <li class="clear mg-10 radius-10 bg-white pt-20 pb-15">
+                    <div class="col-xs-3 pl-20 pr-20">
+                        <img src="../../img/listreports/24reportsv1.png" class="full-w" alt="">
+                    </div>
+                    <div class="col-xs-9 pl-15 pr-0">
+                        <p class="f-16 col-5F5F5F f-w pt-10 pb-10">
+                            24小时深度监测报告
+                        </p>
+                        <p class="f-16 col-5F5F5F f-w pt-10 ">
+                            2017/6/20 18:34:43 <span class="col-E47A36 f-14 pull-right dis-ib mr-20">报告生成中</span>
+                        </p>
+                    </div>
+                </li> -->
+            </ul>
         </div>
     </div>
     <script src="../../js/comm/jquery.min.js"></script>
-    <script src="../../js/comm/bootstrap.js"></script>
-    <script src="../../js/comm/iscroll.js"></script>
-    <script src="../../js/comm/iscroll-probe.js"></script>
-    <script src="../../js/comm/base.js"></script>
+    <script src="../../js/comm/mescroll.min.js"></script>
+    <!-- 模拟数据js后期可以删掉 -->
+    <script src="../../js/m/pdlist1.js"></script>
     <script src="../../js/m/listreports.js"></script>
 </body>
 
