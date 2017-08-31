@@ -57,7 +57,7 @@
                                 平均心率：<span class="col-white">77</span>
                             </button>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
             <div class="clear pl-20 pr-20">
@@ -130,14 +130,14 @@
     <script src="../../js/comm/Chart.bundle.min.js"></script>
     <script src="../../js/m/freeofreport.js"></script>
     <script>
-        var ssss = $(".layerfortestv1").html();
+        var contentval = $(".layerfortestv1").html();
         $('#layer-testv1').on('click', function(){
           layer.open({
               type: 1,
               title :['总结','font-size:16px;'],
               skin: 'layui-layer-rim', //加上边框
               area: ['90%'], //宽高
-              content: ssss,
+              content: contentval,
             });
         });
     </script>
