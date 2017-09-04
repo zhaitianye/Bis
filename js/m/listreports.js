@@ -16,7 +16,7 @@ $(document).ready(function() {
             };
         } else {
             $(".sel-rank").find("img").attr("src", "../../img/listreports/pulldown.png");
-            $(".sel-rank-show").slideUp(300, );
+            $(".sel-rank-show").slideUp(300);
             if (selclassdis == 'none') {
                 $(".sel-class").find("img").attr("src", "../../img/listreports/pullup.png");
                 $(".sel-class-show").slideDown();
@@ -43,7 +43,7 @@ $(document).ready(function() {
             };
         } else {
             $(".sel-class").find("img").attr("src", "../../img/listreports/pulldown.png");
-            $(".sel-class-show").slideUp(300, );
+            $(".sel-class-show").slideUp(300);
             if (selrankdis == 'none') {
                 $(".sel-rank").find("img").attr("src", "../../img/listreports/pullup.png");
                 $(".sel-rank-show").slideDown();
