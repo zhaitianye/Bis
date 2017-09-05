@@ -58,6 +58,7 @@
 .f-50{font-size: 50px;}
 .f-54{font-size: 54px;}
 .r-30{right: 30px;}
+.t-20{top: 20px;}
 .line-h-120{line-height: 120px;}
 .line-h-300{line-height: 300px;}
 .fw-600{font-weight:600;}
@@ -79,6 +80,7 @@
 .min-h-600{min-height: 600px;}
 .min-h-760{min-height: 760px;}
 .min-h-860{min-height: 860px;}
+.max-w-200p{max-width: 200%;}
 .max-w-1920{max-width: 1920px;}
 .col-309DE2{color: #309DE2;}
 .col-929292{color: #929292;}
@@ -91,6 +93,7 @@
 .bg-a7dbfb{background-color: #a7dbfb;}
 .bor-col-309DE2{border-color: #309DE2;}
 .bor-col-d2d2d2{border-color: #d2d2d2;}
+.opa-0{opacity:0;}
 .select-none{-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;user-select: none;}
 .bg-img-peodetailfv5{background: url(../../img/HK_Pro_details/fifth-floor-bgv1.png) no-repeat center top;}
 .img-300{width: 300px;height: 300px;}
@@ -103,14 +106,34 @@
     -webkit-transform: translate(-50%);
     -moz-transform: translate(-50%);
 }
-.sha-fourthfloorup{
-	-webkit-box-shadow:0px 10px 20px rgba(0,0,0,0.2) inset;
-	-moz-box-shadow:0px 10px 20px rgba(0,0,0,0.2) inset;
-	box-shadow:0px 10px 20px rgba(0,0,0,0.2) inset;
+.ani-topa-re{animation: anitopare 1s; animation-fill-mode: forwards; -webkit-animation: anitopare 1s; -webkit-animation-fill-mode: forwards;}
+@keyframes anitopare
+{
+    from {top: 20;opacity:0;}
+    to {top: 0;opacity:1;}
 }
-.sha-fourthfloordown{
-	-webkit-box-shadow:0px -10px 20px rgba(0,0,0,0.2) inset;
-	-moz-box-shadow:0px -10px 20px rgba(0,0,0,0.2) inset;
-	box-shadow:0px -10px 20px rgba(0,0,0,0.2) inset;
+ 
+@-webkit-keyframes anitopare
+{
+    from {top: 20;opacity:0;}
+    to {top: 0;opacity:1;}
+}
+.img-thirdfloor-tips{
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
 }
 
+.hov-thirdimg{
+	transition: width 1s,top 1s;
+    -webkit-transition: width 1s,top 1s;
+}
+.hov-thirdimg:hover{
+	width: 110% !important;
+	top: 48%;
+}
+.r-80{right: 80px;}
+.t-50{top: 50px;}
