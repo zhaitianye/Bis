@@ -45,8 +45,9 @@ $(document).ready(function() {
 
         }
     });
-
-
+    /*页面加载完毕后自动贴第一个边*/
+    var location = $(".first-floor").offset().top-51;
+    $('body,html').animate({ scrollTop: location }, 900);
     /*页面元素向上滚动延迟加载*/
     setTimeout(addanifirstflooraniv2, 500);
 
@@ -207,7 +208,15 @@ $(document).ready(function() {
                                 
                             } else {
                                 $('.fifth-floor-aniv4').addClass("ani-topa-re");
-                            }
+                            };
+                            if ($('.fifth-floor-aniv5').hasClass('ani-fif-left')) {
+                            } else {
+                                $('.fifth-floor-aniv5').addClass("ani-fif-left");
+                            };
+                            if ($('.fifth-floor-aniv6').hasClass('ani-fif-right')) {
+                            } else {
+                                $('.fifth-floor-aniv6').addClass("ani-fif-right");
+                            };
                         };
                     };
                 };
@@ -352,7 +361,7 @@ $(document).ready(function() {
         };
         /*磁性边*/
         /*一楼*/
-        if (-40<=($(".first-floor").offset().top-scrollTop-51)&& 40>=($(".first-floor").offset().top-scrollTop-51)) {
+        if (0<=($(".first-floor").offset().top-scrollTop-51)&& 40>=($(".first-floor").offset().top-scrollTop-51)) {
             setTimeout(magnetismfloor, 0);
             function magnetismfloor() {
                 if ($('.first-floor').hasClass('isscrfit')) {
@@ -522,8 +531,6 @@ $(document).ready(function() {
                 
             };
         };
-
-
     });
     /*根据宽度定义高度*/
     var thirdfwishvw = $(".thirdf-w-is-h").width();

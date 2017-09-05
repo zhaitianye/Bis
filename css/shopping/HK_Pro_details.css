@@ -118,6 +118,30 @@
     from {top: 20;opacity:0;}
     to {top: 0;opacity:1;}
 }
+.ani-fif-left{animation: anififleft 3s; animation-fill-mode: forwards; -webkit-animation: anififleft 3s; -webkit-animation-fill-mode: forwards;animation-timing-function:cubic-bezier(0,0.1,0.3,1);-webkit-animation-timing-function:cubic-bezier(0,0.1,0.3,1);}
+@keyframes anififleft
+{
+    from {bottom: -460px;opacity:0;left: -800px;}
+    to {bottom: -150px;opacity:1;left: -100px;}
+}
+ 
+@-webkit-keyframes anififleft
+{
+    from {bottom: -460px;opacity:0;left: -800px;}
+    to {bottom: -150px;opacity:1;left: -100px;}
+}
+.ani-fif-right{animation: anififright 3s; animation-fill-mode: forwards; -webkit-animation: anififright 3s; -webkit-animation-fill-mode: forwards;forwards;animation-timing-function:cubic-bezier(0,0.1,0.3,1);-webkit-animation-timing-function:cubic-bezier(0,0.1,0.3,1);}
+@keyframes anififright
+{
+    from {top: -250px;opacity:0;right: -800px;}
+    to {top: 70px;opacity:1;right:  -50px;}
+}
+ 
+@-webkit-keyframes anififright
+{
+    from {top: -250px;opacity:0;right: -800px;}
+    to {top: 70px;opacity:1;right: -50px;}
+}
 .img-thirdfloor-tips{
 	top: 50%;
     left: 50%;
@@ -128,8 +152,8 @@
 }
 
 .hov-thirdimg{
-	transition: width 1s,top 1s;
-    -webkit-transition: width 1s,top 1s;
+	transition: width 0.5s,top 0.5s;
+    -webkit-transition: width 0.5s,top 0.5s;
 }
 .hov-thirdimg:hover{
 	width: 110% !important;
