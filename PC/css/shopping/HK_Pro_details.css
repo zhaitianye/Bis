@@ -118,7 +118,8 @@
     from {top: 20;opacity:0;}
     to {top: 0;opacity:1;}
 }
-.ani-fif-left{animation: anififleft 3s; animation-fill-mode: forwards; -webkit-animation: anififleft 3s; -webkit-animation-fill-mode: forwards;animation-timing-function:cubic-bezier(0,0.1,0.3,1);-webkit-animation-timing-function:cubic-bezier(0,0.1,0.3,1);}
+
+/* PC上的动画 */
 @keyframes anififleft
 {
     from {bottom: -460px;opacity:0;left: -800px;}
@@ -130,7 +131,7 @@
     from {bottom: -460px;opacity:0;left: -800px;}
     to {bottom: -150px;opacity:1;left: -100px;}
 }
-.ani-fif-right{animation: anififright 3s; animation-fill-mode: forwards; -webkit-animation: anififright 3s; -webkit-animation-fill-mode: forwards;forwards;animation-timing-function:cubic-bezier(0,0.1,0.3,1);-webkit-animation-timing-function:cubic-bezier(0,0.1,0.3,1);}
+
 @keyframes anififright
 {
     from {top: -250px;opacity:0;right: -800px;}
@@ -141,6 +142,54 @@
 {
     from {top: -250px;opacity:0;right: -800px;}
     to {top: 70px;opacity:1;right: -50px;}
+}
+/* ipad上的动画 */
+@keyframes anififleftipad
+{
+    from {bottom: -500px;opacity:0;left: -600px;}
+    to {bottom: -160px;opacity:1;left: -360px;}
+}
+ 
+@-webkit-keyframes anififleftipad
+{
+    from {bottom: -500px;opacity:0;left: -600px;}
+    to {bottom: -160px;opacity:1;left: -360px;}
+}
+
+@keyframes anififrightipad
+{
+    from {top: -200px;opacity:0;right: -600px;}
+    to {top: 60px;opacity:1;right:  -220px;}
+}
+ 
+@-webkit-keyframes anififrightipad
+{
+    from {top: -200px;opacity:0;right: -600px;}
+    to {top: 60px;opacity:1;right: -220px;}
+}
+/* ipadpro上的动画 */
+@keyframes anififleftipadpro
+{
+    from {bottom: -400px;opacity:0;left: -600px;}
+    to {bottom: -100px;opacity:1;left: -200px;}
+}
+ 
+@-webkit-keyframes anififleftipadpro
+{
+    from {bottom: -400px;opacity:0;left: -600px;}
+    to {bottom: -100px;opacity:1;left: -200px;}
+}
+
+@keyframes anififrightipadpro
+{
+    from {top: -200px;opacity:0;right: -600px;}
+    to {top: 90px;opacity:1;right:  -130px;}
+}
+ 
+@-webkit-keyframes anififrightipadpro
+{
+    from {top: -200px;opacity:0;right: -600px;}
+    to {top: 90px;opacity:1;right: -130px;}
 }
 .img-thirdfloor-tips{
 	top: 50%;
@@ -161,3 +210,124 @@
 }
 .r-80{right: 80px;}
 .t-50{top: 50px;}
+/* 商品展示页响应式 */
+@media (min-width:768px) and (max-width:991px) {
+.f-38-28-ipad{font-size: 28px;}
+.ml-10-5-ipad{margin-left: 5px;}
+.t--5--0-ipad{top: 0px;}
+.f-30-24-ipad{font-size: 24px;}
+.pl-90-40-ipad{padding-left: 40px;}
+.f-50-38-ipad{font-size: 30px;}
+.f-20-16-ipad{font-size: 16px;}
+.f-36-18-ipad{font-size: 18px;}
+.min-h-860-650-ipad{min-height: 650px;}
+.min-h-600-500-ipad{min-height: 500px;}
+.f-50-40-ipad{font-size: 40px;}
+.f-38-28-ipad{font-size: 28px;}
+.pt-280-200-ipad{padding-top: 200px;}
+.f-26-20-ipad{font-size: 20px;}
+.f-18-14-ipad{font-size: 14px;}
+.f-50-36-ipad{font-size: 36px;}
+.f-36-28-ipad{font-size: 28px;}
+.mtb-20-0-ipad{margin-top: 0px;margin-bottom: 0px;}
+.mt-30-0-iapd{margin-top: 0px;}
+.plr-15-0-ipad{padding-left: 0px;padding-right: 0px;}
+.min-h-760-650-ipad{min-height: 650px;}
+.f-40-26-ipad{font-size: 26px;}
+.f-24-16-ipad{font-size: 16px;}
+.r-30-0-ipad{right: 0px;}
+.min-h-860-760-ipad{min-height: 760px;}
+.pt-160-100-ipad{padding-top: 100px;}
+.ani-fif-right{animation: anififrightipad 3s; animation-fill-mode: forwards; -webkit-animation: anififrightipad 3s; -webkit-animation-fill-mode: forwards;forwards;animation-timing-function:cubic-bezier(0,0.1,0.3,1);-webkit-animation-timing-function:cubic-bezier(0,0.1,0.3,1);}
+.ani-fif-left{animation: anififleftipad 3s; animation-fill-mode: forwards; -webkit-animation: anififleftipad 3s; -webkit-animation-fill-mode: forwards;animation-timing-function:cubic-bezier(0,0.1,0.3,1);-webkit-animation-timing-function:cubic-bezier(0,0.1,0.3,1);}
+}
+@media (min-width:992px) and (max-width:1199px) {
+.f-38-28-ipad{font-size: 38px;}
+.ml-10-5-ipad{margin-left: 10px;}
+.t--5--0-ipad{top: 5px;}
+.f-30-24-ipad{font-size: 30px;}
+.pl-90-40-ipad{padding-left: 90px;}
+.f-50-38-ipad{font-size: 50px;}
+.f-20-16-ipad{font-size: 20px;}
+.f-36-18-ipad{font-size: 30px;}
+.min-h-860-650-ipad{min-height: 860px;}
+.min-h-600-500-ipad{min-height: 600px;}
+.f-50-40-ipad{font-size: 50px;}
+.f-38-28-ipad{font-size: 38px;}
+.pt-280-200-ipad{padding-top: 280px;}
+.f-26-20-ipad{font-size: 26px;}
+.f-18-14-ipad{font-size: 18px;}
+.f-50-36-ipad{font-size: 50px;}
+.f-36-28-ipad{font-size: 36px;}
+.mtb-20-0-ipad{margin-top: 20px;margin-bottom: 20px;}
+.mt-30-0-iapd{margin-top: 30px;}
+.plr-15-0-ipad{padding-left: 0px;padding-right: 0px;}
+.min-h-760-650-ipad{min-height: 750px;}
+.f-40-26-ipad{font-size: 40px;}
+.f-24-16-ipad{font-size: 24px;}
+.r-30-0-ipad{right: 30px;}
+.min-h-860-760-ipad{min-height: 860px;}
+.pt-160-100-ipad{padding-top: 160px;}
+.ani-fif-right{animation: anififrightipadpro 3s; animation-fill-mode: forwards; -webkit-animation: anififrightipadpro 3s; -webkit-animation-fill-mode: forwards;forwards;animation-timing-function:cubic-bezier(0,0.1,0.3,1);-webkit-animation-timing-function:cubic-bezier(0,0.1,0.3,1);}
+.ani-fif-left{animation: anififleftipadpro 3s; animation-fill-mode: forwards; -webkit-animation: anififleftipadpro 3s; -webkit-animation-fill-mode: forwards;animation-timing-function:cubic-bezier(0,0.1,0.3,1);-webkit-animation-timing-function:cubic-bezier(0,0.1,0.3,1);}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+.f-38-28-ipad{font-size: 38px;}
+.ml-10-5-ipad{margin-left: 10px;}
+.t--5--0-ipad{top: 5px;}
+.f-30-24-ipad{font-size: 30px;}
+.pl-90-40-ipad{padding-left: 90px;}
+.f-50-38-ipad{font-size: 50px;}
+.f-20-16-ipad{font-size: 20px;}
+.f-36-18-ipad{font-size: 36px;}
+.min-h-860-650-ipad{min-height: 860px;}
+.min-h-600-500-ipad{min-height: 600px;}
+.f-50-40-ipad{font-size: 50px;}
+.f-38-28-ipad{font-size: 38px;}
+.pt-280-200-ipad{padding-top: 280px;}
+.f-26-20-ipad{font-size: 26px;}
+.f-18-14-ipad{font-size: 18px;}
+.f-50-36-ipad{font-size: 50px;}
+.f-36-28-ipad{font-size: 36px;}
+.mtb-20-0-ipad{margin-top: 20px;margin-bottom: 20px;}
+.mt-30-0-iapd{margin-top: 30px;}
+.plr-15-0-ipad{padding-left: 15px;padding-right: 15px;}
+.min-h-760-650-ipad{min-height: 750px;}
+.f-40-26-ipad{font-size: 40px;}
+.f-24-16-ipad{font-size: 24px;}
+.r-30-0-ipad{right: 30px;}
+.min-h-860-760-ipad{min-height: 860px;}
+.pt-160-100-ipad{padding-top: 160px;}
+.ani-fif-right{animation: anififright 3s; animation-fill-mode: forwards; -webkit-animation: anififright 3s; -webkit-animation-fill-mode: forwards;forwards;animation-timing-function:cubic-bezier(0,0.1,0.3,1);-webkit-animation-timing-function:cubic-bezier(0,0.1,0.3,1);}
+.ani-fif-left{animation: anififleft 3s; animation-fill-mode: forwards; -webkit-animation: anififleft 3s; -webkit-animation-fill-mode: forwards;animation-timing-function:cubic-bezier(0,0.1,0.3,1);-webkit-animation-timing-function:cubic-bezier(0,0.1,0.3,1);}
+}
+@media (min-width:1300px) {
+.f-38-28-ipad{font-size: 38px;}
+.ml-10-5-ipad{margin-left: 10px;}
+.t--5--0-ipad{top: 5px;}
+.f-30-24-ipad{font-size: 30px;}
+.pl-90-40-ipad{padding-left: 90px;}
+.f-50-38-ipad{font-size: 50px;}
+.f-20-16-ipad{font-size: 20px;}
+.f-36-18-ipad{font-size: 36px;}
+.min-h-860-650-ipad{min-height: 860px;}
+.min-h-600-500-ipad{min-height: 600px;}
+.f-50-40-ipad{font-size: 50px;}
+.f-38-28-ipad{font-size: 38px;}
+.pt-280-200-ipad{padding-top: 280px;}
+.f-26-20-ipad{font-size: 26px;}
+.f-18-14-ipad{font-size: 18px;}
+.f-50-36-ipad{font-size: 50px;}
+.f-36-28-ipad{font-size: 36px;}
+.mtb-20-0-ipad{margin-top: 20px;margin-bottom: 20px;}
+.mt-30-0-iapd{margin-top: 30px;}
+.plr-15-0-ipad{padding-left: 15px;padding-right: 15px;}
+.min-h-760-650-ipad{min-height: 750px;}
+.f-40-26-ipad{font-size: 40px;}
+.f-24-16-ipad{font-size: 24px;}
+.r-30-0-ipad{right: 30px;}
+.min-h-860-760-ipad{min-height: 860px;}
+.pt-160-100-ipad{padding-top: 160px;}
+.ani-fif-right{animation: anififright 3s; animation-fill-mode: forwards; -webkit-animation: anififright 3s; -webkit-animation-fill-mode: forwards;forwards;animation-timing-function:cubic-bezier(0,0.1,0.3,1);-webkit-animation-timing-function:cubic-bezier(0,0.1,0.3,1);}
+.ani-fif-left{animation: anififleft 3s; animation-fill-mode: forwards; -webkit-animation: anififleft 3s; -webkit-animation-fill-mode: forwards;animation-timing-function:cubic-bezier(0,0.1,0.3,1);-webkit-animation-timing-function:cubic-bezier(0,0.1,0.3,1);}
+}
