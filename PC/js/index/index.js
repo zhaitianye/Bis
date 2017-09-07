@@ -299,7 +299,7 @@ $(document).ready(function() {
         event.stopPropagation();
         var target = event.target;
         if (!$(target).closest(".show-full-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
-            $(".show-add-shippingaddress").fadeOut();
+            $(".show-full-shippingaddress").fadeOut();
             document.documentElement.style.overflow = "scroll";
         };
     });

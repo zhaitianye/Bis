@@ -434,4 +434,36 @@ to {height:0%;}
 .mt-10-5-ipad{margin-top: 10px;}
 .mb-10-5-ipad{margin-bottom: 10px;}
 }
-
+/* 确认订单页响应式 */
+@media (min-width:768px) and (max-width:991px) {
+.pd-15-5-ipad{padding: 5px;}
+.line-h-30-20-ipad{line-height: 20px;}
+.mt-15-0-ipad{margin-top: 0px;}
+.ptb-10-5-ipad{padding-top: 5px;padding-bottom: 5px;}
+.min-h-190-160-ipad{min-height: 160px;}
+.pd-50-30-ipad{padding: 30px;}
+}
+@media (min-width:992px) and (max-width:1199px) {
+.pd-15-5-ipad{padding: 10px;}
+.line-h-30-20-ipad{line-height: 30px;}
+.mt-15-0-ipad{margin-top: 15px;}
+.ptb-10-5-ipad{padding-top: 10px;padding-bottom: 10px;}
+.min-h-190-160-ipad{min-height: 190px;}
+.pd-50-30-ipad{padding: 30px;}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+.pd-15-5-ipad{padding: 15px;}
+.line-h-30-20-ipad{line-height: 30px;}
+.mt-15-0-ipad{margin-top: 15px;}
+.ptb-10-5-ipad{padding-top: 10px;padding-bottom: 10px;}
+.min-h-190-160-ipad{min-height: 190px;}
+.pd-50-30-ipad{padding: 50px;}
+}
+@media (min-width:1300px) {
+.pd-15-5-ipad{padding: 15px;}
+.line-h-30-20-ipad{line-height: 30px;}
+.mt-15-0-ipad{margin-top: 15px;}
+.ptb-10-5-ipad{padding-top: 10px;padding-bottom: 10px;}
+.min-h-190-160-ipad{min-height: 190px;}
+.pd-50-30-ipad{padding: 50px;}
+}
