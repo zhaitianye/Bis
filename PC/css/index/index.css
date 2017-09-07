@@ -365,5 +365,73 @@ to {height:0%;}
     border-right: 10px solid transparent;
     border-bottom: 13px solid #f5f5f5;
 }
-
+/* 购物车页响应式 */
+@media (min-width:768px) and (max-width:991px) {
+.b--21--30-ipad{bottom: -25px;}
+.l-25-20-ipad{left: 20px;}
+.img-25-20-ipad{width: 20px; height: 20px;}
+.img-20-15-ipad{width: 15px; height: 15px;}
+.mt-3-5-ipad{margin-top: 5px;}
+.t--4--6-ipad{top: -6px;}
+.pr-15-0-ipad{padding-right: 0px;}
+.pt-0-5-ipad{padding-top: 5px;}
+.f-14-12-ipad{font-size: 12px;}
+.h-60-40-ipad{height: 40px;}
+.line-h-60-40-ipad{line-height: 40px;}
+.img-40-30-ipad{width: 30px;height: 30px;}
+.img-30-20-ipad{width: 20px;height: 20px;}
+.mt-10-5-ipad{margin-top: 5px;}
+.mb-10-5-ipad{margin-bottom: 5px;}
+}
+@media (min-width:992px) and (max-width:1199px) {
+.b--21--30-ipad{bottom: -30px;}
+.l-25-20-ipad{left: 25px;}
+.img-25-20-ipad{width: 25px; height: 25px;}
+.img-20-15-ipad{width: 20px; height: 20px;}
+.mt-3-5-ipad{margin-top: 3px;}
+.t--4--6-ipad{top: -4px;}
+.pr-15-0-ipad{padding-right: 15px;}
+.pt-0-5-ipad{padding-top: 0px;}
+.f-14-12-ipad{font-size: 14px;}
+.h-60-40-ipad{height: 60px;}
+.line-h-60-40-ipad{line-height: 60px;}
+.img-40-30-ipad{width: 40px;height: 40px;}
+.img-30-20-ipad{width: 30px;height: 30px;}
+.mt-10-5-ipad{margin-top: 10px;}
+.mb-10-5-ipad{margin-bottom: 10px;}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+.b--21--30-ipad{bottom: -21px;}
+.l-25-20-ipad{left: 25px;}
+.img-25-20-ipad{width: 25px; height: 25px;}
+.img-20-15-ipad{width: 20px; height: 20px;}
+.mt-3-5-ipad{margin-top: 3px;}
+.t--4--6-ipad{top: -4px;}
+.pr-15-0-ipad{padding-right: 15px;}
+.pt-0-5-ipad{padding-top: 0px;}
+.f-14-12-ipad{font-size: 14px;}
+.h-60-40-ipad{height: 60px;}
+.line-h-60-40-ipad{line-height: 60px;}
+.img-40-30-ipad{width: 40px;height: 40px;}
+.img-30-20-ipad{width: 30px;height: 30px;}
+.mt-10-5-ipad{margin-top: 10px;}
+.mb-10-5-ipad{margin-bottom: 10px;}
+}
+@media (min-width:1300px) {
+.b--21--30-ipad{bottom: -21px;}
+.l-25-20-ipad{left: 25px;}
+.img-25-20-ipad{width: 25px; height: 25px;}
+.img-20-15-ipad{width: 20px; height: 20px;}
+.mt-3-5-ipad{margin-top: 3px;}
+.t--4--6-ipad{top: -4px;}
+.pr-15-0-ipad{padding-right: 15px;}
+.pt-0-5-ipad{padding-top: 0px;}
+.f-14-12-ipad{font-size: 14px;}
+.h-60-40-ipad{height: 60px;}
+.line-h-60-40-ipad{line-height: 60px;}
+.img-40-30-ipad{width: 40px;height: 40px;}
+.img-30-20-ipad{width: 30px;height: 30px;}
+.mt-10-5-ipad{margin-top: 10px;}
+.mb-10-5-ipad{margin-bottom: 10px;}
+}
 
