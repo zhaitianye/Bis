@@ -142,6 +142,47 @@ $(document).ready(function() {
         }
 
     });
+    /*商品页套餐部分*/
+    $(".combotips").click(function() {
+        /*边框隐藏显示*/
+        $(".combomainbox").find(".combotips-div").removeClass("bor-col-activate");
+        $(this).find(".combotips-div").addClass("bor-col-activate");
+        /*四张介绍图显示*/
+        var prodezoomimgv1 = $(this).find(".comboiput-prodezoomimgv1").val();
+        var prodezoomimgv2 = $(this).find(".comboiput-prodezoomimgv2").val();
+        var prodezoomimgv3 = $(this).find(".comboiput-prodezoomimgv3").val();
+        var prodezoomimgv4 = $(this).find(".comboiput-prodezoomimgv4").val();
+        $(".prode-zoom-img-v1").attr("data-image",prodezoomimgv1);
+        $(".prode-zoom-img-v1").attr("data-zoom-image",prodezoomimgv1);
+        $(".prode-zoom-img-v1").find(".produ-min-tips").attr("src",prodezoomimgv1);
+        $(".prode-zoom-img-v2").attr("data-image",prodezoomimgv2);
+        $(".prode-zoom-img-v2").attr("data-zoom-image",prodezoomimgv2);
+        $(".prode-zoom-img-v2").find(".produ-min-tips").attr("src",prodezoomimgv2);
+        $(".prode-zoom-img-v3").attr("data-image",prodezoomimgv3);
+        $(".prode-zoom-img-v3").attr("data-zoom-image",prodezoomimgv3);
+        $(".prode-zoom-img-v3").find(".produ-min-tips").attr("src",prodezoomimgv3);
+        $(".prode-zoom-img-v4").attr("data-image",prodezoomimgv4);
+        $(".prode-zoom-img-v4").attr("data-zoom-image",prodezoomimgv4);
+        $(".prode-zoom-img-v4").find(".produ-min-tips").attr("src",prodezoomimgv4);
+        $(".produ-max-show").attr("data-zoom-image",prodezoomimgv1);
+        $(".produ-max-show").attr("src",prodezoomimgv1);
+        /*价格赋值*/
+        var comboiputprice = $(this).find(".comboiput-price").val();
+        $(".pro-main-price").text(comboiputprice);
+        /*id赋值*/
+        var comboiputcid = $(this).find(".comboiput-cid").val();
+        $(".pro-submit-selid").text(comboiputcid);
+        /*悉心平安服务方面的滑入滑出*/
+        if ($(this).find(".combotips-div").hasClass("combotips-div-biaopei")) {
+            $(".shieldframe").slideDown();
+        } else {
+            $(".shieldframe").removeClass("bor-col-activate");
+            $(".shieldframe_circle").css("background-color", "#B1B1B1");
+            $(".shieldframe_sel").val("0");
+            $(".shieldframe").slideUp();
+        }
+    });
+
     /*确认订单页收货地址*/
     /*页面加载完毕后进行收货地址的初始排序*/
     var conblocklength = $(".conanorder-block").length
