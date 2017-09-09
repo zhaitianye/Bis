@@ -95,8 +95,10 @@ $(document).ready(function() {
     /*商品页楼层定位*/
     $(".sf-pointer").click(function() {
         var speed = 200;
-        var headHeight = $(".header").height() + $(".flo-menuv2").height() + $(".flo-menuv2-aff").height() + $(".cont-other").height() + $(".pro_first_floor").height();
-        $('body,html').animate({ scrollTop: headHeight }, speed);
+
+        var HKbegindescribeheight = $(".HK-begin-describe").offset().top;
+
+        $('body,html').animate({ scrollTop: HKbegindescribeheight }, speed);
         return false;
     });
     /*商品页返回顶部*/
@@ -135,12 +137,13 @@ $(document).ready(function() {
             $(this).removeClass("bor-col-activate");
             $(".shieldframe_circle").css("background-color", "#B1B1B1");
             $(".shieldframe_sel").val("0");
+            $(".pro-submit-ischeckserve").val("0");
         } else {
             $(this).addClass("bor-col-activate");
             $(".shieldframe_circle").css("background-color", "#309DE2");
             $(".shieldframe_sel").val("1");
+            $(".pro-submit-ischeckserve").val("1");
         }
-
     });
     /*商品页套餐部分*/
     $(".combotips").click(function() {
@@ -166,9 +169,16 @@ $(document).ready(function() {
         $(".prode-zoom-img-v4").find(".produ-min-tips").attr("src",prodezoomimgv4);
         $(".produ-max-show").attr("data-zoom-image",prodezoomimgv1);
         $(".produ-max-show").attr("src",prodezoomimgv1);
+        var ez = $('#prode-zoom-main').data('elevateZoom');
+        ez.swaptheimage(prodezoomimgv1, prodezoomimgv1);
         /*价格赋值*/
         var comboiputprice = $(this).find(".comboiput-price").val();
         $(".pro-main-price").text(comboiputprice);
+        /*主标题副标题赋值*/
+        var comboiputmaindir = $(this).find(".comboiput-maindir").val();
+        var comboiputdepdir = $(this).find(".comboiput-depdir").val();
+        $(".pro-main-dir").text(comboiputmaindir);
+        $(".pro-dep-dir").text(comboiputdepdir);
         /*id赋值*/
         var comboiputcid = $(this).find(".comboiput-cid").val();
         $(".pro-submit-selid").text(comboiputcid);
@@ -179,9 +189,38 @@ $(document).ready(function() {
             $(".shieldframe").removeClass("bor-col-activate");
             $(".shieldframe_circle").css("background-color", "#B1B1B1");
             $(".shieldframe_sel").val("0");
+            $(".pro-submit-ischeckserve").val("0");
             $(".shieldframe").slideUp();
         }
     });
+    /*页面加载完毕后获取标配的id赋值给需要提交的部分*/
+    var comboiputcidbiaopei = $(".combotips-div-biaopei").siblings(".comboiput-cid").val();
+    $(".pro-submit-selid").text(comboiputcidbiaopei);
+    /*当页面加载完毕后判断套餐的数量，对样式进行排序*/
+    
+    Sortingpackages();
+    function Sortingpackages(){
+        var combotipslength =  $(".combomainbox").find(".combotips").length;
+        
+        if (combotipslength<=3) {
+            $(".combomainbox").addClass("mb-40-20-ipad");
+            $(".combotips").addClass("mt-40-20-ipad");
+            console.log(1111);
+        }
+        if (3<combotipslength && combotipslength<=6) {
+            $(".combomainbox").addClass("mb-20-10-ipad");
+            $(".combotips").addClass("mt-20-10-ipad");
+        }
+        if (6<combotipslength) {
+            for (var i = 6; i < combotipslength; i++) {
+                var combostrtips = " .combotips:eq(" + i + ")";
+                $(combostrtips).hide();
+            }
+            $(".combomainbox").addClass("mb-20-10-ipad");
+            $(".combotips").addClass("mt-20-10-ipad");
+        }
+    };
+
 
     /*确认订单页收货地址*/
     /*页面加载完毕后进行收货地址的初始排序*/

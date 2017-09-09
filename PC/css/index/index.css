@@ -262,6 +262,12 @@ to {height:0%;}
 	.f-16-14-ipad{font-size: 14px;}
 	.pl-100-0-ipad{padding-left: 0px;}
 	.plr-0-10-ipad{padding-left: 10px;padding-right: 10px;}
+	.min-h-470-390-ipad{min-height: 295px;}
+	.mb-20-10-ipad{margin-bottom: 10px;}
+	.mt-20-10-ipad{margin-top: 10px;}
+	.mb-40-20-ipad{margin-bottom: 20px;}
+	.mt-40-20-ipad{margin-top: 20px;}
+	.t--2-6-ipad{top: -2px;}
 }
 @media (min-width:992px) and (max-width:1199px) {
 	.containerv2 {width: 970px}
@@ -280,7 +286,7 @@ to {height:0%;}
 	.w-150-100-ipad{width: 100px;}
 	.h-40-30-ipad{height: 30px;}
 	.line-h-40-30-ipad{line-height: 30px;}
-	.ptb-35-16-ipad{padding-top: 16px;padding-bottom: 10px;}
+	.ptb-35-16-ipad{padding-top: 25px;padding-bottom: 10px;}
 	.pt-30-10-ipad{padding-top: 10px;}
 	.img-30-20{width: 20px;height: 20px;}
 	.img-20-14{width: 14px;height: 14px;}
@@ -294,6 +300,12 @@ to {height:0%;}
 	.f-16-14-ipad{font-size: 14px;}
 	.pl-100-0-ipad{padding-left: 0px;}
 	.plr-0-10-ipad{padding-left: 10px;padding-right: 10px;}
+	.min-h-470-390-ipad{min-height: 390px;}
+	.mb-20-10-ipad{margin-bottom: 10px;}
+	.mt-20-10-ipad{margin-top: 10px;}
+	.mb-40-20-ipad{margin-bottom: 20px;}
+	.mt-40-20-ipad{margin-top: 20px;}
+	.t--2-6-ipad{top: 6px;}
 }
 @media (min-width:1200px) and (max-width:1299px) {
 	.containerv2 {width: 1200px}
@@ -326,6 +338,12 @@ to {height:0%;}
 	.f-16-14-ipad{font-size: 16px;}
 	.pl-100-0-ipad{padding-left: 100px;}
 	.plr-0-10-ipad{padding-left: 0px;padding-right: 0px;}
+	.min-h-470-390-ipad{min-height: 470px;}
+	.mb-20-10-ipad{margin-bottom: 20px;}
+	.mt-20-10-ipad{margin-top: 20px;}
+	.mb-40-20-ipad{margin-bottom: 40px;}
+	.mt-40-20-ipad{margin-top: 40px;}
+	.t--2-6-ipad{top: -2px;}
 }
 @media (min-width:1300px) {
 	.containerv2 {width: 1200px}
@@ -358,6 +376,12 @@ to {height:0%;}
 	.f-16-14-ipad{font-size: 16px;}
 	.pl-100-0-ipad{padding-left: 100px;}
 	.plr-0-10-ipad{padding-left: 0px;padding-right: 0px;}
+	.min-h-470-390-ipad{min-height: 470px;}
+	.mb-20-10-ipad{margin-bottom: 20px;}
+	.mt-20-10-ipad{margin-top: 20px;}
+	.mb-40-20-ipad{margin-bottom: 40px;}
+	.mt-40-20-ipad{margin-top: 40px;}
+	.t--2-6-ipad{top: -2px;}
 }
 .triangle-cart-up {
     width: 0;
