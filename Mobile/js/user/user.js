@@ -41,72 +41,26 @@ $(document).ready(function() {
         $('.linkman-sellayout').slideUp(200);
         $(".linkman-sel").removeClass("input-pri");
     });
-    $(".linkmansel-liv1").click(function() {
+    /*下拉列表点击时的效果*/
+    $(".swiper-wrapper-li").click(function() {
         event.stopPropagation();
-        var seltex = $(".linkmansel-liv1").text();
-        var selval = $(".linkmansel-liv1val").val();
+        var seltex = $(this).find(".linkmansel-li").text();
+        var selval = $(this).find(".linkmansel-lival").val();
+        console.log(seltex);
+        console.log(selval);
         $(".linkmansel-span").text(seltex);
         $(".linkmansel-val").val(selval);
-        $(".linkmansel-ul").find("li").removeClass("bg-linkmanli-act");
-        $(this).addClass("bg-linkmanli-act");
+
+        $(".swiper-wrapper-ul").find(".linkmansel-li").removeClass("bg-linkmanli-act");
+        $(this).find(".linkmansel-li").addClass("bg-linkmanli-act");
         $(".linkman-sellayout").slideUp(200);
         $(".linkman-sel").removeClass("input-pri");
     });
-    $(".linkmansel-liv1").mouseenter(function() {
-        $(this).addClass("bg-FFB779");
+    $(".swiper-wrapper-li").mouseenter(function() {
+        $(this).find(".linkmansel-li").addClass("bg-FFB779");
     });
-    $(".linkmansel-liv1").mouseleave(function() {
-        $(this).removeClass("bg-FFB779");
+    $(".swiper-wrapper-li").mouseleave(function() {
+        $(this).find(".linkmansel-li").removeClass("bg-FFB779");
     });
-    $(".linkmansel-liv2").click(function() {
-        event.stopPropagation();
-        var seltex = $(".linkmansel-liv2").text();
-        var selval = $(".linkmansel-liv2val").val();
-        $(".linkmansel-span").text(seltex);
-        $(".linkmansel-val").val(selval);
-        $(".linkmansel-ul").find("li").removeClass("bg-linkmanli-act");
-        $(this).addClass("bg-linkmanli-act");
-        $(".linkman-sellayout").slideUp(200);
-        $(".linkman-sel").removeClass("input-pri");
-    });
-    $(".linkmansel-liv2").mouseenter(function() {
-        $(this).addClass("bg-FFB779");
-    });
-    $(".linkmansel-liv2").mouseleave(function() {
-        $(this).removeClass("bg-FFB779");
-    });
-    $(".linkmansel-liv3").click(function() {
-        event.stopPropagation();
-        var seltex = $(".linkmansel-liv3").text();
-        var selval = $(".linkmansel-liv3val").val();
-        $(".linkmansel-span").text(seltex);
-        $(".linkmansel-val").val(selval);
-        $(".linkmansel-ul").find("li").removeClass("bg-linkmanli-act");
-        $(this).addClass("bg-linkmanli-act");
-        $(".linkman-sellayout").slideUp(200);
-        $(".linkman-sel").removeClass("input-pri");
-    });
-    $(".linkmansel-liv3").mouseenter(function() {
-        $(this).addClass("bg-FFB779");
-    });
-    $(".linkmansel-liv3").mouseleave(function() {
-        $(this).removeClass("bg-FFB779");
-    });
-    $(".linkmansel-liv4").click(function() {
-        event.stopPropagation();
-        var seltex = $(".linkmansel-liv4").text();
-        var selval = $(".linkmansel-liv4val").val();
-        $(".linkmansel-span").text(seltex);
-        $(".linkmansel-val").val(selval);
-        $(".linkmansel-ul").find("li").removeClass("bg-linkmanli-act");
-        $(this).addClass("bg-linkmanli-act");
-        $(".linkman-sellayout").slideUp(200);
-        $(".linkman-sel").removeClass("input-pri");
-    });
-    $(".linkmansel-liv4").mouseenter(function() {
-        $(this).addClass("bg-FFB779");
-    });
-    $(".linkmansel-liv4").mouseleave(function() {
-        $(this).removeClass("bg-FFB779");
-    });
+
 });
