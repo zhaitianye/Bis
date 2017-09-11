@@ -129,12 +129,14 @@ $(document).ready(function() {
         /*悉心平安服务方面的滑入滑出*/
         if ($(this).find(".combotips-div").hasClass("combotips-div-biaopei")) {
             $(".shieldframe").slideDown();
+            $(".pro-submit-issingleorcombo").val(0);
         } else {
             $(".shieldframe").removeClass("bor-col-activate");
             $(".shieldframe_circle").css("background-color", "#B1B1B1");
             $(".shieldframe_sel").val("0");
             $(".pro-submit-ischeckserve").val("0");
             $(".shieldframe").slideUp();
+            $(".pro-submit-issingleorcombo").val(1);
         }
     });
     /*页面加载完毕后获取标配的id赋值给需要提交的部分*/

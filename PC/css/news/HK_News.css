@@ -1,0 +1,61 @@
+@charset "utf-8";
+/*主页响应式栅格系统*/
+@media (max-width:767px) {
+	.container {width: 100%;}
+}
+@media (min-width:768px) and (max-width:991px) {
+	.container {width: 100%;}
+}
+@media (min-width:992px) and (max-width:1199px) {
+	.container {width: 100%;}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+	.container {width: 1200px}
+}
+@media (min-width:1300px) {
+	.container {width: 1200px}
+}
+/* 头部 */
+.min-h-120{min-height: 120px;}
+.hovecol-black:hover{color: black !important;}
+.bg-eee{background-color: #eee;}
+.hovebg-ddd:hover{background-color: #ddd;}
+.h-26{height: 26px;}
+.line-h-26{line-height: 26px;}
+.w-100{width: 100px;}
+.mt--2{margin-top: -2px;}
+.t-nonehove:hover{text-decoration: none}
+.mainnav div a:hover{color: #309DE2;}
+.navbor{border-bottom: 3px solid #309DE2;}
+.navborpitch{border-bottom: 3px solid #309DE2;}
+/* 尾部 */
+.bg-E9E9E9{background-color: #E9E9E9;}
+.col-8c8c8c{color: #8c8c8c;}
+.hovecol-999:hover{color: #999 !important;}
+/* 新闻部分css */
+.bg-fafafa{background-color: #fafafa;}
+.col-414141{color: #414141;}
+.col-888{color: #888;}
+.hovecol-309DE2:hover{color: #309DE2 !important;}
+.hovecol-999:hover{color: #999 !important;}
+.bor-col-dfdfdf{border-color: #dfdfdf;}
+.bg-309DE2{background-color: #309DE2;}
+.bg-2c9fd9{background-color: #2c9fd9;}
+.bor-col-309DE2{border-color: #309DE2;}
+/* 新闻部分响应式 */
+@media (min-width:768px) and (max-width:991px) {
+	.mtb-10-0-ipad{margin-top: 0px;margin-bottom: 0px;}
+	.text-line-2-1-ipad{overflow:hidden; text-overflow:ellipsis;display:-webkit-box; -webkit-box-orient:vertical;-webkit-line-clamp:1}
+}
+@media (min-width:992px) and (max-width:1199px) {
+	.mtb-10-0-ipad{margin-top: 5px;margin-bottom: 5px;}
+	.text-line-2-1-ipad{overflow:hidden; text-overflow:ellipsis;display:-webkit-box; -webkit-box-orient:vertical;-webkit-line-clamp:2}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+	.mtb-10-0-ipad{margin-top: 10px;margin-bottom: 10px;}
+	.text-line-2-1-ipad{overflow:hidden; text-overflow:ellipsis;display:-webkit-box; -webkit-box-orient:vertical;-webkit-line-clamp:2}
+}
+@media (min-width:1300px) {
+	.mtb-10-0-ipad{margin-top: 10px;margin-bottom: 10px;}
+	.text-line-2-1-ipad{overflow:hidden; text-overflow:ellipsis;display:-webkit-box; -webkit-box-orient:vertical;-webkit-line-clamp:2}
+}
