@@ -309,6 +309,7 @@ $(document).ready(function() {
                     var row = {};
                     row.cartid = cartcombokindsid;
                     row.cartnum = cartcombokindsnum;
+                    row.cartkind = 1;
                     cartsubmitjson.records.push(row);
                 }else{
                 };
@@ -327,6 +328,7 @@ $(document).ready(function() {
                     var row = {};
                     row.cartid = cartsinglekindsid;
                     row.cartnum = cartsinglekindsnum;
+                    row.cartkind = 0;
                     cartsubmitjson.records.push(row);
                 }else{
                 };
@@ -341,6 +343,7 @@ $(document).ready(function() {
                 var row = {};
                 row.cartid = cartfuwuid;
                 row.cartnum = cartfusnum;
+                row.cartkind = 0;
                 cartsubmitjson.records.push(row);
             }else{
             };
@@ -353,6 +356,7 @@ $(document).ready(function() {
                 var row = {};
                 row.cartid = cartfuwuid;
                 row.cartnum = cartfusnum;
+                row.cartkind = 0;
                 cartsubmitjson.records.push(row);
             }else{
             };
@@ -365,11 +369,13 @@ $(document).ready(function() {
                 var row = {};
                 row.cartid = cartfuwuid;
                 row.cartnum = cartfusnum;
+                row.cartkind = 0;
                 cartsubmitjson.records.push(row);
             }else{
             };
         };
         /*获取了全部的可选并选中的id，数量。封装在一个json里。在下面进行其他操作*/
+        /*cartid为商品id，cartnum为数量，cartkind为种类，0为单品，1位套餐*/
         console.log(cartsubmitjson);
     });
     /*当页面加载完毕之后，判断有没有购买悉心平安服务进行的一系列操作*/
