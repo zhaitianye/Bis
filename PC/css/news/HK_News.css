@@ -35,13 +35,17 @@
 /* 新闻部分css */
 .bg-fafafa{background-color: #fafafa;}
 .col-414141{color: #414141;}
+.col-3f3b3c{color: #3f3b3c;}
 .col-888{color: #888;}
+.col-898989{color: #898989;}
 .hovecol-309DE2:hover{color: #309DE2 !important;}
 .hovecol-999:hover{color: #999 !important;}
 .bor-col-dfdfdf{border-color: #dfdfdf;}
 .bg-309DE2{background-color: #309DE2;}
 .bg-2c9fd9{background-color: #2c9fd9;}
 .bor-col-309DE2{border-color: #309DE2;}
+.bor-col-e4e4e4{border-color: #e4e4e4;}
+.t-nonehove:hover{text-decoration: none}
 /* 新闻部分响应式 */
 @media (min-width:768px) and (max-width:991px) {
 	.mtb-10-0-ipad{margin-top: 0px;margin-bottom: 0px;}
