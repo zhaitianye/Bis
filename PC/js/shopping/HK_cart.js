@@ -306,10 +306,16 @@ $(document).ready(function() {
                 if (carcombokinds.hasClass("is-checkbox")) {
                     var cartcombokindsid = carcombokinds.find(".cart-tips-id").val();
                     var cartcombokindsnum = carcombokinds.find(".cart-combo-textbox").val();
+                    var cartcombokindimg = carcombokinds.find(".cart-maintips-img").attr("src");
+                    var cartcombokinddir = carcombokinds.find(".cart-maintips-dir").text();
+                    var cartcombokindprice = carcombokinds.find(".cart-price").val();
                     var row = {};
                     row.cartid = cartcombokindsid;
                     row.cartnum = cartcombokindsnum;
                     row.cartkind = 1;
+                    row.cartimg = cartcombokindimg;
+                    row.cartdir = cartcombokinddir;
+                    row.cartprice = cartcombokindprice;
                     cartsubmitjson.records.push(row);
                 }else{
                 };
@@ -325,10 +331,16 @@ $(document).ready(function() {
                 if (carsinglekinds.hasClass("is-checkbox")) {
                     var cartsinglekindsid = carsinglekinds.find(".cart-tips-id").val();
                     var cartsinglekindsnum = carsinglekinds.find(".cart-textbox").val();
+                    var cartsinglekindimg = carsinglekinds.find(".cart-maintips-img").attr("src");
+                    var cartsinglekinddir = carsinglekinds.find(".cart-maintips-dir").text();
+                    var cartsinglekindprice = carsinglekinds.find(".cart-price").val();
                     var row = {};
                     row.cartid = cartsinglekindsid;
                     row.cartnum = cartsinglekindsnum;
                     row.cartkind = 0;
+                    row.cartimg = cartsinglekindimg;
+                    row.cartdir = cartsinglekinddir;
+                    row.cartprice = cartsinglekindprice;
                     cartsubmitjson.records.push(row);
                 }else{
                 };
@@ -339,11 +351,17 @@ $(document).ready(function() {
         }else{
             if ($(".servestipsv1").hasClass("is-checkbox")) {
                 var cartfuwuid = $(".servestipsv1").find(".cart-tips-id").val();
-                var cartfusnum =$(".servestipsv1").find(".cart-textbox").val();
+                var cartfuwusnum =$(".servestipsv1").find(".cart-textbox").val();
+                var cartfuwuimg = $(".servestipsv1").find(".cart-maintips-img").attr("src");
+                var cartfuwudir = $(".servestipsv1").find(".cart-maintips-dir").text();
+                var cartfuwuprice = $(".servestipsv1").find(".cart-price").val();
                 var row = {};
                 row.cartid = cartfuwuid;
-                row.cartnum = cartfusnum;
+                row.cartnum = cartfuwusnum;
                 row.cartkind = 0;
+                row.cartimg = cartfuwuimg;
+                row.cartdir = cartfuwudir;
+                row.cartprice = cartfuwuprice;
                 cartsubmitjson.records.push(row);
             }else{
             };
@@ -352,11 +370,17 @@ $(document).ready(function() {
         }else{
             if ($(".servestipsv2").hasClass("is-checkbox")) {
                 var cartfuwuid = $(".servestipsv2").find(".cart-tips-id").val();
-                var cartfusnum =$(".servestipsv2").find(".cart-textbox").val();
+                var cartfuwusnum =$(".servestipsv2").find(".cart-textbox").val();
+                var cartfuwuimg = $(".servestipsv2").find(".cart-maintips-img").attr("src");
+                var cartfuwudir = $(".servestipsv2").find(".cart-maintips-dir").text();
+                var cartfuwuprice = $(".servestipsv2").find(".cart-price").val();
                 var row = {};
                 row.cartid = cartfuwuid;
-                row.cartnum = cartfusnum;
+                row.cartnum = cartfuwusnum;
                 row.cartkind = 0;
+                row.cartimg = cartfuwuimg;
+                row.cartdir = cartfuwudir;
+                row.cartprice = cartfuwuprice;
                 cartsubmitjson.records.push(row);
             }else{
             };
@@ -365,11 +389,17 @@ $(document).ready(function() {
         }else{
             if ($(".servestipsv3").hasClass("is-checkbox")) {
                 var cartfuwuid = $(".servestipsv3").find(".cart-tips-id").val();
-                var cartfusnum =$(".servestipsv3").find(".cart-textbox").val();
+                var cartfuwusnum =$(".servestipsv3").find(".cart-textbox").val();
+                var cartfuwuimg = $(".servestipsv3").find(".cart-maintips-img").attr("src");
+                var cartfuwudir = $(".servestipsv3").find(".cart-maintips-dir").text();
+                var cartfuwuprice = $(".servestipsv3").find(".cart-price").val();
                 var row = {};
                 row.cartid = cartfuwuid;
-                row.cartnum = cartfusnum;
+                row.cartnum = cartfuwusnum;
                 row.cartkind = 0;
+                row.cartimg = cartfuwuimg;
+                row.cartdir = cartfuwudir;
+                row.cartprice = cartfuwuprice;
                 cartsubmitjson.records.push(row);
             }else{
             };
