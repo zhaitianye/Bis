@@ -12,6 +12,7 @@
     <meta name="renderer" content="webkit">
     <title>联系人列表</title>
     <!-- base -->
+    <link href="../../css/comm/swiper.min.css" rel="stylesheet">
     <link href="../../css/comm/base-m.css" rel="stylesheet">
     <link href="../../css/user/user.css" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -27,7 +28,7 @@
     </style>
 </head>
 
-<body>
+<body class="overflow-h">
     <form class="link-man-validate" action="">
         <div class="clear full-w pl-25 pr-25 mt-20">
             <p class="f-18 col-7a7a7a f-w line-h-30 h-30 mt-5 mb-5">
@@ -42,7 +43,7 @@
                     <span class="linkmansel-span">中国（+86）</span>
                     <input class="linkmansel-val" type="hidden" value="0086">
                 </div>
-                <div class="clear full-w bg-white pos-a t-35 l-0 z-99 bor bor-col-7C7C7C bor-t-none radius-5 dis-n linkman-sellayout input-pri">
+                <!-- <div class="clear full-w bg-white pos-a t-35 l-0 z-99 bor bor-col-7C7C7C bor-t-none radius-5 dis-n linkman-sellayout input-pri">
                     <ul class="line-h-35 f-14  linkmansel-ul">
                         <li class="linkmansel-liv1 bg-linkmanli-act pl-10 pr-10">中国（+86）</li>
                         <input class="linkmansel-liv1val" type="hidden" value="0086">
@@ -53,6 +54,52 @@
                         <li class="linkmansel-liv4 pl-10 pr-10">英国（+44）</li>
                         <input class="linkmansel-liv4val" type="hidden" value="0044">
                     </ul>
+                </div> -->
+                <div class="clear full-w bg-white pos-a t-35 l-0 z-99 bor bor-col-7C7C7C bor-t-none radius-5 dis-n linkman-sellayout input-pri">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper" style="height: 140px;">
+                            <div class="swiper-slide">
+                                <div class="linkmansel-li bg-linkmanli-act pl-10 pr-10 h-35 line-h-35">中国（+86）</div>
+                                <input class="linkmansel-lival" type="hidden" value="0086">
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="linkmansel-li pl-10 pr-10 h-35 line-h-35">香港（+852）</div>
+                                <input class="linkmansel-lival" type="hidden" value="0852">
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="linkmansel-li pl-10 pr-10 h-35 line-h-35">美国（+1）</div>
+                                <input class="linkmansel-lival" type="hidden" value="0001">
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="linkmansel-li pl-10 pr-10 h-35 line-h-35">英国（+44）</div>
+                                <input class="linkmansel-lival" type="hidden" value="0044">
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="linkmansel-li pl-10 pr-10 h-35 line-h-35">香港（+852）</div>
+                                <input class="linkmansel-lival" type="hidden" value="0852">
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="linkmansel-li pl-10 pr-10 h-35 line-h-35">美国（+1）</div>
+                                <input class="linkmansel-lival" type="hidden" value="0001">
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="linkmansel-li pl-10 pr-10 h-35 line-h-35">英国（+44）</div>
+                                <input class="linkmansel-lival" type="hidden" value="0044">
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="linkmansel-li pl-10 pr-10 h-35 line-h-35">香港（+852）</div>
+                                <input class="linkmansel-lival" type="hidden" value="0852">
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="linkmansel-li pl-10 pr-10 h-35 line-h-35">美国（+1）</div>
+                                <input class="linkmansel-lival" type="hidden" value="0001">
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="linkmansel-li pl-10 pr-10 h-35 line-h-35">英国（+44）</div>
+                                <input class="linkmansel-lival" type="hidden" value="0044">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <img class=" img-25 linkman-selimg pos-a t-5 r-12 z-9" src="../../img/user/sel-arrow.png" alt="">
             </div>
@@ -80,10 +127,17 @@
         </div>
     </form>
     <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/swiper.jquery.min.js"></script>
     <script src="../../js/comm/jquery.validate.min.js"></script>
     <script src="../../js/comm/jquery.validate.messages_zh.js"></script>
     <script src="../../js/user/linkmanvalidate.js"></script>
     <script src="../../js/user/user.js"></script>
+    <script>        
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'vertical',
+            slidesPerView : 2,
+        })        
+  </script>
 </body>
 
 </html>

@@ -125,7 +125,7 @@ $(document).ready(function() {
         $(".pro-dep-dir").text(comboiputdepdir);
         /*id赋值*/
         var comboiputcid = $(this).find(".comboiput-cid").val();
-        $(".pro-submit-selid").text(comboiputcid);
+        $(".pro-submit-selid").val(comboiputcid);
         /*悉心平安服务方面的滑入滑出*/
         if ($(this).find(".combotips-div").hasClass("combotips-div-biaopei")) {
             $(".shieldframe").slideDown();
@@ -139,7 +139,7 @@ $(document).ready(function() {
     });
     /*页面加载完毕后获取标配的id赋值给需要提交的部分*/
     var comboiputcidbiaopei = $(".combotips-div-biaopei").siblings(".comboiput-cid").val();
-    $(".pro-submit-selid").text(comboiputcidbiaopei);
+    $(".pro-submit-selid").val(comboiputcidbiaopei);
     /*当页面加载完毕后判断套餐的数量，对样式进行排序*/
     
     Sortingpackages();

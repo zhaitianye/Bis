@@ -69,7 +69,7 @@ $(document).ready(function() {
                 var strisstopcheck = $(carkindsstr).hasClass("stop-check");
                 if (strisstopcheck) {
 
-                }else{
+                } else {
                     $(carkindsstr).removeClass("is-checkbox");
                     $(carkindsstr).find(".car-checktips").removeClass("is-check");
                     $(carkindsstr).find(".car-checktips").removeClass("bg-activate");
@@ -83,7 +83,7 @@ $(document).ready(function() {
                 var strisstopcheck = $(carkindsstr).hasClass("stop-check");
                 if (strisstopcheck) {
 
-                }else{
+                } else {
                     $(carkindsstr).addClass("is-checkbox");
                     $(carkindsstr).find(".car-checktips").addClass("is-check");
                     $(carkindsstr).find(".car-checktips").addClass("bg-activate");
@@ -109,13 +109,13 @@ $(document).ready(function() {
             thischecktips.addClass("bg-activate");
             thischecktips.parent().parent().parent().addClass("is-checkbox");
             var carkindslength = $(".car-kinds").length;
+
             function isallture() {
 
                 for (var i = 0; i < carkindslength; i++) {
                     carkindsstr = ".car-kinds:eq(" + i + ")";
                     var strisstopcheck = $(carkindsstr).hasClass("stop-check");
-                    if (strisstopcheck) {
-                    }else{
+                    if (strisstopcheck) {} else {
                         var truele = $(carkindsstr).hasClass("is-checkbox");
                         if (truele) {} else {
                             return false;
@@ -132,7 +132,7 @@ $(document).ready(function() {
         countalltips();
     });
     /*购物车页面计算总计和总件数等数据的函数*/
-    countalltips();//页面加载完毕进行调用一次计算总价
+    countalltips(); //页面加载完毕进行调用一次计算总价
     function countalltips() {
         var allcheckbox = $(".is-checkbox").length;
         var allnumofcase = 0;
@@ -141,14 +141,14 @@ $(document).ready(function() {
         for (var i = 0; i < allcheckbox; i++) {
             var carttextboxtips = ".is-checkbox:eq(" + i + ")";
             var hasstopcheck = $(carttextboxtips).hasClass("stop-check");
-            if (hasstopcheck) {}else{
+            if (hasstopcheck) {} else {
                 combtextboxval = $(carttextboxtips).find(".cart-combo-textbox").val();
                 textboxval = $(carttextboxtips).find(".cart-textbox").val();
-                if (textboxval=="" || isNaN(textboxval)) {
-                    textboxval=0;
+                if (textboxval == "" || isNaN(textboxval)) {
+                    textboxval = 0;
                 }
-                if (combtextboxval=="" || isNaN(combtextboxval)) {
-                    combtextboxval=0;
+                if (combtextboxval == "" || isNaN(combtextboxval)) {
+                    combtextboxval = 0;
                 }
                 allnumofcase = parseInt(combtextboxval) + parseInt(allnumofcase) + parseInt(textboxval);
                 allnumoftotprices += parseInt($(carttextboxtips).find(".cart-total").text());
@@ -291,5 +291,33 @@ $(document).ready(function() {
         $(".servecontrolv3").show();
         countalltips();
     });
+    /*购物车页面提交封装*/
+    $(".HK-cartsubmit").click(function() {
+        /*定义一个json数组*/
+        var cartsubmitjson = {records: []};
+        /*套餐部分的id数量遍历出来推入json*/
+        var carcombokindslength = $(".car-combo").find(".car-kinds").length;
+        for (var i = 0; i < carcombokindslength; i++) {
+            var carcombokindsstr = ".car-kinds:eq("+i+")";
+            var carcombokinds = $(".car-combo").find(carcombokindsstr);
+            if (carcombokinds.hasClass("stop-check")) {
+                console.log(111);
+            }else{
+                console.log(222);
+            }
+
+
+            var cartcombokindsid = carcombokinds.find(".cart-tips-id").val();
+            var cartcombokindsnum = carcombokinds.find(".cart-combo-textbox").val();
+            var row = {};
+            row.cartid = cartcombokindsid;
+            row.cartnum = cartcombokindsnum;
+            cartsubmitjson.records.push(row);
+        }
+        /*单品部分的id数量遍历出来推入json*/
+        //console.log(cartsubmitjson);
+        //console.log(xxx);
+    });
+
 
 });
