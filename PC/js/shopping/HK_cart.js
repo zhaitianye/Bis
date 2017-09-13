@@ -229,8 +229,8 @@ $(document).ready(function() {
             var combonum = $(".car-combo").find(combotipsstr).find(".cart-combo-textbox").val();
             $(".car-combo").find(combotipsstr).find(".cart-price-show").text(comboprice);
             $(".car-combo").find(combotipsstr).find(".cart-total").text(combonum*comboprice);
-            var combotipslength = $(".car-combo").find(combotipsstr).siblings(".car-combo-tips").length;
-            for (var j = 0; j < combotipslength; j++) {
+            var combotipslengthv = $(".car-combo").find(combotipsstr).siblings(".car-combo-tips").length;
+            for (var j = 0; j < combotipslengthv; j++) {
                 var carcombotipsstr = ".car-combo-tips:eq(" + j + ")";
                 var comboprice = $(".car-combo").find(combotipsstr).siblings(carcombotipsstr).find(".car-combo-tips-unp").text();
                 $(".car-combo").find(combotipsstr).siblings(carcombotipsstr).find(".car-combo-tips-numcase").text(combonum);

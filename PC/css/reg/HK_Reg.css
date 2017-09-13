@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* 登录注册部分的css */
+.min-h-560{min-height: 560px;}
+.w-520{width: 520px;}
+.mt-100{margin-top: 100px;}
+.bor-col-white{border-color: white;}
+.pt-80{padding-top: 80px;}
+.pb-80{padding-bottom: 80px;}
+.w-40{width: 40px;}
+.w-100{width: 100px;}
+.h-48{height: 48px;}
+.line-h-48{line-height: 48px;}
+.h-auto{height: auto;}
+.bor-none{border:none;}
+.w-296{width: 296px;}
+.boxsha-none{box-shadow: none;}
+.focu-bor-66afe9:focus{border:1px solid #66afe9;}
+.focu-bor-none:focus{border:none;}
+.focu-boxsha-none:focus{box-shadow: none;}
+.ml-0i{margin-left: 0px !important;}
+.mr-0i{margin-right: 0px !important;}
+.pr-12i{padding-right: 12px !important;}
+.radius-tf-0i{border-radius: 0px 3px 3px 0px !important;}
+.bor-c{border:1px solid #ccc;}
+.t-10{top: 10px;}
+.r-20{right: 20px;}
+.min-w-120{min-width: 120px;}
+.radius-3i{border-radius: 3px !important;}
+.has-error .sel-telphone{background-color: #f2dede;border-color:#f2dede;box-shadow: none;}
+.has-success .sel-telphone{background-color: #dff0d8;border-color:#dff0d8;box-shadow: none;}
+.min-h-350{min-height: 350px;}
+.min-h-50{min-height: 50px;}
