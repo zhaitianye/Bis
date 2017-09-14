@@ -99,6 +99,7 @@ $(document).ready(function() {
         var prodezoomimgv2 = $(this).find(".comboiput-prodezoomimgv2").val();
         var prodezoomimgv3 = $(this).find(".comboiput-prodezoomimgv3").val();
         var prodezoomimgv4 = $(this).find(".comboiput-prodezoomimgv4").val();
+        var prodemainimg = $(this).find(".comboiput-mainimg").val();
         $(".prode-zoom-img-v1").attr("data-image",prodezoomimgv1);
         $(".prode-zoom-img-v1").attr("data-zoom-image",prodezoomimgv1);
         $(".prode-zoom-img-v1").find(".produ-min-tips").attr("src",prodezoomimgv1);
@@ -118,11 +119,16 @@ $(document).ready(function() {
         /*价格赋值*/
         var comboiputprice = $(this).find(".comboiput-price").val();
         $(".pro-main-price").text(comboiputprice);
+        $(".pro-submit-singleprice").val(comboiputprice);
+        /*主图赋值*/
+        $(".pro-submit-mainimg").val(prodemainimg);
         /*主标题副标题赋值*/
         var comboiputmaindir = $(this).find(".comboiput-maindir").val();
         var comboiputdepdir = $(this).find(".comboiput-depdir").val();
         $(".pro-main-dir").text(comboiputmaindir);
         $(".pro-dep-dir").text(comboiputdepdir);
+        $(".pro-submit-maintitle").val(comboiputmaindir);
+        $(".pro-submit-depdir").val(comboiputdepdir);
         /*id赋值*/
         var comboiputcid = $(this).find(".comboiput-cid").val();
         $(".pro-submit-selid").val(comboiputcid);
@@ -139,11 +145,50 @@ $(document).ready(function() {
             $(".pro-submit-issingleorcombo").val(1);
         }
     });
-    /*页面加载完毕后获取标配的id赋值给需要提交的部分*/
-    var comboiputcidbiaopei = $(".combotips-div-biaopei").siblings(".comboiput-cid").val();
-    $(".pro-submit-selid").val(comboiputcidbiaopei);
+    /*页面加载完毕后获取标配相应内容赋值给需要提交的部分*/
+    /*意思就是说页面的初始化*/
+    setonload();
+    function setonload(){
+        /*四张介绍图*/
+        var prodezoomimgbiaopeiv1 = $(".combotips-div-biaopei").siblings(".comboiput-prodezoomimgv1").val();
+        var prodezoomimgbiaopeiv2 = $(".combotips-div-biaopei").siblings(".comboiput-prodezoomimgv2").val();
+        var prodezoomimgbiaopeiv3 = $(".combotips-div-biaopei").siblings(".comboiput-prodezoomimgv3").val();
+        var prodezoomimgbiaopeiv4 = $(".combotips-div-biaopei").siblings(".comboiput-prodezoomimgv4").val();
+        /*主图*/
+        var prodemainimgbiaopei = $(".combotips-div-biaopei").siblings(".comboiput-mainimg").val();
+        /*id*/
+        var comboiputcidbiaopei = $(".combotips-div-biaopei").siblings(".comboiput-cid").val();
+        /*单价*/
+        var prodepricebiaopei = $(".combotips-div-biaopei").siblings(".comboiput-price").val();
+        /*主标题*/
+        var prodemaindirbiaopei = $(".combotips-div-biaopei").siblings(".comboiput-maindir").val();
+        /*副标题*/
+        var prodedepdirbiaopei = $(".combotips-div-biaopei").siblings(".comboiput-depdir").val();
+        /*赋值给需要展示的部分图片部分*/
+        $(".prode-zoom-img-v1").attr("data-image",prodezoomimgbiaopeiv1);
+        $(".prode-zoom-img-v1").attr("data-zoom-image",prodezoomimgbiaopeiv1);
+        $(".prode-zoom-img-v1").find(".produ-min-tips").attr("src",prodezoomimgbiaopeiv1);
+        $(".prode-zoom-img-v2").attr("data-image",prodezoomimgbiaopeiv2);
+        $(".prode-zoom-img-v2").attr("data-zoom-image",prodezoomimgbiaopeiv2);
+        $(".prode-zoom-img-v2").find(".produ-min-tips").attr("src",prodezoomimgbiaopeiv2);
+        $(".prode-zoom-img-v3").attr("data-image",prodezoomimgbiaopeiv3);
+        $(".prode-zoom-img-v3").attr("data-zoom-image",prodezoomimgbiaopeiv3);
+        $(".prode-zoom-img-v3").find(".produ-min-tips").attr("src",prodezoomimgbiaopeiv3);
+        $(".prode-zoom-img-v4").attr("data-image",prodezoomimgbiaopeiv4);
+        $(".prode-zoom-img-v4").attr("data-zoom-image",prodezoomimgbiaopeiv4);
+        $(".prode-zoom-img-v4").find(".produ-min-tips").attr("src",prodezoomimgbiaopeiv4);
+        $(".produ-max-show").attr("data-zoom-image",prodezoomimgbiaopeiv1);
+        $(".produ-max-show").attr("src",prodezoomimgbiaopeiv1);
+        var ez = $('#prode-zoom-main').data('elevateZoom');
+        ez.swaptheimage(prodezoomimgbiaopeiv1, prodezoomimgbiaopeiv1);
+        /*赋值给需要提交的部分*/
+        $(".pro-submit-selid").val(comboiputcidbiaopei);
+        $(".pro-submit-maintitle").val(prodemaindirbiaopei);
+        $(".pro-submit-depdir").val(prodedepdirbiaopei);
+        $(".pro-submit-mainimg").val(prodemainimgbiaopei);
+        $(".pro-submit-singleprice").val(prodepricebiaopei);
+    }
     /*当页面加载完毕后判断套餐的数量，对样式进行排序*/
-    
     Sortingpackages();
     function Sortingpackages(){
         var combotipslength =  $(".combomainbox").find(".combotips").length;
@@ -151,7 +196,6 @@ $(document).ready(function() {
         if (combotipslength<=3) {
             $(".combomainbox").addClass("mb-40-20-ipad");
             $(".combotips").addClass("mt-40-20-ipad");
-            console.log(1111);
         }
         if (3<combotipslength && combotipslength<=6) {
             $(".combomainbox").addClass("mb-20-10-ipad");
@@ -166,4 +210,44 @@ $(document).ready(function() {
             $(".combotips").addClass("mt-20-10-ipad");
         }
     };
+    $(".pro-buynow").click(function() {
+        /*定义一个json数组*/
+        var probuynowjson = { product: [] };
+        /*取值*/
+        var prosubcid = $(".pro-submit-selid").val();
+        var prosubischeckserve = $(".pro-submit-ischeckserve").val();
+        var prosubissingleorcombo = $(".pro-submit-issingleorcombo").val();
+        var prosubmaintitle = $(".pro-submit-maintitle").val();
+        var prosubdepdir = $(".pro-submit-depdir").val();
+        var prosubmainimg = $(".pro-submit-mainimg").val();
+        var prosubsingleprice = $(".pro-submit-singleprice").val();
+        var prosubnum = $(".pro-submit-num").val();
+        var row = {};
+        row.cartid = prosubcid;
+        row.cartnum = prosubnum;
+        row.cartkind = prosubissingleorcombo;
+        row.cartimg = prosubmainimg;
+        row.cartdir = prosubmaintitle;
+        row.cartprice = prosubsingleprice;
+        probuynowjson.product.push(row);
+        if (prosubischeckserve==1) {
+            var prosubfuwucid = $(".pro-submit-fuwucid").val();
+            var prosubfuwunum = $(".pro-submit-fuwunum").val();
+            var prosubfuwukind = $(".pro-submit-fuwukind").val();
+            var prosubfuwumainimg = $(".pro-submit-fuwumainimg").val();
+            var prosubfuwudir = $(".pro-submit-fuwudir").val();
+            var prosubfuwuprice = $(".pro-submit-fuwuprice").val();
+            var row = {};
+            row.cartid = prosubfuwucid;
+            row.cartnum = prosubfuwunum;
+            row.cartkind = prosubfuwukind;
+            row.cartimg = prosubfuwumainimg;
+            row.cartdir = prosubfuwudir;
+            row.cartprice = prosubfuwuprice;
+            probuynowjson.product.push(row);
+        }else{
+        }
+        var JSONprobuynow = JSON.stringify(probuynowjson);
+        console.log(JSONprobuynow);
+    });
 });

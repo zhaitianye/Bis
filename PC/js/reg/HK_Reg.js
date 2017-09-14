@@ -1,6 +1,7 @@
 $(document).ready(function() {
     /*登录注册部分的js*/
-    $('.login-main-form').bootstrapValidator({
+    /*手机登录校验*/
+    $(".login-main-formphone").bootstrapValidator({
         fields: {
             userphone: {
                 container: '.userphonemsg',
@@ -37,7 +38,7 @@ $(document).ready(function() {
             }
         }
     });
-    /*自定义input框*/
+    /*自定义input框样式和赋值*/
     $('.nextautocheckv1').iCheck({
         checkboxClass: 'icheckbox_flat-green',
         radioClass: 'iradio_flat-green'
@@ -101,7 +102,79 @@ $(document).ready(function() {
         };
 
     };
-             
+    /*tab选项卡切换*/
+    $(".login-tabcontrolv1").mouseenter(function() {
+        $(this).find("img").attr("src","../../img/reg/tabcontrolv1h.jpg");
+        $(this).find("span").css("color","black");
+    });
+    $(".login-tabcontrolv1").mouseleave(function() {
+        $(this).find("img").attr("src","../../img/reg/tabcontrolv1.jpg");
+        $(this).find("span").css("color","#999");
+    });
+    $(".login-tabcontrolv2").mouseenter(function() {
+        $(this).find("img").attr("src","../../img/reg/tabcontrolv2h.png");
+        $(this).find("span").css("color","black");
+    });
+    $(".login-tabcontrolv2").mouseleave(function() {
+        $(this).find("img").attr("src","../../img/reg/tabcontrolv2.png");
+        $(this).find("span").css("color","#999");
+    });
+    $(".login-tabcontrolv3").mouseenter(function() {
+        $(this).find("img").attr("src","../../img/reg/tabcontrolv3h.png");
+        $(this).find("span").css("color","black");
+    });
+    $(".login-tabcontrolv3").mouseleave(function() {
+        $(this).find("img").attr("src","../../img/reg/tabcontrolv3.png");
+        $(this).find("span").css("color","#999");
+    });
+    $(".login-tabcontrolv1").click(function() {
+        $(".login-tabcontentv2").hide();
+        $(".login-tabcontentv1").show();
+    });
+    $(".login-tabcontrolv2").click(function() {
+        $(".login-tabcontentv1").hide();
+        $(".login-tabcontentv2").show();
+    });
+    /*密码登录校验*/
+    $(".login-main-formpwd").bootstrapValidator({
+        fields: {
+            username: {
+                container: '.usernamemsg',
+                validators: {
+                    notEmpty: {
+                        message: '用户名不能为空值.'
+                    },
+                    stringLength: {
+                        max: 16,
+                        message: '用户名不能大于16位.'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z]+[a-zA-Z0-9_]+$/,
+                        message: '用户名以字母开头且只能包含大写、小写、数字和下划线.'
+                    },
+                },
+            },
+        },
+        userpwd: {//验证密码
+            validators: {
+                notEmpty: {
+                    message: '密码不能为空值.'
+                },
+                different: {
+                    field: 'username',
+                    message: '密码和用户名不能一样'
+                },
+                regexp: {
+                    regexp: /^[a-zA-Z0-9_]+$/,
+                    message: '密码只能包含大写、小写、数字和下划线'
+                },
+                stringLength: {
+                    min: 6,
+                    message: '密码长度不能小于是6位!'
+                }
+            }
+        }
+    });
             
 
 });

@@ -27,12 +27,12 @@
 <body class="h-auto">
     <img class="full-wh z-0 pos-a t-0 l-0" src="../../img/reg/reg-bg.jpg" alt="">
     <div class="clear min-h-560 mg-0-auto bg-white w-520 z-9 pos-r mt-100 bor bor-col-white radius-5 pt-80 pb-20">
-        <div class="clear pl-40 pr-40 min-h-350">
-            <form class="login-main-form form-horizontal" action="">
+        <div class="clear pl-40 pr-40 min-h-350 login-tabcontentv1">
+            <form class="login-main-formphone form-horizontal" action="">
                 <p class="col-666 f-18 cur-d line-h-25 pb-35">
                     手机动态码登录（请选择国际区号）
                 </p>
-                <div class="clear h-50 form-group ml-0i mr-0i phonecode-box">
+                <div class="clear h-50 form-group ml-0i mr-0i mt-10 phonecode-box">
                     <div class="clear input-group">
                         <div class="clear h-50 line-h-50 text-center w-40 pull-left input-group-addon pd-0 bg-white bor-c radius-3">
                             <span class="icon-mobile-phone f-20 pos-r t-3"></span>
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="clear h-50 form-group ml-0i mr-0i mt-40">
+                <div class="clear h-50 form-group ml-0i mr-0i mt-30">
                     <div class="clear h-50 line-h-50 text-center full-w pull-left mr-0 ml-0 radius-0 pos-r">
                         <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-3 f-14" type="text" name="usercode" maxlength="4" placeholder="请输出您接收的动态密码.">
                         <span class="usercodemsg h-25 line-h-25 clear dis-b text-left"></span>
@@ -72,15 +72,45 @@
                 </div>
             </form>
         </div>
+        <div class="clear pl-40 pr-40 min-h-350 login-tabcontentv2 dis-n">
+            <form class="login-main-formpwd form-horizontal" action="">
+                <p class="col-666 f-18 cur-d line-h-25 pb-35">
+                    密码登录
+                </p>
+                <div class="clear h-50 form-group ml-0i mr-0i mt-10 loginpwd-box">
+                    <div class="clear input-group">
+                        <div class="clear h-50 line-h-50 text-center w-40 pull-left input-group-addon pd-0 bg-white bor-c radius-3">
+                            <span class="glyphicon glyphicon-user f-14 pos-r t-3"></span>
+                        </div>
+                        <div class="clear h-50 line-h-50 text-center w-396 pull-left mr-0 ml-0 radius-0 pos-r">
+                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14 usernemeinput" type="text" name="username" maxlength="16" placeholder="请输入您的用户名">
+                            <span class="usernamemsg h-25 line-h-25 clear dis-b text-left pull-left"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear h-50 form-group ml-0i mr-0i mt-30">
+                    <div class="clear h-50 line-h-50 text-center w-40 pull-left input-group-addon pd-0 bg-white bor-c radius-3">
+                        <span class="glyphicon glyphicon-certificate f-14 pos-r t-3"></span>
+                    </div>
+                    <div class="clear h-50 line-h-50 text-center w-396 pull-left mr-0 ml-0 radius-0 pos-r">
+                        <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14 userpwdinput" type="password" name="userpwd" maxlength="16" placeholder="请输入您的密码">
+                        <span class="userpwdmsg h-25 line-h-25 clear dis-b text-left pull-left"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
         <div class="clear min-h-50 mt-20 pl-40 pr-40">
-            <div class="col-sm-4">
-                11
+            <div class="col-sm-4 cur-p login-tabcontrolv1">
+                <img class="img-42" src="../../img/reg/tabcontrolv1.jpg" alt="">
+                <span class="col-999 ml-10">手机登录</span>
             </div>
-            <div class="col-sm-4">
-                11
+            <div class="col-sm-4 cur-p login-tabcontrolv2">
+                <img class="img-42" src="../../img/reg/tabcontrolv2.png" alt="">
+                <span class="col-999 ml-10">密码登录</span>
             </div>
-            <div class="col-sm-4">
-                11
+            <div class="col-sm-4 cur-p login-tabcontrolv3">
+                <img class="img-42" src="../../img/reg/tabcontrolv3.png" alt="">
+                <span class="col-999 ml-10">微信登录</span>
             </div>
         </div>
     </div>
