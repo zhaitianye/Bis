@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    /*登录注册部分的js*/
-    /*手机登录校验*/
-    $(".login-main-formphone").bootstrapValidator({
+    /*注册部分的js*/     
+    /*手机注册校验*/
+    $(".register-main-formphone").bootstrapValidator({
         fields: {
             userphone: {
                 container: '.userphonemsg',
@@ -35,19 +35,45 @@ $(document).ready(function() {
                         message: '必须是4位数字!'
                     }
                 }
-            }
+            },
+            usersetpwd: {
+                container: '.usersetpwdmsg',
+                validators: {
+                    notEmpty: {
+                        message: '密码不能为空值.'
+                    },
+                    different: {
+                        field: 'userphone',
+                        message: '密码和手机号不能一样'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_]+$/,
+                        message: '密码只能包含大写、小写、数字或下划线.'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 16,
+                        message: '密码长度不能小于6位,不能大于16位.'
+                    },
+                }
+            },
+            userpasspwd: {
+                container: '.userpasspwdmsg',
+                validators: {
+                    notEmpty: {
+                        message: '密码不能为空值.'
+                    },
+                    different: {
+                        field: 'userphone',
+                        message: '密码和手机号不能一样.'
+                    },
+                    identical: {
+                        field: 'usersetpwd',
+                        message: '两次密码不一致.'
+                    },
+                }
+            },
         }
-    });
-    /*自定义input框样式和赋值*/
-    $('.nextautocheckv1').iCheck({
-        checkboxClass: 'icheckbox_flat-green',
-        radioClass: 'iradio_flat-green'
-    });
-    $('.nextautocheckv1').on('ifChecked', function(event){
-        $(".nextautocheckv1").val(1);
-    });
-    $('.nextautocheckv1').on('ifUnchecked', function(event){
-        $(".nextautocheckv1").val(0);
     });
     /*发送短信验证码*/
     $(".sendMessagebtn").click(function(){//点击微信登录
@@ -100,81 +126,107 @@ $(document).ready(function() {
                 $(".sendMessagebtn").text(curCount + "s重新发送");//倒计时执行计数 
             }  
         };
-
     };
     /*tab选项卡切换*/
-    $(".login-tabcontrolv1").mouseenter(function() {
+    $(".register-tabcontrolv1").mouseenter(function() {
         $(this).find("img").attr("src","../../img/reg/tabcontrolv1h.jpg");
         $(this).find("span").css("color","black");
     });
-    $(".login-tabcontrolv1").mouseleave(function() {
+    $(".register-tabcontrolv1").mouseleave(function() {
         $(this).find("img").attr("src","../../img/reg/tabcontrolv1.jpg");
         $(this).find("span").css("color","#999");
     });
-    $(".login-tabcontrolv2").mouseenter(function() {
+    $(".register-tabcontrolv2").mouseenter(function() {
         $(this).find("img").attr("src","../../img/reg/tabcontrolv2h.png");
         $(this).find("span").css("color","black");
     });
-    $(".login-tabcontrolv2").mouseleave(function() {
+    $(".register-tabcontrolv2").mouseleave(function() {
         $(this).find("img").attr("src","../../img/reg/tabcontrolv2.png");
         $(this).find("span").css("color","#999");
     });
-    $(".login-tabcontrolv3").mouseenter(function() {
+    $(".register-tabcontrolv3").mouseenter(function() {
         $(this).find("img").attr("src","../../img/reg/tabcontrolv3h.png");
         $(this).find("span").css("color","black");
     });
-    $(".login-tabcontrolv3").mouseleave(function() {
+    $(".register-tabcontrolv3").mouseleave(function() {
         $(this).find("img").attr("src","../../img/reg/tabcontrolv3.png");
         $(this).find("span").css("color","#999");
     });
-    $(".login-tabcontrolv1").click(function() {
-        $(".login-tabcontentv2").hide();
-        $(".login-tabcontentv1").show();
+    $(".register-tabcontrolv1").click(function() {
+        $(".register-tabcontentv2").hide();
+        $(".register-tabcontentv1").show();
     });
-    $(".login-tabcontrolv2").click(function() {
-        $(".login-tabcontentv1").hide();
-        $(".login-tabcontentv2").show();
+    $(".register-tabcontrolv2").click(function() {
+        $(".register-tabcontentv1").hide();
+        $(".register-tabcontentv2").show();
     });
-    /*密码登录校验*/
-    $(".login-main-formpwd").bootstrapValidator({
+    /*邮箱注册校验*/
+    $(".register-main-formemail").bootstrapValidator({
         fields: {
-            username: {
-                container: '.usernamemsg',
+            useremail: {
+                container: '.useremailmsg',
                 validators: {
                     notEmpty: {
-                        message: '用户名不能为空值.'
+                        message: '邮箱不能为空值.'
                     },
-                    stringLength: {
-                        max: 16,
-                        message: '用户名不能大于16位.'
+                    emailAddress: {
+                        message: '请输入正确的邮箱号码.'
+                    },
+                }
+            },
+            useremailpwd: {
+                container: '.useremailpwdmsg',
+                validators: {
+                    notEmpty: {
+                        message: '密码不能为空值.'
                     },
                     regexp: {
-                        regexp: /^[a-zA-Z]+[a-zA-Z0-9_]+$/,
-                        message: '用户名以字母开头且只能包含大写、小写、数字和下划线.'
+                        regexp: /^[a-zA-Z0-9_]+$/,
+                        message: '密码只能包含大写、小写、数字或下划线.'
                     },
-                },
-            },
-        },
-        userpwd: {//验证密码
-            validators: {
-                notEmpty: {
-                    message: '密码不能为空值.'
-                },
-                different: {
-                    field: 'username',
-                    message: '密码和用户名不能一样'
-                },
-                regexp: {
-                    regexp: /^[a-zA-Z0-9_]+$/,
-                    message: '密码只能包含大写、小写、数字和下划线'
-                },
-                stringLength: {
-                    min: 6,
-                    message: '密码长度不能小于是6位!'
+                    stringLength: {
+                        min: 6,
+                        max: 16,
+                        message: '密码长度不能小于6位,不能大于16位.'
+                    },
                 }
-            }
+            },
+            useremailpasspwd: {
+                container: '.useremailpasspwdmsg',
+                validators: {
+                    notEmpty: {
+                        message: '确认密码不能为空值.'
+                    },
+                    identical: {
+                        field: 'useremailpwd',
+                        message: '两次密码不一致.'
+                    },
+                }
+            },
+            useremailcode: {
+                container: '.useremailcodemsg',
+                validators: {
+                    notEmpty: {
+                        message: '验证码不能为空值.'
+                    },
+                }
+            },
         }
     });
-            
+    /*微信注册的弹出层*/
+    $(".register-tabcontrolv3").click(function() {
+        $(".show-weixinregister").show();
+        $(".weixinregister-content").removeClass("ani-weixin-logoout");
+        $(".weixinregister-content").addClass("ani-weixin-logoin");
+    });
+    $(".show-weixinregister").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".weixinregister-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".weixinregister-content").removeClass("ani-weixin-logoin");
+            $(".weixinregister-content").addClass("ani-weixin-logoout");
+            $(".show-weixinregister").fadeOut();
+        };
+    });
 
 });

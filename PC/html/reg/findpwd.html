@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <!-- description -->
     <meta name="renderer" content="webkit">
-    <title>碧沙康健_注册页</title>
+    <title>碧沙康健_找回密码页</title>
     <!-- base -->
     <link href="../../ctrl/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../../ctrl/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,10 +26,10 @@
 <body class="h-auto">
     <img class="full-wh z-0 pos-a t-0 l-0" src="../../img/reg/reg-bg.jpg" alt="">
     <div class="clear min-h-560 mg-0-auto bg-white w-520 z-9 pos-r mt-100 bor bor-col-white radius-5 pt-80 pb-20">
-        <div class="clear pl-40 pr-40 min-h-350 register-tabcontentv1">
-            <form class="register-main-formphone form-horizontal" action="">
+        <div class="clear pl-40 pr-40 min-h-350 findpwd-tabcontentv1">
+            <form class="findpwd-main-formphone form-horizontal" action="">
                 <p class="col-666 f-18 cur-d line-h-25 pb-30">
-                    手机动态码注册（请选择国际区号）
+                    手机找回密码
                 </p>
                 <div class="clear h-50 form-group ml-0i mr-0i mt-20 phonecode-box">
                     <div class="clear input-group">
@@ -45,7 +45,7 @@
                             </select>
                         </div>
                         <div class="clear h-50 line-h-50 text-center w-296 pull-left mr-0 ml-0 radius-0 pos-r">
-                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i bor-l-none f-14 userphoneinput" type="text" name="userphone" maxlength="15" placeholder="请输出您的手机号码">
+                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i bor-l-none f-14 findpwdphoneinput" type="text" name="userphone" maxlength="15" placeholder="请输出您的手机号码">
                             <span class="userphonemsg h-25 line-h-25 clear dis-b text-left pull-left"></span>
                             <button type="button" class="pos-a t-10 r-20 z-99 pl-15 pr-15 pt-5 pb-5 h-30 line-h-20 btn btn-success text-center min-w-120 sendMessagebtn">
                                 获取动态密码
@@ -70,7 +70,7 @@
                             <span class="glyphicon glyphicon-asterisk f-14 pos-r t-3"></span>
                         </div>
                         <div class="clear h-50 line-h-50 text-center w-396 pull-left mr-0 ml-0 radius-0 pos-r">
-                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14" type="password" name="usersetpwd" maxlength="16" placeholder="请设置您的密码.">
+                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14" type="password" name="usersetpwd" maxlength="16" placeholder="请设置您的新密码.">
                             <span class="usersetpwdmsg h-25 line-h-25 clear dis-b text-left"></span>
                         </div>
                     </div>
@@ -81,29 +81,54 @@
                             <span class="glyphicon glyphicon-asterisk f-14 pos-r t-3"></span>
                         </div>
                         <div class="clear h-50 line-h-50 text-center w-396 pull-left mr-0 ml-0 radius-0 pos-r">
-                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14" type="password" name="userpasspwd" maxlength="16" placeholder="请确认您的密码.">
+                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14" type="password" name="userpasspwd" maxlength="16" placeholder="请确认您的新密码.">
                             <span class="userpasspwdmsg h-25 line-h-25 clear dis-b text-left"></span>
                         </div>
                     </div>
                 </div>
                 <div class="clear mt-45">
-                    <button type="submit" class="btn full-w text-center btn btn-success h-50 f-18">注册</button>
+                    <button type="submit" class="btn full-w text-center btn btn-success h-50 f-18">确认找回</button>
                 </div>
             </form>
         </div>
-        <div class="clear pl-40 pr-40 min-h-350 register-tabcontentv2 dis-n">
-            <form class="register-main-formemail form-horizontal" action="">
+        <div class="clear pl-40 pr-40 min-h-350 findpwd-tabcontentv2 dis-n">
+            <form class="findpwd-main-formemail form-horizontal" action="">
                 <p class="col-666 f-18 cur-d line-h-25 pb-30">
-                    邮箱用户注册
+                    邮箱找回密码
                 </p>
-                <div class="clear h-50 form-group ml-0i mr-0i mt-20">
+                <div class="clear h-50 form-group ml-0i mr-0i mt-20 emailcode-box">
                     <div class="clear input-group">
                         <div class="clear h-50 line-h-50 text-center w-40 pull-left input-group-addon pd-0 bg-white bor-c radius-3">
                             <span class="glyphicon glyphicon-envelope f-14 pos-r t-3"></span>
                         </div>
                         <div class="clear h-50 line-h-50 text-center w-396 pull-left mr-0 ml-0 radius-0 pos-r">
-                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14 useremailinput" type="text" name="useremail" maxlength="32" placeholder="请输入您的邮箱">
+                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14 findpwdemailinput" type="text" name="useremail" maxlength="15" placeholder="请输出您的邮箱">
                             <span class="useremailmsg h-25 line-h-25 clear dis-b text-left pull-left"></span>
+                            <button type="button" class="pos-a t-10 r-20 z-99 pl-15 pr-15 pt-5 pb-5 h-30 line-h-20 btn btn-success text-center min-w-120 sendMessagebtn-emailcode">
+                                获取动态密码
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear h-50 form-group ml-0i mr-0i mt-30">
+                    <div class="clear input-group">
+                        <div class="clear h-50 line-h-50 text-center w-40 pull-left input-group-addon pd-0 bg-white bor-c radius-3">
+                            <span class="glyphicon glyphicon-link f-14 pos-r t-3"></span>
+                        </div>
+                        <div class="clear h-50 line-h-50 text-center w-396 pull-left mr-0 ml-0 radius-0 pos-r">
+                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14" type="text" name="emailcode" maxlength="4" placeholder="请输出您邮箱的动态密码.">
+                            <span class="emailcodemsg h-25 line-h-25 clear dis-b text-left"></span>
+                        </div>
+                    </div>    
+                </div>
+                <div class="clear h-50 form-group ml-0i mr-0i mt-30">
+                    <div class="clear input-group">
+                        <div class="clear h-50 line-h-50 text-center w-40 pull-left input-group-addon pd-0 bg-white bor-c radius-3">
+                            <span class="glyphicon glyphicon-asterisk f-14 pos-r t-3"></span>
+                        </div>
+                        <div class="clear h-50 line-h-50 text-center w-396 pull-left mr-0 ml-0 radius-0 pos-r">
+                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14" type="password" name="emailsetpwd" maxlength="16" placeholder="请设置您的新密码.">
+                            <span class="emailsetpwdmsg h-25 line-h-25 clear dis-b text-left"></span>
                         </div>
                     </div>
                 </div>
@@ -113,88 +138,35 @@
                             <span class="glyphicon glyphicon-asterisk f-14 pos-r t-3"></span>
                         </div>
                         <div class="clear h-50 line-h-50 text-center w-396 pull-left mr-0 ml-0 radius-0 pos-r">
-                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14 useremailpwdinput" type="password" name="useremailpwd" maxlength="32" placeholder="请输入您的密码">
-                            <span class="useremailpwdmsg h-25 line-h-25 clear dis-b text-left pull-left"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="clear h-50 form-group ml-0i mr-0i mt-30">
-                    <div class="clear input-group">
-                        <div class="clear h-50 line-h-50 text-center w-40 pull-left input-group-addon pd-0 bg-white bor-c radius-3">
-                            <span class="glyphicon glyphicon-asterisk f-14 pos-r t-3"></span>
-                        </div>
-                        <div class="clear h-50 line-h-50 text-center w-396 pull-left mr-0 ml-0 radius-0 pos-r">
-                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14 useremailpasspwdinput" type="password" name="useremailpasspwd" maxlength="32" placeholder="请确认您的密码">
-                            <span class="useremailpasspwdmsg h-25 line-h-25 clear dis-b text-left pull-left"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="clear h-50 form-group ml-0i mr-0i mt-30">
-                    <div class="clear h-50 line-h-50 text-center w-40 pull-left input-group-addon pd-0 bg-white bor-c radius-3">
-                        <span class="glyphicon glyphicon-link f-14 pos-r t-3"></span>
-                    </div>
-                    <div class="clear h-50 line-h-50 text-center w-396 pull-left mr-0 ml-0 radius-0 pos-r">
-                        <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14 useremailcodeinput" type="text" name="useremailcode" maxlength="4" placeholder="请输入右侧验证码">
-                        <span class="useremailcodemsg h-25 line-h-25 clear dis-b text-left pull-left"></span>
-                        <div class="clear pos-a h-48 w-120 t-1 r-1 bor bor-l bor-col-ccc">
-                            <!-- 图片验证码的宽度120高度48可以达到最好效果 -->
-                            <img class="pos-r full-wh pull-left cur-p" src="../../img/reg/code.jpg" alt="">
+                            <input class="form-control pt-7 pb-7 pl-5 pr-5 full-wh radius-tf-0i f-14" type="password" name="emailpasspwd" maxlength="16" placeholder="请确认您的新密码.">
+                            <span class="emailpasspwdmsg h-25 line-h-25 clear dis-b text-left"></span>
                         </div>
                     </div>
                 </div>
                 <div class="clear mt-45">
-                    <button type="submit" class="btn full-w text-center btn btn-success h-50 f-18">注册</button>
+                    <button type="submit" class="btn full-w text-center btn btn-success h-50 f-18">确认找回</button>
                 </div>
             </form>
         </div>
         <div class="clear min-h-50 mt-20 pl-40 pr-40">
-            <div class="col-sm-4 cur-p register-tabcontrolv1">
+            <div class="col-sm-6 cur-p findpwd-tabcontrolv1 text-center">
                 <img class="img-42" src="../../img/reg/tabcontrolv1.jpg" alt="">
-                <span class="col-999 ml-10">手机注册</span>
+                <span class="col-999 ml-10">手机方式找回密码</span>
             </div>
-            <div class="col-sm-4 cur-p register-tabcontrolv2">
+            <div class="col-sm-6 cur-p findpwd-tabcontrolv2 text-center">
                 <img class="img-42" src="../../img/reg/tabcontrolv2.png" alt="">
-                <span class="col-999 ml-10">邮箱注册</span>
-            </div>
-            <div class="col-sm-4 cur-p register-tabcontrolv3">
-                <img class="img-42" src="../../img/reg/tabcontrolv3.png" alt="">
-                <span class="col-999 ml-10">微信注册</span>
+                <span class="col-999 ml-10">邮箱方式找回密码</span>
             </div>
         </div>
         <div class="clear h-20 line-h-20 f-12 col-666 pl-40 pr-40 text-right mt-5 mb-5">
-            <a class="col-999 t-nonehove hovecol-666 mr-15 dis-ib mr-20" href="findpwd.html">忘记密码</a>
             <a class="col-999 t-nonehove hovecol-666 mr-15 dis-ib" href="login.html">已有账号，立即登录>></a>
-        </div>
-        <!-- 微信注册弹出层 -->
-        <div class="clear show-weixinregister affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
-            <div class="pos-a t-150 l-0 full-w">
-                <div class="w-370 mg-0-auto clear pos-r bg-5BC0DE weixinregister-content radius-5 pb-20 t--300 modal-content">
-                    <div class="pt-15 pb-15 line-h-30 pos-r f-20 pl-20 pr-20 col-white full-w bor bor-b bor-col-white radius-5 text-center cur-d">
-                        微信注册
-                        <img class="pos-a t-20 r-20 img-20 close-mod cur-p" src="../../img/reg/close.png" alt="">
-                    </div>
-                    <form class="clear pos-r" action="">
-                        <div class="clear">
-                            <p class="f-30 pt-40 pb-10 text-center">
-                                <img class="img-200" src="../../img/net_shopping/weixinpayqr.png" alt="">
-                            </p>
-                        </div>
-                        <div class="clear full-w h-50 mt-10 text-center text-center cur-d">
-                            <div class="clear dis-ib h-50 line-h-50 w-250 bg-232323 radius-100 f-16 col-white">
-                                <img class="img-18 mr-10 pos-r t--2" src="../../img/reg/weixincatch.png" alt="">
-                                请使用微信扫一扫
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
     <script src="../../js/comm/jquery.min.js"></script>
     <script src="../../ctrl/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="../../js/comm/bootstrapValidator.min.js"></script>
     <script src="../../js/comm/base.js"></script>
-    <script src="../../js/reg/HK_Reg_register.js"></script>
+    <script src="../../js/reg/HK_Reg_findpwd.js"></script>
 </body>
 
 </html>

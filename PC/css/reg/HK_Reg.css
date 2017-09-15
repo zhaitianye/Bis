@@ -32,3 +32,50 @@
 .min-h-50{min-height: 50px;}
 .img-42{width: 42px;height: 42px;}
 .w-396{width: 396px;}
+.t-nonehove:hover{text-decoration: none}
+.hovecol-999:hover{color: #999 !important;}
+.hovecol-666:hover{color: #666 !important;}
+.w-400{width: 400px;}
+.rgba-60{background: rgba(0,0,0,0.6)}
+.t-30s{top: 30%;}
+.col-4a4a4a{color: #4a4a4a}
+.bg-f5f5f5{background-color: #f5f5f5;}
+.t-150{top: 150px;}
+.t-20{top: 20px;}
+.r-20{right: 20px;}
+.bg-5BC0DE{background-color: #5BC0DE;}
+.w-250{width: 250px;}
+.img-200{width: 200px;height: 200px;}
+.w-370{width: 370px;}
+.radius-100{border-radius: 100px;}
+.bg-232323{background-color: #232323}
+.bg-5CB85C{background-color: #5CB85C}
+.img-18{width: 18px;height: 18px;}
+.t--300{top: -300px;}
+.w-120{width: 120px;}
+.h-48{height: 48px;}
+
+.ani-weixin-logoin{animation: weixinlogin 0.6s; animation-fill-mode: forwards; -webkit-animation: weixinlogin 0.6s; -webkit-animation-fill-mode: forwards;}
+
+@keyframes weixinlogin
+{
+    from {top: -300;opacity:0;}
+    to {top: 0;opacity:1;}
+}
+ 
+@-webkit-keyframes weixinlogin
+{
+    from {top: -300;opacity:0;}
+    to {top: 0;opacity:1;}
+}
+.ani-weixin-logoout{animation: weixinlogout 0.3s; animation-fill-mode: forwards; -webkit-animation: weixinlogout 0.3s; -webkit-animation-fill-mode: forwards;}
+@keyframes weixinlogout
+{
+    from {top: 0;opacity:1;}
+    to {top: -300;opacity:0;}
+}
+@-webkit-keyframes weixinlogout
+{
+    from {top: 0;opacity:1;}
+    to {top: -300;opacity:0;}
+}
