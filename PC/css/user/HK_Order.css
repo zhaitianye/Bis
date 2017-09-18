@@ -67,6 +67,13 @@
 	.f-50-40-ipad{font-size: 40px;}
 	.pt-40-20-ipad{padding-top: 20px;}
 	.line-h-70-50-ipad{line-height: 50px;}
+	.mlr-20-10-ipad{margin-left: 10px;margin-right: 10px;}
+	.mt-40-20-ipad{margin-top: 20px;}
+	.mb-30-20-ipad{margin-bottom: 20px;}
+	.plr-50-10-ipad{padding-left: 10px;padding-right: 10px;}
+	.plr-20-5-ipad{padding-left: 5px;padding-right: 5px;}
+	.mt-10-17-ipad{margin-top: 17px;}
+	.f-22-14-ipad{font-size: 14px;}
 }
 @media (min-width:992px) and (max-width:1199px) {
 	.f-20-16-ipad{font-size: 16px;}
@@ -74,6 +81,13 @@
 	.f-50-40-ipad{font-size: 50px;}
 	.pt-40-20-ipad{padding-top: 40px;}
 	.line-h-70-50-ipad{line-height: 70px;}
+	.mlr-20-10-ipad{margin-left: 20px;margin-right: 20px;}
+	.mt-40-20-ipad{margin-top: 40px;}
+	.mb-30-20-ipad{margin-bottom: 30px;}
+	.plr-50-10-ipad{padding-left: 50px;padding-right: 50px;}
+	.plr-20-5-ipad{padding-left: 20px;padding-right: 20px;}
+	.mt-10-17-ipad{margin-top: 10px;}
+	.f-22-14-ipad{font-size: 22px;}
 }
 @media (min-width:1200px) and (max-width:1299px) {
 	.f-20-16-ipad{font-size: 20px;}
@@ -81,9 +95,58 @@
 	.f-50-40-ipad{font-size: 50px;}
 	.pt-40-20-ipad{padding-top: 40px;}
 	.line-h-70-50-ipad{line-height: 70px;}
+	.mlr-20-10-ipad{margin-left: 20px;margin-right: 20px;}
+	.mt-40-20-ipad{margin-top: 40px;}
+	.mb-30-20-ipad{margin-bottom: 30px;}
+	.plr-50-10-ipad{padding-left: 50px;padding-right: 50px;}
+	.plr-20-5-ipad{padding-left: 20px;padding-right: 20px;}
+	.mt-10-17-ipad{margin-top: 10px;}
+	.f-22-14-ipad{font-size: 22px;}
 }
 @media (min-width:1300px) {
 	.f-20-16-ipad{font-size: 20px;}
 	.pd-40-10-ipad{padding: 40px;}
 	.f-50-40-ipad{font-size: 50px;}
 	.pt-40-20-ipad{padding-top: 40px;}
+	.mlr-20-10-ipad{margin-left: 20px;margin-right: 20px;}
+	.mt-40-20-ipad{margin-top: 40px;}
+	.mb-30-20-ipad{margin-bottom: 30px;}
+	.plr-50-10-ipad{padding-left: 50px;padding-right: 50px;}
+	.plr-20-5-ipad{padding-left: 20px;padding-right: 20px;}
+	.mt-10-17-ipad{margin-top: 10px;}
+	.f-22-14-ipad{font-size: 22px;}
+}
+/* 订单详细页部分css */
+.w-20s{width: 20%;}
+.radius-13{border-radius: 13px}
+.radius-13l{border-top-left-radius: 13px;border-bottom-left-radius: 13px;}
+.radius-13r{border-top-right-radius: 13px;border-bottom-right-radius: 13px;}
+.bg-83c441{background-color: #83c441}
+.col-424242{color: #424242;}
+.col-757575{color: #757575;}
+.col-b0b0b0{color: #b0b0b0;}
+/* 订单详细页部分响应式 */
+@media (min-width:768px) and (max-width:991px) {
+	.img-60-35-ipad{width: 35px;height: 35px;}
+	.h-60-35-ipad{height: 35px;}
+	.line-h-60-ipad{line-height: 35px;}
+	.f-20-14-ipad{font-size: 14px;}
+}
+@media (min-width:992px) and (max-width:1199px) {
+	.img-60-35-ipad{width: 40px;height: 40px;}
+	.h-60-35-ipad{height: 40px;}
+	.line-h-60-ipad{line-height: 40px;}
+	.f-20-14-ipad{font-size: 20px;}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+	.img-60-35-ipad{width: 60px;height: 60px;}
+	.h-60-35-ipad{height: 60px;}
+	.line-h-60-ipad{line-height: 60px;}
+	.f-20-14-ipad{font-size: 20px;}
+}
+@media (min-width:1300px) {
+	.img-60-35-ipad{width: 60px;height: 60px;}
+	.h-60-35-ipad{height: 60px;}
+	.line-h-60-ipad{line-height: 60px;}
+	.f-20-14-ipad{font-size: 20px;}
+}
