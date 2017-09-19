@@ -152,5 +152,51 @@
 }
 /* 评价页部分css */
 .img-200{width: 200px;height: 200px;}
+.img-300{width: 300px;height: 300px;}
 .w-70{width: 70px;}
 .min-h-40{min-height: 40px;}
+.pt-100{padding-top: 100px;}
+.pb-80{padding-bottom: 80px;}
+.min-h-300{min-height: 300px;}
+.pt-70{padding-top: 70px;}
+.bg-starun{background-image: url(../../img/user/Appraise/star-un.png);}
+.bg-starsel{background-image: url(../../img/user/Appraise/star-sel.png) !important;}
+.bg-faceauto{background-image: url(../../img/user/Appraise/facev5.png);}
+.pr-120{padding-right: 120px;}
+/* 订单评价部分响应式 */
+@media (min-width:768px) and (max-width:991px) {
+	.img-300-250-ipad{width: 250px;height: 250px;}
+	.min-h-300-250-ipad{min-height: 250px;}
+	.pr-120-30-ipad{padding-right: 30px;}
+	.img-200-100-ipad{width: 100px;height: 100px;}
+	.min-h-200-100-ipad{min-height: 100px;}
+	.f-16-12-ipad{font-size: 12px;}
+	.f-14-12-ipad{font-size: 12px;}
+}
+@media (min-width:992px) and (max-width:1199px) {
+	.img-300-250-ipad{width: 300px;height: 300px;}
+	.min-h-300-250-ipad{min-height: 300px;}
+	.pr-120-30-ipad{padding-right: 120px;}
+	.img-200-100-ipad{width: 170px;height: 170px;}
+	.min-h-200-100-ipad{min-height: 170px;}
+	.f-16-12-ipad{font-size: 14px;}
+	.f-14-12-ipad{font-size: 12px;}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+	.img-300-250-ipad{width: 300px;height: 300px;}
+	.min-h-300-250-ipad{min-height: 300px;}
+	.pr-120-30-ipad{padding-right: 120px;}
+	.img-200-100-ipad{width: 200px;height: 200px;}
+	.min-h-200-100-ipad{min-height: 200px;}
+	.f-16-12-ipad{font-size: 16px;}
+	.f-14-12-ipad{font-size: 14px;}
+}
+@media (min-width:1300px) {
+	.img-300-250-ipad{width: 300px;height: 300px;}
+	.min-h-300-250-ipad{min-height: 300px;}
+	.pr-120-30-ipad{padding-right: 120px;}
+	.img-200-100-ipad{width: 200px;height: 200px;}
+	.min-h-200-100-ipad{min-height: 200px;}
+	.f-16-12-ipad{font-size: 16px;}
+	.f-14-12-ipad{font-size: 14px;}
+}
