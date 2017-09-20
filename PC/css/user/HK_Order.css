@@ -161,8 +161,24 @@
 .pt-70{padding-top: 70px;}
 .bg-starun{background-image: url(../../img/user/Appraise/star-un.png);}
 .bg-starsel{background-image: url(../../img/user/Appraise/star-sel.png) !important;}
+.bg-facev1{background-image: url(../../img/user/Appraise/facev1.png);}
+.bg-facev2{background-image: url(../../img/user/Appraise/facev2.png);}
+.bg-facev3{background-image: url(../../img/user/Appraise/facev3.png);}
+.bg-facev4{background-image: url(../../img/user/Appraise/facev4.png);}
+.bg-facev5{background-image: url(../../img/user/Appraise/facev5.png);}
 .bg-faceauto{background-image: url(../../img/user/Appraise/facev5.png);}
 .pr-120{padding-right: 120px;}
+.h-120{height: 120px;}
+.bg-83c44e{background-color: #83c44e;}
+.pl-150{padding-left: 150px;}
+.mt-13{margin-top: 13px;}
+.col-ffd600{color: #ffd600;}
+.hovecol-ffd600:hover{color: #ffd600;}
+.w-200{width: 200px;}
+.bg-fec517{background-color: #fec517;}
+.hovebg-FFCE37:hover{background-color: #FFCE37;}
+.bor-col-e0e0e0{border-color: #e0e0e0;}
+.img-40{width: 40px;height: 40px;}
 /* 订单评价部分响应式 */
 @media (min-width:768px) and (max-width:991px) {
 	.img-300-250-ipad{width: 250px;height: 250px;}
@@ -172,6 +188,20 @@
 	.min-h-200-100-ipad{min-height: 100px;}
 	.f-16-12-ipad{font-size: 12px;}
 	.f-14-12-ipad{font-size: 12px;}
+	.pl-150-30-ipad{padding-left: 30px;}
+	.pr-120-30-ipadv2{padding-right: 30px;}
+	.img-40-25-ipad{width: 25px;height: 25px;}
+	.f-30-22-ipad{font-size: 22px;}
+	.f-22-16-ipad{font-size: 16px;}
+	.w-200-150-ipad{width: 150px;}
+	.h-50-35-ipad{height: 35px;}
+	.line-h-50-35-ipad{line-height: 35px;}
+	.mt-0-7-ipad{margin-top: 7px;}
+	.h-120-90-ipad{height: 90px;}
+	.ptb-35-20-ipad{padding-top: 20px;padding-bottom: 20px;}
+	.img-300-200-ipad{width: 200px;height: 200px;}
+	.min-h-300-200-ipad{min-height: 200px;}
+	.f-20-16-ipad{font-size: 16px;}
 }
 @media (min-width:992px) and (max-width:1199px) {
 	.img-300-250-ipad{width: 300px;height: 300px;}
@@ -181,6 +211,20 @@
 	.min-h-200-100-ipad{min-height: 170px;}
 	.f-16-12-ipad{font-size: 14px;}
 	.f-14-12-ipad{font-size: 12px;}
+	.pl-150-30-ipad{padding-left: 50px;}
+	.pr-120-30-ipadv2{padding-right: 50px;}
+	.img-40-25-ipad{width: 40px;height: 40px;}
+	.f-30-22-ipad{font-size: 30px;}
+	.f-22-16-ipad{font-size: 22px;}
+	.w-200-150-ipad{width: 200px;}
+	.h-50-35-ipad{height: 50px;}
+	.line-h-50-35-ipad{line-height: 50px;}
+	.mt-0-7-ipad{margin-top: 0px;}
+	.h-120-90-ipad{height: 120px;}
+	.ptb-35-20-ipad{padding-top: 35px;padding-bottom: 35px;}
+	.img-300-200-ipad{width: 300px;height: 300px;}
+	.min-h-300-200-ipad{min-height: 300px;}
+	.f-20-16-ipad{font-size: 20px;}
 }
 @media (min-width:1200px) and (max-width:1299px) {
 	.img-300-250-ipad{width: 300px;height: 300px;}
@@ -190,6 +234,20 @@
 	.min-h-200-100-ipad{min-height: 200px;}
 	.f-16-12-ipad{font-size: 16px;}
 	.f-14-12-ipad{font-size: 14px;}
+	.pl-150-30-ipad{padding-left: 150px;}
+	.pr-120-30-ipadv2{padding-right: 120px;}
+	.img-40-25-ipad{width: 40px;height: 40px;}
+	.f-30-22-ipad{font-size: 30px;}
+	.f-22-16-ipad{font-size: 22px;}
+	.w-200-150-ipad{width: 200px;}
+	.h-50-35-ipad{height: 50px;}
+	.line-h-50-35-ipad{line-height: 50px;}
+	.mt-0-7-ipad{margin-top: 0px;}
+	.h-120-90-ipad{height: 120px;}
+	.ptb-35-20-ipad{padding-top: 35px;padding-bottom: 35px;}
+	.img-300-200-ipad{width: 300px;height: 300px;}
+	.min-h-300-200-ipad{min-height: 300px;}
+	.f-20-16-ipad{font-size: 20px;}
 }
 @media (min-width:1300px) {
 	.img-300-250-ipad{width: 300px;height: 300px;}
@@ -199,4 +257,18 @@
 	.min-h-200-100-ipad{min-height: 200px;}
 	.f-16-12-ipad{font-size: 16px;}
 	.f-14-12-ipad{font-size: 14px;}
+	.pl-150-30-ipad{padding-left: 150px;}
+	.pr-120-30-ipadv2{padding-right: 120px;}
+	.img-40-25-ipad{width: 40px;height: 40px;}
+	.f-30-22-ipad{font-size: 30px;}
+	.f-22-16-ipad{font-size: 22px;}
+	.w-200-150-ipad{width: 200px;}
+	.h-50-35-ipad{height: 50px;}
+	.line-h-50-35-ipad{line-height: 50px;}
+	.mt-0-7-ipad{margin-top: 0px;}
+	.h-120-90-ipad{height: 120px;}
+	.ptb-35-20-ipad{padding-top: 35px;padding-bottom: 35px;}
+	.img-300-200-ipad{width: 300px;height: 300px;}
+	.min-h-300-200-ipad{min-height: 300px;}
+	.f-20-16-ipad{font-size: 20px;}
 }
