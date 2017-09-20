@@ -272,3 +272,36 @@
 	.min-h-300-200-ipad{min-height: 300px;}
 	.f-20-16-ipad{font-size: 20px;}
 }
+/* 评价列表部分css */
+.bor-col-D6D6D6{border-color: #D6D6D6}
+.sha-float-titlev1{-webkit-box-shadow: 0px 3px 10px rgba(0,0,0,.2);-moz-box-shadow: 0px 3px 10px rgba(0,0,0,.2);box-shadow: 0px 3px 10px rgba(0,0,0,.2);}
+.w-400{width: 400px;}
+.h-500{height: 500px;}
+.img-70{width: 70px;height: 70px;}
+.col-8d665a{color: #8d665a;}
+.hovecol-333:hover{color: #333;}
+.w-225{width: 225px;}
+.img-100{width: 100px;height: 100px;}
+.mt-70{margin-top: 70px;}
+.ml-800{margin-left: 800px;}
+/* 评价列表部分响应式 */
+@media (min-width:768px) and (max-width:991px) {
+	.plr-0-10-ipad{padding-left: 10px;padding-right: 10px;}
+	.line-h-40-30-ipad{line-height: 30px;}
+	.h-40-30-ipad{height: 30px;}
+}
+@media (min-width:992px) and (max-width:1199px) {
+	.plr-0-10-ipad{padding-left: 10px;padding-right: 10px;}
+	.line-h-40-30-ipad{line-height: 40px;}
+	.h-40-30-ipad{height: 40px;}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+	.plr-0-10-ipad{padding-left: 0px;padding-right: 0px;}
+	.line-h-40-30-ipad{line-height: 40px;}
+	.h-40-30-ipad{height: 40px;}
+}
+@media (min-width:1300px) {
+	.plr-0-10-ipad{padding-left: 0px;padding-right: 0px;}
+	.line-h-40-30-ipad{line-height: 40px;}
+	.h-40-30-ipad{height: 40px;}
+}

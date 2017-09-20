@@ -125,4 +125,30 @@ $(document).ready(function() {
         var thisindex = $(this).index();
         $(".record-face").val(thisindex+1);
     });
+    /*评价列表页js*/
+    $(window).scroll(function() {
+        backscrollshow();
+    });
+    $(".appraise-backup").click(function() {
+        var speed = 200;
+        $('body,html').animate({ scrollTop: 0 }, speed);
+    });
+    /*返回顶部按钮隐藏显示*/
+    backscrollshow();
+    function backscrollshow(){
+        //获取网页的总高度 
+        var htmlHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+        //获取网页的可视高度，  
+        var clientHeight = document.body.clientHeight || document.documentElement.clientHeight;
+        //获取滚动条的top位置，  
+        var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        var footerheight = $(".footer").height()
+        var backscroll = htmlHeight-scrollTop-clientHeight+70;
+        if (backscroll >= footerheight) {
+            $(".appraise-backup").show();
+        }
+        if (backscroll < footerheight) {
+            $(".appraise-backup").hide();
+        }
+    }
 });
