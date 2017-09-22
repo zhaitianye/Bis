@@ -124,7 +124,6 @@
 .bg-83c441{background-color: #83c441}
 .col-424242{color: #424242;}
 .col-757575{color: #757575;}
-.col-b0b0b0{color: #b0b0b0;}
 /* 订单详细页部分响应式 */
 @media (min-width:768px) and (max-width:991px) {
 	.img-60-35-ipad{width: 35px;height: 35px;}
@@ -306,3 +305,9 @@
 	.line-h-40-30-ipad{line-height: 40px;}
 	.h-40-30-ipad{height: 40px;}
 }
+/* 服务列表部分CSS */
+.bg-76bd27{background-color: #76bd27;}
+.bor-col-76bd27{border-color: #76db27;}
+.hovcol-76bd27:hover{color: #76bd27;}
+.hovebg-89D92E:hover{background-color: #89D92E;}
+.bor-col-b0b0b0{border-color: #b0b0b0;}
