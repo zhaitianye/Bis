@@ -312,6 +312,10 @@
 .hovebg-89D92E:hover{background-color: #89D92E;}
 .bor-col-b0b0b0{border-color: #b0b0b0;}
 .min-h-400{min-height: 400px;}
+.f-40{font-size: 40px;}
+.h-100{height: 100px;}
+.line-h-100{line-height: 100px;}
+.t-10{top: 10px;}
 /* 服务列表部分响应式 */
 @media (min-width:768px) and (max-width:991px) {
 	.pd-30-10-ipad{padding: 10px;}
