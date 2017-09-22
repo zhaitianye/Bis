@@ -142,17 +142,19 @@ $(document).ready(function() {
         var clientHeight = document.body.clientHeight || document.documentElement.clientHeight;
         //获取滚动条的top位置，  
         var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-        var posaapprightofftop = $("header").height() +100;
-        var posabottomofftop = htmlHeight - $(".footer").height() - 740;
+        var posaapprightofftop = $("header").height();
+        var posabottomofftop = htmlHeight - $(".footer").height() - 790;
         //console.log(posabottomofftop);
         //console.log($(".posa-appraiselist-rightbottom").offset().top);
         //console.log($(".aff-appraiselist-right").offset().top);
         if (scrollTop<posaapprightofftop) {
+            $(".aff-tit").hide();
             $(".posa-appraiselist-righttop").show();
             $(".aff-appraiselist-right").hide();
             $(".posa-appraiselist-rightbottom").hide();
             console.log(1);
         } else if (scrollTop >=posaapprightofftop && scrollTop<posabottomofftop) {
+            $(".aff-tit").show();
             $(".posa-appraiselist-righttop").hide();
             $(".aff-appraiselist-right").show();
             $(".posa-appraiselist-rightbottom").hide();
