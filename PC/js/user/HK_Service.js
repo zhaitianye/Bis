@@ -9,6 +9,9 @@ $(document).ready(function() {
         // 在键盘按下并释放及提交后验证提交表单
         $(".servicact-validate").validate({
             rules: {
+                appcode: {
+                    required: true,
+                },
                 appid: {
                     required: true,
                 },
@@ -18,6 +21,9 @@ $(document).ready(function() {
                 },
             },
             messages: {
+                appcode: {
+                    required: "请输入您的激活码",
+                },
                 appid: {
                     required: "请输入悉心APP帐号",
                 },

@@ -32,4 +32,41 @@
 .bg-E9E9E9{background-color: #E9E9E9;}
 .col-8c8c8c{color: #8c8c8c;}
 .hovecol-999:hover{color: #999 !important;}
-/* 中心部分css */
+/* 用户中心部分css */
+.bg-f5f5f5{background-color: #f5f5f5;}
+.pb-70{padding-bottom: 70px;}
+.col-212121{color: #212121;}
+.col-757575{color: #757575;}
+.col-757575i{color: #757575 !important;}
+.col-active{color: #309DE2 !important;}
+.hovecol-309DE2:hover{color: #309DE2 !important;}
+.pb-100{padding-bottom: 100px;}
+.pb-280{padding-bottom: 280px;}
+.w-120{width: 120px;}
+.img-120{width: 120px;height: 120px;}
+.img-110{width: 110px;height: 110px;}
+.col-309DE2{color: #309DE2;}
+.col-616161{color: #616161;}
+.col-b0b0b0{color: #b0b0b0;}
+.bor-col-e0e0e0{border-color: #e0e0e0;}
+.hovecol-309DE2:hover{color: #309DE2 !important;}
+@media (min-width:768px) and (max-width:991px) {
+	.f-20-16-ipad{font-size: 14px;}
+	.pd-40-10-ipad{padding: 10px;}
+	.plr-50-10-ipad{padding-left: 10px;padding-right: 10px;}
+}
+@media (min-width:992px) and (max-width:1199px) {
+	.f-20-16-ipad{font-size: 16px;}
+	.pd-40-10-ipad{padding: 40px;}
+	.plr-50-10-ipad{padding-left: 50px;padding-right: 50px;}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+	.f-20-16-ipad{font-size: 20px;}
+	.pd-40-10-ipad{padding: 40px;}
+	.plr-50-10-ipad{padding-left: 50px;padding-right: 50px;}
+}
+@media (min-width:1300px) {
+	.f-20-16-ipad{font-size: 20px;}
+	.pd-40-10-ipad{padding: 40px;}
+	.plr-50-10-ipad{padding-left: 50px;padding-right: 50px;}
+}
