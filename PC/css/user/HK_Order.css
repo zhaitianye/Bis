@@ -160,11 +160,11 @@
 .pt-70{padding-top: 70px;}
 .bg-starun{background-image: url(../../img/user/Appraise/star-un.png);}
 .bg-starsel{background-image: url(../../img/user/Appraise/star-sel.png) !important;}
-.bg-facev1{background-image: url(../../img/user/Appraise/facev1.png);}
-.bg-facev2{background-image: url(../../img/user/Appraise/facev2.png);}
-.bg-facev3{background-image: url(../../img/user/Appraise/facev3.png);}
-.bg-facev4{background-image: url(../../img/user/Appraise/facev4.png);}
-.bg-facev5{background-image: url(../../img/user/Appraise/facev5.png);}
+.bg-facev1{background-image: url(../../img/user/Appraise/facev1.png) !important;}
+.bg-facev2{background-image: url(../../img/user/Appraise/facev2.png) !important;}
+.bg-facev3{background-image: url(../../img/user/Appraise/facev3.png) !important;}
+.bg-facev4{background-image: url(../../img/user/Appraise/facev4.png) !important;}
+.bg-facev5{background-image: url(../../img/user/Appraise/facev5.png) !important;}
 .bg-faceauto{background-image: url(../../img/user/Appraise/facev5.png);}
 .pr-120{padding-right: 120px;}
 .h-120{height: 120px;}
