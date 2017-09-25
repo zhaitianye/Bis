@@ -54,19 +54,39 @@
 	.f-20-16-ipad{font-size: 14px;}
 	.pd-40-10-ipad{padding: 10px;}
 	.plr-50-10-ipad{padding-left: 10px;padding-right: 10px;}
+	.pt-40-20-ipad{padding-top: 20px;}
+	.f-50-40-ipad{font-size: 40px;}
+	.line-h-70-50-ipad{line-height: 50px;}
 }
 @media (min-width:992px) and (max-width:1199px) {
 	.f-20-16-ipad{font-size: 16px;}
 	.pd-40-10-ipad{padding: 40px;}
 	.plr-50-10-ipad{padding-left: 50px;padding-right: 50px;}
+	.pt-40-20-ipad{padding-top: 40px;}
+	.f-50-40-ipad{font-size: 50px;}
+	.line-h-70-50-ipad{line-height: 70px;}
 }
 @media (min-width:1200px) and (max-width:1299px) {
 	.f-20-16-ipad{font-size: 20px;}
 	.pd-40-10-ipad{padding: 40px;}
 	.plr-50-10-ipad{padding-left: 50px;padding-right: 50px;}
+	.pt-40-20-ipad{padding-top: 40px;}
+	.f-50-40-ipad{font-size: 50px;}
+	.line-h-70-50-ipad{line-height: 70px;}
 }
 @media (min-width:1300px) {
 	.f-20-16-ipad{font-size: 20px;}
 	.pd-40-10-ipad{padding: 40px;}
 	.plr-50-10-ipad{padding-left: 50px;padding-right: 50px;}
+	.pt-40-20-ipad{padding-top: 40px;}
+	.f-50-40-ipad{font-size: 50px;}
+	.line-h-70-50-ipad{line-height: 70px;}
 }
+/* 修改密码页css */
+.pb-280{padding-bottom: 280px;}
+.bor-col-f5f5f5{border-color: #f5f5f5;}
+.w-300{width: 300px;}
+.mt-14{margin-top: 14px;}
+.bor-none{border:none;}
+.bg-309DE2{background-color: #309DE2;}
+.hovbg-2D90CF:hover{background: #2D90CF !important;}
