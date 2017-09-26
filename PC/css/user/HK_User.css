@@ -50,6 +50,37 @@
 .col-b0b0b0{color: #b0b0b0;}
 .bor-col-e0e0e0{border-color: #e0e0e0;}
 .hovecol-309DE2:hover{color: #309DE2 !important;}
+.rgba-60{background: rgba(0,0,0,0.6)}
+.t-150{top: 150px;}
+.w-370{width: 370px;}
+.bg-5BC0DE{background-color: #5BC0DE;}
+.t--300{top: -300px;}
+.t-20{top: 20px;}
+.r-20{right: 20px;}
+.ani-selhead-logoin{animation: selheadin 0.6s; animation-fill-mode: forwards; -webkit-animation: selheadin 0.6s; -webkit-animation-fill-mode: forwards;}
+
+@keyframes selheadin
+{
+    from {top: -300;opacity:0;}
+    to {top: 0;opacity:1;}
+}
+ 
+@-webkit-keyframes selheadin
+{
+    from {top: -300;opacity:0;}
+    to {top: 0;opacity:1;}
+}
+.ani-selhead-logoout{animation: selheadout 0.3s; animation-fill-mode: forwards; -webkit-animation: selheadout 0.3s; -webkit-animation-fill-mode: forwards;}
+@keyframes selheadout
+{
+    from {top: 0;opacity:1;}
+    to {top: -300;opacity:0;}
+}
+@-webkit-keyframes selheadout
+{
+    from {top: 0;opacity:1;}
+    to {top: -300;opacity:0;}
+}
 @media (min-width:768px) and (max-width:991px) {
 	.f-20-16-ipad{font-size: 14px;}
 	.pd-40-10-ipad{padding: 10px;}
