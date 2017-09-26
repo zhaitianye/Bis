@@ -52,3 +52,58 @@
 .w-12d5p{width: 12.5%;}
 .w-87d5p{width: 87.5%;}
 .hovecol-309DE2:hover{color: #309DE2 !important;}
+/* 联系我们部分css */
+.bg-f5f5f5{background-color: #f5f5f5;}
+.pb-70{padding-bottom: 70px;}
+.col-212121{color: #212121;}
+.col-757575{color: #757575;}
+.col-757575i{color: #757575 !important;}
+.col-active{color: #309DE2 !important;}
+.hovecol-309DE2:hover{color: #309DE2 !important;}
+.hovbg-757575:hover{background: #757575 !important;}
+.w-110{width: 110px;}
+.bg-309DE2{background-color: #309DE2;}
+.bor-col-f5f5f5{border-color: #f5f5f5;}
+.col-b0b0b0{color: #b0b0b0;}
+.pb-280{padding-bottom: 280px;}
+.col-309DE2{color: #309DE2;}
+.h-34{height: 34px;}
+.line-h-34{line-height: 34px;}
+.col-616161{color: #616161;}
+.resize-v{resize: vertical;}
+.bor-none{border:none;}
+.hovbg-2D90CF:hover{background: #2D90CF !important;}
+.bg-309DE2{background-color: #309DE2;}
+.col-696969{color: #696969;}
+@media (min-width:768px) and (max-width:991px) {
+	.f-20-16-ipad{font-size: 14px;}
+	.pd-40-10-ipad{padding: 10px;}
+	.plr-50-10-ipad{padding-left: 10px;padding-right: 10px;}
+	.pt-40-20-ipad{padding-top: 20px;}
+	.f-50-40-ipad{font-size: 40px;}
+	.line-h-70-50-ipad{line-height: 50px;}
+}
+@media (min-width:992px) and (max-width:1199px) {
+	.f-20-16-ipad{font-size: 16px;}
+	.pd-40-10-ipad{padding: 40px;}
+	.plr-50-10-ipad{padding-left: 50px;padding-right: 50px;}
+	.pt-40-20-ipad{padding-top: 40px;}
+	.f-50-40-ipad{font-size: 50px;}
+	.line-h-70-50-ipad{line-height: 70px;}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+	.f-20-16-ipad{font-size: 20px;}
+	.pd-40-10-ipad{padding: 40px;}
+	.plr-50-10-ipad{padding-left: 50px;padding-right: 50px;}
+	.pt-40-20-ipad{padding-top: 40px;}
+	.f-50-40-ipad{font-size: 50px;}
+	.line-h-70-50-ipad{line-height: 70px;}
+}
+@media (min-width:1300px) {
+	.f-20-16-ipad{font-size: 20px;}
+	.pd-40-10-ipad{padding: 40px;}
+	.plr-50-10-ipad{padding-left: 50px;padding-right: 50px;}
+	.pt-40-20-ipad{padding-top: 40px;}
+	.f-50-40-ipad{font-size: 50px;}
+	.line-h-70-50-ipad{line-height: 70px;}
+}
