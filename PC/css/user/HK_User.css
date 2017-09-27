@@ -53,10 +53,22 @@
 .rgba-60{background: rgba(0,0,0,0.6)}
 .t-150{top: 150px;}
 .w-370{width: 370px;}
+.w-536{width: 536px;}
+.w-900{width: 900px;}
 .bg-5BC0DE{background-color: #5BC0DE;}
 .t--300{top: -300px;}
 .t-20{top: 20px;}
 .r-20{right: 20px;}
+.bor-col-fff{border-color: #fff;}
+.box-sha-imgsha{box-shadow: 0 0 5px rgba(0,0,0,.15);}
+.h-364{height: 364px;}
+.img-184{width: 184px;height: 184px;}
+.img-100{width: 100px;height: 100px;}
+.img-50{width: 50px;height: 50px;}
+.bg-fcfcfc{background-color: #fcfcfc;}
+.box-sha-inset-big{box-shadow: inset 0 0 5px rgba(0,0,0,.25);}
+.opacity-0{opacity:0;}
+.maxw-100p{max-width: 100%}
 .ani-selhead-logoin{animation: selheadin 0.6s; animation-fill-mode: forwards; -webkit-animation: selheadin 0.6s; -webkit-animation-fill-mode: forwards;}
 
 @keyframes selheadin

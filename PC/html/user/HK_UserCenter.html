@@ -14,8 +14,10 @@
     <!-- base -->
     <link href="../../ctrl/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../../ctrl/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link  href="../../ctrl/cropper/dist/cropper.min.css" rel="stylesheet">
     <link href="../../css/comm/base.css" rel="stylesheet">
     <link href="../../css/user/HK_User.css" rel="stylesheet">
+
     <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -104,7 +106,7 @@
                     <div class="clear">
                         <div class="clear col-sm-3 pl-0 pr-0">
                             <div class="clear pull-left w-120">
-                                <img class="img-120 overflow-h full-radius" src="../../img/user/User/user-head-portrait.jpg" alt="">
+                                <img class="img-120 overflow-h full-radius bor bor-3px bor-col-fff box-sha-imgsha" src="../../img/user/User/user-head-portrait.jpg" alt="">
                                 <p class="text-center cur-p line-h-40 f-20 col-309DE2 set-heads">
                                     设置头像
                                 </p>
@@ -261,16 +263,54 @@
     <!-- 选择头像弹出层 -->
     <div class="clear show-selhead affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
         <div class="pos-a t-150 l-0 full-w">
-            <div class="w-370 mg-0-auto clear pos-r bg-white selhead-content radius-5 pb-20 t--300 modal-content">
-                <div class="pt-15 pb-15 line-h-30 pos-r f-20 pl-20 pr-20 col-333 full-w bor bor-b bor-col-white radius-5 text-center cur-d">
-                    选择你的头像
-                    <img class="pos-a t-20 r-20 img-20 close-mod cur-p" src="../../img/user/user/close.png" alt="">
+            <div class="w-900 mg-0-auto clear pos-r bg-white selhead-content radius-5 t--300 modal-content">
+                <div class="pt-10 pb-10 line-h-25 pos-r f-20 pl-20 pr-20 col-333 full-w radius-5 cur-d">
+                    选择头像
+                    <img class="pos-a t-10 r-20 img-20 close-mod cur-p" src="../../img/user/user/close.png" alt="">
+                </div>
+                <div class="clear bor bor-t bor-col-f2 pd-20">
+                    <div class="clear col-sm-9 h-364 bg-fcfcfc box-sha-inset-big pos-r pl-0 pr-0 overflow-h">
+                        <div class="clear " style="width: 643px;height: 364px;">
+                            <img id="show-main-img" class="max-w-100p" src="">
+                        </div>
+                    </div>
+                    <div class="clear col-sm-3">
+                        <div class="clear">
+                            <img id="show-little-imgv1" class="img-184 img-thumbnail" src="" alt="">
+                        </div>
+                        <div class="clear mt-15">
+                            <img id="show-little-imgv2" class="img-184 img-thumbnail full-radius" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="clear col-sm-12 pl-0 pr-0 mt-30 mb-10">
+                        <div class="clear col-sm-9 btn-toolbar" role="toolbar">
+                            <div class="btn-group pull-left col-sm-2" role="group">
+                                <span class="btn btn-success pos-r cur-p">
+                                    <input type="file" id="sel-file" class="opacity-0 pos-a t-0 l-0 full-wh cur-p">选择文件
+                                </span>
+                            </div>
+                            <div class="btn-group pull-left col-sm-3" role="group">
+                                <button type="button" class="btn btn-success cro-btn-reset">重置操作</button>
+                            </div>
+                            <div class="btn-group pull-left pull-right" role="group">
+                                <button type="button" class="btn btn-success cro-btn-big">放大</button>
+                                <button type="button" class="btn btn-success cro-btn-small">缩小</button>
+                                <button type="button" class="btn btn-success cro-btn-left">左旋</button>
+                                <button type="button" class="btn btn-success cro-btn-right">右旋</button>
+                            </div>
+                        </div>
+                        <div class="clear col-sm-3">
+                            <button class="btn full-w btn-success cro-btn-submit">确定上传</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../ctrl/cropper/dist/cropper.min.js"></script>
     <script src="../../ctrl/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../../ctrl/layer/layer.js"></script>
     <script src="../../js/comm/base.js"></script>
     <script src="../../js/user/HK_User.js"></script>
 
