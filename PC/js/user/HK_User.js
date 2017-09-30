@@ -64,4 +64,17 @@ $(document).ready(function() {
         }, 3000);
         
     })
+/*    var canvas = document.getElementById("canvas");
+        canvas.toBlob(function(blob) {
+        var newImg = document.createElement("img"),
+          url = URL.createObjectURL(blob);
+
+      newImg.onload = function() {
+        // no longer need to read the blob so it's revoked
+        URL.revokeObjectURL(url);
+      };
+      https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toBlob
+      newImg.src = url;
+      document.body.appendChild(newImg);
+    });*/
 });
