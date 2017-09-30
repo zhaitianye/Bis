@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- necessary -->
+    <meta name="keywords" content="1,2,3">
+    <meta name="description" content="">
+    <!-- description -->
+    <meta name="renderer" content="webkit">
+    <title>绑定邮箱</title>
+    <!-- base -->
+    <link href="../../css/comm/base-m.css" rel="stylesheet">
+    <link href="../../css/user/user.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    label.error {
+        display: inline-block;
+        margin: 5px 10px 0px 10px;
+        color: #c00;
+    }
+    </style>
+</head>
+<body>
+    <div class="clear pl-30 pr-30">
+        <p class="pt-30 pb-15 text-center f-14 f-w col-737373 line-h-20">
+            我们将发送一封带有激活连接的邮件到此邮箱
+        </p>
+        <form class="bound-email-form" action="">
+            <div class="clear min-h-55">
+                <input class="form-control full-w h-35 line-h-35 f-14 pl-5 pr-5 radius-5 bor bor-col-7C7C7C focus-input-pri" type="text" placeholder="请输入你的邮箱地址" name="boundemail">
+            </div>
+            <div class="clear mt-10">
+                <button type="submit" class="full-w h-40 line-h-40 text-center bor-none col-white f-16 f-w bg-0098dc radius-20 bghov-8884c2">
+                    下一步
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/jquery.validate.min.js"></script>
+    <script src="../../js/comm/jquery.validate.messages_zh.js"></script>
+    <script src="../../js/user/user_bound_email.js"></script>
+</body>
+</html>

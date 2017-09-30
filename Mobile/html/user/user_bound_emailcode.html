@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- necessary -->
+    <meta name="keywords" content="1,2,3">
+    <meta name="description" content="">
+    <!-- description -->
+    <meta name="renderer" content="webkit">
+    <title>验证邮箱-验证码</title>
+    <!-- base -->
+
+    <link href="../../css/comm/base-m.css" rel="stylesheet">
+    <link href="../../css/user/user.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    label.error {
+        display: inline-block;
+        margin: 5px 15px;
+        color: #c00;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="clear pl-30 pr-30">
+        <p class="pt-40 pb-20 text-center f-16 f-w col-646464 line-h-20">
+            帐号安全验证
+        </p>
+        <p class="pt-10 pb-20 f-14 col-737373 line-h-20">
+            请使用安全邮箱<span class="col-ff5400">163@126.qq.com</span>获取验证码
+        </p>
+        <form class="bound-email-form" action="">
+            <div class="clear pos-r full-w min-h-65">
+                <input type="text" class="full-w bor radius-20 line-h-40 h-40 bor-col-7C7C7C f-16 pl-10 pr-10 col-333 bound-code" name="boundcode" placeholder="请输入验证码" maxlength="4">
+                <button class="clear pos-a t-5 r-5 h-30 line-h-28 radius-15 bg-efeff0 pl-15 pr-15 bor bor-col-dadada sendMessagebtn">
+                    <img class="h-15 mr-5 pos-r t--1" src="../../img/user/bound_phone_tipsv1.png" alt="">
+                    <span class="col-262626 sendMessagetext">重新获取</span>
+                </button>
+            </div>
+            <div class="clear mt-10">
+                <button type="submit" class="full-w h-40 line-h-40 text-center bor-none col-white f-16 f-w bg-0098dc radius-20 bghov-8884c2">
+                    确定
+                </button>
+            </div>
+            <p class="col-b7b7b7 f-14 f-w line-h-20 pt-10 text-center col-325c92">
+                无法验证请联系客服申诉
+            </p>
+        </form>
+    </div>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/jquery.validate.min.js"></script>
+    <script src="../../js/comm/jquery.validate.messages_zh.js"></script>
+    <script src="../../js/user/user_bound_emailcode.js"></script>
+</body>
+</html>

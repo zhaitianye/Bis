@@ -6,12 +6,15 @@
   .h-80-60{height: 80px;}
   .h-60-50{height: 60px;}
   .h-30-20{height: 30px;}
+  .h-50-40{height: 50px;}
   .line-h-25-20{line-height: 25px;}
   .line-h-40-30{line-height: 40px;}
   .line-h-60-50{line-height: 60px;}
   .line-h-80-60{line-height: 80px;}
   .mtb-5-0{margin-top: 5px; margin-bottom: 5px;}
   .ptb-10-5{padding-top: 10px;padding-bottom: 10px;}
+  .line-h-50-40{line-height: 50px;}
+  .f-18-14{font-size: 18px;}
 }
 @media (max-width: 349px){
   .img-30-20{width: 20px;height: 20px;}
@@ -20,12 +23,15 @@
   .h-80-60{height: 60px;}
   .h-60-50{height: 50px;}
   .h-30-20{height: 20px;}
+  .h-50-40{height: 40px;}
   .line-h-25-20{line-height: 20px;}
   .line-h-40-30{line-height: 30px;}
   .line-h-60-50{line-height: 50px;}
   .line-h-80-60{line-height: 60px;}
   .mtb-5-0{margin-top: 0px; margin-bottom: 0px;}
   .ptb-10-5{padding-top: 5px;padding-bottom: 5px;}
+  .line-h-50-40{line-height: 40px;}
+  .f-18-14{font-size: 14px;}
 }
 .bg-F2F2F2{background-color: #F2F2F2;}
 .bg-E5E5E5{background-color: #E5E5E5;}
@@ -49,3 +55,34 @@
 .focus-input-pri:focus{border-color: #66afe9;outline: 0;-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);}
 .t-35{top: 35px;}
 .h-140{height: 140px;}
+.col-9b9b9b{color: #9b9b9b;}
+.col-6c6c6c{color: #6c6c6c;}
+.b-15{bottom: 15px;}
+.w-90s{width: 90%;}
+.bor-col-e8e8e8{border-color: #e8e8e8;}
+.col-309de2{color: #309de2}
+.rgba-40{background: rgba(0,0,0,0.4)}
+.col-646464{color: #646464;}
+.col-b7b7b7{color: #b7b7b7;}
+.col-ff6a2e{color: #ff6a2e;}
+.bg-0098dc{background-color:#0098dc;}
+.bghov-8884c2:hover{background-color: #0084c2;}
+.col-325c92{color: #325c92;}
+.col-737373{color: #737373;}
+.bg-efeff0{background-color: #efeff0;}
+.col-262626{color: #262626;}
+.bor-col-dadada{border-color: #dadada;}
+.line-h-28{line-height: 28px;}
+.col-ff5400{color: #ff5400;}
+.bg-boundmanli-act{background-color: #0098dc; color: white !important;}
+.bg-0084c2{background-color:#0084c2; color: white !important;}
+.w-70s{width: 70%;}
+.col-5f5f5f{color: #5f5f5f;}
+.col-aaa{color: #aaa;}
+.bghov-c2c2c2:hover{background-color: #c2c2c2;}
+.col-6d6d6d{color: #6d6d6d;}
+.hovercol-fff:hover{color: #fff;}
+.hoverbor-colc2c2c2:hover{border-color: #c2c2c2;}
+.min-h-55{min-height: 55px;}
+.min-h-65{min-height: 65px;}
+.min-h-70{min-height: 70px;}

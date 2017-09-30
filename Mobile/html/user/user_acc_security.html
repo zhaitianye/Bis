@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- necessary -->
+    <meta name="keywords" content="1,2,3">
+    <meta name="description" content="">
+    <!-- description -->
+    <meta name="renderer" content="webkit">
+    <title>账号安全</title>
+    <!-- base -->
+    <link href="../../css/comm/base-m.css" rel="stylesheet">
+    <link href="../../css/user/user.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="bg-F2F2F2">
+    <!-- 标题登录 -->
+    <div class="clear full-w pl-25 pr-25 bg-white">
+        <div class="clear bor bor-b bor-col-e8e8e8">
+            <div class="clear h-50-40 line-h-50-40 col-xs-11 pull-left pl-0 pr-0 ">
+                <span class="col-9b9b9b f-14 ml-15 mtb-5-0 line-h-20">登录</span>
+            </div>
+        </div>
+    </div>
+    <!-- 绑定手机 -->
+    <div class="clear full-w pl-25 pr-25 bg-white bound-phone">
+        <div class="clear bor bor-b bor-col-e8e8e8">
+            <div class="clear h-60-50 pt-15 pb-15 col-xs-6 pull-left pl-0 pr-0 ">
+                <span class="col-333 f-16 ml-15 mtb-5-0 line-h-20 dis-ib pull-left">绑定手机</span>
+            </div>
+            <div class="clear h-60-50 pt-15 pb-15 col-xs-5 pull-left pl-0 pr-0">
+                <!-- 设置手机号的时候，有手机号设置下面的值为1，无手机号设置为0，方面js调用 -->
+                <input type="hidden" value="1" class="ishassecurity-phone">
+                <span class="col-6c6c6c f-16 mtb-5-0 line-h-20 dis-ib pull-right mr-5">13800138000</span>
+            </div>
+            <div class="clear h-60-50 pull-left col-xs-1 pl-0 pr-0 text-center line-h-60-50">
+                <img class="w-10" src="../../img/user/right-arrow.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 绑定邮箱 -->
+    <div class="clear full-w pl-25 pr-25 bg-white bound-email">
+        <div class="clear bor bor-b bor-col-e8e8e8">
+            <div class="clear h-60-50 pt-15 pb-15 col-xs-6 pull-left pl-0 pr-0 ">
+                <span class="col-333 f-16 ml-15 mtb-5-0 line-h-20 dis-ib pull-left">绑定邮箱</span>
+            </div>
+            <div class="clear h-60-50 pt-15 pb-15 col-xs-5 pull-left pl-0 pr-0 ">
+                <!-- 设置邮箱的时候，有邮箱设置下面的值为1，无邮箱设置为0，方面js调用 -->
+                <input type="hidden" value="0" class="ishassecurity-email">
+                <span class="col-6c6c6c f-16 mtb-5-0 line-h-20 dis-ib pull-right mr-5">未绑定</span>
+            </div>
+            <div class="clear h-60-50 pull-left col-xs-1 pl-0 pr-0 text-center line-h-60-50">
+                <img class="w-10" src="../../img/user/right-arrow.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 微信号 -->
+    <div class="clear full-w pl-25 pr-25 bg-white">
+        <div class="clear">
+            <div class="clear h-60-50 pt-15 pb-15 col-xs-6 pull-left pl-0 pr-0 ">
+                <span class="col-333 f-16 ml-15 mtb-5-0 line-h-20 dis-ib pull-left">微信号</span>
+            </div>
+            <div class="clear h-60-50 pt-15 pb-15 col-xs-5 pull-left pl-0 pr-0 ">
+                <span class="col-6c6c6c f-16 mtb-5-0 line-h-20 dis-ib pull-right mr-5">未绑定</span>
+            </div>
+            <div class="clear h-60-50 pull-left col-xs-1 pl-0 pr-0 text-center line-h-60-50">
+                <img class="w-10" src="../../img/user/right-arrow.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 弹出层 -->
+        <!-- 更换安全邮箱 -->
+        <div class="show-changeemail affix t-0 l-0 z-999 rgba-40 full-wh overflow-h dis-n">
+            <div class="pos-a b-15 l-0 full-w">
+                <div class="w-90s mg-0-auto clear pos-r radius-10 bg-white changeemail-content" >
+                    <div class="pt-15 pb-15 pos-r f-16 f-w col-646464 full-w text-center">
+                        更换安全邮箱
+                        <img class="pos-a t-13 r-10 img-20 close-mod" src="../../img/bisserve/close.png" alt="">
+                    </div>
+                    <div class="clear bor bor-b bor-col-e8e8e8">
+                    </div>
+                    <div class="clear pt-40 pb-40 col-646464 f-18-14 text-center">
+                        更换安全邮箱，需要验证您的身份信息
+                    </div>
+                    <div class="clear full-w bor bor-t bor-col-e8e8e8">
+                        <div class="clear col-xs-6 h-50 line-h-50 text-center bg-f2f2f2 col-818181 bor bor-r bor-col-e8e8e8 pl-0 pr-0 f-14 close-mod">取消</div>
+                        <div class="clear col-xs-6 h-50 line-h-50 text-center bg-f2f2f2 col-309de2 f-14">确定</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 更换绑定手机 -->
+        <div class="show-changephone affix t-0 l-0 z-999 rgba-40 full-wh overflow-h dis-n">
+            <div class="pos-a b-15 l-0 full-w">
+                <div class="w-90s mg-0-auto clear pos-r radius-10 bg-white changephone-content" >
+                    <div class="pt-15 pb-15 pos-r f-16 f-w col-646464 full-w text-center">
+                        更换绑定手机
+                        <img class="pos-a t-13 r-10 img-20 close-mod" src="../../img/bisserve/close.png" alt="">
+                    </div>
+                    <div class="clear bor bor-b bor-col-e8e8e8">
+                    </div>
+                    <div class="clear pt-40 pb-40 col-646464 f-18-14 text-center">
+                        更换绑定手机，需要验证您的身份信息
+                    </div>
+                    <div class="clear full-w bor bor-t bor-col-e8e8e8">
+                        <div class="clear col-xs-6 h-50 line-h-50 text-center bg-f2f2f2 col-818181 bor bor-r bor-col-e8e8e8 pl-0 pr-0 f-14 close-mod">取消</div>
+                        <div class="clear col-xs-6 h-50 line-h-50 text-center bg-f2f2f2 col-309de2 f-14">确定</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 设置安全邮箱 -->
+        <div class="show-setemail affix t-0 l-0 z-999 rgba-40 full-wh overflow-h dis-n">
+            <div class="pos-a b-15 l-0 full-w">
+                <div class="w-90s mg-0-auto clear pos-r radius-10 bg-white setemail-content" >
+                    <div class="pt-15 pb-15 pos-r f-16 f-w col-646464 full-w text-center">
+                        设置安全邮箱
+                        <img class="pos-a t-13 r-10 img-20 close-mod" src="../../img/bisserve/close.png" alt="">
+                    </div>
+                    <div class="clear bor bor-b bor-col-e8e8e8">
+                    </div>
+                    <div class="clear pt-40 pb-40 col-646464 f-18-14 text-center">
+                        设置安全邮箱，需要验证您的身份信息
+                    </div>
+                    <div class="clear full-w bor bor-t bor-col-e8e8e8">
+                        <div class="clear col-xs-6 h-50 line-h-50 text-center bg-f2f2f2 col-818181 bor bor-r bor-col-e8e8e8 pl-0 pr-0 f-14 close-mod">取消</div>
+                        <div class="clear col-xs-6 h-50 line-h-50 text-center bg-f2f2f2 col-309de2 f-14">确定</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 设置绑定手机 -->
+        <div class="show-setphone affix t-0 l-0 z-999 rgba-40 full-wh overflow-h dis-n">
+            <div class="pos-a b-15 l-0 full-w">
+                <div class="w-90s mg-0-auto clear pos-r radius-10 bg-white setphone-content" >
+                    <div class="pt-15 pb-15 pos-r f-16 f-w col-646464 full-w text-center">
+                        设置绑定手机
+                        <img class="pos-a t-13 r-10 img-20 close-mod" src="../../img/bisserve/close.png" alt="">
+                    </div>
+                    <div class="clear bor bor-b bor-col-e8e8e8">
+                    </div>
+                    <div class="clear pt-40 pb-40 col-646464 f-18-14 text-center">
+                        设置绑定手机，需要验证您的身份信息
+                    </div>
+                    <div class="clear full-w bor bor-t bor-col-e8e8e8">
+                        <div class="clear col-xs-6 h-50 line-h-50 text-center bg-f2f2f2 col-818181 bor bor-r bor-col-e8e8e8 pl-0 pr-0 f-14 close-mod">取消</div>
+                        <div class="clear col-xs-6 h-50 line-h-50 text-center bg-f2f2f2 col-309de2 f-14">确定</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/user/user.js"></script>
+</body>
+</html>

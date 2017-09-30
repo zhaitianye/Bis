@@ -62,5 +62,50 @@ $(document).ready(function() {
     $(".swiper-wrapper-li").mouseleave(function() {
         $(this).find(".linkmansel-li").removeClass("bg-FFB779");
     });
+    /* 用户账号安全弹出层*/
+    $(".bound-phone").click(function() {
+        var isval = parseInt($(".ishassecurity-phone").val());
+        if (isval == 0) {
+            $(".show-setphone").show();
+        }else{
+            $(".show-changephone").show();
+        }
+    });
+     $(".bound-email").click(function() {
+        var isval = parseInt($(".ishassecurity-email").val());
+        if (isval == 0) {
+            $(".show-setemail").show();
+        }else{
+            $(".show-changeemail").show();
+        }
+    });
+    $(".show-setphone").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".setphone-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".show-setphone").hide()
+        };
+    })
+    $(".show-changephone").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".changephone-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".show-changephone").hide()
+        };
+    })
+    $(".show-setemail").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".setemail-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".show-setemail").hide()
+        };
+    })
+    $(".show-changeemail").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".changeemail-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".show-changeemail").hide()
+        };
+    })
 
 });
