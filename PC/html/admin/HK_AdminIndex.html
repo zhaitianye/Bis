@@ -14,7 +14,7 @@
     <!-- base -->
     <link href="../../ctrl/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../../ctrl/layui/css/layui.css" rel="stylesheet">
-    <link href="../../css/comm/base-m.css" rel="stylesheet">
+    <link href="../../css/comm/base.css" rel="stylesheet">
     <link href="../../css/admin/HK_Admin.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -22,142 +22,80 @@
     <![endif]-->
 </head>
 
-<body>
-    <header class="clear full-w header bg-393D49">
-        <div class="container">
-            <ul class="layui-nav text-right" lay-filter="">
-                <img class="pull-left dis-ib pos-r t-10 l-15 w-180" src="../../img/index/logov1.png" alt="">
-                <li class="layui-nav-item layui-this"><a class="t-nonehove" href="">管理中心</a></li>
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">
+                BISA 后台管理
+            </div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="">管理中心</a></li>
+                <li class="layui-nav-item"><a href="">用户管理</a></li>
+                <li class="layui-nav-item"><a href="">商品管理</a></li>
+                <li class="layui-nav-item"><a href="">订单管理</a></li>
+                <li class="layui-nav-item"><a href="">新闻管理</a></li>
+                <li class="layui-nav-item"><a href="">评价管理</a></li>
                 <li class="layui-nav-item">
-                    <a class="t-nonehove" href="javascript:;">商品管理</a>
-                    <dl class="layui-nav-child text-center">
-                        <!-- 二级菜单 -->
-                        <dd><a class="t-nonehove" href="">添加商品</a></dd>
-                        <dd><a class="t-nonehove" href="">查看商品信息</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a class="t-nonehove" href="javascript:;">订单管理</a>
-                    <dl class="layui-nav-child text-center">
-                        <!-- 二级菜单 -->
-                        <dd><a class="t-nonehove" href="">查看订单信息</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a class="t-nonehove" href="javascript:;">新闻管理</a>
-                    <dl class="layui-nav-child text-center">
-                        <!-- 二级菜单 -->
-                        <dd><a class="t-nonehove" href="">添加新闻</a></dd>
-                        <dd><a class="t-nonehove" href="">查看新闻列表</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a class="t-nonehove" href="javascript:;">评价管理</a>
-                    <dl class="layui-nav-child text-center">
-                        <!-- 二级菜单 -->
-                        <dd><a class="t-nonehove" href="">查看评价列表</a></dd>
-                        <dd><a class="t-nonehove" href="">增加评价</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a class="t-nonehove" href="javascript:;">用户管理</a>
-                    <dl class="layui-nav-child text-center">
-                        <!-- 二级菜单 -->
-                        <dd><a class="t-nonehove" href="">添加新用户</a></dd>
-                        <dd><a class="t-nonehove" href="">查看用户列表</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item"><a class="t-nonehove" href="">其他管理</a></li>
-                <li class="layui-nav-item">
-                    <a class="t-nonehove" href=""><img src="http://t.cn/RCzsdCq" class="layui-nav-img">管理员中心</a>
-                    <dl class="layui-nav-child text-center">
-                        <dd><a class="t-nonehove" href="">修改信息</a></dd>
-                        <dd><a class="t-nonehove" href="">安全管理</a></dd>
-                        <dd><a class="t-nonehove" href="">退出</a></dd>
+                    <a href="javascript:;">其它管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">主页管理</a></dd>
+                        <dd><a href="">调价管理</a></dd>
+                        <dd><a href="">发布管理</a></dd>
                     </dl>
                 </li>
             </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                        管理员
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">退了</a></li>
+            </ul>
         </div>
-    </header>
-    
-    <div class="wrap clear">
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">所有商品</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">列表一</a></dd>
+                            <dd><a href="javascript:;">列表二</a></dd>
+                            <dd><a href="javascript:;">列表三</a></dd>
+                            <dd><a href="">超链接</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">解决方案</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">列表一</a></dd>
+                            <dd><a href="javascript:;">列表二</a></dd>
+                            <dd><a href="">超链接</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="">云市场</a></li>
+                    <li class="layui-nav-item"><a href="">发布商品</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;">内容主体区域</div>
+        </div>
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © layui.com - 底部固定区域
+        </div>
     </div>
-    <footer class="full-w bg-E9E9E9 footer">
-        <div class="container pt-20 pb-20 clear">
-            <div class="col-xs-2">
-                <ul class="">
-                    <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">关于碧沙</a></li>
-                    <li class="pt-20"><a class="col-8c8c8c t-nonehove hovecol-999" href="">公司简介</a></li>
-                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">服务宗旨</a></li>
-                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">经营理念</a></li>
-                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">经营理念</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-2">
-                <ul class="">
-                    <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">网上商店</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-2">
-                <ul class="">
-                    <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">健康咨询</a></li>
-                    <li class="pt-20"><a class="col-8c8c8c t-nonehove hovecol-999" href="">新品推荐</a></li>
-                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">最新动态</a></li>
-                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">健康新闻</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-2">
-                <ul class="">
-                    <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">购物指南</a></li>
-                    <li class="pt-20"><a class="col-8c8c8c t-nonehove hovecol-999" href="">购物流程</a></li>
-                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">送货详情</a></li>
-                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">付款方式</a></li>
-                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">常见问题</a></li>
-                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">售后政策</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-2">
-                <ul class="">
-                    <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">联络我们</a></li>
-                    <li class="pt-20"><a class="col-8c8c8c t-nonehove hovecol-999" href="">联络我们</a></li>
-                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">免责声明</a></li>
-                    <li class="pt-10"><a class="col-8c8c8c t-nonehove hovecol-999" href="">隐私原则</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-2">
-                <ul class="">
-                    <li class="f-14 f-w"><a class="col-8c8c8c t-nonehove hovecol-999" href="">关于我们</a></li>
-                    <li class="clear pt-20">
-                        <div class="pull-left pr-20">
-                            <a href=""><img src="../../img/index/sharetips1.png" alt=""></a>
-                        </div>
-                        <div class="pull-left">
-                            <a href=""><img src="../../img/index/sharetips2.png" alt=""></a>
-                        </div>
-                    </li>
-                    <li class="clear pt-10">
-                        <div class="pull-left pr-20">
-                            <a href=""><img src="../../img/index/sharetips3.png" alt=""></a>
-                        </div>
-                        <div class="pull-left">
-                            <a href=""><img src="../../img/index/sharetips4.png" alt=""></a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="container pt-10 pb-10 clear">
-            <p class="text-center col-8c8c8c line-h-20 cur-d">
-                本网站内所示之图片只供参考
-            </p>
-            <p class="text-center col-8c8c8c line-h-20 cur-d">
-                Copyright©2017. <a class="col-8c8c8c t-nonehove hovecol-999" href="">碧沙科技有限公司</a> All Rights Reserved.
-            </p>
-        </div>
-    </footer>
     <script src="../../js/comm/jquery.min.js"></script>
     <script src="../../ctrl/layui/layui.js"></script>
-    <script src="../../js/comm/base.js"></script>
     <script src="../../js/admin/HK_AdminIndex.js"></script>
 </body>
 

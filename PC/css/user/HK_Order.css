@@ -125,6 +125,7 @@
 .bg-83c441{background-color: #83c441}
 .col-424242{color: #424242;}
 .col-757575{color: #757575;}
+.bor-col-cfeeab{border-color: #cfeeab;}
 /* 订单详细页部分响应式 */
 @media (min-width:768px) and (max-width:991px) {
 	.img-60-35-ipad{width: 35px;height: 35px;}
