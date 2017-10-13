@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <!-- description -->
     <meta name="renderer" content="webkit">
-    <title>碧沙康健_评价管理</title>
+    <title>碧沙康健_留言管理</title>
     <!-- base -->
     <link href="../../../ctrl/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../../../ctrl/layui/css/layui.css" rel="stylesheet">
@@ -72,7 +72,45 @@
         <div class="layui-body">
             <div style="padding: 50px;">
                 <p class="f-18 pt-15 pb-15 col-8d969d">
-                    评价列表
+                    搜索留言
+                </p>
+                <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2">
+                    <!-- 这里用layui的数据表格的重载 -->
+                    <form class="layui-form" action="">
+                        <div class="layui-form-item" pane="">
+                            <label class="layui-form-label f-14">筛选：</label>
+                            <div class="layui-input-block">
+                                <button type="button" class="layui-btn layui-btn-small btn-sidebar">全部</button>
+                                <button type="button" class="layui-btn layui-btn-primary layui-btn-small btn-sidebar">未回访</button>
+                                <button type="button" class="layui-btn layui-btn-primary layui-btn-small btn-sidebar">已回访</button>
+                            </div>
+                        </div>
+                        <div class="layui-form-item mb-0" pane="">
+                            <label class="layui-form-label f-14">搜索：</label>
+                            <div class="layui-input-block">
+                                <div class="layui-inline">
+                                    <select name="searchabout" lay-verify="required" lay-search="">
+                                        <option value="">请选择您要查询的内容</option>
+                                        <option value="1">ID</option>
+                                        <option value="2">姓名</option>
+                                        <option value="3">电话</option>
+                                        <option value="4">邮箱</option>
+                                    </select>
+                                </div>
+                                <div class="layui-inline">
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="incontent" lay-verify="required" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <button type="submit" class="layui-btn layui-btn-small" lay-submit="" lay-filter="search1">搜索</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <p class="f-18 pt-15 pb-15 mt-40 col-8d969d">
+                    留言列表
                 </p>
                 <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2 min-w-1200">
                     <table id="commentlist" lay-filter="test"></table>
@@ -88,9 +126,9 @@
     </div>
     <script src="../../../js/comm/jquery.min.js"></script>
     <script src="../../../ctrl/layui/layui.js"></script>
-    <script src="../../../js/admin/admin_comment/HK_AdminCommentList.js"></script>
+    <script src="../../../js/admin/admin_comment/HK_AdminMsg.js"></script>
     <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-mini layui-btn-danger" lay-event="delcomment">删除评论</a>
+        <a class="layui-btn layui-btn-mini" lay-event="detail">查看详细</a>
     </script>
 </body>
 

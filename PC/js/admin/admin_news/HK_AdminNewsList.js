@@ -16,7 +16,7 @@ $(document).ready(function() {
         //执行渲染
         table.render({
             elem: '#commentlist', //指定原始表格元素选择器（推荐id选择器）
-            height: 600, //容器高度
+            height: 400, //容器高度
             cols: [
                 [ //标题栏
                     { field: 'id', title: 'ID', width: 80, sort: true },
@@ -47,7 +47,7 @@ $(document).ready(function() {
             var tr = obj.tr; //获得当前行 tr 的DOM对象
 
             if(layEvent === 'detail'){ //查看
-                console.log("查看操作");
+                console.log(data.id +"的查看操作");
                 /*在此处跳文章的详细页*/
             } else if (layEvent === 'delarticle') { //删除
                 layer.confirm('需要要删除此文章么？', function(index) {
