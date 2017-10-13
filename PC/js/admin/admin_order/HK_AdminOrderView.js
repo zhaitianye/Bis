@@ -31,7 +31,7 @@ $(document).ready(function() {
             ],
             /*在这里使用的是静态数据，参考layui文档，使用服务器上的数据进行更替*/
             data: [
-                { "id": "10000", "orderid": "KSD1514515461SD414541", "wid": "WEDCJHI545174ADF", "goodscontent": "(套餐A*1 服务B（3个月）*1 套餐B*5 套餐C*3 )", "ordertime": "2017/10/12 9:55:52", "receipttime": "2017/10/18 14:30:10","state": "正常", "logistics": "顺丰",},
+                { "id": "10000", "orderid": "KSD1514515461SD414541", "wid": "WEDCJHI545174ADF", "goodscontent": "套餐A*1 </br>服务B（3个月）*1</br> 套餐B*5 套餐C*3</br>", "ordertime": "2017/10/12 9:55:52", "receipttime": "2017/10/18 14:30:10","state": "正常", "logistics": "顺丰",},
             ],
             page: true,
         });

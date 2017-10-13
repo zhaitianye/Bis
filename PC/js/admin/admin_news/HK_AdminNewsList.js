@@ -47,7 +47,7 @@ $(document).ready(function() {
             var tr = obj.tr; //获得当前行 tr 的DOM对象
 
             if(layEvent === 'detail'){ //查看
-                console.log(data.id +"的查看操作");
+                layer.alert(data.id +"的查看操作");
                 /*在此处跳文章的详细页*/
             } else if (layEvent === 'delarticle') { //删除
                 layer.confirm('需要要删除此文章么？', function(index) {
@@ -58,7 +58,7 @@ $(document).ready(function() {
                 });
             }else if(layEvent === 'edit'){ //编辑
                 //在此处进入文章编辑框。
-                console.log("编辑操作");
+                layer.alert(data.id +"的编辑操作");
                 //这下面也是要修改的，这里只是作为演示。同步更新缓存对应的值
                 obj.update({
                   title: '新的模块上线啦2'

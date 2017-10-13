@@ -76,25 +76,15 @@
                 <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2 min-w-1200">
                     <!-- 这里用layui的数据表格的重载 -->
                     <form class="layui-form" action="">
-                        <div class="layui-form-item" pane="">
-                            <label class="layui-form-label f-14">筛选：</label>
-                            <div class="layui-input-block">
-                                <button type="button" class="layui-btn layui-btn-small btn-sidebar">全部</button>
-                                <button type="button" class="layui-btn layui-btn-primary layui-btn-small btn-sidebar">正常</button>
-                                <button type="button" class="layui-btn layui-btn-primary layui-btn-small btn-sidebar">禁用</button>
-                            </div>
-                        </div>
                         <div class="layui-form-item mb-0" pane="">
                             <label class="layui-form-label f-14">搜索：</label>
                             <div class="layui-input-block">
                                 <div class="layui-inline">
                                     <select name="searchabout" lay-verify="required" lay-search="">
                                         <option value="">请选择您要搜索的内容</option>
-                                        <option value="1">ID</option>
                                         <option value="2">手机号</option>
                                         <option value="3">邮箱</option>
                                         <option value="4">微信ID</option>
-                                        <option value="5">状态</option>
                                     </select>
                                 </div>
                                 <div class="layui-inline">
@@ -123,13 +113,44 @@
                 Copyright&copy;2017. 香港碧沙科技有限公司&nbsp;All Rights Reserved.
             </p>
         </div>
+        <!-- 弹出层的内容 -->
+        <div class="clear dis-n layerdiscontentv1">
+            <form class="layui-form mt-40" action="">
+                <div class="layui-form-item pl-20 pr-20">
+                    <label class="layui-form-label pl-0 pr-0">用户手机号：</label>
+                    <div class="layui-input-block">
+                        <input type="tel" name="phonenum" lay-verify="phone" autocomplete="off" class="layui-input">
+                        <input type="hidden" name="userid" class="userid-phone layui-input" value="">
+                    </div>
+                </div>
+                <div class="layui-form-item text-center mt-40">
+                      <button class="layui-btn layui-btn-small mr-40" lay-submit="" lay-filter="subphone">发送短信</button>
+                      <button type="reset" class="layui-btn layui-btn-primary layui-btn-small ml-40">重置</button>
+                </div>
+            </form>
+        </div>
+        <div class="clear dis-n layerdiscontentv2">
+            <form class="layui-form mt-40" action="">
+                <div class="layui-form-item pl-20 pr-20">
+                    <label class="layui-form-label pl-0 pr-0">用户邮箱：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="emailnum" lay-verify="email" autocomplete="off" class="layui-input">
+                        <input type="hidden" name="userid" class="userid-email layui-input" value="">
+                    </div>
+                </div>
+                <div class="layui-form-item text-center mt-40">
+                      <button class="layui-btn layui-btn-small mr-40" lay-submit="" lay-filter="subemail">发送邮件</button>
+                      <button type="reset" class="layui-btn layui-btn-primary layui-btn-small ml-40">重置</button>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="../../../js/comm/jquery.min.js"></script>
     <script src="../../../ctrl/layui/layui.js"></script>
     <script src="../../../js/admin/admin_user/HK_AdminUserList.js"></script>
     <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-mini layui-btn-primary" lay-event="resetpwd">重置密码提示</a>
-        <a class="layui-btn layui-btn-mini" lay-event="forbidden">禁用</a>
+        <a class="layui-btn layui-btn-mini" lay-event="sendmsg">重置密码短信</a>
+        <a class="layui-btn layui-btn-mini" lay-event="sendemail">重置密码邮件</a>
     </script>
 </body>
 
