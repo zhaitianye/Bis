@@ -38,7 +38,7 @@ $(document).ready(function() {
                 [ //标题栏
                     /*id是隐藏的*/
                     //{ field: 'id', title: 'ID', width: 80, sort: true },
-                    { field: 'username', title: '用户名', width: 160 },
+                    { field: 'username', title: '用户ID', width: 160 },
                     { field: 'phonenum', title: '手机号', width: 160 },
                     { field: 'email', title: '邮箱', width: 240 },
                     { field: 'weixinnum', title: '微信号', width: 160, sort: true },
@@ -69,7 +69,7 @@ $(document).ready(function() {
                 var senmsgcontent = $(".layerdiscontentv1").html();
                 layer.open({
                     type: 1,
-                    title: '发送密码重置短信',
+                    title: '向&nbsp;'+data.username+'&nbsp;发送密码重置短信',
                     area: ['420px', '220px'], //宽高
                     content: senmsgcontent,
                 });
@@ -78,7 +78,7 @@ $(document).ready(function() {
                 var senemailcontent = $(".layerdiscontentv2").html();
                 layer.open({
                     type: 1,
-                    title: '发送密码重置邮件',
+                    title: '向&nbsp;'+data.username+'&nbsp;发送密码重置邮件',
                     area: ['420px', '220px'], //宽高
                     content: senemailcontent,
                 });
