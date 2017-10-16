@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- necessary -->
+    <meta name="keywords" content="1,2,3">
+    <meta name="description" content="">
+    <!-- description -->
+    <meta name="renderer" content="webkit">
+    <title>碧沙康健_备注信息</title>
+    <!-- base -->
+    <link href="../../../ctrl/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../../ctrl/layui/css/layui.css" rel="stylesheet">
+    <link href="../../../css/comm/base.css" rel="stylesheet">
+    <link href="../../../css/admin/HK_Admin.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <!-- 头部导航部分 -->
+        <div class="layui-header">
+            <div class="layui-logo pd-10 clear">
+                <img src="../../../img/admin/admin_comm/logov1.png" class="full-w pull-left">
+            </div>
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="">管理中心</a></li>
+                <li class="layui-nav-item"><a href="">用户管理</a></li>
+                <li class="layui-nav-item"><a href="">商品管理</a></li>
+                <li class="layui-nav-item"><a href="">订单管理</a></li>
+                <li class="layui-nav-item"><a href="">新闻管理</a></li>
+                <li class="layui-nav-item"><a href="">评价管理</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">其它管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">主页管理</a></dd>
+                        <dd><a href="">调价管理</a></dd>
+                        <dd><a href="">发布管理</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="../../../img/admin/admin_comm/admin-header.png" class="layui-nav-img">
+                        管理员
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">退出</a></li>
+            </ul>
+        </div>
+        <!-- 左侧导航区域 -->
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item"><a href="">评价管理</a></li>
+                    <li class="layui-nav-item"><a href="">留言管理</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 内容主体区域 -->
+        <div class="layui-body">
+            <div style="padding: 50px;">
+                <p class="f-18 pt-15 pb-15 col-8d969d">
+                    留言信息
+                </p>
+                <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2">
+                    <div class="layui-row f-16">
+                        <div class="layui-col-xs3">
+                            <div class="grid-demo line-h-25 pt-10 pb-10 col-333">
+                                ID:<span class="ml-5">10000</span>
+                            </div>
+                        </div>
+                        <div class="layui-col-xs3">
+                            <div class="grid-demo line-h-25 pt-10 pb-10 col-333">
+                                姓名<span class="ml-5">叶晓晓</span>
+                            </div>
+                        </div>
+                        <div class="layui-col-xs3">
+                            <div class="grid-demo line-h-25 pt-10 pb-10 col-333">
+                                电话<span class="ml-5">18546684415</span>
+                            </div>
+                        </div>
+                        <div class="layui-col-xs3">
+                            <div class="grid-demo line-h-25 pt-10 pb-10 col-333">
+                                邮箱<span class="ml-5">15515@hk.com</span>
+                            </div>
+                        </div>
+                        <div class="layui-col-xs3">
+                            <div class="grid-demo line-h-25 pt-10 pb-10 col-333">
+                                留言内容<span class="ml-5">在使用过程中遇到了一个问题，请帮我解决一下。</span>
+                            </div>
+                        </div>
+                        <div class="layui-col-xs3">
+                            <div class="grid-demo line-h-25 pt-10 pb-10 col-333">
+                                留言时间<span class="ml-5">2017/10/12 12:55:52</span>
+                            </div>
+                        </div>
+                        <div class="layui-col-xs3">
+                            <div class="grid-demo line-h-25 pt-10 pb-10 col-333">
+                                回访状态<span class="ml-5">已回访</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="f-18 pt-15 pb-15 mt-40 col-8d969d">
+                    备注列表<button class="layui-btn layui-btn-normal pull-right dis-ib pos-r t--5 layui-btn-small">添加备注</button>
+                </p>
+                <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2">
+                    <table id="remarklist" lay-filter="test"></table>
+                </div>
+            </div>
+        </div>
+        <!-- 底部固定区域 -->
+        <div class="layui-footer">
+            <p class="text-center">
+                Copyright&copy;2017. 香港碧沙科技有限公司&nbsp;All Rights Reserved.
+            </p>
+        </div>
+    </div>
+    <script src="../../../js/comm/jquery.min.js"></script>
+    <script src="../../../ctrl/layui/layui.js"></script>
+    <script src="../../../js/admin/admin_comment/HK_AdminMsgDetail.js"></script>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-mini" lay-event="detail">查看详细</a>
+    </script>
+</body>
+
+</html>

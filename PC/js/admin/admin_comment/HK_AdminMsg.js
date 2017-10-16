@@ -22,19 +22,20 @@ $(document).ready(function() {
                     { field: 'id', title: 'ID', width: 80, sort: true },
                     { field: 'name', title: '姓名', width: 140},
                     { field: 'phone', title: '电话', width: 140},
-                    { field: 'email', title: '邮箱', width: 140},
+                    { field: 'email', title: '邮箱', width: 180},
                     { field: 'about', title: '留言内容', width: 260 },
                     { field: 'time', title: '留言时间', width: 180, sort: true },
+                    { field: 'newremark', title: '最新备注', width: 180, event: 'newsremarkmsg', },
                     { field: 'state', title: '回访状态', width: 120, sort: true},
                     { fixed: 'right', title: '查看详细', width: 180, align: 'center', toolbar: '#barDemo' }
                 ]
             ],
             /*在这里使用的是静态数据，参考layui文档，使用服务器上的数据进行更替*/
             data: [
-                { "id": 10000, "name": "叶晓晓", "phone": "18546684415", "email": "15515@hk.com","about": "在使用过程中遇到了一个问题，请帮我解决一下。", "time": "2017/10/12 9:55:52", "state": "未回访",},
-                { "id": 10002, "name": "叶晓晓2", "phone": "18546684416", "email": "123515@hk.com","about": "在使用过程中遇到了一个问题，请帮我解决一下2。", "time": "2017/10/12 12:55:52", "state": "未回访",},
-                { "id": 10003, "name": "叶晓晓3", "phone": "18546684417", "email": "15414515@hk.com","about": "在使用过程中遇到了一个问题，请帮我解决一下3。", "time": "2017/10/12 14:55:52", "state": "已回访",},
-                { "id": 10004, "name": "叶晓晓4", "phone": "18546684418", "email": "15dsf515@hk.com","about": "在使用过程中遇到了一个问题，请帮我解决一下4。", "time": "2017/10/12 16:55:52", "state": "已回访",},
+                { "id": 10000, "name": "叶晓晓", "phone": "18546684415", "email": "15515@hk.com","about": "在使用过程中遇到了一个问题，请帮我解决一下。", "time": "2017/10/12 9:55:52", "newremark": "用户说明了问题我们解决了问题。","state": "未回访",},
+                { "id": 10002, "name": "叶晓晓2", "phone": "18546684416", "email": "123515@hk.com","about": "在使用过程中遇到了一个问题，请帮我解决一下2。", "time": "2017/10/12 12:55:52", "newremark": "2用户说明了问题我们解决了问题。","state": "未回访",},
+                { "id": 10003, "name": "叶晓晓3", "phone": "18546684417", "email": "15414515@hk.com","about": "在使用过程中遇到了一个问题，请帮我解决一下3。", "time": "2017/10/12 14:55:52","newremark": "3用户说明了问题我们解决了问题。", "state": "已回访",},
+                { "id": 10004, "name": "叶晓晓4", "phone": "18546684418", "email": "15dsf515@hk.com","about": "在使用过程中遇到了一个问题，请帮我解决一下4。", "time": "2017/10/12 16:55:52", "newremark": "4用户说明了问题我们解决了问题。","state": "已回访",},
             ],
             page: true,
         });
@@ -46,6 +47,10 @@ $(document).ready(function() {
 
             if (layEvent === 'detail') { //删除
                  layer.alert(data.id +"的查看操作");
+            }else if (obj.event === 'newsremarkmsg') {
+                layer.alert(data.newremark,{
+                    title: 'ID 为 &nbsp;' + data.id + '&nbsp; 的最新备注信息',
+                });
             }
         });
     });
