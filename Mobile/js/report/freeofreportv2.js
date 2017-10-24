@@ -26,7 +26,7 @@ $(document).ready(function() {
             legend: {
                 display: false,
                 labels: {
-                    boxWidth: 10,
+                    boxWidth: 0,
                 },
                 position: 'right',
             },
