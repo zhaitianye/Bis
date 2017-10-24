@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- necessary -->
+    <meta name="keywords" content="1,2,3">
+    <meta name="description" content="">
+    <!-- description -->
+    <meta name="renderer" content="webkit">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>免费报告-第二版</title>
+    <!-- base -->
+
+    <link href="../../css/comm/bootstrap.css" rel="stylesheet">
+    <link href="../../css/comm/base.css" rel="stylesheet">
+    <link href="../../css/bisserve/bisserve.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="min-h-100s">
+    <header class="full-w clear h-56 pos-r z-99 bg-F2F2F2">
+        <p class="text-center f-16 pt-20 pb-20 f-w col-646464">
+            <a href=""><img src="../../img/bisserve/backv1.png" class="img-30 ml-20 pos-a t-14 l-0 back" alt=""></a> 日常报告
+        </p>
+    </header>
+    <div class="clear affix t-56 b-56 h-auto full-w ptb-15-5-iphone5 plr-20-10-iphone5">
+        <div class="clear full-wh radius-5 bg-white sha-freereportv2 overflow-h">
+            <div class="clear bg-53A6FF">
+                <div class="clear col-xs-6 pl-0 pr-0">
+                    <canvas id="myChart" width="100%" height="100%"></canvas>
+                </div>
+                <div class="clear col-xs-6 pr-20 pl-0 pt-15-5-iphone5">
+                    <div class="clear f-30-24-iphone5">
+                        <p class="line-h-20 clear pt-15 pb-15">
+                            <span class="col-white ml-10 pull-leftl">正常</span>
+                            <span class="col-white pull-right">60%</span>
+                        </p>
+                        <p class="line-h-20 clear pt-5 pb-15">
+                            <span class="col-white ml-10 pull-leftl">过慢</span>
+                            <span class="col-white pull-right">21%</span>
+                        </p>
+                        <p class="line-h-20 clear pt-5 pb-5">
+                            <span class="col-white ml-10 pull-leftl">过快</span>
+                            <span class="col-white pull-right">19%</span>
+                        </p>
+                    </div> 
+                </div>
+            </div>
+            <div class="clear pl-20 pr-20">
+                <div class="clear full-w">
+                    <div class="clear full-w pl-10 pr-10 pt-10 pb-10 bor bor-col-f7f4f8 bor-b">
+                        <div class="clear col-xs-2 pl-0 pr-0">
+                            <img class="img-20 mt-10" src="../../img/report/freereportv2-tipsv1.png" alt="">
+                        </div>
+                        <div class="clear col-xs-8 pl-0 pr-0">
+                            <p class="col-679dd8 f-16 line-h-20">
+                                最高心率
+                            </p>
+                            <p class="col-c9caca f-12 line-h-20">
+                                2017/10/23 17:21:10
+                            </p>
+                        </div>
+                        <div class="clear col-xs-2 pl-0 pr-0">
+                            <p class="col-b4cbe5 f-20 line-h-40 text-right">
+                                118
+                            </p>
+                        </div>
+                    </div>
+                    <div class="clear full-w pl-10 pr-10 pt-10 pb-10 bor bor-col-f7f4f8 bor-b">
+                        <div class="clear col-xs-2 pl-0 pr-0">
+                            <img class="img-20 mt-10" src="../../img/report/freereportv2-tipsv2.png" alt="">
+                        </div>
+                        <div class="clear col-xs-8 pl-0 pr-0">
+                            <p class="col-679dd8 f-16 line-h-20">
+                                平均心率
+                            </p>
+                            <p class="col-c9caca f-12 line-h-20">
+                                2017/10/23 17:21:10
+                            </p>
+                        </div>
+                        <div class="clear col-xs-2 pl-0 pr-0">
+                            <p class="col-b4cbe5 f-20 line-h-40 text-right">
+                                75
+                            </p>
+                        </div>
+                    </div>
+                    <div class="clear full-w pl-10 pr-10 pt-10 pb-10 bor bor-col-f7f4f8 bor-b">
+                        <div class="clear col-xs-2 pl-0 pr-0">
+                            <img class="img-20 mt-10" src="../../img/report/freereportv2-tipsv3.png" alt="">
+                        </div>
+                        <div class="clear col-xs-8 pl-0 pr-0">
+                            <p class="col-679dd8 f-16 line-h-20">
+                                最低心率
+                            </p>
+                            <p class="col-c9caca f-12 line-h-20">
+                                2017/10/23 17:21:10
+                            </p>
+                        </div>
+                        <div class="clear col-xs-2 pl-0 pr-0">
+                            <p class="col-b4cbe5 f-20 line-h-40 text-right">
+                                180
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear full-w pt-5 pb-5">
+                    <p class="f-20 text-center pt-5 pb-5 col-53a6ff">
+                        总结建议
+                    </p>
+                    <div class="clear full-w bg-white radius-5">
+                        <p id="layer-testv1" class="f-16 col-53a6ff line-h-25-20-iphone5 text-line-3 pt-5 pb-5 pl-10 pr-10">
+                            您的心率整体过快，请注意饮食作息， 如您感到身体不适请前往医院检查治疗，感谢您的使用。
+                        </p>
+                    </div>
+                    <!-- 弹出层的内容 -->
+                    <div class="clear dis-n layerfortestv1">
+                        <p id="layer-testv1" class="f-16 col-333 line-h-25 pt-5 pd-15">
+                            您的心率整体过快，请注意饮食作息， 如您感到身体不适请前往医院检查治疗，感谢您的使用。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="clear h-56 pos-a b-0 l-0 bg-53A6FF full-w pl-20 pr-20 pt-8 pb-8">
+        <div class="col-xs-9 pl-0 pr-0">
+            <p class="f-14-12-iphone5 col-white family-h h-40 line-h-40 text-overflow">
+                点击马上监测开启更全面的心电监测。
+            </p>
+        </div>
+        <div class="col-xs-3 pl-5 pr-0 h-40">
+            <button class="btn btn-primary full-wh col-53a6ff f-w text-center pl-0 pr-0 bg-f8fcff bor-none hovfocact-E2E4E5">
+                马上监测
+            </button>
+        </div>
+    </div>
+
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/bootstrap.js"></script>
+    <script src="../../ctrl/layer/layer.js"></script>
+    <script src="../../js/comm/Chart.bundle.min.js"></script>
+    <script src="../../js/report/freeofreportv2.js"></script>
+    <script>
+        var contentval = $(".layerfortestv1").html();
+        $('#layer-testv1').on('click', function(){
+          layer.open({
+              type: 1,
+              title :['总结建议','font-size:18px;'],
+              skin: 'layui-layer-rim', //加上边框
+              area: ['90%'], //宽高
+              content: contentval,
+            });
+        });
+    </script>
+</body>
+
+</html>
