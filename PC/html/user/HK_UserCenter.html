@@ -22,6 +22,16 @@
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        label.error {
+            display: block;
+            margin: 0px;
+            height: 20px;
+            line-height: 20px;
+            float: left;
+            color: #c00;
+        }
+    </style>
 </head>
 
 <body>
@@ -106,7 +116,7 @@
                     <div class="clear">
                         <div class="clear col-sm-3 pl-0 pr-0">
                             <div class="clear pull-left w-120">
-                                <img class="img-120 overflow-h full-radius bor bor-3px bor-col-fff box-sha-imgsha" src="../../img/user/User/user-head-portrait.jpg" alt="">
+                                <img class="img-120 overflow-h full-radius bor bor-3px bor-col-fff box-sha-imgsha set-heads cur-p" src="../../img/user/User/user-head-portrait.jpg" alt="">
                                 <p class="text-center cur-p line-h-40 f-20 col-309DE2 set-heads">
                                     设置头像
                                 </p>
@@ -114,16 +124,19 @@
                         </div>
                         <div class="clear col-sm-9 pl-0 pr-0">
                             <p class="line-h-40 f-28 col-616161">
-                                123456754
+                                MISS LI
                             </p>
                             <p class="line-h-40 f-22 col-b0b0b0">
                                 早上好~
                             </p>
-                            <p class="line-h-40 f-20 col-757575">
-                                绑定手机：未绑定<span class="col-309DE2 cur-p f-16 ml-20">立即绑定</span>
+                            <!-- 绑定的赋值部分 -->
+                            <input type="hidden" class="ipt-bound-phonenum" value="">
+                            <input type="hidden" class="ipt-bound-email" value="12341@qq.com">
+                            <!-- 绑定手机的绑定部分JS自动赋值 -->
+                            <p class="line-h-40 f-20 col-757575 p-bound-phonenum">
                             </p>
-                            <p class="line-h-40 f-20 col-757575">
-                                绑定邮箱：youxianshenghenduoyouxiang.com<span class="col-309DE2 cur-p f-16 ml-20">修改</span>
+                            <!-- 绑定邮箱的绑定部分JS自动赋值 -->
+                            <p class="line-h-40 f-20 col-757575 p-bound-email">
                             </p>
                         </div>
                         <div class="clear col-sm-12 mt-40 bor bor-t bor-col-e0e0e0">
@@ -307,13 +320,132 @@
             </div>
         </div>
     </div>
+    <!-- 验证手机弹出层 -->
+    <div class="clear show-verifyphone affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
+        <div class="pos-a t-150 l-0 full-w">
+            <div class="w-500 mg-0-auto clear pos-r bg-white verifyphone-content radius-5 t--300 modal-content">
+                <div class="pt-10 pb-10 line-h-25 pos-r f-20 pl-20 pr-20 col-333 full-w radius-5 cur-d">
+                    修改手机
+                    <img class="pos-a t-10 r-20 img-20 close-mod cur-p" src="../../img/user/user/close.png" alt="">
+                </div>
+                <div class="clear bor bor-t bor-col-f2 pt-20 pb-20 pl-60 pr-60">
+                    <p class="col-212121 f-16 mt-20">
+                        请验证安全手机
+                    </p>
+                    <p class="col-212121 f-16 mt-30">
+                        当前安全手机：<span class="faceing-phone col-9d9d9d"></span>
+                    </p>
+                    <form action="" class="formvalidate-edit-bound-phone">
+                        <div class="clear mt-30">
+                            <div class="clear col-xs-8 pl-0 pr-20 h-40 line-h-40">
+                                <input type="text" class="full-w h-40 line-h-40 form-control" placeholder="请输入短信验证码" maxlength="4" name="edbophone_code">
+                            </div>
+                            <div class="clear col-xs-4 pl-0 pr-0">
+                                <button type="button" class="btn btn-default h-40 full-w sendphonemsg">获取验证码</button>
+                            </div>
+                        </div>
+                        <div class="clear mt-40">
+                            <div class="clear col-xs-6 text-left">
+                                <button type="submit" class="btn btn-success pl-40 pr-40">确定</button>
+                            </div>
+                            <div class="clear col-xs-6 text-right">
+                                <button type="reset" class="btn btn-default pl-40 pr-40 close-mod">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 添加手机弹出层 -->
+    <div class="clear show-addphone affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
+        <div class="pos-a t-150 l-0 full-w">
+            <div class="w-500 mg-0-auto clear pos-r bg-white addphone-content radius-5 t--300 modal-content">
+                <div class="pt-10 pb-10 line-h-25 pos-r f-20 pl-20 pr-20 col-333 full-w radius-5 cur-d">
+                    添加手机
+                    <img class="pos-a t-10 r-20 img-20 close-mod cur-p" src="../../img/user/user/close.png" alt="">
+                </div>
+                <div class="clear bor bor-t bor-col-f2 pt-20 pb-20 pl-60 pr-60">
+                    <form action="" class="formvalidate-add-bound-phone">
+                        <p class="col-212121 f-16 mt-20">
+                            请输入需要绑定的手机号码
+                        </p>
+                        <select class="form-control col-212121 f-16 mt-30">
+                              <option value="86">中国大陆（+86）</option>
+                              <option value="1">中国香港（+86）</option>
+                              <option value="2">中国台湾（+86）</option>
+                              <option value="3">美国（+86）</option>
+                              <option value="4">其他（+86）</option>
+                        </select>
+                        <div class="clear mt-20">
+                            <input type="text" class="full-w h-40 line-h-40 form-control ipt-new-phonenum" placeholder="请输入新的手机号码" maxlength="16" name="add_new_phone">
+                        </div>
+                        <div class="clear mt-20">
+                            <div class="clear col-xs-8 pl-0 pr-20 h-40 line-h-40">
+                                <input type="text" class="full-w h-40 line-h-40 form-control" placeholder="请输入短信验证码" maxlength="4" name="edbophone_code">
+                            </div>
+                            <div class="clear col-xs-4 pl-0 pr-0">
+                                <button type="button" class="btn btn-default h-40 full-w add-sendphonemsg">获取验证码</button>
+                            </div>
+                        </div>
+                        <div class="clear mt-30">
+                            <div class="clear col-xs-6 text-left">
+                                <button type="submit" class="btn btn-success pl-40 pr-40">确定</button>
+                            </div>
+                            <div class="clear col-xs-6 text-right">
+                                <button type="reset" class="btn btn-default pl-40 pr-40 close-mod">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 验证邮箱弹出层 -->
+    <div class="clear show-verifyemail affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
+        <div class="pos-a t-150 l-0 full-w">
+            <div class="w-500 mg-0-auto clear pos-r bg-white verifyemail-content radius-5 t--300 modal-content">
+                <div class="pt-10 pb-10 line-h-25 pos-r f-20 pl-20 pr-20 col-333 full-w radius-5 cur-d">
+                    验证邮箱
+                    <img class="pos-a t-10 r-20 img-20 close-mod cur-p" src="../../img/user/user/close.png" alt="">
+                </div>
+                <div class="clear bor bor-t bor-col-f2 pt-20 pb-20 pl-60 pr-60">
+                    <p class="col-212121 f-16 mt-20">
+                        请验证安全邮箱
+                    </p>
+                    <p class="col-212121 f-16 mt-30">
+                        当前安全邮箱：<span class="faceing-email col-9d9d9d"></span>
+                    </p>
+                    <form action="" class="formvalidate-edit-bound-email">
+                        <div class="clear mt-30">
+                            <div class="clear col-xs-8 pl-0 pr-20 h-40 line-h-40">
+                                <input type="text" class="full-w h-40 line-h-40 form-control" placeholder="请输入邮箱验证码" maxlength="4" name="edboemail_code">
+                            </div>
+                            <div class="clear col-xs-4 pl-0 pr-0">
+                                <button type="button" class="btn btn-default h-40 full-w sendemailmsg">获取邮箱验证码</button>
+                            </div>
+                        </div>
+                        <div class="clear mt-40">
+                            <div class="clear col-xs-6 text-left">
+                                <button type="submit" class="btn btn-success pl-40 pr-40">确定</button>
+                            </div>
+                            <div class="clear col-xs-6 text-right">
+                                <button type="reset" class="btn btn-default pl-40 pr-40 close-mod">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/jquery.validate.min.js"></script>
+    <script src="../../js/comm/jquery.validate.messages_zh.js"></script>
     <script src="../../ctrl/cropper/dist/cropper.min.js"></script>
     <script src="../../ctrl/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="../../ctrl/layer/layer.js"></script>
     <script src="../../js/comm/base.js"></script>
     <script src="../../js/user/HK_User.js"></script>
-
 </body>
 
 </html>
