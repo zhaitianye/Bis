@@ -365,8 +365,100 @@ $(document).ready(function() {
             };
     /*修改绑定邮箱弹出层END*/
     /*添加绑定邮箱弹出层*/
+        /*打开弹层*/
         $(".add-bound-email").click(function() {
-            console.log(4);
+            $(".show-addemail").show();
+            $(".addemail-content").removeClass("ani-selhead-logoout");
+            $(".addemail-content").addClass("ani-selhead-logoin");
         });
+        /*关闭弹出层*/
+        $(".show-addemail").on("click", function(event) {
+            event.stopPropagation();
+            var target = event.target;
+            if (!$(target).closest(".addemail-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+                $(".addemail-content").removeClass("ani-selhead-logoin");
+                $(".addemail-content").addClass("ani-selhead-logoout");
+                $(".show-addemail").fadeOut();
+            };
+        });
+        /*内部验证*/
+        $(".formvalidate-add-bound-email").validate({
+            rules: {
+                adboemail_code: {
+                    required: true,
+                    minlength: 4,
+                },
+                add_new_email: {
+                    required: true,
+                    email:true,
+                },
+            },
+            messages: {
+                adboemail_code: {
+                    required: "请输入验证码",
+                    minlength: "验证码最少由4位组成",
+                },
+                add_new_email: {
+                    required: "请输入您的邮箱号码",
+                    email: "请输入正确的邮箱号码",
+                },
+            },
+            submitHandler:function(form){
+                /*在这里验证提交*/
+                console.log("添加邮箱弹出层提交事件!");   
+                //form.ajaxSubmit();
+            }
+        });
+        /*发送邮箱验证码*/
+            $(".add-sendemialmsg").click(function(){
+                sendemailv2();
+            });
+            function sendemailv2(){
+                var InterValObj; //timer变量，控制时间  
+                var count = 30; //间隔函数，1秒执行  
+                var curCount;//当前剩余秒数  
+                var code = ""; //验证码  
+                var codeLength = 4;//验证码长度 
+                var curCount = count;
+                var emailNumber=$(".ipt-new-emailnum").val();//拿到当前输入的手机号码
+                var passverify =$(".ipt-new-emailnum").hasClass("error");
+                if(passverify || emailNumber == "" || emailNumber == null || emailNumber == undefined){  //验证手机号
+                    $("#add_new_email-error").text("请输入正确的邮箱号码！");
+                    $(".ipt-new-emailnum").focus();//获取手机号输入框input焦点
+                    return false;
+                }else{
+                    //产生验证码 ,向用户手机发送验证码由后台实现,前台实现了倒计时
+                    //设置button效果，开始计时  
+                    $(".add-sendemialmsg").attr("disabled", "true");//禁用重新发送按钮  
+                    $(".add-sendemialmsg").css("color", "#666");//修改按钮值颜色
+                    $(".add-sendemialmsg").text(curCount + "s重新发送");//按钮值修改为 '倒计时' + '重新发送'  
+                    InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次  
+                    //向后台发送处理数据  
+                    /*$.ajax({  //当点击发送验证码时,可能向后台执行的ajax事件
+                        type: "POST", //用POST方式传输  
+                        dataType: "text", //数据格式:JSON  
+                        url: 'Login.ashx', //目标地址  
+                        data: "phoneNumber=" + phoneNumber + "&code=" + code,  
+                        error: function (XMLHttpRequest, textStatus, errorThrown) { },  
+                        success: function (msg){ }  
+                    }); */
+                    //timer处理函数
+                }
+                function SetRemainTime() {  
+                    if (curCount == 0) { //当倒计时等于0时            
+                        window.clearInterval(InterValObj);//停止计时器  
+                        $(".add-sendemialmsg").removeAttr("disabled");//启用重新发送按钮
+                        $(".add-sendemialmsg").css("background-color", "#D7DCDE");
+                        $(".add-sendemialmsg").css("border-color", "#D7DCDE");  
+                        $(".add-sendemialmsg").css("color", "#868b8a");//修改按钮值颜色
+                        $(".add-sendemialmsg").text("重新发送");  //按钮值修改为重新发送
+                        code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效      
+                    }  
+                    else {  
+                        curCount--;  //当倒计时不等于0时 
+                        $(".add-sendemialmsg").text(curCount + "s重新发送");//倒计时执行计数 
+                    }  
+                };
+            };
     /*添加绑定邮箱弹出层END*/
 });

@@ -131,7 +131,7 @@
                             </p>
                             <!-- 绑定的赋值部分 -->
                             <input type="hidden" class="ipt-bound-phonenum" value="">
-                            <input type="hidden" class="ipt-bound-email" value="12341@qq.com">
+                            <input type="hidden" class="ipt-bound-email" value="">
                             <!-- 绑定手机的绑定部分JS自动赋值 -->
                             <p class="line-h-40 f-20 col-757575 p-bound-phonenum">
                             </p>
@@ -426,6 +426,43 @@
                             </div>
                         </div>
                         <div class="clear mt-40">
+                            <div class="clear col-xs-6 text-left">
+                                <button type="submit" class="btn btn-success pl-40 pr-40">确定</button>
+                            </div>
+                            <div class="clear col-xs-6 text-right">
+                                <button type="reset" class="btn btn-default pl-40 pr-40 close-mod">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 添加邮箱弹出层 -->
+    <div class="clear show-addemail affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
+        <div class="pos-a t-150 l-0 full-w">
+            <div class="w-500 mg-0-auto clear pos-r bg-white addemail-content radius-5 t--300 modal-content">
+                <div class="pt-10 pb-10 line-h-25 pos-r f-20 pl-20 pr-20 col-333 full-w radius-5 cur-d">
+                    添加邮箱
+                    <img class="pos-a t-10 r-20 img-20 close-mod cur-p" src="../../img/user/user/close.png" alt="">
+                </div>
+                <div class="clear bor bor-t bor-col-f2 pt-20 pb-20 pl-60 pr-60">
+                    <form action="" class="formvalidate-add-bound-email">
+                        <p class="col-212121 f-16 mt-20">
+                            请输入需要绑定邮箱
+                        </p>
+                        <div class="clear mt-20">
+                            <input type="text" class="full-w h-40 line-h-40 form-control ipt-new-emailnum" placeholder="请输入您的邮箱" maxlength="64" name="add_new_email">
+                        </div>
+                        <div class="clear mt-20">
+                            <div class="clear col-xs-8 pl-0 pr-20 h-40 line-h-40">
+                                <input type="text" class="full-w h-40 line-h-40 form-control" placeholder="请输入邮箱验证码" maxlength="4" name="adboemail_code">
+                            </div>
+                            <div class="clear col-xs-4 pl-0 pr-0">
+                                <button type="button" class="btn btn-default h-40 full-w add-sendemialmsg">获取邮箱验证码</button>
+                            </div>
+                        </div>
+                        <div class="clear mt-30">
                             <div class="clear col-xs-6 text-left">
                                 <button type="submit" class="btn btn-success pl-40 pr-40">确定</button>
                             </div>
