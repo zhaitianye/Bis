@@ -180,6 +180,7 @@
 .hovebg-FFCE37:hover{background-color: #FFCE37;}
 .bor-col-e0e0e0{border-color: #e0e0e0;}
 .img-40{width: 40px;height: 40px;}
+.min-h-800{min-height: 800px;}
 /* 订单评价部分响应式 */
 @media (min-width:768px) and (max-width:991px) {
 	.img-300-250-ipad{width: 250px;height: 250px;}

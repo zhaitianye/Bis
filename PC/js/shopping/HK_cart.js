@@ -338,5 +338,10 @@ $(document).ready(function() {
             }else{
             }
         };
+        /*购物车为空的时候的判断*/
+        var isemptycart = parseInt($(".is-emptycart-control").val());
+        if (isemptycart == 0 ) {
+            $(".is-emptycart-side").show();
+        }
     };
 });
