@@ -129,11 +129,13 @@ $(document).ready(function() {
     $(".conanorder-tips").mouseenter(function() {
         $(this).addClass("bor-col-309DE2");
         $(this).find(".conanorder-tips-alter").show();
+        $(this).find(".conanorder-tips-del").show();
     });
     $(".conanorder-tips").mouseleave(function() {
         $(this).removeClass("bor-col-309DE2");
         $(this).addClass("bor-col-7A7A7A");
         $(this).find(".conanorder-tips-alter").hide();
+        $(this).find(".conanorder-tips-del").hide();
     });
     $(".conanorder-tipsadd").mouseenter(function() {
         $(this).addClass("bor-col-309DE2");
@@ -258,7 +260,6 @@ $(document).ready(function() {
         var caddress = $(this).parent().siblings().find(".conanorder-tips-address").text();
         var cemal = $(this).parent().siblings(".conanorder-tips-emal").val();
         var cabout = $(this).parent().siblings(".conanorder-tips-about").val();
-        console.log(cname + cphone + caddress + cemal + cabout);
         $(".inrename").val(cname);
         $(".inrephone").val(cphone);
         $(".inreaddress").val(caddress);
@@ -290,5 +291,19 @@ $(document).ready(function() {
         $(".show-revise-shippingaddress").find(".show-div-shipping").animate({ 'top': '-6px', 'font-size': '12px' }, 10);
         document.documentElement.style.overflow = "hidden";
     });
-
+    /*删除收货地址弹出层*/
+    $(".conanorder-tips-del").click(function() {
+        $(".show-del-shippingaddress").fadeIn();
+        var cid = $(this).parent().siblings(".conanorder-tips-id").val();
+        $(".is-del-shippingaddress-id").val(cid);
+        document.documentElement.style.overflow = "hidden";
+    });
+    $(".show-del-shippingaddress").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".show-del-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".show-del-shippingaddress").fadeOut();
+            document.documentElement.style.overflow = "scroll";
+        };
+    });
 });
