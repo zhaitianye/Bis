@@ -102,17 +102,17 @@ $(document).ready(function() {
     $(".address-tips").mouseenter(function() {
     	$(this).find(".address-tips-in").addClass("bor-col-309DE2");
     	$(this).find(".address-tips-edit").show();
-
+        $(this).find(".address-tips-del").show();
     });
     $(".address-tips").mouseleave(function() {
         $(this).find(".address-tips-in").removeClass("bor-col-309DE2");
         $(this).find(".address-tips-edit").hide();
+        $(this).find(".address-tips-del").hide();
     });
     $(".address-tipsv2").mouseenter(function() {
     	$(this).find(".address-tipsv2-in").addClass("bor-col-309DE2");
     	$(this).find(".address-tipsv2-circle").addClass("bg-309DE2i");
     	$(this).find(".address-tipsv2-text").addClass("col-555i");
-
     });
     $(".address-tipsv2").mouseleave(function() {
     	$(this).find(".address-tipsv2-in").removeClass("bor-col-309DE2");
@@ -179,6 +179,21 @@ $(document).ready(function() {
         var target = event.target;
         if (!$(target).closest(".show-revise-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
             $(".show-revise-shippingaddress").fadeOut();
+            document.documentElement.style.overflow = "scroll";
+        };
+    });
+    /*删除收货地址弹出层*/
+    $(".address-tips-del").click(function() {
+        $(".show-del-shippingaddress").fadeIn();
+        var addid = $(this).siblings(".add-id").val();
+        $(".is-del-shippingaddress-id").val(addid);
+        document.documentElement.style.overflow = "hidden";
+    });
+    $(".show-del-shippingaddress").on("click", function(event) {
+        event.stopPropagation();
+        var target = event.target;
+        if (!$(target).closest(".show-del-content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
+            $(".show-del-shippingaddress").fadeOut();
             document.documentElement.style.overflow = "scroll";
         };
     });
