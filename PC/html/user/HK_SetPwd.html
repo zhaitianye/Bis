@@ -10,27 +10,25 @@
     <meta name="description" content="">
     <!-- description -->
     <meta name="renderer" content="webkit">
-    <title>碧沙康健_用户中心</title>
+    <title>碧沙康健_设置密码</title>
     <!-- base -->
     <link href="../../ctrl/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../../ctrl/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link  href="../../ctrl/cropper/dist/cropper.min.css" rel="stylesheet">
     <link href="../../css/comm/base.css" rel="stylesheet">
     <link href="../../css/user/HK_User.css" rel="stylesheet">
-
     <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-        label.error {
-            display: block;
-            margin: 0px;
-            height: 20px;
-            line-height: 20px;
-            float: left;
-            color: #c00;
-        }
+    label.error {
+        display: block;
+        margin: 3px 0px 0px 7px;
+        height: 20px;
+        line-height: 20px;
+        float: left;
+        color: #c00;
+    }
     </style>
 </head>
 
@@ -75,7 +73,7 @@
             <div class="clear">
                 <p class="pt-10 pb-10 pl-15 pr-15 line-h-20 cur-d ">
                     <a class="col-666 t-nonehove hovecol-309DE2" href="">首页 </a> >
-                    <span class="col-252525 t-nonehove">用户中心</span>
+                    <span class="col-252525 t-nonehove">设置密码</span>
                 </p>
             </div>
         </div>
@@ -107,100 +105,43 @@
                         收货地址
                     </p>
                     <p class="col-757575 f-20-16-ipad line-h-25 mt-20 mb-20 cur-p hovecol-309DE2">
-                        账号安全
+                        密码安全
                     </p>
                 </div>
             </div>
             <div class="clear col-sm-9 pr-30 pl-0">
                 <div class="clear bg-white pb-100 plr-50-10-ipad pt-40">
-                    <div class="clear">
-                        <div class="clear col-sm-3 pl-0 pr-0">
-                            <div class="clear pull-left w-120">
-                                <img class="img-120 overflow-h full-radius bor bor-3px bor-col-fff box-sha-imgsha set-heads cur-p" src="../../img/user/User/user-head-portrait.jpg" alt="">
-                                <p class="text-center cur-p line-h-40 f-20 col-309DE2 set-heads">
-                                    设置头像
-                                </p>
-                            </div>
-                        </div>
-                        <div class="clear col-sm-9 pl-0 pr-0">
-                            <p class="line-h-40 f-28 col-616161">
-                                MISS LI
-                            </p>
-                            <p class="line-h-40 f-22 col-b0b0b0">
-                                早上好~
-                            </p>
-                            <!-- 绑定的赋值部分 -->
-                            <input type="hidden" class="ipt-bound-phonenum" value="">
-                            <input type="hidden" class="ipt-bound-email" value="">
-                            <!-- 密码部分，结合js看具体的赋值操作 -->
-                            <input type="hidden" class="ipt-about-pwd" value="">
-                            <!-- 绑定手机的绑定部分JS自动赋值 -->
-                            <p class="line-h-40 f-20 col-757575 p-bound-phonenum">
-                            </p>
-                            <!-- 绑定邮箱的绑定部分JS自动赋值 -->
-                            <p class="line-h-40 f-20 col-757575 p-bound-email">
-                            </p>
-                            <!-- 修改密码部分JS自动赋值 -->
-                            <p class="line-h-40 f-20 col-757575 p-about-pwd">
-                            </p>
-                        </div>
-                        <div class="clear col-sm-12 mt-40 bor bor-t bor-col-e0e0e0">
-                        </div>
+                    <!-- 设置或者修改密码的标题 -->
+                    <p class="pt-40-20-ipad f-50-40-ipad col-757575 line-h-70-50-ipad pb-20 setoredit-pwd-title">
+                    </p>
+                    <div class="clear bor bor-b bor-col-f5f5f5">
                     </div>
-                    <div class="clear pt-40 pl-0 pr-0">
-                        <div class="clear col-sm-6 pl-0 pr-0 pt-40 pb-40">
-                            <div class="clear col-sm-5 pl-0 pr-0 text-center">
-                                <img class="img-110 overflow-h full-radius" src="../../img/user/User/center-tipsv1.png" alt="">
-                            </div>
-                            <div class="clear col-sm-7 pl-0 pr-0 pt-20 pb-20">
-                                <p class="line-h-35 f-22 col-757575">
-                                    待支付的订单：<a class="col-309DE2 t-nonehove col-active">1</a>
-                                </p>
-                                <p class="line-h-35 f-18 col-309DE2 t-nonehove">
-                                    <a class="t-nonehove col-active">查看待支付的订单<span class="col-active icon-chevron-right f-14 ml-10 pos-r t--1"></span></a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="clear col-sm-6 pl-0 pr-0 pt-40 pb-40">
-                            <div class="clear col-sm-5 pl-0 pr-0 text-center">
-                                <img class="img-110 overflow-h full-radius" src="../../img/user/User/center-tipsv2.png" alt="">
-                            </div>
-                            <div class="clear col-sm-7 pl-0 pr-0 pt-20 pb-20">
-                                <p class="line-h-35 f-22 col-757575">
-                                    待收货的订单：<a class="col-309DE2 t-nonehove col-active">0</a>
-                                </p>
-                                <p class="line-h-35 f-18 col-309DE2 t-nonehove">
-                                    <a class="col-757575i t-nonehove">查看待收货的订单<span class="col-757575i icon-chevron-right f-14 ml-10 pos-r t--1"></span></a>
-                                </p>
+                    <p class="col-616161 f-20 mt-25 mb-25">
+                        密码长度8~16位，数字、字母、至少包含两种
+                    </p>
+                    <!-- 在这里进行相关的赋值和js操作 -->
+                        <!-- 这个input代表是否拥有旧密码，0代表没有旧密码，1代表有旧密码 -->
+                        <input type="hidden" class="is-has-oldpwd" value="1">
+                        <!-- 这两个input代表是否绑定了手机或者邮箱，0代表未绑定 -->
+                        <input type="hidden" class="is-bound-phone" value="1">
+                        <input type="hidden" class="is-bound-email" value="1">
+                        <!-- 安全手机的手机号码 -->
+                        <input type="hidden" class="safety-phonenum" value="13398946521">
+                        <!-- 安全邮箱的邮箱号码 -->
+                        <input type="hidden" class="safety-emailnum" value="123456789@qqq.com">
+                    <form action="" class="formvalidate-setpwd">
+                        <div class="clear">
+                            <div class="form-group col-xs-5 pl-0 pr-0 min-h-65 mb-0">
+                                <input type="password" class="form-control radius-0 user-newpwd" name="newpwd" placeholder="输入您要设置的新密码">
                             </div>
                         </div>
-                        <div class="clear col-sm-6 pl-0 pr-0 pt-40 pb-40">
-                            <div class="clear col-sm-5 pl-0 pr-0 text-center">
-                                <img class="img-110 overflow-h full-radius" src="../../img/user/User/center-tipsv3.png" alt="">
-                            </div>
-                            <div class="clear col-sm-7 pl-0 pr-0 pt-20 pb-20">
-                                <p class="line-h-35 f-22 col-757575">
-                                    待评价的订单：<a class="col-309DE2 t-nonehove col-active">0</a>
-                                </p>
-                                <p class="line-h-35 f-18 col-309DE2 t-nonehove">
-                                    <a class="col-757575i t-nonehove">查看待评价的订单<span class="col-757575i icon-chevron-right f-14 ml-10 pos-r t--1"></span></a>
-                                </p>
+                        <div class="clear">
+                            <div class="form-group col-xs-5 pl-0 pr-0 min-h-65 mb-0">
+                                <input type="password" class="form-control radius-0" name="repwd" placeholder="确认输入密码">
                             </div>
                         </div>
-                        <div class="clear col-sm-6 pl-0 pr-0 pt-40 pb-40">
-                            <div class="clear col-sm-5 pl-0 pr-0 text-center">
-                                <img class="img-110 overflow-h full-radius" src="../../img/user/User/center-tipsv4.png" alt="">
-                            </div>
-                            <div class="clear col-sm-7 pl-0 pr-0 pt-20 pb-20">
-                                <p class="line-h-35 f-22 col-757575">
-                                    待激活的服务：<a class="col-309DE2 t-nonehove col-active">0</a>
-                                </p>
-                                <p class="line-h-35 f-18 col-309DE2 t-nonehove">
-                                    <a class="col-757575i t-nonehove">查看待激活的服务<span class="col-757575i icon-chevron-right f-14 ml-10 pos-r t--1"></span></a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                        <button type="submit" class="btn btn-primary hovbg-2D90CF radius-0 bg-309DE2 bor-none pl-30 pr-30 btn-sure-sub"></button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -278,49 +219,21 @@
             </p>
         </div>
     </footer>
-    <!-- 选择头像弹出层 -->
-    <div class="clear show-selhead affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
+    <!-- 请先绑定手机或邮箱弹出层 -->
+    <div class="clear show-boundphonefirst affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
         <div class="pos-a t-150 l-0 full-w">
-            <div class="w-900 mg-0-auto clear pos-r bg-white selhead-content radius-5 t--300 modal-content">
+            <div class="w-500 mg-0-auto clear pos-r bg-white show-boundphonefirst-content radius-5 t--300 modal-content">
                 <div class="pt-10 pb-10 line-h-25 pos-r f-20 pl-20 pr-20 col-333 full-w radius-5 cur-d">
-                    选择头像
-                    <img class="pos-a t-10 r-20 img-20 close-mod cur-p" src="../../img/user/user/close.png" alt="">
+                    设置密码
                 </div>
-                <div class="clear bor bor-t bor-col-f2 pd-20">
-                    <div class="clear col-sm-9 h-364 bg-fcfcfc box-sha-inset-big pos-r pl-0 pr-0 overflow-h">
-                        <div class="clear " style="width: 643px;height: 364px;">
-                            <img id="show-main-img" class="max-w-100p" src="">
-                        </div>
-                    </div>
-                    <div class="clear col-sm-3">
-                        <div class="clear">
-                            <img id="show-little-imgv1" class="img-184 img-thumbnail" src="" alt="">
-                        </div>
-                        <div class="clear mt-15">
-                            <img id="show-little-imgv2" class="img-184 img-thumbnail full-radius" src="" alt="">
-                        </div>
-                    </div>
-                    <div class="clear col-sm-12 pl-0 pr-0 mt-30 mb-10">
-                        <div class="clear col-sm-9 btn-toolbar" role="toolbar">
-                            <div class="btn-group pull-left col-sm-2" role="group">
-                                <span class="btn btn-success pos-r cur-p">
-                                    <input type="file" id="sel-file" class="opacity-0 pos-a t-0 l-0 full-wh cur-p">选择文件
-                                </span>
-                            </div>
-                            <div class="btn-group pull-left col-sm-3" role="group">
-                                <button type="button" class="btn btn-success cro-btn-reset">重置操作</button>
-                            </div>
-                            <div class="btn-group pull-left pull-right" role="group">
-                                <button type="button" class="btn btn-success cro-btn-big">放大</button>
-                                <button type="button" class="btn btn-success cro-btn-small">缩小</button>
-                                <button type="button" class="btn btn-success cro-btn-left">左旋</button>
-                                <button type="button" class="btn btn-success cro-btn-right">右旋</button>
-                            </div>
-                        </div>
-                        <div class="clear col-sm-3">
-                            <button class="btn full-w btn-success cro-btn-submit">确定上传</button>
-                        </div>
-                    </div>
+                <div class="clear bor bor-t bor-col-f2 pt-60 pb-60 pl-60 pr-60 text-center">
+                    <img class="img-80 dis-ib" src="../../img/user/Service/success-face.png" alt="">
+                    <span class="col-309DE2 f-26 ml-25 line-h-35 h-35 mt-20 dis-ib">
+                        请先绑定邮箱或手机
+                    </span>
+                </div>
+                <div class="clear text-center mb-20">
+                    <button type="button" class="btn btn-primary hovbg-2D90CF radius-0 bg-309DE2 bor-none">返回个人中心</button>
                 </div>
             </div>
         </div>
@@ -330,7 +243,7 @@
         <div class="pos-a t-150 l-0 full-w">
             <div class="w-500 mg-0-auto clear pos-r bg-white verifyphone-content radius-5 t--300 modal-content">
                 <div class="pt-10 pb-10 line-h-25 pos-r f-20 pl-20 pr-20 col-333 full-w radius-5 cur-d">
-                    修改手机
+                    验证手机
                     <img class="pos-a t-10 r-20 img-20 close-mod cur-p" src="../../img/user/user/close.png" alt="">
                 </div>
                 <div class="clear bor bor-t bor-col-f2 pt-20 pb-20 pl-60 pr-60">
@@ -350,50 +263,6 @@
                             </div>
                         </div>
                         <div class="clear mt-40">
-                            <div class="clear col-xs-6 text-left">
-                                <button type="submit" class="btn btn-success pl-40 pr-40">确定</button>
-                            </div>
-                            <div class="clear col-xs-6 text-right">
-                                <button type="reset" class="btn btn-default pl-40 pr-40 close-mod">取消</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 添加手机弹出层 -->
-    <div class="clear show-addphone affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
-        <div class="pos-a t-150 l-0 full-w">
-            <div class="w-500 mg-0-auto clear pos-r bg-white addphone-content radius-5 t--300 modal-content">
-                <div class="pt-10 pb-10 line-h-25 pos-r f-20 pl-20 pr-20 col-333 full-w radius-5 cur-d">
-                    添加手机
-                    <img class="pos-a t-10 r-20 img-20 close-mod cur-p" src="../../img/user/user/close.png" alt="">
-                </div>
-                <div class="clear bor bor-t bor-col-f2 pt-20 pb-20 pl-60 pr-60">
-                    <form action="" class="formvalidate-add-bound-phone">
-                        <p class="col-212121 f-16 mt-20">
-                            请输入需要绑定的手机号码
-                        </p>
-                        <select class="form-control col-212121 f-16 mt-30">
-                              <option value="86">中国大陆（+86）</option>
-                              <option value="1">中国香港（+86）</option>
-                              <option value="2">中国台湾（+86）</option>
-                              <option value="3">美国（+86）</option>
-                              <option value="4">其他（+86）</option>
-                        </select>
-                        <div class="clear mt-20">
-                            <input type="text" class="full-w h-40 line-h-40 form-control ipt-new-phonenum" placeholder="请输入新的手机号码" maxlength="16" name="add_new_phone">
-                        </div>
-                        <div class="clear mt-20">
-                            <div class="clear col-xs-8 pl-0 pr-20 h-40 line-h-40">
-                                <input type="text" class="full-w h-40 line-h-40 form-control" placeholder="请输入短信验证码" maxlength="4" name="edbophone_code">
-                            </div>
-                            <div class="clear col-xs-4 pl-0 pr-0">
-                                <button type="button" class="btn btn-default h-40 full-w add-sendphonemsg">获取验证码</button>
-                            </div>
-                        </div>
-                        <div class="clear mt-30">
                             <div class="clear col-xs-6 text-left">
                                 <button type="submit" class="btn btn-success pl-40 pr-40">确定</button>
                             </div>
@@ -443,51 +312,53 @@
             </div>
         </div>
     </div>
-    <!-- 添加邮箱弹出层 -->
-    <div class="clear show-addemail affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
+    <!-- 设置密码成功弹出层 -->
+    <div class="clear show-setpwd-success affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
         <div class="pos-a t-150 l-0 full-w">
-            <div class="w-500 mg-0-auto clear pos-r bg-white addemail-content radius-5 t--300 modal-content">
+            <div class="w-500 mg-0-auto clear pos-r bg-white show-setpwd-success-content radius-5 t--300 modal-content">
                 <div class="pt-10 pb-10 line-h-25 pos-r f-20 pl-20 pr-20 col-333 full-w radius-5 cur-d">
-                    添加邮箱
+                    设置密码
                     <img class="pos-a t-10 r-20 img-20 close-mod cur-p" src="../../img/user/user/close.png" alt="">
                 </div>
-                <div class="clear bor bor-t bor-col-f2 pt-20 pb-20 pl-60 pr-60">
-                    <form action="" class="formvalidate-add-bound-email">
-                        <p class="col-212121 f-16 mt-20">
-                            请输入需要绑定邮箱
-                        </p>
-                        <div class="clear mt-20">
-                            <input type="text" class="full-w h-40 line-h-40 form-control ipt-new-emailnum" placeholder="请输入您的邮箱" maxlength="64" name="add_new_email">
-                        </div>
-                        <div class="clear mt-20">
-                            <div class="clear col-xs-8 pl-0 pr-20 h-40 line-h-40">
-                                <input type="text" class="full-w h-40 line-h-40 form-control" placeholder="请输入邮箱验证码" maxlength="4" name="adboemail_code">
-                            </div>
-                            <div class="clear col-xs-4 pl-0 pr-0">
-                                <button type="button" class="btn btn-default h-40 full-w add-sendemialmsg">获取邮箱验证码</button>
-                            </div>
-                        </div>
-                        <div class="clear mt-30">
-                            <div class="clear col-xs-6 text-left">
-                                <button type="submit" class="btn btn-success pl-40 pr-40">确定</button>
-                            </div>
-                            <div class="clear col-xs-6 text-right">
-                                <button type="reset" class="btn btn-default pl-40 pr-40 close-mod">取消</button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="clear bor bor-t bor-col-f2 pt-60 pb-60 pl-60 pr-60 text-center">
+                    <img class="img-80 dis-ib" src="../../img/user/Service/success-face.png" alt="">
+                    <span class="col-309DE2 f-26 ml-25 line-h-35 h-35 mt-20 dis-ib">
+                        设置密码成功
+                    </span>
+                </div>
+                <div class="clear text-center mb-20">
+                    <button type="button" class="btn btn-primary hovbg-2D90CF radius-0 bg-309DE2 bor-none">返回个人中心</button>
                 </div>
             </div>
         </div>
     </div>
+    <!-- 修改密码成功弹出层 -->
+    <div class="clear show-editpwd-success affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
+        <div class="pos-a t-150 l-0 full-w">
+            <div class="w-500 mg-0-auto clear pos-r bg-white show-editpwd-success-content radius-5 t--300 modal-content">
+                <div class="pt-10 pb-10 line-h-25 pos-r f-20 pl-20 pr-20 col-333 full-w radius-5 cur-d">
+                    修改密码
+                    <img class="pos-a t-10 r-20 img-20 close-mod cur-p" src="../../img/user/user/close.png" alt="">
+                </div>
+                <div class="clear bor bor-t bor-col-f2 pt-60 pb-60 pl-60 pr-60 text-center">
+                    <img class="img-80 dis-ib" src="../../img/user/Service/success-face.png" alt="">
+                    <span class="col-309DE2 f-26 ml-25 line-h-35 h-35 mt-20 dis-ib">
+                        修改密码成功
+                    </span>
+                </div>
+                <div class="clear text-center mb-20">
+                    <button type="button" class="btn btn-primary hovbg-2D90CF radius-0 bg-309DE2 bor-none">返回个人中心</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="../../js/comm/jquery.min.js"></script>
     <script src="../../js/comm/jquery.validate.min.js"></script>
     <script src="../../js/comm/jquery.validate.messages_zh.js"></script>
-    <script src="../../ctrl/cropper/dist/cropper.min.js"></script>
     <script src="../../ctrl/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script src="../../ctrl/layer/layer.js"></script>
     <script src="../../js/comm/base.js"></script>
-    <script src="../../js/user/HK_User.js"></script>
+    <script src="../../js/user/HK_SetPwd.js"></script>
 </body>
 
 </html>

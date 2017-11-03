@@ -63,12 +63,13 @@ $(document).ready(function() {
             layer.close(layindex);
         }, 3000);
     })
-    /*绑定手机，绑定邮箱部分相关js*/
+    /*绑定手机，绑定邮箱，修改密码部分相关js*/
     /*相关初始化*/
         setphoneemail();
         function setphoneemail() {
             var iptphonenum = $('.ipt-bound-phonenum').val();
             var iptemail = $('.ipt-bound-email').val();
+            var iptpwd = $('.ipt-about-pwd').val();
             /*绑定手机部分初始化*/
             setphone(iptphonenum);
             function setphone(iptphonenum) {
@@ -93,6 +94,19 @@ $(document).ready(function() {
                     var strboundemail="";
                     strboundemail += "绑定邮箱：<span class=\"bound-email\">"+iptemail+"<\/span><span class=\"col-309DE2 cur-p f-16 edit-bound-email ml-20\">修改<\/span>";
                     $(".p-bound-email").append(strboundemail);
+                }
+            }
+            /*密码部分初始化*/
+            setpwd(iptpwd);
+            function setpwd(iptpwd) {
+                if (iptpwd == "" || iptpwd == null || iptpwd == undefined) {
+                    var straboutpwd="";
+                    straboutpwd += "密码：<span class=\"bound-email\">未设置<\/span><span class=\"col-309DE2 cur-p f-16 add-bound-pwd ml-20\">立即设置<\/span>";
+                    $(".p-about-pwd").append(straboutpwd);
+                } else {
+                    var straboutpwd="";
+                    straboutpwd += "密码：<span class=\"bound-email\">已设置<\/span><span class=\"col-309DE2 cur-p f-16 edit-bound-pwd ml-20\">修改<\/span>";
+                    $(".p-about-pwd").append(straboutpwd);
                 }
             }
         }
@@ -461,4 +475,11 @@ $(document).ready(function() {
                 };
             };
     /*添加绑定邮箱弹出层END*/
+    /*修改密码，绑定密码相关操作*/
+    $(".add-bound-pwd").click(function() {
+        alert("设置密码相关的操作");
+    });
+    $(".edit-bound-pwd").click(function() {
+        alert("修改密码相关的操作");
+    });
 });

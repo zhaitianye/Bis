@@ -51,7 +51,6 @@
 .col-b0b0b0{color: #b0b0b0;}
 .col-9d9d9d{color: #9d9d9d;}
 .bor-col-e0e0e0{border-color: #e0e0e0;}
-.hovecol-309DE2:hover{color: #309DE2 !important;}
 .rgba-60{background: rgba(0,0,0,0.6)}
 .t-150{top: 150px;}
 .w-370{width: 370px;}
@@ -136,3 +135,5 @@
 .bor-none{border:none;}
 .bg-309DE2{background-color: #309DE2;}
 .hovbg-2D90CF:hover{background: #2D90CF !important;}
+.min-h-65{min-height: 65px;}
+.img-80{width: 80px;height: 80px;}
