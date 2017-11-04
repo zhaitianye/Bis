@@ -34,13 +34,11 @@ button, input[type="button"], input[type="submit"] {line-height: normal}
 table {border-collapse: collapse; border-spacing: 0}
 audio, canvas, video {display: inline-block; *display: inline; *zoom: 1}
 audio:not([controls]), [hidden], .hidden, .hide {display: none}
-body {line-height:1}
 h1, h2, h3, h4, h5, h6 {font-weight:normal}
 a {text-decoration: none; cursor: pointer; outline-width: 0}
 a:hover {text-decoration: underline}
 a.ie6:hover {zoom: 1}
 sub, sup {vertical-align: baseline}
-
 /*img*/
 img {border: 0; vertical-align: middle;max-width:100%}
 a img, img {-ms-interpolation-mode: bicubic}
