@@ -46,9 +46,9 @@ $(document).ready(function() {
     map.addControl(new BMap.NavigationControl()); //添加工具类
     map.addControl(new BMap.ScaleControl()); //添加比例尺
     var point = new BMap.Point(114.141702,22.373798); //添加地图上的点
-    map.centerAndZoom(point, 15); //缩放比例
+    map.centerAndZoom(point, 19); //缩放比例
     /*--------------------我是一条华丽分割线----------------------------------*/
-    var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(180,80));
+    var myIcon = new BMap.Icon("../../img/HK_About/in_this.gif", new BMap.Size(40,40));
     var marker = new BMap.Marker(point,{icon:myIcon});  // 创建标注,定义这个点
     map.addOverlay(marker);              // 将标注添加到地图中
     /*--------------------我是一条华丽分割线----------------------------------*/
