@@ -34,7 +34,6 @@ $(document).ready(function() {
             }
         });
     });
-
     // 百度地图API功能
     var sContent =
     "<h4 style='margin:0 0 5px 0;padding:0.2em 0'>碧沙科技（香港）有限公司</h4>" + 
@@ -60,6 +59,23 @@ $(document).ready(function() {
        document.getElementById('imgDemo').onload = function (){
            infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
        }
+    });
+    /*选项卡js*/
+    $(".CU-list").click(function() {
+        $(this).parent().find(".col-active").removeClass("col-active");
+        $(this).addClass("col-active");
+    }); 
+    $(".CU-listv1").click(function() {
+        $(".CU-tips").hide();
+        $(".CU-tipsv1").show();
+    }); 
+    $(".CU-listv2").click(function() {
+        $(".CU-tips").hide();
+        $(".CU-tipsv2").show();
+    });
+    $(".CU-listv3").click(function() {
+        $(".CU-tips").hide();
+        $(".CU-tipsv3").show();
     });
 });
 
