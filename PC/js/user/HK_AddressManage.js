@@ -2,7 +2,8 @@ $(document).ready(function() {
 	/*确认订单页面校验部分*/
     $.validator.setDefaults({
         submitHandler: function() {
-            alert("提交事件!");
+            var ssss = $(".inrearea").val();
+            console.log(ssss);
         }
     });
     $().ready(function() {
@@ -17,7 +18,10 @@ $(document).ready(function() {
                     required: true,
                     minlength: 6
                 },
-                shaddress: "required",
+                shaddress: {
+                    required: true,
+                    minlength: 5
+                },
                 shemail: {
                     required: true,
                     email: true
@@ -32,7 +36,10 @@ $(document).ready(function() {
                     required: "请输入您的手机号码",
                     minlength: "手机号最少由6位组成"
                 },
-                shaddress: "请输入您的地址",
+                shaddress: {
+                    required: "请输入您的地址",
+                    minlength: "详细地址最少为5位组成"
+                },
                 shemail: {
                     required: "请输入您的电子邮件",
                     email: "请输入正确的电子邮件地址"
@@ -49,7 +56,10 @@ $(document).ready(function() {
                     required: true,
                     minlength: 6
                 },
-                shaddress: "required",
+                shaddress: {
+                    required: true,
+                    minlength: 5
+                },
                 shemail: {
                     required: true,
                     email: true
@@ -64,7 +74,10 @@ $(document).ready(function() {
                     required: "请输入您的手机号码",
                     minlength: "手机号最少由6位组成"
                 },
-                shaddress: "请输入您的地址",
+                shaddress: {
+                    required: "请输入您的地址",
+                    minlength: "详细地址最少为5位组成"
+                },
                 shemail: {
                     required: "请输入您的电子邮件",
                     email: "请输入正确的电子邮件地址"
@@ -158,13 +171,14 @@ $(document).ready(function() {
     $(".address-tips-edit").click(function() {
         $(".show-revise-shippingaddress").fadeIn();
 
+        var cid = $(this).siblings(".add-id").val();
         var cname = $(this).siblings(".add-name").val();
         var cphone = $(this).siblings(".add-phone").val();
 		var carea = $(this).siblings(".add-area").val();
         var caddress = $(this).siblings(".add-address").val();
         var cemal = $(this).siblings(".add-email").val();
 
-        console.log(cname + cphone + caddress + cemal + carea);
+        console.log(cid + cname + cphone + caddress + cemal + carea);
 
         $(".inrename").val(cname);
         $(".inrephone").val(cphone);
