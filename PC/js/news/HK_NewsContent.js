@@ -1,3 +1,11 @@
+/*定义加载高度函数，循环控制文章高度*/
+/*这里有跨域问题，必须在服务器上测试*/
+var iframeheight;
+var id = setInterval("test()",1000); 
+function test(){
+    iframeheight =$('#maindes').contents().find('html').height();
+    $('#maindes').height(iframeheight);
+}
 $(document).ready(function() {
     /*头部导航下划线*/
     $(".mainnav").find("a").mouseenter(function() {
@@ -14,16 +22,9 @@ $(document).ready(function() {
     $(document).click(function() {
         $('.mainsearchinput').fadeOut();
     });
+    //高度自适应页面加载完毕后执行一次
+    $('#maindes').ready(function () {
+        iframeheight =$('#maindes').contents().find('html').height();
+        $('#maindes').height(iframeheight);
+    });
 });
-
-//高度自适应
-var iframe = document.getElementById("testIframe");
-var iframeHeight = function() {    
-    var hash = window.location.hash.slice(1), h;
-    if (hash && /height=/.test(hash)) {
-        h = hash.replace("height=", "");
-        iframe.height = h;
-    }
-    setTimeout(iframeHeight, 200);
-};
-iframeHeight();
