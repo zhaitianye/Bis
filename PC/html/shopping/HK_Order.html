@@ -210,27 +210,6 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- 七 -->
-                        <div class="clear col-sm-3 pd-15-5-ipad conanorder-block">
-                            <div class="clear pd-15-5-ipad bor bor-col-7A7A7A bor-col-activate min-h-190-160-ipad conanorder-tips">
-                                <p class="line-h-30-20-ipad f-18 family-h">
-                                    <span class="col-252525 conanorder-tips-name">7</span>
-                                </p>
-                                <p class="line-h-20 mt-15-0-ipad f-14 family-h">
-                                    <span class="col-555 conanorder-tips-phone">13889900007</span>
-                                </p>
-                                <p class="line-h-25 f-14 family-h text-line-4">
-                                    <span class="col-555 conanorder-tips-address">广东 深圳 宝安区 沙井街道全至科技创新园10222E广东7</span>
-                                </p>
-                                <input type="hidden" class="conanorder-tips-emal" value="123456789@qq.com">
-                                <input type="hidden" class="conanorder-tips-about" value="无">
-                                <input type="hidden" class="conanorder-tips-id" value="777777777">
-                                <p class="clear ptb-10-5-ipad f-14 family-h line-h-20">
-                                    <span class="pull-right col-309DE2 cur-p t-nonehove conanorder-tips-del ml-10 dis-n">删除</span>
-                                    <span class="pull-right col-309DE2 cur-p t-nonehove conanorder-tips-alter dis-n">修改</span>
-                                </p>
-                            </div>
-                        </div>
                         <!-- 循环结束 -->
                         <!-- 添加收货地址 -->
                         <div class="clear col-sm-3 pd-15-5-ipad">
@@ -438,30 +417,38 @@
                     </div>
                     <form class="clear pos-r shippingaddress-add" action="">
                         <div class="clear pd-40">
-                            <div class="col-xs-6 text-center pl-0 pr-10 pos-r">
-                                <input type="hidden" class="show-input-shipping-value" value="请输入收货人姓名">
-                                <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping" type="text" name="shname">
-                                <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">姓名</div>
+                            <div class="clear full-w">
+                                <div class="col-xs-6 text-center pl-0 pr-10 pos-r">
+                                    <input type="hidden" class="show-input-shipping-value" value="请输入收货人姓名">
+                                    <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping" type="text" name="shname">
+                                    <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">姓名</div>
+                                </div>
+                                <div class="col-xs-6 text-center pl-10 pr-0 pos-r">
+                                    <input type="hidden" class="show-input-shipping-value" value="请输入收货人手机号">
+                                    <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping" type="text" name="shphone">
+                                    <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">手机号</div>
+                                </div>
                             </div>
-                            <div class="col-xs-6 text-center pl-10 pr-0 pos-r">
-                                <input type="hidden" class="show-input-shipping-value" value="请输入收货人手机号">
-                                <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping" type="text" name="shphone">
-                                <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">手机号</div>
+                            <div class="clear full-w">
+                                <div class="col-xs-6 text-center pl-0 pr-10 pos-r mt-15">
+                                    <input type="hidden" class="show-input-shipping-value" value="请输入您的电子邮件">
+                                    <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping" type="text" name="shemail">
+                                    <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">电子邮件</div>
+                                </div>
+                                <div class="col-xs-6 text-center pl-10 pr-0 pos-r mt-15">
+                                    <select class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping" name="sharea">
+                                        <option value="0">中国大陆</option>
+                                        <option value="1">中国香港</option>
+                                        <option value="2">中国台湾</option>
+                                        <option value="3">国外</option>
+                                        <option value="4">其他</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="col-xs-12 text-center mt-15 pl-0 pr-0 pos-r">
                                 <input type="hidden" class="show-input-shipping-value" value="请输入您的详细地址">
                                 <textarea rows="2" cols="20" class="full-w bor line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping" type="text" name="shaddress"></textarea>
                                 <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">详细地址</div>
-                            </div>
-                            <div class="col-xs-6 text-center pl-0 pr-10 pos-r mt-15">
-                                <input type="hidden" class="show-input-shipping-value" value="请输入您的电子邮件">
-                                <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping" type="text" name="shemail">
-                                <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">电子邮件</div>
-                            </div>
-                            <div class="col-xs-6 text-center pl-10 pr-0 pos-r mt-15">
-                                <input type="hidden" class="show-input-shipping-value" value="请输入您的备注">
-                                <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping" type="text">
-                                <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">备注</div>
                             </div>
                         </div>
                         <div class="clear full-w h-75 bg-f5f5f5 mt-10 pt-20 pb-20 line-h-35 text-center">
@@ -482,35 +469,43 @@
                     </div>
                     <form class="clear pos-r shippingaddress-revise" action="">
                         <div class="clear pd-40">
-                            <div class="col-xs-6 text-center pl-0 pr-10 pos-r">
-                                <input type="hidden" class="show-input-shipping-value" value="请输入修改后的收货人姓名">
-                                <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping inrename" type="text" name="shname">
-                                <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">姓名</div>
+                            <div class="full-w clear">
+                                <div class="col-xs-6 text-center pl-0 pr-10 pos-r">
+                                    <input type="hidden" class="show-input-shipping-value" value="请输入收货人姓名">
+                                    <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping inrename" type="text" name="shname">
+                                    <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">姓名</div>
+                                </div>
+                                <div class="col-xs-6 text-center pl-10 pr-0 pos-r">
+                                    <input type="hidden" class="show-input-shipping-value" value="请输入收货人手机号">
+                                    <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping inrephone" type="text" name="shphone">
+                                    <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">手机号</div>
+                                </div>
                             </div>
-                            <div class="col-xs-6 text-center pl-10 pr-0 pos-r">
-                                <input type="hidden" class="show-input-shipping-value" value="请输入修改后的收货人手机号">
-                                <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping inrephone" type="text" name="shphone">
-                                <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">手机号</div>
+                            <div class="clear full-w">
+                                <div class="col-xs-6 text-center pl-0 pr-10 pos-r mt-15">
+                                    <input type="hidden" class="show-input-shipping-value" value="请输入您的电子邮件">
+                                    <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping inreemail" type="text" name="shemail">
+                                    <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">电子邮件</div>
+                                </div>
+                                <div class="col-xs-6 text-center pl-10 pr-0 pos-r mt-15">
+                                    <select class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping inrearea" name="sharea">
+                                        <option value="0">中国大陆</option>
+                                        <option value="1">中国香港</option>
+                                        <option value="2">中国台湾</option>
+                                        <option value="3">国外</option>
+                                        <option value="4">其他</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="col-xs-12 text-center mt-15 pl-0 pr-0 pos-r">
-                                <input type="hidden" class="show-input-shipping-value" value="请输入修改后的详细地址">
+                                <input type="hidden" class="show-input-shipping-value" value="请输入您的详细地址">
                                 <textarea rows="2" cols="20" class="full-w bor line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping inreaddress" type="text" name="shaddress"></textarea>
                                 <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">详细地址</div>
-                            </div>
-                            <div class="col-xs-6 text-center pl-0 pr-10 pos-r mt-15">
-                                <input type="hidden" class="show-input-shipping-value" value="请输入修改后的电子邮件">
-                                <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping inreemail" type="text" name="shemail">
-                                <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">电子邮件</div>
-                            </div>
-                            <div class="col-xs-6 text-center pl-10 pr-0 pos-r mt-15">
-                                <input type="hidden" class="show-input-shipping-value" value="请输入修改后的备注">
-                                <input class="full-w bor h-36 line-h-36 bor-col-B2B2B2 pl-15 family-h f-14 col-252525 show-input-shipping inreabout" type="text">
-                                <div class="clear pos-a t-11 l-15 f-14 show-div-shipping col-9a9a9a bg-white">备注</div>
                             </div>
                         </div>
                         <div class="clear full-w h-75 bg-f5f5f5 mt-10 pt-20 pb-20 line-h-35 text-center">
                             <button type="submit" class="full-h w-150 mr-10 bor-none bg-309DE2 hovbg-2D90CF col-white">保存</button>
-                            <button type="button" class="full-h w-150 ml-10 bor-none bg-9a9a9a hovbg-666 col-white close-mod">取消</button>
+                            <button type="reset" class="full-h w-150 ml-10 bor-none bg-9a9a9a hovbg-666 col-white">重置</button>
                         </div>
                     </form>
                 </div>
@@ -646,7 +641,6 @@
     <script src="../../ctrl/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="../../js/comm/base.js"></script>
     <script src="../../js/shopping/HK_Order.js"></script>
-
 </body>
 
 </html>
