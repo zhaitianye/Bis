@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+    </title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="ckeditor.js"></script>
+</head>
+
+<body>
+	<p>
+    	<textarea name="editor1" id="editor1">&lt;p&gt;Initial editor content.&lt;/p&gt;</textarea>
+	</p>
+	<p>
+		<button class="getdateabout">点击获取数据console口输出</button>
+	</p>
+    <script>
+    $(document).ready(function() {
+    	/*定义ckeditor*/
+        var editor = CKEDITOR.replace('editor1', {
+            customConfig: 'custom/ckeditor_config.js'
+        });
+        /*获取数据*/
+        $(".getdateabout").click(function() {
+        	var data = CKEDITOR.instances.editor1.getData();
+            console.log(data);
+        });
+    });
+    </script>
+</body>
+
+</html>
