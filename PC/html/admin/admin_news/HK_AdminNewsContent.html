@@ -70,13 +70,55 @@
         </div>
         <!-- 内容主体区域 -->
         <div class="layui-body">
-            <div style="padding: 50px;">
+            <div style="padding: 30px 50px;">
                 <p class="f-18 pt-15 pb-15 col-8d969d">
-                    编辑文章
+                    填写文章基本资料
                 </p>
-                <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2">
-                    <textarea name="editor1" id="editor1">&lt;p&gt;Initial editor content.&lt;/p&gt;</textarea>
-                </div>
+                <form class="layui-form" action="">
+                    <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label pt-10 pb-10 pl-0 pr-0 col-black">文章标题：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label pt-10 pb-10 pl-0 pr-0 col-black">文章副标题：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="username" lay-verify="required" placeholder="请输入文章副标题" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label pt-10 pb-10 pl-0 pr-0 col-black">作者：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="username" lay-verify="required" placeholder="请输入作者" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label pt-10 pb-10 pl-0 pr-0 col-black">阅读量：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="username" lay-verify="required" placeholder="请输入阅读量" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label pt-10 pb-10 pl-0 pr-0 col-black">主图地址：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="username" lay-verify="required" placeholder="请输入主图地址" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="f-18 pt-15 pb-15 col-8d969d mt-10 mb-10">
+                        编辑文章主要内容
+                    </p>
+                    <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2">
+                        <textarea name="editor1" id="editor1">&lt;p&gt;在这里编辑文章内容&lt;/p&gt;</textarea>
+                        <div class="mt-20 mb-20">
+                            <div class="pull-right mr-40">
+                                <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <!-- 底部固定区域 -->

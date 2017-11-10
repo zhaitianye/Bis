@@ -5,12 +5,13 @@ $(document).ready(function() {
             layer = layui.layer,
             element = layui.element,
             table = layui.table;
+            
     });
 
     /*定义ckeditor*/
     var editor = CKEDITOR.replace('editor1', {
         customConfig: 'custom/ckeditor_config.js',
-        height: 600,
+        height: 550,
     });
     /*获取数据*/
     $(".getdateabout").click(function() {
