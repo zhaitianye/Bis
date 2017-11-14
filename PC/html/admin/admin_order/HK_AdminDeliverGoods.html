@@ -110,11 +110,12 @@
                         </div>
                     </form>
                 </div>
-                <p class="f-18 pt-15 pb-15 col-8d969d">
-                    <button class="layui-btn">打印发货单</button>
+                <p class="f-18 pt-15 pb-15 col-8d969d demoTable">
+                    <button class="layui-btn" data-type="getCheckData">打印发货单</button>
+                    <button class="layui-btn wwwwww">wwwwww</button>
                 </p>
                 <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2 min-w-1200">
-                    <table id="commentlist" lay-filter="test"></table>
+                    <table id="DeliverList" lay-filter="DLtest"></table>
                 </div>
             </div>
         </div>
@@ -126,8 +127,9 @@
         </div>
     </div>
     <!-- 弹出层内容-->
+    <!-- 一条信息的弹出层的基本内容，供js调用 -->
     <div class="detailcontent dis-n">
-        <div class="clear pd-20 f-12">
+        <div class="clear pd-20 f-16">
             <div class="clear mb-20">
                 <div class="pull-left text-right w-120">
                     收货人:
@@ -193,6 +195,7 @@
             </div>
         </div>
     </div>
+    <!-- 修改运单信息的运单号的基本内容，供js调用 -->
     <div class="detailwaybill dis-n">
         <div class="clear pd-20 f-16">
             <p class="f-14 col-red mb-20 pl-20">
@@ -221,6 +224,197 @@
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+    <!-- 确认打印以下发货单的基本内容，供js调用 -->
+    <div class="sureprint dis-n">
+        <div class="clear pd-20 f-16">
+            <p class="f-16 col-red mb-20 pl-20">
+                温馨提示：请仔细核对需要打印的发货单。
+            </p>
+            <form class="layui-form" action="">
+                <input type="hidden" class="ipt_waybill_id" value="">
+                <div class="clear mb-20 h-40">
+                    <div class="clear h-40 line-h-40 pl-20">
+                        当前已选中的订单的订单号：
+                    </div>
+                </div>
+                <div class="clear manifest_box pl-40">
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 打印相关的弹出层，供js调用 -->
+    <div class="clear dis-n">
+        <div class="aaaaaa">
+            <div class="clear pd-15" style="page-break-after: always;">
+                <p class="f-18 text-center col-black h-25 line-h-25">
+                    BISA
+                </p>
+                <p class="f-20 f-w text-center col-black h-25 line-h-25 mb-15 family-s">
+                    碧沙康健
+                </p>
+                <div class="clear full-w bor bor-b">
+                </div>
+                <div class="clear full-w mt-15 f-12">
+                    <div class="clear layui-col-xs6 line-h-20 col-black">
+                        <span class="f-w col-black">收货人姓名：</span>和小凯
+                    </div>
+                    <div class="clear layui-col-xs6 line-h-20 col-black">
+                        <span class="f-w col-black">订单编号：</span>JKADJFI484184818481
+                    </div>
+                </div>
+                <div class="clear full-w mt-10 f-12">
+                    <div class="clear layui-col-xs12 line-h-20 col-black">
+                        <span class="f-w col-black">下单日期：</span>2017/11/15 22:10:59
+                    </div>
+                </div>
+                <div class="clear full-w mt-10 f-12 mb-15">
+                    <div class="clear layui-col-xs12 line-h-20 col-black">
+                        <span class="f-w col-black">收货人地址：</span>深圳市宝安区后亭社区全至科技创新园10E
+                    </div>
+                </div>
+                <div class="clear full-w bor bor-b">
+                </div>
+                <div class="clear full-w mt-15 f-12">
+                    <div class="clear layui-col-xs3 f-w col-black pl-0 pr-0 newline">
+                        商品名
+                    </div>
+                    <div class="clear layui-col-xs5 f-w col-black pl-0 pr-0 text-center newline">
+                        商品编号
+                    </div>
+                    <div class="clear layui-col-xs2 f-w col-black pl-0 pr-0 text-center newline">
+                        商品数量
+                    </div>
+                    <div class="clear layui-col-xs2 f-w col-black pl-0 pr-0 text-right newline">
+                        单项总价
+                    </div>
+                </div>
+                <div class="clear full-w mt-15 f-12">
+                    <div class="clear layui-col-xs3 col-black pl-0 pr-0 newline">
+                        HC3A250 悉心心电仪
+                    </div>
+                    <div class="clear layui-col-xs5 col-black pl-0 pr-0 text-center newline">
+                        456457ad87f6491982c8ee11f781d463
+                    </div>
+                    <div class="clear layui-col-xs2 col-black pl-0 pr-0 text-center newline">
+                        30
+                    </div>
+                    <div class="clear layui-col-xs2 col-black pl-0 pr-0 text-right newline">
+                        ￥54000.00
+                    </div>
+                </div>
+                <div class="clear full-w mt-15 f-12">
+                    <div class="clear layui-col-xs3 col-black pl-0 pr-0 newline">
+                        电极片
+                    </div>
+                    <div class="clear layui-col-xs5 col-black pl-0 pr-0 text-center newline">
+                        456457a12321321382c8ee11f781d463
+                    </div>
+                    <div class="clear layui-col-xs2 col-black pl-0 pr-0 text-center newline">
+                        160
+                    </div>
+                    <div class="clear layui-col-xs2 col-black pl-0 pr-0 text-right newline">
+                        ￥3200.00
+                    </div>
+                </div>
+                <div class="clear full-w mt-15 f-12">
+                    <div class="clear layui-col-xs3 col-black pl-0 pr-0 newline">
+                        电极片
+                    </div>
+                    <div class="clear layui-col-xs5 col-black pl-0 pr-0 text-center newline">
+                        456457a12321321382c8ee11f781d463
+                    </div>
+                    <div class="clear layui-col-xs2 col-black pl-0 pr-0 text-center newline">
+                        160
+                    </div>
+                    <div class="clear layui-col-xs2 col-black pl-0 pr-0 text-right newline">
+                        ￥3200.00
+                    </div>
+                </div>
+                <div class="clear full-w mt-15 f-12">
+                    <div class="clear layui-col-xs3 col-black pl-0 pr-0 newline">
+                        电极片
+                    </div>
+                    <div class="clear layui-col-xs5 col-black pl-0 pr-0 text-center newline">
+                        456457a12321321382c8ee11f781d463
+                    </div>
+                    <div class="clear layui-col-xs2 col-black pl-0 pr-0 text-center newline">
+                        160
+                    </div>
+                    <div class="clear layui-col-xs2 col-black pl-0 pr-0 text-right newline">
+                        ￥3200.00
+                    </div>
+                </div>
+                <div class="clear full-w mt-15 f-12">
+                    <div class="clear layui-col-xs3 col-black pl-0 pr-0 newline">
+                        电极片
+                    </div>
+                    <div class="clear layui-col-xs5 col-black pl-0 pr-0 text-center newline">
+                        456457a12321321382c8ee11f781d463
+                    </div>
+                    <div class="clear layui-col-xs2 col-black pl-0 pr-0 text-center newline">
+                        160
+                    </div>
+                    <div class="clear layui-col-xs2 col-black pl-0 pr-0 text-right newline">
+                        ￥3200.00
+                    </div>
+                </div>
+                <div class="clear full-w mt-15 f-12">
+                    <div class="clear layui-col-xs3 col-black pl-0 pr-0 newline">
+                        电极片
+                    </div>
+                    <div class="clear layui-col-xs5 col-black pl-0 pr-0 text-center newline">
+                        456457a12321321382c8ee11f781d463
+                    </div>
+                    <div class="clear layui-col-xs2 col-black pl-0 pr-0 text-center newline">
+                        160
+                    </div>
+                    <div class="clear layui-col-xs2 col-black pl-0 pr-0 text-right newline">
+                        ￥3200.00
+                    </div>
+                </div>
+                <div class="clear full-w mt-40 f-12 mb-15">
+                    <div class="clear layui-col-xs4 layui-col-xs-offset8 pl-0 pr-0">
+                        <span class="f-w col-black dis-ib pull-left">商品总数：</span>
+                        <span class="col-black dis-ib pull-right">800</span>
+                    </div>
+                </div>
+                <div class="clear full-w bor bor-b">
+                </div>
+                <div class="clear full-w mt-15 f-12">
+                    <div class="clear layui-col-xs4 layui-col-xs-offset8 pl-0 pr-0">
+                        <span class="f-w col-black dis-ib pull-left">小计：</span>
+                        <span class="col-black dis-ib pull-right">￥800.00</span>
+                    </div>
+                </div>
+                <div class="clear full-w mt-10 f-12">
+                    <div class="clear layui-col-xs4 layui-col-xs-offset8 pl-0 pr-0">
+                        <span class="f-w col-black dis-ib pull-left">运费：</span>
+                        <span class="col-black dis-ib pull-right">￥0.00</span>
+                    </div>
+                </div>
+                <div class="clear full-w mt-10 f-12 mb-15">
+                    <div class="clear layui-col-xs4 layui-col-xs-offset8 pl-0 pr-0">
+                        <span class="f-w col-black dis-ib pull-left">合计金额：</span>
+                        <span class="col-black dis-ib pull-right">￥2800000.00</span>
+                    </div>
+                </div>
+                <div class="clear full-w bor bor-b">
+                </div>
+                <div class="clear full-w mt-15 f-12 mb-10 col-black">
+                    感谢您购买碧沙康健的产品，如您对产品感到满意记得登录碧沙商城给我们好评哦！
+                </div>
+                <div class="clear full-w bor bor-b">
+                </div>
+                <div class="clear full-w mt-15 f-12 col-black text-center">
+                    扫描 二维码 进入碧沙商城
+                </div>
+                <div class="clear full-w mt-15 text-center">
+                    <img class="img-100" src="../../../img/admin/admin_comm/shop_qr.png" alt="">
+                </div>
+
+            </div>
         </div>
     </div>
     <script src="../../../js/comm/jquery.min.js"></script>
