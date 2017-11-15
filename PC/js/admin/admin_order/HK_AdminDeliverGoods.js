@@ -111,35 +111,172 @@ $(document).ready(function() {
         var $ = layui.$, active = {
                 getCheckData: function() {
                     /*获取选中的id*/
-                    var checkStatus = table.checkStatus('DeliverList'),
-                        data = checkStatus.data;
+                    var checkStatus = table.checkStatus('DeliverList');
+                    var data = checkStatus.data;
+                    /*判断data的数量是否为0*/
+                    if (data.length == 0) {
+                        layer.alert('请先选择需要打印的订单。', {
+                            icon: 6,
+                            title: '打印发货单提示'
+                        })
+                    }else{
                         var jsonprintid = [];
                         var manifest_box_content = "";
-                    for (var i = 0; i < data.length; i++) {
-                        /*把id封装成json*/
-                        var row ={};
-                        row.id = data[i].id;
-                        jsonprintid.push(row);
-                        /*把订单添加到相应位置*/
-                        manifest_box_content += "<p class=\"clear h-40 line-h-40 col-red\">";
-                        manifest_box_content += data[i].ordernum;
-                        manifest_box_content += "<\/p>";
+                        for (var i = 0; i < data.length; i++) {
+                            /*把id封装成json*/
+                            var row ={};
+                            row.id = data[i].id;
+                            jsonprintid.push(row);
+                            /*把订单添加到相应位置*/
+                            manifest_box_content += "<p class=\"clear h-40 line-h-40 col-red\">";
+                            manifest_box_content += data[i].ordernum;
+                            manifest_box_content += "<\/p>";
+                        }
+                        $(".manifest_box").html(manifest_box_content);
+                        layer.open({
+                            type: 1,
+                            title: "打印发货单",
+                            area: ['560px', '700px'], //宽高
+                            btn: ['打印', '取消'],
+                            btn1: function(index, layero) {
+                                //var index = layer.load(0, {shade: false});
+                                //$(".aaaaaa").print();
+                                /*在这里进行ajax调用返回json数据*/
+                                //console.log(JSON.stringify(jsonprintid));
+                                /*AJAX--------------华丽分割线------------AJAX*/
+                                /*定义一条测试数据*/
+                                var orderlist_data = {"order_book":[{"name":"和小凯","order_no":"JKADJFI484184818481","start_time":"2017/11/15 22:10:59","county_address":"深圳市宝安区后亭社区全至科技创新园10E","count_total":"800","sub_total":"￥800.00","post_price":"￥0.00","price_total":"￥2800000.00","page_side":[{"product_name":"HC3A250 悉心心电仪","ascription_guid":"456457ad87f6491982c8ee11f781d463","count":"30","price":"￥54000.00"},{"product_name":"HC3A250 悉心心电仪2","ascription_guid":"456457ad87f6491982c8ee11f781d463","count":"30","price":"￥54000.00"},{"product_name":"HC3A250 悉心心电仪3","ascription_guid":"456457ad87f6491982c8ee11f781d463","count":"30","price":"￥54000.00"},{"product_name":"HC3A250 悉心心电仪4","ascription_guid":"456457ad87f6491982c8ee11f781d463","count":"30","price":"￥54000.00"},{"product_name":"HC3A250 悉心心电仪5","ascription_guid":"456457ad87f6491982c8ee11f781d463","count":"30","price":"￥54000.00"},{"product_name":"HC3A250 悉心心电仪6","ascription_guid":"456457ad87f6491982c8ee11f781d463","count":"30","price":"￥54000.00"},{"product_name":"HC3A250 悉心心电仪7","ascription_guid":"456457ad87f6491982c8ee11f781d463","count":"30","price":"￥54000.00"},{"product_name":"HC3A250 悉心心电仪8","ascription_guid":"456457ad87f6491982c8ee11f781d463","count":"30","price":"￥54000.00"},{"product_name":"HC3A250 悉心心电仪9","ascription_guid":"456457ad87f6491982c8ee11f781d463","count":"30","price":"￥54000.00"},{"product_name":"电极片","ascription_guid":"qwesq7a12321321382c8ee11f781d463","count":"160","price":"￥3200.00"}]},{"name":"和小凯2","order_no":"JKADJFI484184818482","start_time":"2018/11/15 22:10:59","county_address":"香港","count_total":"800","sub_total":"￥800.00","post_price":"￥0.00","price_total":"￥2800000.00","page_side":[{"product_name":"HC3A250 悉心心电仪21212","ascription_guid":"456457ad87f6491982c8ee11f781d463","count":"30","price":"￥54000.00"},{"product_name":"电极片121212","ascription_guid":"qwesq7a12321321382c8ee11f781d463","count":"160","price":"￥3200.00"}]}]};
+                                /*在此处进行打印内容的拼接操作*/
+                                printorderlist();
+                                function printorderlist(){
+                                    var page = orderlist_data.order_book;
+                                    var page_length = orderlist_data.order_book.length;
+                                    var html_page = "";
+                                    for (i=0; i < page_length; i++) {
+                                        /*定义第一段需要拼接的html*/
+                                            var html_page_tipsv1="";
+                                                html_page_tipsv1 += "<div class=\"clear pd-15\" style=\"page-break-after: always;\">";
+                                                html_page_tipsv1 += "<p class=\"f-18 text-center col-black h-25 line-h-25\">";
+                                                html_page_tipsv1 += "    BISA";
+                                                html_page_tipsv1 += "<\/p>";
+                                                html_page_tipsv1 += "<p class=\"f-20 f-w text-center col-black h-25 line-h-25 mb-15 family-s\">";
+                                                html_page_tipsv1 += "    碧沙康健";
+                                                html_page_tipsv1 += "<\/p>";
+                                                html_page_tipsv1 += "<div class=\"clear full-w bor bor-b\">";
+                                                html_page_tipsv1 += "<\/div>";
+                                                html_page_tipsv1 += "<div class=\"clear full-w mt-15 f-12\">";
+                                                html_page_tipsv1 += "    <div class=\"clear layui-col-xs6 line-h-20 col-black\">";
+                                                html_page_tipsv1 += "        <span class=\"f-w col-black\">收货人姓名：<\/span>"+page[i].name;
+                                                html_page_tipsv1 += "    <\/div>";
+                                                html_page_tipsv1 += "    <div class=\"clear layui-col-xs6 line-h-20 col-black\">";
+                                                html_page_tipsv1 += "        <span class=\"f-w col-black\">订单编号：<\/span>"+page[i].order_no;
+                                                html_page_tipsv1 += "    <\/div>";
+                                                html_page_tipsv1 += "<\/div>";
+                                                html_page_tipsv1 += "<div class=\"clear full-w mt-10 f-12\">";
+                                                html_page_tipsv1 += "    <div class=\"clear layui-col-xs12 line-h-20 col-black\">";
+                                                html_page_tipsv1 += "        <span class=\"f-w col-black\">下单日期：<\/span>"+page[i].start_time;
+                                                html_page_tipsv1 += "    <\/div>";
+                                                html_page_tipsv1 += "<\/div>";
+                                                html_page_tipsv1 += "<div class=\"clear full-w mt-10 f-12 mb-15\">";
+                                                html_page_tipsv1 += "    <div class=\"clear layui-col-xs12 line-h-20 col-black\">";
+                                                html_page_tipsv1 += "        <span class=\"f-w col-black\">收货人地址：<\/span>"+page[i].county_address;
+                                                html_page_tipsv1 += "    <\/div>";
+                                                html_page_tipsv1 += "<\/div>";
+                                                html_page_tipsv1 += "<div class=\"clear full-w bor bor-b\">";
+                                                html_page_tipsv1 += "<\/div>";
+                                                html_page_tipsv1 += "<div class=\"clear full-w mt-15 f-12\">";
+                                                html_page_tipsv1 += "    <div class=\"clear layui-col-xs3 f-w col-black pl-0 pr-0 newline\">";
+                                                html_page_tipsv1 += "        商品名";
+                                                html_page_tipsv1 += "    <\/div>";
+                                                html_page_tipsv1 += "    <div class=\"clear layui-col-xs5 f-w col-black pl-0 pr-0 text-center newline\">";
+                                                html_page_tipsv1 += "        商品编号";
+                                                html_page_tipsv1 += "    <\/div>";
+                                                html_page_tipsv1 += "    <div class=\"clear layui-col-xs2 f-w col-black pl-0 pr-0 text-center newline\">";
+                                                html_page_tipsv1 += "        商品数量";
+                                                html_page_tipsv1 += "    <\/div>";
+                                                html_page_tipsv1 += "    <div class=\"clear layui-col-xs2 f-w col-black pl-0 pr-0 text-right newline\">";
+                                                html_page_tipsv1 += "        单项总价";
+                                                html_page_tipsv1 += "    <\/div>";
+                                                html_page_tipsv1 += "<\/div>";
+                                        /*定义第一段需要拼接的html结束*/
+                                        /*定义第二段需要拼接的html内容*/
+                                            var page_side = page[i].page_side;
+                                            var page_side_length = page[i].page_side.length;
+                                            var html_page_tipsv2 = "";
+                                            for (j=0; j < page_side_length; j++) {
+                                                /*定义第二段内部需要拼接的html内容*/
+                                                var html_page_tipsv2_side="";
+                                                    html_page_tipsv2_side += "<div class=\"clear full-w mt-15 f-12\">";
+                                                    html_page_tipsv2_side += "    <div class=\"clear layui-col-xs3 col-black pl-0 pr-0 newline\">";
+                                                    html_page_tipsv2_side += page_side[j].product_name;
+                                                    html_page_tipsv2_side += "    <\/div>";
+                                                    html_page_tipsv2_side += "    <div class=\"clear layui-col-xs5 col-black pl-0 pr-0 text-center newline\">";
+                                                    html_page_tipsv2_side += page_side[j].ascription_guid;
+                                                    html_page_tipsv2_side += "    <\/div>";
+                                                    html_page_tipsv2_side += "    <div class=\"clear layui-col-xs2 col-black pl-0 pr-0 text-center newline\">";
+                                                    html_page_tipsv2_side += page_side[j].count;
+                                                    html_page_tipsv2_side += "    <\/div>";
+                                                    html_page_tipsv2_side += "    <div class=\"clear layui-col-xs2 col-black pl-0 pr-0 text-right newline\">";
+                                                    html_page_tipsv2_side += page_side[j].price;
+                                                    html_page_tipsv2_side += "    <\/div>";
+                                                    html_page_tipsv2_side += "<\/div>";
+                                                    /*定义第二段需要拼接的html内容结束*/
+                                                    html_page_tipsv2 += html_page_tipsv2_side;
+                                            }
+                                        /*定义第二段需要拼接的html内容结束*/
+                                        /*定义第三段需要拼接的html*/
+                                            var html_page_tipsv3="";
+                                                html_page_tipsv3 += "<div class=\"clear full-w mt-40 f-12 mb-15\">";
+                                                html_page_tipsv3 += "    <div class=\"clear layui-col-xs4 layui-col-xs-offset8 pl-0 pr-0\">";
+                                                html_page_tipsv3 += "        <span class=\"f-w col-black dis-ib pull-left\">商品总数：<\/span>";
+                                                html_page_tipsv3 += "        <span class=\"col-black dis-ib pull-right\">"+page[i].count_total+"<\/span>";
+                                                html_page_tipsv3 += "    <\/div>";
+                                                html_page_tipsv3 += "<\/div>";
+                                                html_page_tipsv3 += "<div class=\"clear full-w bor bor-b\">";
+                                                html_page_tipsv3 += "<\/div>";
+                                                html_page_tipsv3 += "<div class=\"clear full-w mt-15 f-12\">";
+                                                html_page_tipsv3 += "    <div class=\"clear layui-col-xs4 layui-col-xs-offset8 pl-0 pr-0\">";
+                                                html_page_tipsv3 += "        <span class=\"f-w col-black dis-ib pull-left\">小计：<\/span>";
+                                                html_page_tipsv3 += "        <span class=\"col-black dis-ib pull-right\">"+page[i].sub_total+"<\/span>";
+                                                html_page_tipsv3 += "    <\/div>";
+                                                html_page_tipsv3 += "<\/div>";
+                                                html_page_tipsv3 += "<div class=\"clear full-w mt-10 f-12\">";
+                                                html_page_tipsv3 += "    <div class=\"clear layui-col-xs4 layui-col-xs-offset8 pl-0 pr-0\">";
+                                                html_page_tipsv3 += "        <span class=\"f-w col-black dis-ib pull-left\">运费：<\/span>";
+                                                html_page_tipsv3 += "        <span class=\"col-black dis-ib pull-right\">"+page[i].post_price+"<\/span>";
+                                                html_page_tipsv3 += "    <\/div>";
+                                                html_page_tipsv3 += "<\/div>";
+                                                html_page_tipsv3 += "<div class=\"clear full-w mt-10 f-12 mb-15\">";
+                                                html_page_tipsv3 += "    <div class=\"clear layui-col-xs4 layui-col-xs-offset8 pl-0 pr-0\">";
+                                                html_page_tipsv3 += "        <span class=\"f-w col-black dis-ib pull-left\">合计金额：<\/span>";
+                                                html_page_tipsv3 += "        <span class=\"col-black dis-ib pull-right\">"+page[i].price_total+"<\/span>";
+                                                html_page_tipsv3 += "    <\/div>";
+                                                html_page_tipsv3 += "<\/div>";
+                                                html_page_tipsv3 += "<div class=\"clear full-w bor bor-b\">";
+                                                html_page_tipsv3 += "<\/div>";
+                                                html_page_tipsv3 += "<div class=\"clear full-w mt-15 f-12 mb-10 col-black\">";
+                                                html_page_tipsv3 += "    感谢您购买碧沙康健的产品，如您对产品感到满意记得登录碧沙商城给我们好评哦！";
+                                                html_page_tipsv3 += "<\/div>";
+                                                html_page_tipsv3 += "<div class=\"clear full-w bor bor-b\">";
+                                                html_page_tipsv3 += "<\/div>";
+                                                html_page_tipsv3 += "<div class=\"clear full-w mt-15 f-12 col-black text-center\">";
+                                                html_page_tipsv3 += "    扫描 二维码 进入碧沙商城";
+                                                html_page_tipsv3 += "<\/div>";
+                                                html_page_tipsv3 += "<div class=\"clear full-w mt-15 text-center\">";
+                                                html_page_tipsv3 += "    <img class=\"img-100\" src=\"..\/..\/..\/img\/admin\/admin_comm\/shop_qr.png\" alt=\"\">";
+                                                html_page_tipsv3 += "<\/div>";
+                                                html_page_tipsv3 += "<\/div>";
+                                        /*定义第三段需要拼接的html结束*/
+                                        html_page = html_page + html_page_tipsv1 + html_page_tipsv2 + html_page_tipsv3;
+                                    }
+                                    /*把拼接好的html内容插入页面进行打印*/
+                                    $("#print_content").html(html_page);
+                                    $("#print_content").print();
+                                }
+                            },
+                            content: $('.sureprint'),
+                        });
                     }
-                    $(".manifest_box").html(manifest_box_content);
-                    //console.log(manifest_box_content);
-                    //console.log(JSON.stringify(jsonprintid));
-                    layer.open({
-                        type: 1,
-                        title: "打印发货单",
-                        area: ['560px', '700px'], //宽高
-                        btn: ['打印', '取消'],
-                        btn1: function(index, layero) {
-                            //$(".aaaaaa").print();
-                            console.log(JSON.stringify(jsonprintid));
-                        },
-                        content: $('.sureprint'),
-                    });
-
                 }
             };
             /*这里应该是cative的回调相关操作，和上面结合用的*/
@@ -159,13 +296,4 @@ $(document).ready(function() {
     $(".wwwwww").click(function() {
         $(".aaaaaa").print();
     });
-
-    demo();
-
-    function demo() {
-        var json2 = { "obj": [{ "sdf": 11, "sdf2": 12, "sdf3": 13, "sdf4": 14, "sdf5": 15, "sdaf": [{ "Jsdf": 111, "Jsdf2": 112, "Jsdf3": 112, "Jsdf4": 114 }, { "Jsdf": 121, "Jsdf2": 122, "Jsdf3": 123, "Jsdf4": 124, "Jsdf5": 125 }] }, { "sdf": 21, "sdf2": 22, "sdf3": 23, "sdf4": 24, "sdf5": 25, "sdaf": [{ "Jsdf": 211, "Jsdf2": 212, "Jsdf3": 212, "Jsdf4": 214 }, { "Jsdf": 221, "Jsdf2": 222, "Jsdf3": 223, "Jsdf4": 224, "Jsdf5": 225 }] }] };
-        var objv1 = JSON.stringify(json2)
-        //console.log(json2.obj[0].sdaf[0].Jsdf);
-
-    }
 });
