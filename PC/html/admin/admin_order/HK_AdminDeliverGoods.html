@@ -126,72 +126,70 @@
         </div>
     </div>
     <!-- 弹出层内容-->
-    <!-- 一条信息的弹出层的基本内容，供js调用 -->
+    <!-- 查看信息的弹出层的基本内容，供js调用 -->
     <div class="detailcontent dis-n">
         <div class="clear pd-20 f-16">
-            <div class="clear mb-20">
-                <div class="pull-left text-right w-120">
-                    收货人:
-                </div>
-                <div class="pull-left pl-20 w-380 detail_consignee">
-                </div>
-            </div>
-            <div class="clear mb-20">
-                <div class="pull-left text-right w-120">
-                    联系电话:
-                </div>
-                <div class="pull-left pl-20 w-380 detail_phone">
+            <div class="clear mb-20 h-40 line-h-40 text-center">
+                <div class="clear dis-ib">
+                    <img src="../../../img/admin/admin_comm/logov1.png" class="h-35 mt-3 pull-left">
+                    <span class="f-28 ml-10 f-w family-s pull-left h-40 line-h-40">订单基本信息</span>
                 </div>
             </div>
-            <div class="clear mb-20">
-                <div class="pull-left text-right w-120">
-                    订单号:
+            <fieldset class="layui-elem-field">
+                <legend>收货人信息</legend>
+                <div class="layui-field-box">
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">收货人:</label>
+                        <div class="layui-input-block detail_consignee line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">联系电话:</label>
+                        <div class="layui-input-block detail_phone line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">收货地址:</label>
+                        <div class="layui-input-block detail_address line-h-35 f-16">
+                        </div>
+                    </div>
                 </div>
-                <div class="pull-left pl-20 w-380 detail_ordernum">
+            </fieldset>
+            <fieldset class="layui-elem-field">
+                <legend>订单信息</legend>
+                <div class="layui-field-box">
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">订单号:</label>
+                        <div class="layui-input-block detail_ordernum line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">运单号:</label>
+                        <div class="layui-input-block detail_waybillnum line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">商品内容:</label>
+                        <div class="layui-input-block detail_goodscontent line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">下单时间:</label>
+                        <div class="layui-input-block detail_time line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">订单状态:</label>
+                        <div class="layui-input-block detail_status line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">物流公司:</label>
+                        <div class="layui-input-block detail_logistics line-h-35 f-16">
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="clear mb-20">
-                <div class="pull-left text-right w-120">
-                    运单号:
-                </div>
-                <div class="pull-left pl-20 w-380 detail_waybillnum">
-                </div>
-            </div>
-            <div class="clear mb-20">
-                <div class="pull-left text-right w-120">
-                    商品内容:
-                </div>
-                <div class="pull-left pl-20 w-380 detail_goodscontent">
-                </div>
-            </div>
-            <div class="clear mb-20">
-                <div class="pull-left text-right w-120">
-                    收货地址:
-                </div>
-                <div class="pull-left pl-20 w-380 detail_address">
-                </div>
-            </div>
-            <div class="clear mb-20">
-                <div class="pull-left text-right w-120">
-                    下单时间:
-                </div>
-                <div class="pull-left pl-20 w-380 detail_time">
-                </div>
-            </div>
-            <div class="clear mb-20">
-                <div class="pull-left text-right w-120">
-                    订单状态:
-                </div>
-                <div class="pull-left pl-20 w-380 detail_status">
-                </div>
-            </div>
-            <div class="clear mb-20">
-                <div class="pull-left text-right w-120">
-                    物流公司:
-                </div>
-                <div class="pull-left pl-20 w-380 detail_logistics">
-                </div>
-            </div>
+            </fieldset>
         </div>
     </div>
     <!-- 修改运单信息的运单号的基本内容，供js调用 -->
@@ -246,7 +244,6 @@
     <!-- 打印相关的弹出层，供js调用 -->
     <div class="clear dis-n">
         <div id="print_content">
-            
         </div>
     </div>
     <script src="../../../js/comm/jquery.min.js"></script>

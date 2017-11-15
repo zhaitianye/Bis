@@ -20,7 +20,6 @@ input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inher
 input,button{overflow: visible;vertical-align:middle;outline-width:0}
 input[type="submit"],input[type="reset"],input[type="button"],input[type="text"],input[type="password"]{-webkit-appearance:none;outline-width:0}
 body,th,td,button,input,select,textarea{font-family:"Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,"WenQuanYi Micro Hei",Verdana,sans-serif,"\5B8B\4F53";font-size:12px;color: #333;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing:grayscale}
-legend{width:100%;margin-bottom:20px;font-size:21px;line-height:40px;border:0;border-bottom:1px solid #e5e5e5}
 legend small{font-size:15px;color:#999}
 svg:not(:root) {overflow: hidden}
 fieldset {border-width:0;padding: 0.35em 0.625em 0.75em;margin: 0 2px}

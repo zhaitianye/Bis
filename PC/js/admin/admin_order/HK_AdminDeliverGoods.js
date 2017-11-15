@@ -72,11 +72,8 @@ $(document).ready(function() {
                 layer.open({
                     type: 1,
                     title: "ID为" + data.id + "的基本信息",
-                    area: ['560px', '700px'], //宽高
-                    btn: ['打印', '取消'],
-                    btn1: function(index, layero) {
-                        $(".detailcontent").print();
-                    },
+                    area: ['800px', '700px'], //宽高
+                    btn: ['我知道了'],
                     content: $('.detailcontent'),
                 });
             };
@@ -107,7 +104,7 @@ $(document).ready(function() {
                 });
             };
         });
-        /*获取表格中数据相关操作*/
+        /*打印发货单相关操作*/
         var $ = layui.$, active = {
                 getCheckData: function() {
                     /*获取选中的id*/
@@ -139,8 +136,8 @@ $(document).ready(function() {
                             area: ['560px', '700px'], //宽高
                             btn: ['打印', '取消'],
                             btn1: function(index, layero) {
-                                //var index = layer.load(0, {shade: false});
-                                //$(".aaaaaa").print();
+                                /*开启加载loading层*/
+                                var index = layer.load(1);
                                 /*在这里进行ajax调用返回json数据*/
                                 //console.log(JSON.stringify(jsonprintid));
                                 /*AJAX--------------华丽分割线------------AJAX*/
@@ -272,7 +269,10 @@ $(document).ready(function() {
                                     /*把拼接好的html内容插入页面进行打印*/
                                     $("#print_content").html(html_page);
                                     $("#print_content").print();
-                                }
+                                };
+                                /*打印结束关闭loading层*/
+                                layer.close(index);
+
                             },
                             content: $('.sureprint'),
                         });
