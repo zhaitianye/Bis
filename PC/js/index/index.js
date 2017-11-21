@@ -46,13 +46,15 @@ $(document).ready(function() {
         $(".bannershadev1").fadeIn();
     });
     /*banner进度选择*/
-    $(".swiper-pagination-bullet").mouseenter(function() {
-        $(this).find(".mainswiper-pagination-bullet-div").removeClass("banneraniv2");
-        $(this).find(".mainswiper-pagination-bullet-div").addClass("banneraniv1");
-    });
-    $(".swiper-pagination-bullet").mouseleave(function() {
-        $(this).find(".mainswiper-pagination-bullet-div").removeClass("banneraniv1");
-        $(this).find(".mainswiper-pagination-bullet-div").addClass("banneraniv2");
+    $(".swiper-pagination").mouseenter(function() {
+        $(".swiper-pagination-bullet").mouseenter(function() {
+            $(this).find(".mainswiper-pagination-bullet-div").removeClass("banneraniv2");
+            $(this).find(".mainswiper-pagination-bullet-div").addClass("banneraniv1");
+        });
+        $(".swiper-pagination-bullet").mouseleave(function() {
+            $(this).find(".mainswiper-pagination-bullet-div").removeClass("banneraniv1");
+            $(this).find(".mainswiper-pagination-bullet-div").addClass("banneraniv2");
+        });
     });
     /*宽度控制*/
     var protipswidth = $(".swiper-container-tipsv1").width() / 4;
