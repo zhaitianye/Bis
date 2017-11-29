@@ -10,6 +10,7 @@
 .bg-F7F3F2{background-color: #F7F3F2;}
 .bg-B1E0C4{background-color: #B1E0C4;}
 .bg-26B99A{background-color: #26B99A;}
+.bg-268fff{background-color: #268fff;}
 .hovfocact-5CFFCD:focus,.hovfocact-5CFFCD:active,.hovfocact-5CFFCD:hover
 {background: #5CFFCD !important; outline: none;}
 .hovfocact-2ACFAC:focus,.hovfocact-2ACFAC:active,.hovfocact-2ACFAC:hover
@@ -17,6 +18,7 @@
 .t-14{top: 14px;}
 .t-50{top: 50px;}
 .w-45s{width: 45%;}
+.w-50s{width: 50%;}
 .w-70s{width: 70%;}
 .w-90s{width: 90%;}
 .bor-col-f3{border-color: #f3f3f3 !important}
@@ -35,6 +37,7 @@
 .col-26B99A{color: #26B99A}
 .col-D9534F{color: #D9534F}
 .col-F0AD4E{color: #F0AD4E}
+.col-268fff{color: #268fff;}
 .h-5{height: 5px;}
 .h-8{height: 8px;}
 .h-56{height: 56px;}
@@ -65,10 +68,14 @@
   .pt-15-5-iphone5{padding-top: 15px;}
   .ptb-10-5-iphone5{padding-top: 10px;padding-bottom: 10px;}
   .ptb-15-5-iphone5{padding-top: 15px;padding-bottom: 15px;}
+  .pt-50-30-iphone5{padding-top: 50px;}
   .f-30-24-iphone5{font-size: 30px;}
   .plr-20-10-iphone5{padding-left: 20px; padding-right: 20px;}
   .line-h-25-20-iphone5{line-height: 30px;}
   .f-14-12-iphone5{font-size: 14px;}
+  .f-24-18-iphone5{font-size: 24px;}
+  .mt-30-20-iphone5{margin-top: 30px;}
+  .mt-40-30-iphone5{margin-top: 40px;}
 }
 @media (max-width: 349px){
   .img-25-30-mlr{width: 25px;height: 25px;margin-left: 10px;margin-right: 10px;line-height: 25px; font-size: 12px;}
@@ -76,10 +83,14 @@
   .pt-15-5-iphone5{padding-top: 5px;}
   .ptb-10-5-iphone5{padding-top: 5px;padding-bottom: 5px;}
   .ptb-15-5-iphone5{padding-top: 5px;padding-bottom: 5px;}
+  .pt-50-30-iphone5{padding-top: 30px;}
   .f-30-24-iphone5{font-size: 24px;}
   .plr-20-10-iphone5{padding-left: 10px; padding-right: 10px;}
   .line-h-25-20-iphone5{line-height: 20px;}
   .f-14-12-iphone5{font-size: 12px;}
+  .f-24-18-iphone5{font-size: 18px;}
+  .mt-30-20-iphone5{margin-top: 20px;}
+  .mt-40-30-iphone5{margin-top: 30px;}
 }
 .unread-report{border-radius: 50%;background-color: #EE7071;}
 .read-report{border-radius: 50%;border: 1px solid #EE7071;}
@@ -95,5 +106,4 @@
 .col-b4cbe5{color: #b4cbe5;}
 .col-53a6ff{color: #53a6ff;}
 .bg-f8fcff{background-color: #f8fcff;}
-.hovfocact-E2E4E5:focus,.hovfocact-E2E4E5:active,.hovfocact-E2E4E5:hover
-{background: #E2E4E5 !important; color:#53a6ff !important;  outline: none;}
+.hovfocact-E2E4E5:focus,.hovfocact-E2E4E5:active,.hovfocact-E2E4E5:hover {background: #E2E4E5 !important; color:#53a6ff !important;  outline: none;}
