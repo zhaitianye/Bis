@@ -1,0 +1,35 @@
+@charset "utf-8";
+@media (min-width:350px) {
+    .h-60-50 {height: 60px;}
+    .mtb-5-0 {margin-top: 5px;margin-bottom: 5px;}
+    .line-h-60-50 {line-height: 60px;}
+    .plr-25-15-iphone5{padding-left: 20px;padding-right: 20px;}
+}
+@media (max-width: 349px) {
+.h-60-50 {height: 50px;}
+.mtb-5-0 {margin-top: 0px;margin-bottom: 0px;}
+.line-h-60-50 {line-height: 50px;}
+.f-14-12-iphone5{font-size: 12px;}
+.plr-25-15-iphone5{padding-left: 15px;padding-right: 15px;}
+}
+/* 这里单独响应字体 */
+@media (min-width: 349px ) and (max-width:414px) {
+    .f-14-12-iphone5{font-size: 14px;}
+}
+@media (min-width: 414px) {
+    .f-14-12-iphone5{font-size: 16px;}
+}
+
+.bg-F2F2F2 {background-color: #F2F2F2;}
+.col-646464 {color: #646464;}
+.bor-col-e8e8e8 {border-color: #e8e8e8;}
+.w-10 {width: 10px;}
+.col-aaa{color: #aaa;}
+.w-60s{width: 60%;}
+.w-80s{width: 80%;}
+.t-14{top: 14px;}
+.col-434343{color: #434343;}
+.img-40{width: 40px;height: 40px;}
+.r-10{right: 10px;}
+.b-30{bottom: 30px;}
+.text-ind-1{text-indent:1em}
