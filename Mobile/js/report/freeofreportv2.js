@@ -1,4 +1,11 @@
 $(document).ready(function() {
+    /*底部沉底*/
+    $("body").height($(window).height());
+    var bh = $("body").height();
+    var fh = $(".footer").height();
+    $(".content-main").css({"margin-bottom":fh+'px'});
+    $(".footer").css("top",(bh-fh));
+    /*绘图*/
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'pie',
@@ -17,9 +24,9 @@ $(document).ready(function() {
                 ],
             }],
             labels: [
-                '正常心率',
-                '过慢心率',
-                '过快心率',
+                '正常（%）',
+                '过慢（%）',
+                '过快（%）',
             ]
         },
         options: {
@@ -33,10 +40,10 @@ $(document).ready(function() {
             cutoutPercentage: 0,
             layout: {
 	            padding: {
-	                left: 20,
-	                right: 15,
-	                top: 15,
-	                bottom: 15
+	                left: 10,
+	                right: 20,
+	                top: 5,
+	                bottom: 0
 	            }
 	        },
         }

@@ -11,6 +11,10 @@
 .bg-B1E0C4{background-color: #B1E0C4;}
 .bg-26B99A{background-color: #26B99A;}
 .bg-268fff{background-color: #268fff;}
+.bg-B4EBFF{background-color: #B4EBFF;}
+.bg-268fff{background-color: #268fff;}
+.bg-258DFB{background-color: #258DFB;}
+.bg-9CCDFE{background-color: #9CCDFE;}
 .hovfocact-5CFFCD:focus,.hovfocact-5CFFCD:active,.hovfocact-5CFFCD:hover
 {background: #5CFFCD !important; outline: none;}
 .hovfocact-2ACFAC:focus,.hovfocact-2ACFAC:active,.hovfocact-2ACFAC:hover
@@ -53,6 +57,7 @@
 .b-30i{bottom: 30px !important;}
 .b-56{bottom: 56px;}
 .t--7{top: -7px;}
+.img-30{width: 30px;height: 30px;}
 .img-80{width: 80px; height: 80px;}
 .line-h-nor{line-height: normal;}
 .bor-none{border: none;}
@@ -78,6 +83,11 @@
   .f-24-18-iphone5{font-size: 24px;}
   .mt-30-20-iphone5{margin-top: 30px;}
   .mt-40-30-iphone5{margin-top: 40px;}
+  .img-30-20-iphone5{width: 30px;height: 30px;}
+  .pl-30-20-iphone5{padding-left: 30px;}
+  .f-16-15-iphone5{font-size: 16px;}
+  .h-60-50-iphone5{height: 60px;}
+  .line-h-25-20-iphone5{line-height: 25px;}
 }
 @media (max-width: 349px){
   .img-25-30-mlr{width: 25px;height: 25px;margin-left: 10px;margin-right: 10px;line-height: 25px; font-size: 12px;}
@@ -93,6 +103,11 @@
   .f-24-18-iphone5{font-size: 18px;}
   .mt-30-20-iphone5{margin-top: 20px;}
   .mt-40-30-iphone5{margin-top: 30px;}
+  .img-30-20-iphone5{width: 20px;height: 20px;}
+  .pl-30-20-iphone5{padding-left: 20px;}
+  .f-16-15-iphone5{font-size: 15px;}
+  .h-60-50-iphone5{height: 50px;}
+  .line-h-25-20-iphone5{line-height: 20px;}
 }
 .unread-report{border-radius: 50%;background-color: #EE7071;}
 .read-report{border-radius: 50%;border: 1px solid #EE7071;}
@@ -109,3 +124,5 @@
 .col-53a6ff{color: #53a6ff;}
 .bg-f8fcff{background-color: #f8fcff;}
 .hovfocact-E2E4E5:focus,.hovfocact-E2E4E5:active,.hovfocact-E2E4E5:hover {background: #E2E4E5 !important; color:#53a6ff !important;  outline: none;}
+.h-100p{height: 100%;}
+.overflow-a{overflow: auto;}
