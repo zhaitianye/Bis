@@ -1,10 +1,7 @@
 $(document).ready(function() {
-    /*底部沉底*/
-    $("body").height($(window).height());
-    var bh = $("body").height();
-    var fh = $(".footer").height();
-    $(".content-main").css({"margin-bottom":fh+'px'});
-    $(".footer").css("top",(bh-fh));
+    /*计算高度*/
+    var freebox_h = $(".free_re_box").height();
+    $(".free_re_c").height(freebox_h);
     /*绘图*/
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
