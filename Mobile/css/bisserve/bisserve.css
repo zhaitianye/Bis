@@ -65,6 +65,7 @@
 .img-30{width: 30px;height: 30px;}
 .img-80{width: 80px; height: 80px;}
 .line-h-nor{line-height: normal;}
+.line-h-27{line-height: 27px;}
 .bor-none{border: none;}
 @media (max-width: 350px){
   .img-25vmed{width:20px;height: 20px;}

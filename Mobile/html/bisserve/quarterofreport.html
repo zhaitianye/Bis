@@ -103,7 +103,7 @@
         <!-- 15分钟心率曲线 -->
         <div class="clear full-w bg-white pd-10 h-245">
             <p class="line-h-25 h-25">
-                <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-25 h-25 bg-53A6FF radius-10">15分钟心率曲线</span>
+                <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">15分钟心率曲线</span>
             </p>
             <div class="clear full-w quarter_eccentricity_box pos-r h-200">
                 <canvas id="quarter_eccentricity" class="full-w h-200">
@@ -114,7 +114,7 @@
         <!-- 动态心电概况 -->
         <div class="clear full-w bg-white pd-10 h-200">
             <p class="line-h-25">
-                <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-25 h-25 bg-53A6FF radius-10">动态心电概况</span>
+                <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">动态心电概况</span>
             </p>
             <div class="clear">
                 <div class="clear col-xs-6 mt-10 mb-10 pl-0 pr-10">
@@ -188,32 +188,42 @@
             </div>
         </div>
         <!-- 最大心率 -->
-        <div class="clear full-w bg-f8fcff pt-10 pb-10">
+        <div class="clear full-w bg-white pt-10 pb-10">
             <p class="line-h-25 h-25 mb-10 pl-10 pr-10">
-                <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-25 h-25 bg-53A6FF radius-10">最大心率：64</span>
+                <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">最大心率：64</span>
             </p>
-            <div class="clear full-w pos-r h-200 hrmax_box">
+            <div class="clear full-w pos-r h-200 hrmax_box pl-10 pr-10">
                 <canvas id="hrmax" class="full-w h-200">
                     你的浏览器不支持canvas。
                 </canvas>
             </div>
         </div>
         <!-- 最小心率 -->
-        <div class="clear full-w bg-26B99A pd-10" style="height: 200px;">
-            <p class="line-h-25">
-                <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-25 h-25 bg-53A6FF radius-10">最小心率：60</span>
+        <div class="clear full-w bg-white pt-10 pb-10">
+            <p class="line-h-25 h-25 mb-10 pl-10 pr-10">
+                <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">最小心率：60</span>
             </p>
+            <div class="clear full-w pos-r h-200 hrmin_box pl-10 pr-10">
+                <canvas id="hrmin" class="full-w h-200">
+                    你的浏览器不支持canvas。
+                </canvas>
+            </div>
         </div>
         <!-- PVC/PAC -->
-        <div class="clear full-w bg-D9534F pd-10" style="height: 200px;">
-            <p class="line-h-25">
-                <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-25 h-25 bg-53A6FF radius-10">PVC/PAC</span>
+        <div class="clear full-w bg-white pd-10">
+            <p class="line-h-25 h-25 mb-10">
+                <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">PVC/PAC</span>
             </p>
+            <div class="clear full-w pos-r h-200 hrpvac_box pos-r">
+                <canvas id="hrpvac_bg" class="full-w h-200">
+                    你的浏览器不支持canvas。
+                </canvas>
+            </div>
         </div>
         <!-- PVC/PAC 统计： -->
         <div class="clear full-w bg-white pd-10" style="height: 200px;">
             <p class="line-h-25">
-                <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-25 h-25 bg-53A6FF radius-10">PVC/PAC 统计：14/10</span>
+                <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">PVC/PAC 统计：14/10</span>
             </p>
         </div>
         <!-- 总结建议 -->
