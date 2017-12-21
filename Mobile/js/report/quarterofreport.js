@@ -446,10 +446,6 @@ $(document).ready(function() {
             hrmin_ctx.moveTo(this_x,black_side);
             hrmin_ctx.lineTo(this_x,hrmin_h-black_side);
             hrmin_ctx.stroke();
-            /*索引文字*/
-            /*hrmin_ctx.fillStyle="#FFFF07";
-            hrmin_ctx.font= dot_font_size+"px Arial";
-            hrmin_ctx.fillText("最大心率："+hrmin_date[min_dot_index],this_x+3,((hrmin_h-black_side-black_side)*1/10)+black_side-5);*/
             hrmin_ctx.closePath();
             /*时间图例*/
             hrmin_ctx.beginPath();
@@ -460,9 +456,11 @@ $(document).ready(function() {
             hrmin_ctx.closePath();
     };
 /*PVC，PAC心电图*/
-    var sim_pvac_bg_time = "2016/08/15/ 19:24:38";
+    
+    //这是第几段数据
     var sin_pvac_bg_index = 1;
-    f_pvac_bg(sim_pvac_bg_time,sin_pvac_bg_index);
+    //背景图
+    f_pvac_bg(sim_pvac_bg_timev1,sin_pvac_bg_index);
     function f_pvac_bg(p_b_time,p_b_index){
         /*初始化*/
         var pvacbg=document.getElementById("hrpvac_bg");
@@ -542,4 +540,178 @@ $(document).ready(function() {
             pvacbg_ctx.fillText("Detecting time:"+pvac_bg_time+"    第"+pvac_index+"分钟/15分钟",black_side+5,black_side-5);
             pvacbg_ctx.closePath();
     };
+    //数据图
+    f_pvac(analog_pvac_datev1,analog_pvac_pointv1);
+    function f_pvac(pvac_date_box,pvac_point){
+        /*初始化*/
+        var pvac=document.getElementById("hrpvac");
+        var pvac_ctx=pvac.getContext("2d");
+        pvac_ctx.clearRect(0,0,pvac.width,pvac.height);
+        /*定义一个空数据容器*/
+        var pvac_date = new Array;
+        /*转换数据*/
+        for (var i = 0; i < pvac_date_box.length; i++) {
+            var this_indate16 = pvac_date_box[i];
+            pvac_date[i] = parseInt(this_indate16,16);
+        };
+        /*文字大小*/
+        var dot_font_size =10;
+        /*采样率*/
+        var sam_rate =125;
+        /*外部黑边边距*/
+        var black_side = 20;
+        /*给canvas宽高防止模糊*/
+        //宽高放大两倍防止模糊
+        var pvac_in_box_w = $(".hrpvac_in_box").width()*2;
+        var pvac_between_w = pvac_in_box_w/(sam_rate*5);
+        //如果是一分钟数据
+        //var pvac_w = pvac_between_w*sam_rate*60*2;
+        /*如果是不固定数据长度的数据*/
+        var pvac_w = pvac_date.length*pvac_between_w;
+        var pvac_h = $(".hrpvac_in_box").height()*2;
+        pvac.width = pvac_w;
+        pvac.height = pvac_h;
+        /*开始绘图*/
+            /*画点*/
+            var between_h = 1/1000*pvac_h;
+            for (var i = 0 ; i < pvac_date.length; i++) {
+                /*第一个点的坐标*/
+                var msi_w = i*pvac_between_w;
+                var msi_h = pvac_h-(pvac_date[i]*between_h);
+                /*下一个点的坐标*/
+                var msi_wt = (i+1)*pvac_between_w;
+                var msi_ht = pvac_h-(pvac_date[i+1]*between_h);
+
+                pvac_ctx.beginPath();
+                pvac_ctx.strokeStyle="#8FFF00";
+                pvac_ctx.lineCap="square";
+                pvac_ctx.lineWidth=1;
+                pvac_ctx.moveTo(msi_w,msi_h);
+                pvac_ctx.lineTo(msi_wt,msi_ht);
+                pvac_ctx.stroke();
+                pvac_ctx.closePath();
+            };
+            /*文字x轴*/
+            pvac_ctx.beginPath();
+            pvac_ctx.fillStyle="#fff";
+            pvac_ctx.font= dot_font_size+"px Arial";
+            for (var i = 0; i <= pvac_date.length/sam_rate; i++) {
+                pvac_ctx.fillText(i+"s",((pvac_in_box_w*1/5)*i),pvac_h-5);
+            };
+            pvac_ctx.closePath();
+            /*索引线和文字*/
+            pvac_ctx.beginPath();
+            pvac_ctx.strokeStyle="#FFFF07";
+            pvac_ctx.lineCap="square";
+            pvac_ctx.lineWidth=1;
+            for (var i = 0; i < pvac_point.length; i++) {
+                var this_x = pvac_point[i].num*pvac_between_w;
+                pvac_ctx.moveTo(this_x,0);
+                pvac_ctx.lineTo(this_x,pvac_h-black_side);
+                pvac_ctx.fillStyle="#FFFF07";
+                pvac_ctx.font="14px Arial";
+                pvac_ctx.fillText(pvac_point[i].val,this_x+3,pvac_h/20);
+            };
+            pvac_ctx.stroke();
+            pvac_ctx.closePath();
+    };
+
+    $(".hrpvac_in_box").scroll(function(){
+        /*实时偏移量*/
+        var hrpvac_x_exc = Math.abs($("#hrpvac").offset().left-$(".hrpvac_in_box").offset().left) ;
+        /*临界偏移量*/
+        var hrpvac_x_critical = Math.round($("#hrpvac").width()-$(".hrpvac_in_box").width());
+        if (hrpvac_x_exc==0) {
+            /*弹出loading层*/
+            var hrpvac_loading = layer.load(2, {
+              shade: [0.2,'#000'] //0.1透明度的白色背景
+            });
+            /*模拟异步加载函数*/
+            var forward_load =  function forward_load_naxtone(){
+                switch(sin_pvac_bg_index)
+                {
+                    case 2:
+                        sin_pvac_bg_index -= 1;
+                        f_pvac_bg(sim_pvac_bg_timev1,sin_pvac_bg_index);
+                        f_pvac(analog_pvac_datev1,analog_pvac_pointv1);
+                        $(".hrpvac_in_box").scrollLeft(hrpvac_x_critical-1);
+                        layer.closeAll();
+                        break;
+                    case 3:
+                        sin_pvac_bg_index -= 1;
+                        f_pvac_bg(sim_pvac_bg_timev2,sin_pvac_bg_index);
+                        f_pvac(analog_pvac_datev2,analog_pvac_pointv2);
+                        $(".hrpvac_in_box").scrollLeft(hrpvac_x_critical-1);
+                        layer.closeAll();
+                        break;
+                    case 4:
+                        sin_pvac_bg_index -= 1;
+                        f_pvac_bg(sim_pvac_bg_timev3,sin_pvac_bg_index);
+                        f_pvac(analog_pvac_datev3,analog_pvac_pointv3);
+                        $(".hrpvac_in_box").scrollLeft(hrpvac_x_critical-1);
+                        layer.closeAll();
+                        break;
+                    case 5:
+                        sin_pvac_bg_index -= 1;
+                        f_pvac_bg(sim_pvac_bg_timev4,sin_pvac_bg_index);
+                        f_pvac(analog_pvac_datev4,analog_pvac_pointv4);
+                        $(".hrpvac_in_box").scrollLeft(hrpvac_x_critical-1);
+                        layer.closeAll();
+                        break;
+                    default:
+                        layer.closeAll();
+                        layer.alert('没有更多内容')
+                };
+                
+            };
+            /*模拟异步加载*/
+            var t=setTimeout(forward_load,1000);
+        }else if(hrpvac_x_exc==hrpvac_x_critical){
+            /*弹出loading层*/
+            var hrpvac_loading = layer.load(2, {
+              shade: [0.2,'#000'] //0.1透明度的白色背景
+            });
+            /*模拟异步加载函数*/
+            var next_load =  function next_load_naxtone(){
+                switch(sin_pvac_bg_index)
+                {
+                    case 1:
+                        sin_pvac_bg_index += 1;
+                        f_pvac_bg(sim_pvac_bg_timev2,sin_pvac_bg_index);
+                        f_pvac(analog_pvac_datev2,analog_pvac_pointv2);
+                        $(".hrpvac_in_box").scrollLeft(1);
+                        layer.closeAll();
+                        break;
+                    case 2:
+                        sin_pvac_bg_index += 1;
+                        f_pvac_bg(sim_pvac_bg_timev3,sin_pvac_bg_index);
+                        f_pvac(analog_pvac_datev3,analog_pvac_pointv3);
+                        $(".hrpvac_in_box").scrollLeft(1);
+                        layer.closeAll();
+                        break;
+                    case 3:
+                        sin_pvac_bg_index += 1;
+                        f_pvac_bg(sim_pvac_bg_timev4,sin_pvac_bg_index);
+                        f_pvac(analog_pvac_datev4,analog_pvac_pointv4);
+                        $(".hrpvac_in_box").scrollLeft(1);
+                        layer.closeAll();
+                        break;
+                    case 4:
+                        sin_pvac_bg_index += 1;
+                        f_pvac_bg(sim_pvac_bg_timev5,sin_pvac_bg_index);
+                        f_pvac(analog_pvac_datev5,analog_pvac_pointv5);
+                        $(".hrpvac_in_box").scrollLeft(1);
+                        layer.closeAll();
+                        break;
+                    default:
+                        layer.closeAll();
+                        layer.alert('没有更多内容')
+                };
+                
+            };
+            /*模拟异步加载*/
+            var t=setTimeout(next_load,1000);
+        };
+    });
+
 });

@@ -15,13 +15,9 @@
     <!-- base -->
     <link href="../../css/comm/base-m.css" rel="stylesheet">
     <link href="../../css/bisserve/bisserve.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
     
-<body class="pd-10 bg-white">
+<body class="pd-10 bg-white clear">
     <div class="clear full-w bg-white radius-5 qu_re_main_box overflow-h mb-20">
         <!-- 用户信息 -->
         <div class="clear full-w bg-53A6FF pt-30-20-iphone5 pb-20">
@@ -214,22 +210,190 @@
             <p class="line-h-25 h-25 mb-10">
                 <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">PVC/PAC</span>
             </p>
-            <div class="clear full-w pos-r h-200 hrpvac_box pos-r">
+            <div class="clear full-w pos-r h-200 hrpvac_box">
+                <!-- 背景 -->
                 <canvas id="hrpvac_bg" class="full-w h-200">
                     你的浏览器不支持canvas。
                 </canvas>
+                <!-- 曲线 -->
+                <div class="clear full-w h-200 pos-a t-0 l-0 z-99 pt-10 pl-10 pr-10">
+                    <div class="clear full-w hrpvac_in_box h-190 pos-r overflow-a">
+                        <canvas id="hrpvac" class="h-190 pos-a t-0 l-0 ">
+                            你的浏览器不支持canvas。
+                        </canvas>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- PVC/PAC 统计： -->
-        <div class="clear full-w bg-white pd-10" style="height: 200px;">
-            <p class="line-h-25">
+        <div class="clear full-w bg-white pd-10">
+            <p class="line-h-25 h-25 mb-10">
                 <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">PVC/PAC 统计：14/10</span>
             </p>
+            <div class="clear full-w pos-r pt-20 pb-20 pr-0">
+                <div class="clear pull-left w-10p pl-0 pr-5">
+                    <p class="h-30 line-h-30 col-a2cffe f-14 f-w">
+                        PAC
+                    </p>
+                    <p class="h-30 line-h-30 col-a2cffe f-14 f-w">
+                        PVC
+                    </p>
+                </div>
+                <div class="clear pull-left w-90p pl-0 pr-0">
+                    <div class="clear full-w h-60 bor bor-2px bor-col-A2CFFE">
+                        <div class="clear h-28 bor bor-col-A2CFFE bor-b">
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                1
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                2
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                3
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                4
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                5
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                6
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                7
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                8
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                9
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                10
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                11
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                12
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                13
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                14
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 f-12 col-53a6ff w-06p">
+                                15
+                            </div>
+                        </div>
+                        <div class="clear h-28 bor bor-col-A2CFFE bor-t">
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                1
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                2
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                3
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                4
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                5
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                6
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                7
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                8
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                9
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                10
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                11
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                12
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                13
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 bor bor-r bor-col-A2CFFE bor-2px f-12 col-53a6ff w-06p">
+                                14
+                            </div>
+                            <div class="clear pull-left text-center line-h-27 h-27 f-12 col-53a6ff w-06p">
+                                15
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear full-w h-10 mt-5">
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left">1m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left">2m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left">3m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left">4m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left">5m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left">6m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left">7m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left">8m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left">9m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left pos-r ml--5">10m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left pos-r ml--5">11m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left pos-r ml--5">12m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left pos-r ml--5">13m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left pos-r ml--5">14m</span>
+                        </div>
+                        <div class="clear pull-left line-h-10 h-10 w-06p f-w">
+                            <span class="f-12 transform_scale_07 col-53a6ff dis-ib pull-left pos-r ml--5">15m</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- 总结建议 -->
-        <div class="clear full-w bg-9CCDFE pd-10" style="height: 200px;">
-            <p class="line-h-35 text-center">
+        <div class="clear full-w bg-white pt-10 pb-10 pl-10 pr-5">
+            <p class="line-h-35 text-center h-35">
                 <span class="col-white f-22 f-w-600 dis-ib pl-20 pr-20 line-h-35 h-35 bg-53A6FF radius-10">总结建议</span>
+            </p>
+            <p class="col-6aa4d9 line-h-35 f-18 mt-20 mb-20 family-h">
+                您的心率整体过快，请注意饮食作息，如您感到身体不适请前往医院检查治疗，感谢您的使用。
             </p>
         </div>
 
@@ -237,6 +401,7 @@
     <script src="../../js/comm/jquery.min.js"></script>
     <script src="../../ctrl/layer/layer.js"></script>
     <script src="../../js/comm/Chart.bundle.min.js"></script>
+    <script src="../../js/report/quarterofreport_analogdata.js"></script>
     <script src="../../js/report/quarterofreport.js"></script>
 
 </body>

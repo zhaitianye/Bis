@@ -6,9 +6,6 @@
     outline-style: none;
     color:#555;
 }
-html,body{
-  height:100%;
-}
 html,body,h1,h2,h3,h4,h5,h6,hr,p,iframe,dl,dt,dd,ul,ol,li,pre,form,button,input,textarea,th,td,fieldset{margin:0;padding:0}
 ul,ol,dl,li{list-style:none}
 html,body{*position:static}
