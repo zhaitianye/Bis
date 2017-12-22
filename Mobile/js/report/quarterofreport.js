@@ -1,11 +1,32 @@
 $(document).ready(function() {
-/*头像控制宽高*/
+/*定义全局变量*/
+    /*此时的数据段的数据,大部分为实时数据*/
+    //心博总数饼图实时数据
+    var nowtime_pie_cardiac_tot_data  = pie_cardiac_tot_data_v1;
+    //十五分钟心率曲线图实时数据
+    var nowtime_qua_ecc_data = qua_ecc_testdata_v1;
+    //最大心率心电图此时数据
+    nowtime_hrmax_date = hrmax_date_v1;
+    //最小心率心电图此时数据
+    nowtime_hrmin_date = hrmin_date_v1;
+    /*PVC,PAC全局变量*/
+    //在背景里面绘制
+    //当前索引，正式情况下一共15分钟，15段，模拟5分钟
+    var nowtime_sim_pvac_index = 1;
+    //当前数据的时间
+    var nowtime_sim_pvac_bg_time = sim_pvac_bg_timev1;
+    //当前数据内容
+    var nowtime_sim_pvac_date = analog_pvac_datev1;
+    //当前数据对应的标记点内容
+    var nowtime_sim_pvac_point = analog_pvac_pointv1;
+
+/*窗口宽高变化时重汇心电图*/
     $(window).resize(function(){
         set_h_w();
-        f_hrmax();
-        f_hrmin();
-        f_quarter_eccentricity();
-        f_pvac_bg(sim_pvac_bg_time,sin_pvac_bg_index);
+        f_hrmax(nowtime_hrmax_date);
+        f_hrmin(nowtime_hrmin_date);
+        f_quarter_eccentricity(nowtime_qua_ecc_data);
+        f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
     });
     set_h_w();
     function set_h_w(){
@@ -13,14 +34,14 @@ $(document).ready(function() {
         $(".main_header_img").height(headerimgw);
     };
 /*心搏总数饼图图*/
-    f_tot_num();
-    function f_tot_num(){
+    f_tot_num(nowtime_pie_cardiac_tot_data);
+    function f_tot_num(pie_date){
         var tot_num = document.getElementById("photo_re_sum").getContext('2d');
         var myChart = new Chart(tot_num, {
             type: 'pie',
             data: {
                 datasets: [{
-                    data: [60, 21, 19],
+                    data: pie_date,
                     backgroundColor: [
                         'rgba(180,235,255, 1)',
                         'rgba(37,141,251, 1)',
@@ -34,8 +55,8 @@ $(document).ready(function() {
                 }],
                 labels: [
                     '正常（%）',
-                    '过慢（%）',
                     '过快（%）',
+                    '过慢（%）',
                 ]
             },
             options: {
@@ -59,15 +80,13 @@ $(document).ready(function() {
         });
     };
 /*十五分钟心率曲线图*/
-    f_quarter_eccentricity();
-    function f_quarter_eccentricity(){
+    f_quarter_eccentricity(nowtime_qua_ecc_data);
+    function f_quarter_eccentricity(qua_ecc_date){
         /*初始化*/
         var qua_ecc=document.getElementById("quarter_eccentricity");
         var qua_ecc_ctx=qua_ecc.getContext("2d");
         qua_ecc_ctx.clearRect(0,0,qua_ecc.width,qua_ecc.height);
-        /*模式数据*/
-        var qua_ecc_testdata = ["62","71","66","69","70","66","64","72","66","73","66","66","62","74","62"];
-        var qua_ecc_testdatav2 = ["50","60","70","80","90","60","40","20","30","15","18","30","45","20","48"];
+        
         /*给canvas宽高防止模糊*/
         var qua_ecc_w = $(".quarter_eccentricity_box").width()*2;
         var qua_ecc_h = 200*2;
@@ -88,21 +107,21 @@ $(document).ready(function() {
                 qua_ecc_ctx.stroke();
                 qua_ecc_ctx.closePath();
             /*间距*/
-            var qua_ecc_btw = (qua_ecc_w-10)/(qua_ecc_testdata.length-1);
+            var qua_ecc_btw = (qua_ecc_w-10)/(qua_ecc_date.length-1);
             /*路径遮罩*/
                 /*第一个之前的坐标*/
-                var y_num_f = qua_ecc_testdata[0];
+                var y_num_f = qua_ecc_date[0];
                 var y_space_f = qua_ecc_h-(y_num_f * qua_ecc_h/100);
                 var x_space_f = 0;
                 /*最后一个之后的坐标*/
-                var y_num_l = qua_ecc_testdata[qua_ecc_testdata.length-1];
+                var y_num_l = qua_ecc_date[qua_ecc_date.length-1];
                 var y_space_l = qua_ecc_h-(y_num_l * qua_ecc_h/100);
                 var x_space_l = qua_ecc_w;
                 qua_ecc_ctx.beginPath();
                 qua_ecc_ctx.moveTo(0,0);
                 qua_ecc_ctx.lineTo(0,y_space_f);
-                for (var i = 0; i < qua_ecc_testdata.length; i++) {
-                    var y_num = qua_ecc_testdata[i];
+                for (var i = 0; i < qua_ecc_date.length; i++) {
+                    var y_num = qua_ecc_date[i];
                     var y_space = qua_ecc_h-(y_num * qua_ecc_h/100);
                     var x_space = i*qua_ecc_btw + 6;
                     qua_ecc_ctx.lineTo(x_space,y_space);
@@ -116,13 +135,13 @@ $(document).ready(function() {
                 qua_ecc_ctx.stroke();
                 qua_ecc_ctx.closePath();
             /*描点*/
-            for (var i = 0; i < qua_ecc_testdata.length; i++) {
+            for (var i = 0; i < qua_ecc_date.length; i++) {
                 qua_ecc_ctx.beginPath();
-                var y_num = qua_ecc_testdata[i];
+                var y_num = qua_ecc_date[i];
                 var y_space = qua_ecc_h-(y_num * qua_ecc_h/100);
                 if (i==0) {
                     var x_space = i*qua_ecc_btw+12;
-                }else if(i==qua_ecc_testdata.length-1){
+                }else if(i==qua_ecc_date.length-1){
                     var x_space = i*qua_ecc_btw-2;
                 }else{
                     var x_space = i*qua_ecc_btw + 6;
@@ -136,22 +155,22 @@ $(document).ready(function() {
                 qua_ecc_ctx.closePath();
             };
             /*划线*/
-            for (var i = 0; i < qua_ecc_testdata.length-1; i++) {
+            for (var i = 0; i < qua_ecc_date.length-1; i++) {
                 qua_ecc_ctx.beginPath();
                 qua_ecc_ctx.strokeStyle="#53A6FF";
                 qua_ecc_ctx.lineCap="square";
                 qua_ecc_ctx.lineWidth=3;
-                var y_num = qua_ecc_testdata[i];
+                var y_num = qua_ecc_date[i];
                 var y_space = qua_ecc_h-(y_num * qua_ecc_h/100);
                 if (i==0) {
                     var x_space = i*qua_ecc_btw+12;
                 }else{
                     var x_space = i*qua_ecc_btw + 6;
                 }
-                var y_num_n = qua_ecc_testdata[i+1];
+                var y_num_n = qua_ecc_date[i+1];
                 var y_space_n = qua_ecc_h-(y_num_n * qua_ecc_h/100);
 
-                if (i==qua_ecc_testdata.length-2) {
+                if (i==qua_ecc_date.length-2) {
                     var x_space_n = (i+1)*qua_ecc_btw - 2;
                 }else{
                     var x_space_n = (i+1)*qua_ecc_btw + 6;
@@ -162,16 +181,16 @@ $(document).ready(function() {
                 qua_ecc_ctx.closePath();
             };
             /*文字*/
-            for (var i = 0; i < qua_ecc_testdata.length; i++) {
+            for (var i = 0; i < qua_ecc_date.length; i++) {
                 qua_ecc_ctx.beginPath();
                 qua_ecc_ctx.fillStyle="#53A6FF";
                 qua_ecc_ctx.font=dot_font_size+"px Arial";
 
-                var y_num = qua_ecc_testdata[i];
+                var y_num = qua_ecc_date[i];
                 var y_space = qua_ecc_h-(y_num * qua_ecc_h/100)-12;
                 if (i==0) {
                     var x_space = i*qua_ecc_btw+5;
-                }else if(i==qua_ecc_testdata.length-1){
+                }else if(i==qua_ecc_date.length-1){
                     var x_space = i*qua_ecc_btw-13;
                 }else{
                     var x_space = i*qua_ecc_btw-6;
@@ -182,17 +201,17 @@ $(document).ready(function() {
             };
     };
 /*最大心率心电图*/
-    f_hrmax();
-    function f_hrmax(){
+    f_hrmax(nowtime_hrmax_date);
+    function f_hrmax(hrmax_date_box){
         /*初始化*/
         var hrmax=document.getElementById("hrmax");
         var hrmax_ctx=hrmax.getContext("2d");
         hrmax_ctx.clearRect(0,0,hrmax.width,hrmax.height);
-        /*模式数据*/
-        var hrmax_date = ["01F4","01F3","01F3","01F3","01F3","01F3","01F3","01F3","01F3","01F3","01F4","01F4","01F4","01F4","01F4","01F4","01F4","01F4","01F5","01F4","01F5","01F5","01F5","01F5","01F6","01F5","01F6","01F5","01F5","01F6","01F6","01F9","01FB","01FD","01FB","01F9","01F9","01F9","01F8","01F7","01F7","01F6","01F7","01F7","01F7","01F7","01F5","0200","0215","022D","0201","01DC","01BC","01B7","01CF","01E2","01F0","01F4","01F5","01F7","01F8","01F9","01F9","01FB","01FB","01FD","01FE","0200","0201","0203","0206","0208","020C","020E","0212","0216","021B","021F","0223","0226","0229","022A","022A","0229","0225","021F","0216","020D","0203","01FB","01F6","01F1","01EE","01ED","01EC","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01ED","01EC","01EC","01EC","01EC","01EB","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EB","01EA","01EA","01EB","01EA","01EB","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01EC","01EC","01EC","01EC","01ED","01EF","01F2","01F2","01F0","01EF","01EF","01EF","01EF","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01FD","0215","0228","01F4","01CC","01BA","01C2","01D8","01E9","01F2","01F4","01F6","01F7","01F8","01F9","01FA","01FB","01FD","01FE","01FF","0201","0203","0205","0208","020B","020E","0212","0216","021B","0220","0224","0228","022B","022D","022E","022D","022A","0225","021D","0213","0209","0200","01F8","01F2","01EF","01ED","01EC","01EC","01EB","01EB","01ED","01EC","01EC","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01E9","0207","0223","0212","01D9","01B7","01A7","01C1","01DF","01ED","01F0","01F2","01F3","01F5","01F5","01F6","01F7","01F9","01FA","01FB","01FD","01FF","0201","0204","0207","020A","020E","0213","0217","021B","021F","0222","0223","0225","0224","0220","0219","0211","0207","01FD","01F6","01EF","01EB","01E9","01E8","01E8","01E8","01E8","01E8","01E8","01E8","01E9","01E8","01E8","01E8","01E8","01E8","01E8","01E8","01E7","01E7","01E7","01E7","01E7","01E7","01E7","01E7","01E7","01E7","01E7","01E8","01E8","01E8","01E8","01E8","01E8","01E8","01E8","01E8","01E9","01E9","01E9","01E9","01E9","01EA","01E9","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01ED","01EC","01EC","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01EE","01EE","01EE","01ED","01ED","01ED","01ED","01F0","01F2","01F2","01F2","01F1","01F0","01EF","01EF","01EF","01EF","01EE","01EE","01EF","01EE","01ED","01F8","020F","022B","0203","01DF","01C2","01BC","01D2","01E2","01F0","01F4","01F6","01F7","01F8","01F8","01FA","01FA","01FB","01FC","01FD","01FF","0200","0202","0204","0206","0209","020C","020F","0212","0216","021A","021D","0220","0222","0224","0225","0224","0222","021E","0219","0212","0209","0203","01FC","01F6","01F2","01F0","01EF","01EE","01EE","01EE","01EE","01EE","01EE","01ED","01ED","01EE","01ED","01ED","01ED","01ED","01ED","01EB","01EC","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EB","01EB","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EA","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01ED","01EC","01EC","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01EE","01F1","01F3","01F4","01F2","01F1","01F1","01F0","01EF","01EF","01EE","01EE","01EE","01EE","01EE","01EE","01EC","01FD","0215","0229","01F7","01D0","01BE","01C3","01D7","01E8","01F3","01F5","01F7","01F8","01F9","01FB","01FB","01FC","01FD","01FE","0200","0202","0204","0206","0208","020C","020E","0212","0215","0219","021D","0222","0226","0229","022A","022C","022B","0229","0225","021E","0216","020C","0203","01FC","01F5","01F1","01EE","01ED","01EC","01EC","01EC","01EC","01ED","01ED","01EC","01ED","01ED","01ED","01ED","01EC","01EC","01EC","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01E9","01E9","01E9","01E9","01EA","01EA","01EA","01E9","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EB","01EC","01EC","01EC","01EC","01EC","01ED","01EF","01F2","01F2","01F0","01EF","01EF","01EF","01ED","01EC","01ED","01ED","01ED","01ED","01ED","01ED","01EB","01F7","0211","022F","0201","01DA","01BA","01B9","01D3","01E6","01F1","01F3","01F5","01F7","01F8","01F9","01FA","01FA","01FC","01FD","01FE","0201","0202","0204","0207","0209","020C","020F","0214","0218","021D","0221","0225","0228","022A","022B","022C","022A","0226","021F","0216","020C","0203","01FA","01F4","01F0","01ED","01EB","01EB","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01E9","01E9","01E9","01E9","01E9","01E9","01E9","01E9","01E8","01E9","01E9","01E9","01E9","01E9","01E9","01E9","01E9","01EA","01E9","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EA","01EA","01EB","01EC","01EF","01F1","01F1","01EF","01EE","01EE","01ED","01EC","01EB","01EB","01EB","01EB","01EB","01EC","01EB","01EA","01FA","0214","022B","01F7","01D0","01B6","01BB","01CF","01E2","01EE","01F3","01F4","01F6","01F7","01F8","01F9","01FA","01FA","01FB","01FD","01FF","0200","0203","0205","0208","020A","020E","0212","0216","021A","021D","0221","0224","0226","0227","0227","0226","0222","021B","0213","020A","0201","01FA","01F3","01EF","01ED","01EB","01EA","01EA","01EA","01EA","01EA","01EB","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01E9","01E9","01E9","01E9","01E9","01E9","01E8","01E9","01E8","01E9","01E9","01E9","01E9","01E9","01E9","01E9","01E9","01EA","01EA","01EA","01EA","01E9","01EA","01EA","01EA","01EA","01EB","01EB","01EA","01EB","01ED","01EF","01F2","01F1","01EF","01EE","01EE","01ED","01EC","01EB","01EB","01EB","01EC","01EC","01ED","01EB","01EC","0202","021C","0214","01E6","01CA","01B7","01C2","01D8","01E9","01F2","01F4","01F6","01F7","01F8","01F8","01FA","01FB","01FB","01FD","01FE","0200","0202","0204","0206","0209","020C","020F","0213","0218","021B","0220","0223","0225","0227","0228","0228","0225","0220","0219","0211","0207","01FF","01F8","01F2","01EF","01ED","01EC","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01ED","01ED","01ED","01EC","01EC","01EC","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01E9","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01ED","01EC","01EC","01EE","01F0","01F3","01F2","01F0","01EF","01F0","01EF","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01EB","01FF","021D","0219","01EE","01CC","01B8","01C5","01DC","01EC","01F3","01F5","01F7","01F8","01F9","01FA","01FB","01FB","01FD","01FF","0200","0201","0203","0205","0208","020B","020E","0212","0216","021B","021F","0224","0227","022A","022C","022D","022C","0229","0224","021C","0212","0208","01FF","01F8","01F3","01F0","01ED","01EC","01EB","01EB","01EB","01EB","01EC","01EB","01EC","01EC","01EC","01EC","01EC","01ED","01EC","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01ED","01ED","01ED","01EF","01F1","01F3","01F2","01F0","01F0","01EF","01EE","01ED","01ED","01ED","01ED","01ED","01ED","01EE","01EC","01ED","0209","0221","0214","01DF","01C5","01B4","01C8","01DF","01EF","01F3","01F5","01F7","01F8","01F9","01FA","01FB","01FC","01FD","01FF","0200","0203","0205","0207","0209","020C","020F","0213","0217","021B","0220","0224","0227","022A","022B","022C","022A","0227","0221","0219","0210","0206","01FD","01F7","01F2","01EF","01ED","01EC","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01EC","01EC","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01E9","01E9","01E9","01E9","01E9","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EB","01EC","01EC","01EC","01EE","01F1","01F3","01F1","01EF","01EF","01EF","01ED","01EC","01EC","01EC","01EC","01EC","01EC","01ED","01EB","01ED","0209","021D","020E","01D9","01BD","01B4","01C7","01DC","01ED","01F2","01F3","01F5","01F6","01F7","01F9","01F9","01FB","01FB","01FD","01FF","0200","0202","0204","0207","0209","020D","0211","0215","0218","021D","0221","0223","0226","0227","0227","0226","0222","021C","0214","020C","0203","01FB","01F5","01F1","01EE","01ED","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01ED","01EC","01EC","01EC","01EC","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EA","01EB","01EB","01EB","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01ED","01EF","01F1","01F3","01F1","01F0","01EF","01EF","01EE","01EE","01ED","01ED","01ED","01ED","01ED","01ED","01EB","01F5","020B","022F","0214","01E0"];
+        /*定义一个空数据容器*/
+        var hrmax_date = new Array;
         /*转换数据*/
-        for (var i = 0; i < hrmax_date.length; i++) {
-            var this_indate16 = hrmax_date[i];
+        for (var i = 0; i < hrmax_date_box.length; i++) {
+            var this_indate16 = hrmax_date_box[i];
             hrmax_date[i] = parseInt(this_indate16,16);
         };
         /*给canvas宽高防止模糊*/
@@ -307,10 +326,6 @@ $(document).ready(function() {
             hrmax_ctx.moveTo(this_x,black_side);
             hrmax_ctx.lineTo(this_x,hrmax_h-black_side);
             hrmax_ctx.stroke();
-            /*索引文字*/
-            /*hrmax_ctx.fillStyle="#FFFF07";
-            hrmax_ctx.font= dot_font_size+"px Arial";
-            hrmax_ctx.fillText("最大心率："+hrmax_date[max_dot_index],this_x+3,((hrmax_h-black_side-black_side)*1/10)+black_side-5);*/
             hrmax_ctx.closePath();
             /*时间图例*/
             hrmax_ctx.beginPath();
@@ -320,17 +335,17 @@ $(document).ready(function() {
             hrmax_ctx.closePath();
     };
 /*最小心率心电图*/
-    f_hrmin();
-    function f_hrmin(){
+    f_hrmin(nowtime_hrmin_date);
+    function f_hrmin(hrmin_date_box){
         /*初始化*/
         var hrmin=document.getElementById("hrmin");
         var hrmin_ctx=hrmin.getContext("2d");
         hrmin_ctx.clearRect(0,0,hrmin.width,hrmin.height);
-        /*模式数据*/
-        var hrmin_date = ["01EB","01FF","021D","0219","01EE","01CC","01B8","01C5","01DC","01EC","01F3","01F5","01F7","01F8","01F9","01FA","01FB","01FB","01FD","01FF","0200","0201","0203","0205","0208","020B","020E","0212","0216","021B","021F","0224","0227","022A","022C","022D","022C","0229","0224","021C","0212","0208","01FF","01F8","01F3","01F0","01ED","01EC","01EB","01EB","01EB","01EB","01EC","01EB","01EC","01EC","01EC","01EC","01EC","01ED","01EC","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01ED","01ED","01ED","01EF","01F1","01F3","01F2","01F0","01F0","01EF","01EE","01ED","01ED","01ED","01ED","01ED","01ED","01EE","01EC","01ED","0209","0221","0214","01DF","01C5","01B4","01C8","01DF","01EF","01F3","01F5","01F7","01F8","01F9","01FA","01FB","01FC","01FD","01FF","0200","0203","0205","0207","0209","020C","020F","0213","0217","021B","0220","0224","0227","022A","022B","022C","022A","0227","0221","0219","0210","0206","01FD","01F7","01F2","01EF","01ED","01EC","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01EC","01EC","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01E9","01E9","01E9","01E9","01E9","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EB","01EC","01EC","01EC","01EE","01F1","01F3","01F1","01EF","01EF","01EF","01ED","01EC","01EC","01EC","01EC","01EC","01EC","01ED","01EB","01ED","0209","021D","020E","01D9","01BD","01B4","01C7","01DC","01ED","01F2","01F3","01F5","01F6","01F7","01F9","01F9","01FB","01FB","01FD","01FF","0200","0202","0204","0207","0209","020D","0211","0215","0218","021D","0221","0223","0226","0227","0227","0226","0222","021C","0214","020C","0203","01FB","01F5","01F1","01EE","01ED","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01ED","01EC","01EC","01EC","01EC","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EA","01EB","01EB","01EB","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01ED","01EF","01F1","01F3","01F1","01F0","01EF","01EF","01EE","01EE","01ED","01ED","01ED","01ED","01ED","01ED","01EB","01F5","020B","022F","0214","01F4","01F3","01F3","01F3","01F3","01F3","01F3","01F3","01F3","01F3","01F4","01F4","01F4","01F4","01F4","01F4","01F4","01F4","01F5","01F4","01F5","01F5","01F5","01F5","01F6","01F5","01F6","01F5","01F5","01F6","01F6","01F9","01FB","01FD","01FB","01F9","01F9","01F9","01F8","01F7","01F7","01F6","01F7","01F7","01F7","01F7","01F5","0200","0215","022D","0201","01DC","01BC","01B7","01CF","01E2","01F0","01F4","01F5","01F7","01F8","01F9","01F9","01FB","01FB","01FD","01FE","0200","0201","0203","0206","0208","020C","020E","0212","0216","021B","021F","0223","0226","0229","022A","022A","0229","0225","021F","0216","020D","0203","01FB","01F6","01F1","01EE","01ED","01EC","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01ED","01EC","01EC","01EC","01EC","01EB","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EB","01EA","01EA","01EB","01EA","01EB","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01EC","01EC","01EC","01EC","01ED","01EF","01F2","01F2","01F0","01EF","01EF","01EF","01EF","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01FD","0215","0228","01F4","01CC","01BA","01C2","01D8","01E9","01F2","01F4","01F6","01F7","01F8","01F9","01FA","01FB","01FD","01FE","01FF","0201","0203","0205","0208","020B","020E","0212","0216","021B","0220","0224","0228","022B","022D","022E","022D","022A","0225","021D","0213","0209","0200","01F8","01F2","01EF","01ED","01EC","01EC","01EB","01EB","01ED","01EC","01EC","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01E9","0207","0223","0212","01D9","01B7","01A7","01C1","01DF","01ED","01F0","01F2","01F3","01F5","01F5","01F6","01F7","01F9","01FA","01FB","01FD","01FF","0201","0204","0207","020A","020E","0213","0217","021B","021F","0222","0223","0225","0224","0220","0219","0211","0207","01FD","01F6","01EF","01EB","01E9","01E8","01E8","01E8","01E8","01E8","01E8","01E8","01E9","01E8","01E8","01E8","01E8","01E8","01E8","01E8","01E7","01E7","01E7","01E7","01E7","01E7","01E7","01E7","01E7","01E7","01E7","01E8","01E8","01E8","01E8","01E8","01E8","01E8","01E8","01E8","01E9","01E9","01E9","01E9","01E9","01EA","01E9","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01ED","01EC","01EC","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01EE","01EE","01EE","01ED","01ED","01ED","01ED","01F0","01F2","01F2","01F2","01F1","01F0","01EF","01EF","01EF","01EF","01EE","01EE","01EF","01EE","01ED","01F8","020F","022B","0203","01DF","01C2","01BC","01D2","01E2","01F0","01F4","01F6","01F7","01F8","01F8","01FA","01FA","01FB","01FC","01FD","01FF","0200","0202","0204","0206","0209","020C","020F","0212","0216","021A","021D","0220","0222","0224","0225","0224","0222","021E","0219","0212","0209","0203","01FC","01F6","01F2","01F0","01EF","01EE","01EE","01EE","01EE","01EE","01EE","01ED","01ED","01EE","01ED","01ED","01ED","01ED","01ED","01EB","01EC","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EB","01EB","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EA","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01ED","01EC","01EC","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01EE","01F1","01F3","01F4","01F2","01F1","01F1","01F0","01EF","01EF","01EE","01EE","01EE","01EE","01EE","01EE","01EC","01FD","0215","0229","01F7","01D0","01BE","01C3","01D7","01E8","01F3","01F5","01F7","01F8","01F9","01FB","01FB","01FC","01FD","01FE","0200","0202","0204","0206","0208","020C","020E","0212","0215","0219","021D","0222","0226","0229","022A","022C","022B","0229","0225","021E","0216","020C","0203","01FC","01F5","01F1","01EE","01ED","01EC","01EC","01EC","01EC","01ED","01ED","01EC","01ED","01ED","01ED","01ED","01EC","01EC","01EC","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01E9","01E9","01E9","01E9","01EA","01EA","01EA","01E9","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EB","01EC","01EC","01EC","01EC","01EC","01ED","01EF","01F2","01F2","01F0","01EF","01EF","01EF","01ED","01EC","01ED","01ED","01ED","01ED","01ED","01ED","01EB","01F7","0211","022F","0201","01DA","01BA","01B9","01D3","01E6","01F1","01F3","01F5","01F7","01F8","01F9","01FA","01FA","01FC","01FD","01FE","0201","0202","0204","0207","0209","020C","020F","0214","0218","021D","0221","0225","0228","022A","022B","022C","022A","0226","021F","0216","020C","0203","01FA","01F4","01F0","01ED","01EB","01EB","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01E9","01E9","01E9","01E9","01E9","01E9","01E9","01E9","01E8","01E9","01E9","01E9","01E9","01E9","01E9","01E9","01E9","01EA","01E9","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EA","01EA","01EB","01EC","01EF","01F1","01F1","01EF","01EE","01EE","01ED","01EC","01EB","01EB","01EB","01EB","01EB","01EC","01EB","01EA","01FA","0214","022B","01F7","01D0","01B6","01BB","01CF","01E2","01EE","01F3","01F4","01F6","01F7","01F8","01F9","01FA","01FA","01FB","01FD","01FF","0200","0203","0205","0208","020A","020E","0212","0216","021A","021D","0221","0224","0226","0227","0227","0226","0222","021B","0213","020A","0201","01FA","01F3","01EF","01ED","01EB","01EA","01EA","01EA","01EA","01EA","01EB","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01E9","01E9","01E9","01E9","01E9","01E9","01E8","01E9","01E8","01E9","01E9","01E9","01E9","01E9","01E9","01E9","01E9","01EA","01EA","01EA","01EA","01E9","01EA","01EA","01EA","01EA","01EB","01EB","01EA","01EB","01ED","01EF","01F2","01F1","01EF","01EE","01EE","01ED","01EC","01EB","01EB","01EB","01EC","01EC","01ED","01EB","01EC","0202","021C","0214","01E6","01CA","01B7","01C2","01D8","01E9","01F2","01F4","01F6","01F7","01F8","01F8","01FA","01FB","01FB","01FD","01FE","0200","0202","0204","0206","0209","020C","020F","0213","0218","021B","0220","0223","0225","0227","0228","0228","0225","0220","0219","0211","0207","01FF","01F8","01F2","01EF","01ED","01EC","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01ED","01ED","01ED","01EC","01EC","01EC","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01E9","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01ED","01EC","01EC","01EE","01F0","01F3","01F2","01F0","01EF","01F0","01EF","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01ED","01EB","01FF","021D","0219","01EE","01CC","01B8","01C5","01DC","01EC","01F3","01F5","01F7","01F8","01F9","01FA","01FB","01FB","01FD","01FF","0200","0201","0203","0205","0208","020B","020E","0212","0216","021B","021F","0224","0227","022A","022C","022D","022C","0229","0224","021C","0212","0208","01FF","01F8","01F3","01F0","01ED","01EC","01EB","01EB","01EB","01EB","01EC","01EB","01EC","01EC","01EC","01EC","01EC","01ED","01EC","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01ED","01ED","01ED","01EF","01F1","01F3","01F2","01F0","01F0","01EF","01EE","01ED","01ED","01ED","01ED","01ED","01ED","01EE","01EC","01ED","0209","0221","0214","01DF","01C5","01B4","01C8","01DF","01EF","01F3","01F5","01F7","01F8","01F9","01FA","01FB","01FC","01FD","01FF","0200","0203","0205","0207","0209","020C","020F","0213","0217","021B","0220","0224","0227","022A","022B","022C","022A","0227","0221","0219","0210","0206","01FD","01F7","01F2","01EF","01ED","01EC","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01EC","01EC","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01E9","01E9","01E9","01E9","01E9","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01EB","01EC","01EC","01EC","01EE","01F1","01F3","01F1","01EF","01EF","01EF","01ED","01EC","01EC","01EC","01EC","01EC","01EC","01ED","01EB","01ED","0209","021D","020E","01D9","01BD","01B4","01C7","01DC","01ED","01F2","01F3","01F5","01F6","01F7","01F9","01F9","01FB","01FB","01FD","01FF","0200","0202","0204","0207","0209","020D","0211","0215","0218","021D","0221","0223","0226","0227","0227","0226","0222","021C","0214","020C","0203","01FB","01F5","01F1","01EE","01ED","01EB","01EB","01EB","01EB","01EC","01EC","01EC","01EC","01ED","01EC","01EC","01EC","01EC","01EB","01EB","01EB","01EB","01EB","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EA","01EB","01EA","01EB","01EB","01EB","01EA","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EB","01EC","01EC","01ED","01EF","01F1","01F3","01F1","01F0","01EF","01EF","01EE","01EE","01ED","01ED","01ED","01ED","01ED","01ED","01EB","01F5","020B","022F","0214","01E0"];
+        /*定义一个空数据容器*/
+        var hrmin_date = new Array;
         /*转换数据*/
-        for (var i = 0; i < hrmin_date.length; i++) {
-            var this_indate16 = hrmin_date[i];
+        for (var i = 0; i < hrmin_date_box.length; i++) {
+            var this_indate16 = hrmin_date_box[i];
             hrmin_date[i] = parseInt(this_indate16,16);
         };
         /*给canvas宽高防止模糊*/
@@ -451,16 +466,12 @@ $(document).ready(function() {
             hrmin_ctx.beginPath();
             hrmin_ctx.fillStyle="#FFFFFF";
             hrmin_ctx.font= dot_font_size+"px Arial";
-
-           hrmin_ctx.fillText("Detecting time:"+hr_min_time+"    最小心率："+hrmin_date[min_dot_index],black_side+5,black_side-5);
+            hrmin_ctx.fillText("Detecting time:"+hr_min_time+"    最小心率："+hrmin_date[min_dot_index],black_side+5,black_side-5);
             hrmin_ctx.closePath();
     };
 /*PVC，PAC心电图*/
-    
-    //这是第几段数据
-    var sin_pvac_bg_index = 1;
+    f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
     //背景图
-    f_pvac_bg(sim_pvac_bg_timev1,sin_pvac_bg_index);
     function f_pvac_bg(p_b_time,p_b_index){
         /*初始化*/
         var pvacbg=document.getElementById("hrpvac_bg");
@@ -541,7 +552,7 @@ $(document).ready(function() {
             pvacbg_ctx.closePath();
     };
     //数据图
-    f_pvac(analog_pvac_datev1,analog_pvac_pointv1);
+    f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
     function f_pvac(pvac_date_box,pvac_point){
         /*初始化*/
         var pvac=document.getElementById("hrpvac");
@@ -615,7 +626,6 @@ $(document).ready(function() {
             pvac_ctx.stroke();
             pvac_ctx.closePath();
     };
-
     $(".hrpvac_in_box").scroll(function(){
         /*实时偏移量*/
         var hrpvac_x_exc = Math.abs($("#hrpvac").offset().left-$(".hrpvac_in_box").offset().left) ;
@@ -627,34 +637,47 @@ $(document).ready(function() {
               shade: [0.2,'#000'] //0.1透明度的白色背景
             });
             /*模拟异步加载函数*/
+            //把全局变量的实时数据替换，重新绘图
             var forward_load =  function forward_load_naxtone(){
-                switch(sin_pvac_bg_index)
+                switch(nowtime_sim_pvac_index)
                 {
                     case 2:
-                        sin_pvac_bg_index -= 1;
-                        f_pvac_bg(sim_pvac_bg_timev1,sin_pvac_bg_index);
-                        f_pvac(analog_pvac_datev1,analog_pvac_pointv1);
+                        nowtime_sim_pvac_index -= 1;
+                        nowtime_sim_pvac_bg_time = sim_pvac_bg_timev1;
+                        nowtime_sim_pvac_date = analog_pvac_datev1;
+                        nowtime_sim_pvac_point = analog_pvac_pointv1;
+                        f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                        f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
                         $(".hrpvac_in_box").scrollLeft(hrpvac_x_critical-1);
                         layer.closeAll();
                         break;
                     case 3:
-                        sin_pvac_bg_index -= 1;
-                        f_pvac_bg(sim_pvac_bg_timev2,sin_pvac_bg_index);
-                        f_pvac(analog_pvac_datev2,analog_pvac_pointv2);
+                        nowtime_sim_pvac_index -= 1;
+                        nowtime_sim_pvac_bg_time = sim_pvac_bg_timev2;
+                        nowtime_sim_pvac_date = analog_pvac_datev2;
+                        nowtime_sim_pvac_point = analog_pvac_pointv2;
+                        f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                        f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
                         $(".hrpvac_in_box").scrollLeft(hrpvac_x_critical-1);
                         layer.closeAll();
                         break;
                     case 4:
-                        sin_pvac_bg_index -= 1;
-                        f_pvac_bg(sim_pvac_bg_timev3,sin_pvac_bg_index);
-                        f_pvac(analog_pvac_datev3,analog_pvac_pointv3);
+                        nowtime_sim_pvac_index -= 1;
+                        nowtime_sim_pvac_bg_time = sim_pvac_bg_timev3;
+                        nowtime_sim_pvac_date = analog_pvac_datev3;
+                        nowtime_sim_pvac_point = analog_pvac_pointv3;
+                        f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                        f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
                         $(".hrpvac_in_box").scrollLeft(hrpvac_x_critical-1);
                         layer.closeAll();
                         break;
                     case 5:
-                        sin_pvac_bg_index -= 1;
-                        f_pvac_bg(sim_pvac_bg_timev4,sin_pvac_bg_index);
-                        f_pvac(analog_pvac_datev4,analog_pvac_pointv4);
+                        nowtime_sim_pvac_index -= 1;
+                        nowtime_sim_pvac_bg_time = sim_pvac_bg_timev4;
+                        nowtime_sim_pvac_date = analog_pvac_datev4;
+                        nowtime_sim_pvac_point = analog_pvac_pointv4;
+                        f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                        f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
                         $(".hrpvac_in_box").scrollLeft(hrpvac_x_critical-1);
                         layer.closeAll();
                         break;
@@ -673,33 +696,45 @@ $(document).ready(function() {
             });
             /*模拟异步加载函数*/
             var next_load =  function next_load_naxtone(){
-                switch(sin_pvac_bg_index)
+                switch(nowtime_sim_pvac_index)
                 {
                     case 1:
-                        sin_pvac_bg_index += 1;
-                        f_pvac_bg(sim_pvac_bg_timev2,sin_pvac_bg_index);
-                        f_pvac(analog_pvac_datev2,analog_pvac_pointv2);
+                        nowtime_sim_pvac_index += 1;
+                        nowtime_sim_pvac_bg_time = sim_pvac_bg_timev2;
+                        nowtime_sim_pvac_date = analog_pvac_datev2;
+                        nowtime_sim_pvac_point = analog_pvac_pointv2;
+                        f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                        f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
                         $(".hrpvac_in_box").scrollLeft(1);
                         layer.closeAll();
                         break;
                     case 2:
-                        sin_pvac_bg_index += 1;
-                        f_pvac_bg(sim_pvac_bg_timev3,sin_pvac_bg_index);
-                        f_pvac(analog_pvac_datev3,analog_pvac_pointv3);
+                        nowtime_sim_pvac_index += 1;
+                        nowtime_sim_pvac_bg_time = sim_pvac_bg_timev3;
+                        nowtime_sim_pvac_date = analog_pvac_datev3;
+                        nowtime_sim_pvac_point = analog_pvac_pointv3;
+                        f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                        f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
                         $(".hrpvac_in_box").scrollLeft(1);
                         layer.closeAll();
                         break;
                     case 3:
-                        sin_pvac_bg_index += 1;
-                        f_pvac_bg(sim_pvac_bg_timev4,sin_pvac_bg_index);
-                        f_pvac(analog_pvac_datev4,analog_pvac_pointv4);
+                        nowtime_sim_pvac_index += 1;
+                        nowtime_sim_pvac_bg_time = sim_pvac_bg_timev4;
+                        nowtime_sim_pvac_date = analog_pvac_datev4;
+                        nowtime_sim_pvac_point = analog_pvac_pointv4;
+                        f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                        f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
                         $(".hrpvac_in_box").scrollLeft(1);
                         layer.closeAll();
                         break;
                     case 4:
-                        sin_pvac_bg_index += 1;
-                        f_pvac_bg(sim_pvac_bg_timev5,sin_pvac_bg_index);
-                        f_pvac(analog_pvac_datev5,analog_pvac_pointv5);
+                        nowtime_sim_pvac_index += 1;
+                        nowtime_sim_pvac_bg_time = sim_pvac_bg_timev5;
+                        nowtime_sim_pvac_date = analog_pvac_datev5;
+                        nowtime_sim_pvac_point = analog_pvac_pointv5;
+                        f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                        f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
                         $(".hrpvac_in_box").scrollLeft(1);
                         layer.closeAll();
                         break;
@@ -707,11 +742,15 @@ $(document).ready(function() {
                         layer.closeAll();
                         layer.alert('没有更多内容')
                 };
-                
             };
             /*模拟异步加载*/
             var t=setTimeout(next_load,1000);
         };
     });
-
+/*弹出部分*/
+    var doc_h = $(document).height();
+    $(".doc_h").height(doc_h);
+    $(".doc_h").on("touchmove",function(event){
+        event.preventDefault;
+    }, false);
 });
