@@ -156,6 +156,11 @@
 .w-06p{width: 6.666%}
 .ml--2{margin-left: -2px;}
 .ml--5{margin-left: -5px;}
+.html_body_over_h{
+    position: relative;
+    height: 100%;
+    overflow: hidden !important;
+}
 @media (min-width:350px) {
   .pt-30-20-iphone5{padding-top: 30px;}
   .f-26-20-iphone5{font-size: 26px;}

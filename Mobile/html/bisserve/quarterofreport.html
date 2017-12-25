@@ -184,25 +184,31 @@
                 </div>
             </div>
             <!-- 最大心率 -->
-            <div class="clear full-w bg-white pt-10 pb-10">
-                <p class="line-h-25 h-25 mb-10 pl-10 pr-10">
+            <div class="clear full-w bg-white pd-10">
+                <p class="line-h-25 h-25 mb-10">
                     <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">最大心率：64</span>
                 </p>
-                <div class="clear full-w pos-r h-200 hrmax_box pl-10 pr-10">
+                <div class="clear full-w pos-r h-200 hrmax_box">
                     <canvas id="hrmax" class="full-w h-200">
                         你的浏览器不支持canvas。
                     </canvas>
+                    <div class="clear pos-a z-99 r-10 b-5 cur-p hrmax_conver_screen">
+                        <img class="img-30" src="../../img/quarterofreport/conversion_screen.png" alt="">
+                    </div>
                 </div>
             </div>
             <!-- 最小心率 -->
-            <div class="clear full-w bg-white pt-10 pb-10">
-                <p class="line-h-25 h-25 mb-10 pl-10 pr-10">
+            <div class="clear full-w bg-white pd-10">
+                <p class="line-h-25 h-25 mb-10">
                     <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">最小心率：60</span>
                 </p>
-                <div class="clear full-w pos-r h-200 hrmin_box pl-10 pr-10">
+                <div class="clear full-w pos-r h-200 hrmin_box">
                     <canvas id="hrmin" class="full-w h-200">
                         你的浏览器不支持canvas。
                     </canvas>
+                    <div class="clear pos-a z-99 r-10 b-5 cur-p hrmin_conver_screen">
+                        <img class="img-30" src="../../img/quarterofreport/conversion_screen.png" alt="">
+                    </div>
                 </div>
             </div>
             <!-- PVC/PAC -->
@@ -222,6 +228,10 @@
                                 你的浏览器不支持canvas。
                             </canvas>
                         </div>
+                    </div>
+                    <!-- 旋转按钮 -->
+                    <div class="clear pos-a z-99 r-10 b-5 cur-p hrpvac_conver_screen">
+                        <img class="img-30" src="../../img/quarterofreport/conversion_screen.png" alt="">
                     </div>
                 </div>
             </div>
@@ -398,7 +408,41 @@
             </div>
         </div>
     </div>
-    <div class="clear affix full-w t-0 l-0 doc_h bg-black z-9999 dis-n">  
+    <!-- 最大心率全屏弹出部分 -->
+    <div class="clear affix full-w t-0 l-0 win_h z-999 dis-n hrmax_full_screen">  
+        <div class="clear full-wh pos-r bg-black hrmax_full_box">
+            <canvas id="hrmax_full" class="full-wh">
+                你的浏览器不支持canvas。
+            </canvas>
+        </div>
+        <img class="pos-a b-10 r-10 img-30 hrmax_full_box_close" src="../../img/quarterofreport/close_v2.png" alt="">
+    </div>
+    <!-- 最小心率全屏弹出部分 -->
+    <div class="clear affix full-w t-0 l-0 win_h z-999 dis-n hrmin_full_screen">  
+        <div class="clear full-wh pos-r bg-black hrmin_full_box">
+            <canvas id="hrmin_full" class="full-wh">
+                你的浏览器不支持canvas。
+            </canvas>
+        </div>
+        <img class="pos-a b-10 r-10 img-30 hrmin_full_box_close" src="../../img/quarterofreport/close_v2.png" alt="">
+    </div>
+    <!-- PVC/PAC全屏弹出部分 -->
+    <div class="clear affix full-w t-0 l-0 win_h z-999 dis-n hrpvac_full_screen">  
+        <div class="clear full-wh pos-r hrpvac_full_box">
+            <!-- 背景部分 -->
+            <canvas id="hrpvac_full_bg" class="full-wh">
+                你的浏览器不支持canvas。
+            </canvas>
+            <!-- 曲线部分 -->
+            <div class="clear pos-a full-wh t-0 l-0 z-999 pt-15 pb-15 pr-15">
+                <div class="clear full-wh pos-r full_hrpvac_in_box overflow-a">
+                    <canvas id="hrpvac_full" class="pos-a t-0 l-0 full-w">
+                        你的浏览器不支持canvas。
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <img class="pos-a b-10 r-10 img-30 hrpvac_full_box_close z-999" src="../../img/quarterofreport/close_v2.png" alt="">
     </div>
     <script src="../../js/comm/jquery.min.js"></script>
     <script src="../../ctrl/layer/layer.js"></script>

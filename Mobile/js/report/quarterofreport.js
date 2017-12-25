@@ -7,8 +7,12 @@ $(document).ready(function() {
     var nowtime_qua_ecc_data = qua_ecc_testdata_v1;
     //最大心率心电图此时数据
     nowtime_hrmax_date = hrmax_date_v1;
+    nowtime_hrmax_date_time = hrmax_date_timev1;
+    nowtime_hrmax_date_index = hrmax_date_index;
     //最小心率心电图此时数据
     nowtime_hrmin_date = hrmin_date_v1;
+    nowtime_hrmin_date_time = hrmin_date_timev1;
+    nowtime_hrmin_date_index = hrmin_date_index;
     /*PVC,PAC全局变量*/
     //在背景里面绘制
     //当前索引，正式情况下一共15分钟，15段，模拟5分钟
@@ -19,14 +23,18 @@ $(document).ready(function() {
     var nowtime_sim_pvac_date = analog_pvac_datev1;
     //当前数据对应的标记点内容
     var nowtime_sim_pvac_point = analog_pvac_pointv1;
+    /*全屏部分*/
+    /*定义当前对于顶部的偏移量*/
+    var scrollTop;
 
 /*窗口宽高变化时重汇心电图*/
     $(window).resize(function(){
         set_h_w();
-        f_hrmax(nowtime_hrmax_date);
-        f_hrmin(nowtime_hrmin_date);
+        f_hrmax(nowtime_hrmax_date,nowtime_hrmax_date_time,nowtime_hrmax_date_index);
+        f_hrmin(nowtime_hrmin_date,nowtime_hrmin_date_time,nowtime_hrmin_date_index);
         f_quarter_eccentricity(nowtime_qua_ecc_data);
         f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+        f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
     });
     set_h_w();
     function set_h_w(){
@@ -201,8 +209,8 @@ $(document).ready(function() {
             };
     };
 /*最大心率心电图*/
-    f_hrmax(nowtime_hrmax_date);
-    function f_hrmax(hrmax_date_box){
+    f_hrmax(nowtime_hrmax_date,nowtime_hrmax_date_time,nowtime_hrmax_date_index);
+    function f_hrmax(hrmax_date_box,hrmax_date_time,hrmax_date_index){
         /*初始化*/
         var hrmax=document.getElementById("hrmax");
         var hrmax_ctx=hrmax.getContext("2d");
@@ -226,9 +234,9 @@ $(document).ready(function() {
         /*外部黑边边距*/
         var black_side = 20;
         /*最大心率索引*/
-        var max_dot_index = 180;
+        var max_dot_index = hrmax_date_index;
         /*时间*/
-        var hr_max_time = "2016/08/10/ 19:15:38"
+        var hr_max_time = hrmax_date_time;
         /*开始绘图*/
             /*背景*/
             hrmax_ctx.beginPath();
@@ -335,8 +343,8 @@ $(document).ready(function() {
             hrmax_ctx.closePath();
     };
 /*最小心率心电图*/
-    f_hrmin(nowtime_hrmin_date);
-    function f_hrmin(hrmin_date_box){
+    f_hrmin(nowtime_hrmin_date,nowtime_hrmin_date_time,nowtime_hrmin_date_index);
+    function f_hrmin(hrmin_date_box,hrmin_date_time,hrmin_date_index){
         /*初始化*/
         var hrmin=document.getElementById("hrmin");
         var hrmin_ctx=hrmin.getContext("2d");
@@ -360,9 +368,9 @@ $(document).ready(function() {
         /*外部黑边边距*/
         var black_side = 20;
         /*最小心率索引*/
-        var min_dot_index = 500;
+        var min_dot_index = hrmin_date_index;
         /*时间*/
-        var hr_min_time = "2016/08/15/ 19:24:38"
+        var hr_min_time = hrmin_date_time;
         /*开始绘图*/
             /*背景*/
             hrmin_ctx.beginPath();
@@ -748,9 +756,675 @@ $(document).ready(function() {
         };
     });
 /*弹出部分*/
-    var doc_h = $(document).height();
-    $(".doc_h").height(doc_h);
-    $(".doc_h").on("touchmove",function(event){
+    var win_h = $(window).height();
+    $(".win_h").height(win_h);
+    /*最大心率全屏弹出*/
+    $(".hrmax_full_box").on("touchmove",function(event){
         event.preventDefault;
     }, false);
+    $(".hrmax_conver_screen").click(function(){
+        full_f_hrmax(nowtime_hrmax_date,nowtime_hrmax_date_time,nowtime_hrmax_date_index);
+        $(".hrmax_full_screen").show();
+    });
+    $(".hrmax_full_box_close").click(function(){
+        $(".hrmax_full_screen").hide();
+    });
+    /*最小心率全屏弹出*/
+    $(".hrmin_full_box").on("touchmove",function(event){
+        event.preventDefault;
+    }, false);
+    $(".hrmin_conver_screen").click(function(){
+        full_f_hrmin(nowtime_hrmin_date,nowtime_hrmin_date_time,nowtime_hrmin_date_index);
+        $(".hrmin_full_screen").show();
+    });
+    $(".hrmin_full_box_close").click(function(){
+        $(".hrmin_full_screen").hide();
+    });
+    /*PVA/PVC全屏弹出部分*/   
+    $(".hrpvac_conver_screen").click(function(){
+        scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        full_f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+        full_f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
+        $(".hrpvac_full_screen").show();
+        $(".full_hrpvac_in_box").scrollTop(1);
+        $("body,html").addClass("html_body_over_h");
+    });
+    $(".hrpvac_full_box_close").click(function(){
+        $("body,html").removeClass("html_body_over_h");
+        $(".hrpvac_full_screen").hide();
+        f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+        f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
+        $('body,html').scrollTop(scrollTop);
+    });
+/*全屏最大心率心电图*/
+    function full_f_hrmax(hrmax_date_box,hrmax_date_time,hrmax_date_index){
+        /*初始化*/
+        var hrmaxfull=document.getElementById("hrmax_full");
+        var hrmaxfull_ctx=hrmaxfull.getContext("2d");
+        hrmaxfull_ctx.clearRect(0,0,hrmaxfull.width,hrmaxfull.height);
+        /*定义一个空数据容器*/
+        var hrmaxfull_date = new Array;
+        /*转换数据*/
+        for (var i = 0; i < hrmax_date_box.length; i++) {
+            var this_indate16 = hrmax_date_box[i];
+            hrmaxfull_date[i] = parseInt(this_indate16,16);
+        };
+        /*给canvas宽高防止模糊*/
+        var hrmaxfull_w = $(".hrmax_full_screen").width()*2;
+        var hrmaxfull_h = $(".hrmax_full_screen").height()*2;
+        hrmaxfull.width = hrmaxfull_w;
+        hrmaxfull.height = hrmaxfull_h;
+        /*文字大小*/
+        var dot_font_size =18;
+        /*采样率*/
+        var sam_rate =125;
+        /*外部黑边边距*/
+        var black_side = 30;
+        /*最大心率索引*/
+        var max_dot_index = hrmax_date_index;
+        /*时间*/
+        var hr_max_time = hrmax_date_time;
+        /*开始绘图*/
+            /*背景*/
+            hrmaxfull_ctx.beginPath();
+            hrmaxfull_ctx.fillStyle="#000";
+            hrmaxfull_ctx.fillRect(0,0,hrmaxfull_w,hrmaxfull_h);
+            hrmaxfull_ctx.closePath();
+            /*横线*/
+            for (var i = 0; i <= 20; i++) {
+                hrmaxfull_ctx.beginPath();
+                hrmaxfull_ctx.strokeStyle="#444";
+                hrmaxfull_ctx.lineCap="square";
+                hrmaxfull_ctx.lineWidth=1;
+                if ( i==0 || i==4 || i==8 || i==12 ||i==16 || i==20) {
+                    hrmaxfull_ctx.strokeStyle="#888";
+                    hrmaxfull_ctx.lineWidth=1;
+                }else{
+                    hrmaxfull_ctx.strokeStyle="#444";
+                    hrmaxfull_ctx.lineWidth=1;
+                };
+
+                var this_h = (hrmaxfull_h - black_side);
+                var this_w = ((hrmaxfull_w-black_side-black_side)*i/20)+black_side;
+                hrmaxfull_ctx.moveTo(this_w,black_side);
+                hrmaxfull_ctx.lineTo(this_w,this_h);
+                hrmaxfull_ctx.stroke();
+                hrmaxfull_ctx.closePath();
+            };
+            /*竖线*/
+            for (var i = 0; i <= 25; i++) {
+                hrmaxfull_ctx.beginPath();
+                hrmaxfull_ctx.strokeStyle="#444";
+                hrmaxfull_ctx.lineCap="square";
+                hrmaxfull_ctx.lineWidth=1;
+                if (i==0 || i==5 || i==10 || i==15 ||i==20 ||i==25) {
+                    hrmaxfull_ctx.strokeStyle="#888";
+                    hrmaxfull_ctx.lineWidth=1;
+                }else{
+                    hrmaxfull_ctx.strokeStyle="#444";
+                    hrmaxfull_ctx.lineWidth=1;
+                };
+                var this_h = ((hrmaxfull_h-black_side-black_side)*i/25)+black_side;
+                hrmaxfull_ctx.moveTo(black_side,this_h);
+                hrmaxfull_ctx.lineTo(hrmaxfull_w-black_side,this_h);
+                hrmaxfull_ctx.stroke();
+                hrmaxfull_ctx.closePath();
+            };
+            /*画点*/
+            var hrmaxfull_dal = hrmaxfull_date.length;
+            if (hrmaxfull_dal>sam_rate*5) {
+                hrmaxfull_dal = sam_rate*5;
+            };
+            var between_h = (hrmaxfull_h-black_side-black_side)/hrmaxfull_dal;
+            var between_w = 1/1000*(hrmaxfull_w-black_side-black_side);
+            for (var i = 0 ; i < hrmaxfull_dal; i++) {
+                /*第一个点的坐标*/
+                var msi_h = i*between_h+black_side;
+                var msi_w = hrmaxfull_date[i]*between_w+black_side;
+                /*下一个点的坐标*/
+                var msi_ht = (i+1)*between_h+black_side;
+                var msi_wt = hrmaxfull_date[i+1]*between_w+black_side;
+                hrmaxfull_ctx.beginPath();
+                hrmaxfull_ctx.strokeStyle="#8FFF00";
+                hrmaxfull_ctx.lineCap="square";
+                hrmaxfull_ctx.lineWidth=1;
+                hrmaxfull_ctx.moveTo(msi_w,msi_h);
+                hrmaxfull_ctx.lineTo(msi_wt,msi_ht);
+                hrmaxfull_ctx.stroke();
+                hrmaxfull_ctx.closePath();
+            };
+            /*文字x轴*/
+            hrmaxfull_ctx.beginPath();
+            hrmaxfull_ctx.fillStyle="#fff";
+            hrmaxfull_ctx.font= dot_font_size+"px Arial";
+            hrmaxfull_ctx.save();
+            hrmaxfull_ctx.translate(((hrmaxfull_w-black_side-black_side)*1/5)+black_side-10,2);
+            hrmaxfull_ctx.rotate(Math.PI/2);
+            hrmaxfull_ctx.fillText("200",0,0);
+            hrmaxfull_ctx.restore();
+            hrmaxfull_ctx.save();
+            hrmaxfull_ctx.translate(((hrmaxfull_w-black_side-black_side)*2/5)+black_side-10,2);
+            hrmaxfull_ctx.rotate(Math.PI/2);
+            hrmaxfull_ctx.fillText("400",0,0);
+            hrmaxfull_ctx.restore();
+            hrmaxfull_ctx.save();
+            hrmaxfull_ctx.translate(((hrmaxfull_w-black_side-black_side)*3/5)+black_side-10,2);
+            hrmaxfull_ctx.rotate(Math.PI/2);
+            hrmaxfull_ctx.fillText("600",0,0);
+            hrmaxfull_ctx.restore();
+            hrmaxfull_ctx.save();
+            hrmaxfull_ctx.translate(((hrmaxfull_w-black_side-black_side)*4/5)+black_side-10,2);
+            hrmaxfull_ctx.rotate(Math.PI/2);
+            hrmaxfull_ctx.fillText("800",0,0);
+            hrmaxfull_ctx.restore();
+            hrmaxfull_ctx.save();
+            hrmaxfull_ctx.translate(((hrmaxfull_w-black_side-black_side)*5/5)+black_side-10,2);
+            hrmaxfull_ctx.rotate(Math.PI/2);
+            hrmaxfull_ctx.fillText("1000",0,0);
+            hrmaxfull_ctx.restore();
+            hrmaxfull_ctx.closePath();
+            /*文字y轴*/
+            hrmaxfull_ctx.beginPath();
+            hrmaxfull_ctx.fillStyle="#fff";
+            hrmaxfull_ctx.font= dot_font_size+"px Arial";
+            for (var i = 0; i <= hrmaxfull_dal/sam_rate; i++) {
+                hrmaxfull_ctx.save();
+                var fill_y = (((hrmaxfull_h-black_side-black_side)/hrmaxfull_dal*sam_rate)*i)+black_side-5;
+                hrmaxfull_ctx.translate(10,fill_y);
+                hrmaxfull_ctx.rotate(Math.PI/2);
+                hrmaxfull_ctx.fillText(i+"s",0,0);
+                hrmaxfull_ctx.restore();
+            };
+            hrmaxfull_ctx.closePath();
+            /*索引线*/
+            hrmaxfull_ctx.beginPath();
+            hrmaxfull_ctx.strokeStyle="#FFFF07";
+            hrmaxfull_ctx.lineCap="square";
+            hrmaxfull_ctx.lineWidth=1;
+            var this_h = ((hrmaxfull_h-black_side-black_side)/hrmaxfull_dal)*max_dot_index+black_side;
+            hrmaxfull_ctx.moveTo(black_side,this_h);
+            hrmaxfull_ctx.lineTo(hrmaxfull_w-black_side,this_h);
+            hrmaxfull_ctx.stroke();
+            hrmaxfull_ctx.closePath();
+            /*时间图例*/
+            hrmaxfull_ctx.beginPath();
+            hrmaxfull_ctx.fillStyle="#FFFFFF";
+            hrmaxfull_ctx.font= dot_font_size+"px Arial";
+            hrmaxfull_ctx.save();
+
+            hrmaxfull_ctx.translate(hrmaxfull_w-black_side+10,black_side);
+            hrmaxfull_ctx.rotate(Math.PI/2);
+            hrmaxfull_ctx.fillText("Detecting time:"+hr_max_time+"    最大心率："+hrmaxfull_date[max_dot_index],0,0);
+            hrmaxfull_ctx.restore();
+            hrmaxfull_ctx.closePath();
+    };
+/*全屏最小心率心电图*/
+    function full_f_hrmin(hrmin_date_box,hrmin_date_time,hrmin_date_index){
+        /*初始化*/
+        var hrminfull=document.getElementById("hrmin_full");
+        var hrminfull_ctx=hrminfull.getContext("2d");
+        hrminfull_ctx.clearRect(0,0,hrminfull.width,hrminfull.height);
+        /*定义一个空数据容器*/
+        var hrminfull_date = new Array;
+        /*转换数据*/
+        for (var i = 0; i < hrmin_date_box.length; i++) {
+            var this_indate16 = hrmin_date_box[i];
+            hrminfull_date[i] = parseInt(this_indate16,16);
+        };
+        /*给canvas宽高防止模糊*/
+        var hrminfull_w = $(".hrmax_full_screen").width()*2;
+        var hrminfull_h = $(".hrmax_full_screen").height()*2;
+        hrminfull.width = hrminfull_w;
+        hrminfull.height = hrminfull_h;
+        /*文字大小*/
+        var dot_font_size =18;
+        /*采样率*/
+        var sam_rate =125;
+        /*外部黑边边距*/
+        var black_side = 30;
+        /*最小心率索引*/
+        var min_dot_index = hrmin_date_index;
+        /*时间*/
+        var hr_max_time = hrmin_date_time;
+        /*开始绘图*/
+            /*背景*/
+            hrminfull_ctx.beginPath();
+            hrminfull_ctx.fillStyle="#000";
+            hrminfull_ctx.fillRect(0,0,hrminfull_w,hrminfull_h);
+            hrminfull_ctx.closePath();
+            /*横线*/
+            for (var i = 0; i <= 20; i++) {
+                hrminfull_ctx.beginPath();
+                hrminfull_ctx.strokeStyle="#444";
+                hrminfull_ctx.lineCap="square";
+                hrminfull_ctx.lineWidth=1;
+                if ( i==0 || i==4 || i==8 || i==12 ||i==16 || i==20) {
+                    hrminfull_ctx.strokeStyle="#888";
+                    hrminfull_ctx.lineWidth=1;
+                }else{
+                    hrminfull_ctx.strokeStyle="#444";
+                    hrminfull_ctx.lineWidth=1;
+                };
+
+                var this_h = (hrminfull_h - black_side);
+                var this_w = ((hrminfull_w-black_side-black_side)*i/20)+black_side;
+                hrminfull_ctx.moveTo(this_w,black_side);
+                hrminfull_ctx.lineTo(this_w,this_h);
+                hrminfull_ctx.stroke();
+                hrminfull_ctx.closePath();
+            };
+            /*竖线*/
+            for (var i = 0; i <= 25; i++) {
+                hrminfull_ctx.beginPath();
+                hrminfull_ctx.strokeStyle="#444";
+                hrminfull_ctx.lineCap="square";
+                hrminfull_ctx.lineWidth=1;
+                if (i==0 || i==5 || i==10 || i==15 ||i==20 ||i==25) {
+                    hrminfull_ctx.strokeStyle="#888";
+                    hrminfull_ctx.lineWidth=1;
+                }else{
+                    hrminfull_ctx.strokeStyle="#444";
+                    hrminfull_ctx.lineWidth=1;
+                };
+                var this_h = ((hrminfull_h-black_side-black_side)*i/25)+black_side;
+                hrminfull_ctx.moveTo(black_side,this_h);
+                hrminfull_ctx.lineTo(hrminfull_w-black_side,this_h);
+                hrminfull_ctx.stroke();
+                hrminfull_ctx.closePath();
+            };
+            /*画点*/
+            var hrminfull_dal = hrminfull_date.length;
+            if (hrminfull_dal>sam_rate*5) {
+                hrminfull_dal = sam_rate*5;
+            };
+            var between_h = (hrminfull_h-black_side-black_side)/hrminfull_dal;
+            var between_w = 1/1000*(hrminfull_w-black_side-black_side);
+            for (var i = 0 ; i < hrminfull_dal; i++) {
+                /*第一个点的坐标*/
+                var msi_h = i*between_h+black_side;
+                var msi_w = hrminfull_date[i]*between_w+black_side;
+                /*下一个点的坐标*/
+                var msi_ht = (i+1)*between_h+black_side;
+                var msi_wt = hrminfull_date[i+1]*between_w+black_side;
+                hrminfull_ctx.beginPath();
+                hrminfull_ctx.strokeStyle="#8FFF00";
+                hrminfull_ctx.lineCap="square";
+                hrminfull_ctx.lineWidth=1;
+                hrminfull_ctx.moveTo(msi_w,msi_h);
+                hrminfull_ctx.lineTo(msi_wt,msi_ht);
+                hrminfull_ctx.stroke();
+                hrminfull_ctx.closePath();
+            };
+            /*文字x轴*/
+            hrminfull_ctx.beginPath();
+            hrminfull_ctx.fillStyle="#fff";
+            hrminfull_ctx.font= dot_font_size+"px Arial";
+            hrminfull_ctx.save();
+            hrminfull_ctx.translate(((hrminfull_w-black_side-black_side)*1/5)+black_side-10,2);
+            hrminfull_ctx.rotate(Math.PI/2);
+            hrminfull_ctx.fillText("200",0,0);
+            hrminfull_ctx.restore();
+            hrminfull_ctx.save();
+            hrminfull_ctx.translate(((hrminfull_w-black_side-black_side)*2/5)+black_side-10,2);
+            hrminfull_ctx.rotate(Math.PI/2);
+            hrminfull_ctx.fillText("400",0,0);
+            hrminfull_ctx.restore();
+            hrminfull_ctx.save();
+            hrminfull_ctx.translate(((hrminfull_w-black_side-black_side)*3/5)+black_side-10,2);
+            hrminfull_ctx.rotate(Math.PI/2);
+            hrminfull_ctx.fillText("600",0,0);
+            hrminfull_ctx.restore();
+            hrminfull_ctx.save();
+            hrminfull_ctx.translate(((hrminfull_w-black_side-black_side)*4/5)+black_side-10,2);
+            hrminfull_ctx.rotate(Math.PI/2);
+            hrminfull_ctx.fillText("800",0,0);
+            hrminfull_ctx.restore();
+            hrminfull_ctx.save();
+            hrminfull_ctx.translate(((hrminfull_w-black_side-black_side)*5/5)+black_side-10,2);
+            hrminfull_ctx.rotate(Math.PI/2);
+            hrminfull_ctx.fillText("1000",0,0);
+            hrminfull_ctx.restore();
+            hrminfull_ctx.closePath();
+            /*文字y轴*/
+            hrminfull_ctx.beginPath();
+            hrminfull_ctx.fillStyle="#fff";
+            hrminfull_ctx.font= dot_font_size+"px Arial";
+            for (var i = 0; i <= hrminfull_dal/sam_rate; i++) {
+                hrminfull_ctx.save();
+                var fill_y = (((hrminfull_h-black_side-black_side)/hrminfull_dal*sam_rate)*i)+black_side-5;
+                hrminfull_ctx.translate(10,fill_y);
+                hrminfull_ctx.rotate(Math.PI/2);
+                hrminfull_ctx.fillText(i+"s",0,0);
+                hrminfull_ctx.restore();
+            };
+            hrminfull_ctx.closePath();
+            /*索引线*/
+            hrminfull_ctx.beginPath();
+            hrminfull_ctx.strokeStyle="#FFFF07";
+            hrminfull_ctx.lineCap="square";
+            hrminfull_ctx.lineWidth=1;
+            var this_h = ((hrminfull_h-black_side-black_side)/hrminfull_dal)*min_dot_index+black_side;
+            hrminfull_ctx.moveTo(black_side,this_h);
+            hrminfull_ctx.lineTo(hrminfull_w-black_side,this_h);
+            hrminfull_ctx.stroke();
+            hrminfull_ctx.closePath();
+            /*时间图例*/
+            hrminfull_ctx.beginPath();
+            hrminfull_ctx.fillStyle="#FFFFFF";
+            hrminfull_ctx.font= dot_font_size+"px Arial";
+            hrminfull_ctx.save();
+
+            hrminfull_ctx.translate(hrminfull_w-black_side+10,black_side);
+            hrminfull_ctx.rotate(Math.PI/2);
+            hrminfull_ctx.fillText("Detecting time: "+hr_max_time+"    最小心率："+hrminfull_date[min_dot_index],0,0);
+            hrminfull_ctx.restore();
+            hrminfull_ctx.closePath();
+    };
+/*全屏PVC/PAV心电图*/
+    /*背景图*/
+    function full_f_pvac_bg(p_b_time,p_b_index){
+        /*初始化*/
+        var fullpvacbg=document.getElementById("hrpvac_full_bg");
+        var fullpvacbg_ctx=fullpvacbg.getContext("2d");
+        fullpvacbg_ctx.clearRect(0,0,fullpvacbg.width,fullpvacbg.height);
+        /*给canvas宽高防止模糊*/
+        var fullpvacbg_w = $(".hrpvac_full_screen").width()*2;
+        var fullpvacbg_h = $(".hrmax_full_screen").height()*2;
+        fullpvacbg.width = fullpvacbg_w;
+        fullpvacbg.height = fullpvacbg_h;
+        /*文字大小*/
+        var dot_font_size =18;
+        /*外部黑边边距*/
+        var black_side = 30;
+        /*时间*/
+        var pvac_bg_time = p_b_time;
+        /*本图的索引*/
+        var pvac_index = p_b_index;
+        /*开始绘图*/
+            /*背景*/
+            fullpvacbg_ctx.beginPath();
+            fullpvacbg_ctx.fillStyle="#000";
+            fullpvacbg_ctx.fillRect(0,0,fullpvacbg_w,fullpvacbg_h);
+            fullpvacbg_ctx.closePath();
+            /*横线*/
+            for (var i = 0; i <= 20; i++) {
+                fullpvacbg_ctx.beginPath();
+                fullpvacbg_ctx.strokeStyle="#444";
+                fullpvacbg_ctx.lineCap="square";
+                fullpvacbg_ctx.lineWidth=1;
+                if ( i==0 || i==4 || i==8 || i==12 ||i==16 || i==20) {
+                    fullpvacbg_ctx.strokeStyle="#888";
+                    fullpvacbg_ctx.lineWidth=1;
+                }else{
+                    fullpvacbg_ctx.strokeStyle="#444";
+                    fullpvacbg_ctx.lineWidth=1;
+                };
+
+                var this_h = (fullpvacbg_h - black_side);
+                var this_w = ((fullpvacbg_w-black_side-black_side)*i/20)+black_side;
+                fullpvacbg_ctx.moveTo(this_w,black_side);
+                fullpvacbg_ctx.lineTo(this_w,this_h);
+                fullpvacbg_ctx.stroke();
+                fullpvacbg_ctx.closePath();
+            };
+            /*竖线*/
+            for (var i = 0; i <= 25; i++) {
+                fullpvacbg_ctx.beginPath();
+                fullpvacbg_ctx.strokeStyle="#444";
+                fullpvacbg_ctx.lineCap="square";
+                fullpvacbg_ctx.lineWidth=1;
+                if (i==0 || i==5 || i==10 || i==15 ||i==20 ||i==25) {
+                    fullpvacbg_ctx.strokeStyle="#888";
+                    fullpvacbg_ctx.lineWidth=1;
+                }else{
+                    fullpvacbg_ctx.strokeStyle="#444";
+                    fullpvacbg_ctx.lineWidth=1;
+                };
+                var this_h = ((fullpvacbg_h-black_side-black_side)*i/25)+black_side;
+                fullpvacbg_ctx.moveTo(black_side,this_h);
+                fullpvacbg_ctx.lineTo(fullpvacbg_w-black_side,this_h);
+                fullpvacbg_ctx.stroke();
+                fullpvacbg_ctx.closePath();
+            };
+            /*文字x轴*/
+            fullpvacbg_ctx.beginPath();
+            fullpvacbg_ctx.fillStyle="#fff";
+            fullpvacbg_ctx.font= dot_font_size+"px Arial";
+            fullpvacbg_ctx.save();
+            fullpvacbg_ctx.translate(((fullpvacbg_w-black_side-black_side)*1/5)+black_side-10,2);
+            fullpvacbg_ctx.rotate(Math.PI/2);
+            fullpvacbg_ctx.fillText("200",0,0);
+            fullpvacbg_ctx.restore();
+            fullpvacbg_ctx.save();
+            fullpvacbg_ctx.translate(((fullpvacbg_w-black_side-black_side)*2/5)+black_side-10,2);
+            fullpvacbg_ctx.rotate(Math.PI/2);
+            fullpvacbg_ctx.fillText("400",0,0);
+            fullpvacbg_ctx.restore();
+            fullpvacbg_ctx.save();
+            fullpvacbg_ctx.translate(((fullpvacbg_w-black_side-black_side)*3/5)+black_side-10,2);
+            fullpvacbg_ctx.rotate(Math.PI/2);
+            fullpvacbg_ctx.fillText("600",0,0);
+            fullpvacbg_ctx.restore();
+            fullpvacbg_ctx.save();
+            fullpvacbg_ctx.translate(((fullpvacbg_w-black_side-black_side)*4/5)+black_side-10,2);
+            fullpvacbg_ctx.rotate(Math.PI/2);
+            fullpvacbg_ctx.fillText("800",0,0);
+            fullpvacbg_ctx.restore();
+            fullpvacbg_ctx.save();
+            fullpvacbg_ctx.translate(((fullpvacbg_w-black_side-black_side)*5/5)+black_side-10,2);
+            fullpvacbg_ctx.rotate(Math.PI/2);
+            fullpvacbg_ctx.fillText("1000",0,0);
+            fullpvacbg_ctx.restore();
+            fullpvacbg_ctx.closePath();
+            /*时间图例*/
+            fullpvacbg_ctx.beginPath();
+            fullpvacbg_ctx.fillStyle="#FFFFFF";
+            fullpvacbg_ctx.font= dot_font_size+"px Arial";
+            fullpvacbg_ctx.save();
+            fullpvacbg_ctx.translate(fullpvacbg_w-black_side+10,black_side);
+            fullpvacbg_ctx.rotate(Math.PI/2);
+            fullpvacbg_ctx.fillText("Detecting time:"+pvac_bg_time+"    第"+pvac_index+"分钟/15分钟",0,0);
+            fullpvacbg_ctx.restore();
+            fullpvacbg_ctx.closePath();
+    };
+    //数据图
+    function full_f_pvac(pvac_date_box,pvac_point){
+        /*初始化*/
+        var full_pvac=document.getElementById("hrpvac_full");
+        var full_pvac_ctx=full_pvac.getContext("2d");
+        full_pvac_ctx.clearRect(0,0,full_pvac.width,full_pvac.height);
+        /*定义一个空数据容器*/
+        var pvac_date = new Array;
+        /*转换数据*/
+        for (var i = 0; i < pvac_date_box.length; i++) {
+            var this_indate16 = pvac_date_box[i];
+            pvac_date[i] = parseInt(this_indate16,16);
+        };
+        /*文字大小*/
+        var dot_font_size =18;
+        /*采样率*/
+        var sam_rate =125;
+        /*外部黑边边距*/
+        var black_side = 30;
+        //宽高放大两倍防止模糊
+        var pvac_in_box_h = ($(".hrpvac_full_screen").height()-black_side)*2;
+        var pvac_between_h = pvac_in_box_h/(sam_rate*5);
+        //如果是一分钟数据
+        //var pvac_w = pvac_between_h*sam_rate*60*2;
+        /*如果是不固定数据长度的数据*/
+        var full_pvac_h = pvac_date.length*pvac_between_h;
+        var full_pvac_w = ($(".hrpvac_full_screen").width()-black_side/2)*2;
+        full_pvac.width = full_pvac_w;
+        full_pvac.height = full_pvac_h;
+        /*开始绘图*/
+            /*画点*/
+            var between_w = 1/1000*full_pvac_w;
+            for (var i = 0 ; i < pvac_date.length; i++) {
+                /*第一个点的坐标*/
+                var msi_w = black_side+(pvac_date[i]*between_w);
+                var msi_h = i*pvac_between_h;
+                /*下一个点的坐标*/
+                var msi_wt = black_side+(pvac_date[i+1]*between_w);
+                var msi_ht = (i+1)*pvac_between_h;
+                full_pvac_ctx.beginPath();
+                full_pvac_ctx.strokeStyle="#8FFF00";
+                full_pvac_ctx.lineCap="square";
+                full_pvac_ctx.lineWidth=1;
+                full_pvac_ctx.moveTo(msi_w,msi_h);
+                full_pvac_ctx.lineTo(msi_wt,msi_ht);
+                full_pvac_ctx.stroke();
+                full_pvac_ctx.closePath();
+            };
+            /*文字x轴*/
+            full_pvac_ctx.beginPath();
+            full_pvac_ctx.fillStyle="#fff";
+            full_pvac_ctx.font= dot_font_size+"px Arial";
+            for (var i = 0; i <= pvac_date.length/sam_rate; i++) {
+                full_pvac_ctx.save();
+                var fill_y = (pvac_in_box_h*1/5)*i;
+                full_pvac_ctx.translate(10,fill_y);
+                full_pvac_ctx.rotate(Math.PI/2);
+                full_pvac_ctx.fillText(i+"s",0,0);
+                full_pvac_ctx.restore();
+            };
+            full_pvac_ctx.closePath();
+            /*索引线和文字*/
+            full_pvac_ctx.beginPath();
+            full_pvac_ctx.strokeStyle="#FFFF07";
+            full_pvac_ctx.lineCap="square";
+            full_pvac_ctx.lineWidth=1;
+            for (var i = 0; i < pvac_point.length; i++) {
+                var this_y = pvac_point[i].num*pvac_between_h;
+                full_pvac_ctx.moveTo(black_side,this_y);
+                full_pvac_ctx.lineTo(full_pvac_w,this_y);
+                full_pvac_ctx.fillStyle="#FFFF07";
+                full_pvac_ctx.font="14px Arial";
+                full_pvac_ctx.save();
+                full_pvac_ctx.translate(full_pvac_w*19/20,this_y+10);
+                full_pvac_ctx.rotate(Math.PI/2);
+                full_pvac_ctx.fillText(pvac_point[i].val,0,0);
+                full_pvac_ctx.restore();
+            };
+            full_pvac_ctx.stroke();
+            full_pvac_ctx.closePath();
+    };
+    $(".full_hrpvac_in_box").scroll(function(){
+    /*实时偏移量y值*/
+    var full_hrpvac_y_exc = Math.abs($("#hrpvac_full").offset().top-$(".full_hrpvac_in_box").offset().top);
+    /*临界偏移量y值*/
+    var full_hrpvac_y_critical = Math.round($("#hrpvac_full").height()-$(".full_hrpvac_in_box").height());
+    if (full_hrpvac_y_exc==0) {
+    /*弹出loading层*/
+        var hrpvac_loading = layer.load(2, {
+          shade: [0.2,'#000'] //0.1透明度的白色背景
+        });
+    /*模拟异步加载函数*/
+    //把全局变量的实时数据替换，重新绘图
+        var full_forward_load =  function full_forward_load_naxtone(){
+            switch(nowtime_sim_pvac_index)
+            {
+                case 2:
+                    nowtime_sim_pvac_index -= 1;
+                    nowtime_sim_pvac_bg_time = sim_pvac_bg_timev1;
+                    nowtime_sim_pvac_date = analog_pvac_datev1;
+                    nowtime_sim_pvac_point = analog_pvac_pointv1;
+                    full_f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                    full_f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
+                    $(".full_hrpvac_in_box").scrollTop(full_hrpvac_y_critical-1);
+                    layer.closeAll();
+                    break;
+                case 3:
+                    nowtime_sim_pvac_index -= 1;
+                    nowtime_sim_pvac_bg_time = sim_pvac_bg_timev2;
+                    nowtime_sim_pvac_date = analog_pvac_datev2;
+                    nowtime_sim_pvac_point = analog_pvac_pointv2;
+                    full_f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                    full_f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
+                    $(".full_hrpvac_in_box").scrollTop(full_hrpvac_y_critical-1);
+                    layer.closeAll();
+                    break;
+                case 4:
+                    nowtime_sim_pvac_index -= 1;
+                    nowtime_sim_pvac_bg_time = sim_pvac_bg_timev3;
+                    nowtime_sim_pvac_date = analog_pvac_datev3;
+                    nowtime_sim_pvac_point = analog_pvac_pointv3;
+                    full_f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                    full_f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
+                    $(".full_hrpvac_in_box").scrollTop(full_hrpvac_y_critical-1);
+                    layer.closeAll();
+                    break;
+                case 5:
+                    nowtime_sim_pvac_index -= 1;
+                    nowtime_sim_pvac_bg_time = sim_pvac_bg_timev4;
+                    nowtime_sim_pvac_date = analog_pvac_datev4;
+                    nowtime_sim_pvac_point = analog_pvac_pointv4;
+                    full_f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                    full_f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
+                    $(".full_hrpvac_in_box").scrollTop(full_hrpvac_y_critical-1);
+                    layer.closeAll();
+                    break;
+                default:
+                    layer.closeAll();
+            };
+            
+        };
+        /*模拟异步加载*/
+        var full_t=setTimeout(full_forward_load,500);
+    }else if(full_hrpvac_y_exc==full_hrpvac_y_critical){
+        /*弹出loading层*/
+        var hrpvac_loading = layer.load(2, {
+          shade: [0.2,'#000'] //0.1透明度的白色背景
+        });
+        /*模拟异步加载函数*/
+        var full_next_load =  function full_next_load_naxtone(){
+            switch(nowtime_sim_pvac_index)
+            {
+                case 1:
+                    nowtime_sim_pvac_index += 1;
+                    nowtime_sim_pvac_bg_time = sim_pvac_bg_timev2;
+                    nowtime_sim_pvac_date = analog_pvac_datev2;
+                    nowtime_sim_pvac_point = analog_pvac_pointv2;
+                    full_f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                    full_f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
+                    $(".full_hrpvac_in_box").scrollTop(1);
+                    layer.closeAll();
+                    break;
+                case 2:
+                    nowtime_sim_pvac_index += 1;
+                    nowtime_sim_pvac_bg_time = sim_pvac_bg_timev3;
+                    nowtime_sim_pvac_date = analog_pvac_datev3;
+                    nowtime_sim_pvac_point = analog_pvac_pointv3;
+                    full_f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                    full_f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
+                    $(".full_hrpvac_in_box").scrollTop(1);
+                    layer.closeAll();
+                    break;
+                case 3:
+                    nowtime_sim_pvac_index += 1;
+                    nowtime_sim_pvac_bg_time = sim_pvac_bg_timev4;
+                    nowtime_sim_pvac_date = analog_pvac_datev4;
+                    nowtime_sim_pvac_point = analog_pvac_pointv4;
+                    full_f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                    full_f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
+                    $(".full_hrpvac_in_box").scrollTop(1);
+                    layer.closeAll();
+                    break;
+                case 4:
+                    nowtime_sim_pvac_index += 1;
+                    nowtime_sim_pvac_bg_time = sim_pvac_bg_timev5;
+                    nowtime_sim_pvac_date = analog_pvac_datev5;
+                    nowtime_sim_pvac_point = analog_pvac_pointv5;
+                    full_f_pvac_bg(nowtime_sim_pvac_bg_time,nowtime_sim_pvac_index);
+                    full_f_pvac(nowtime_sim_pvac_date,nowtime_sim_pvac_point);
+                    $(".full_hrpvac_in_box").scrollTop(1);
+                    layer.closeAll();
+                    break;
+                default:
+                    layer.closeAll();
+            };
+        };
+        /*模拟异步加载*/
+        var t=setTimeout(full_next_load,500);
+    };
+    });
 });
