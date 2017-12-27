@@ -370,3 +370,48 @@
 .l-15{left: 15px;}
 .bor-col-999{border-color: #999}
 .col-555i{color: #555 !important;}
+/* 售后部分 */
+.bor-col-268FFF{border-color: #268FFF;}
+.col-268fff{color: #268fff;}
+.col-268fffi{color: #268fff !important;}
+.col-268fffiv2{color: #268fff !important;}
+.hovcol-47A0FF:hover{color: #47A0FF;}
+.bor-l-2px-959595{border-left: 2px solid #959595;}
+.h-80{height: 80px;}
+.h-150{height: 150px;}
+.w-170{width: 170px;}
+.w-300{width: 300px;}
+.line-h-80{line-height: 80px;}
+.line-h-150{line-height: 150px;}
+.bor-col-63AEFFi{border-color:#63AEFF !important;}
+.bor-col-63AEFFiv2{border-color:#63AEFF !important;}
+.resize_none{resize:none;}
+/* 售后部分响应式 */
+@media (min-width:768px) and (max-width:991px) {
+	.pr-40-20-ipad{padding-right: 20px;}
+	.w-300-200-ipad{width: 200px;}
+	.h-80-50-ipad{height: 50px;}
+	.line-h-80-50-ipad{line-height: 50px;}
+	.f-28-20-ipad{font-size: 20px;}
+}
+@media (min-width:992px) and (max-width:1199px) {
+	.pr-40-20-ipad{padding-right: 20px;}
+	.w-300-200-ipad{width: 300px;}
+	.h-80-50-ipad{height: 80px;}
+	.line-h-80-50-ipad{line-height: 80px;}
+	.f-28-20-ipad{font-size: 28px;}
+}
+@media (min-width:1200px) and (max-width:1299px) {
+	.pr-40-20-ipad{padding-right: 40px;}
+	.w-300-200-ipad{width: 300px;}
+	.h-80-50-ipad{height: 80px;}
+	.line-h-80-50-ipad{line-height: 80px;}
+	.f-28-20-ipad{font-size: 28px;}
+}
+@media (min-width:1300px) {
+	.pr-40-20-ipad{padding-right: 40px;}
+	.w-300-200-ipad{width: 300px;}
+	.h-80-50-ipad{height: 80px;}
+	.line-h-80-50-ipad{line-height: 80px;}
+	.f-28-20-ipad{font-size: 28px;}
+}
