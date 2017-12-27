@@ -114,6 +114,9 @@
                         <input class="in_issue" type="hidden" value="0">
                         <!-- 换货维修，当为其他时候用户输入的 -->
                         <input class="in_issue_v4_text" type="hidden" value="">
+                        <!-- 寄修，0未选中，1为选中 -->
+                        <input class="in_post_repair" type="hidden" value="0">
+                        
                     <div class="clear mt-10 mb-30 radius-13 bg-eee h-25 line-h-25 cur-d">
                         <div class="clear col-sm-4 bg-83c441 radius-13 text-center col-white pull-left">选择产品</div>
                         <div class="clear col-sm-4 text-center col-424242 pull-left">填写申请单</div>
@@ -130,7 +133,7 @@
                             HC3A250 悉心动态心电记录仪
                         </div>
                         <div class="clear h-150 line-h-150 pull-right f-16 pr-40-20-ipad">
-                            <a class="col-268fff t-nonehove hovcol-47A0FF" href="">换其他产品 ></a>
+                            <a class="col-268fff t-nonehove hovcol-47A0FF" href="#">换其他产品 ></a>
                         </div>
                     </div>
                     <p class="bg-eee line-h-50 h-50 pl-20 f-16 col-424242 bor bor-l bor-2px bor-col-268FFF mt-40">
@@ -177,6 +180,63 @@
                             请输入具体问题：
                         </p>
                         <textarea class="line-h-25 mt-20 resize_none col-sm-8 pl-0 pr-0 f-14 btn_issue_v4_show_textarea" rows="4" maxlength="200" placeholder="请输入具体问题："></textarea>
+                    </div>
+                    <div class="clear mt-40">
+                        <p class="h-20 line-h-20 col-333 f-14">
+                            上传产品图片（单张不超过3MB，最多3张。请注意拍摄质量清晰，突出产品故障问题。非必填项）
+                        </p>
+                        <div class="clear mt-20">
+                            <div class="clear pull-left w-150 h-80 bor bor-col-b0b0b0 cur-p pos-r mr-20">
+                                <a href="javascript:;" class="pos-a t-0 l-0 full-wh dis-ib">
+                                    <input id="issue_file_in_v1" type="file" class="opacity-0 full-wh dis-ib">
+                                </a>
+                                <div class="clear full-wh text-center issue_img_sel_v1">
+                                    <img class="img-30 mt-10" src="../../img/user/Order/btn_add.png" alt="">
+                                    <p class="text-center col-b0b0b0 mt-5">
+                                        添加图片
+                                    </p>
+                                </div>
+                                <img class="full-wh dis-n issue_img_sel_show_v1" src="" alt="">
+                            </div>
+                            <div class="clear pull-left w-150 h-80 bor bor-col-b0b0b0 cur-p pos-r mr-20">
+                                <a href="javascript:;" class="pos-a t-0 l-0 full-wh dis-ib">
+                                    <input id="issue_file_in_v2" type="file" class="opacity-0 full-wh dis-ib">
+                                </a>
+                                <div class="clear full-wh text-center issue_img_sel_v2">
+                                    <img class="img-30 mt-10" src="../../img/user/Order/btn_add.png" alt="">
+                                    <p class="text-center col-b0b0b0 mt-5">
+                                        添加图片
+                                    </p>
+                                </div>
+                                <img class="full-wh dis-n issue_img_sel_show_v2" src="" alt="">
+                            </div>
+                            <div class="clear pull-left w-150 h-80 bor bor-col-b0b0b0 cur-p pos-r mr-20">
+                                <a href="javascript:;" class="pos-a t-0 l-0 full-wh dis-ib">
+                                    <input id="issue_file_in_v3" type="file" class="opacity-0 full-wh dis-ib">
+                                </a>
+                                <div class="clear full-wh text-center issue_img_sel_v3">
+                                    <img class="img-30 mt-10" src="../../img/user/Order/btn_add.png" alt="">
+                                    <p class="text-center col-b0b0b0 mt-5">
+                                        添加图片
+                                    </p>
+                                </div>
+                                <img class="full-wh dis-n issue_img_sel_show_v3" src="" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="bg-eee line-h-50 h-50 pl-20 f-16 col-424242 bor bor-l bor-2px bor-col-268FFF mt-40">
+                        选择服务方式
+                    </p>
+                    <div class="clear mt-40">
+                        <div class="clear pull-left w-300-200-ipad text-center bor bor-col-b0b0b0 cur-p col-424242 pt-20 pb-20 post_repair_box">
+                            <p class="col-424242 text-center f-24 line-h-40 h-40">寄修</p>
+                            <p class="col-424242 text-center f-14 line-h-20 h-20">审核通过后，寄送商品，碧沙售后为您服务。</p>
+                        </div>
+                    </div>
+                    <div class="clear mt-50">
+                        <button class="bor-none bg-268fff col-white pl-50 pr-50 f-20 h-50 line-h-50 hovbg-47A0FF btn pt-0 pb-0 btn-primary radius-0" disabled>
+                            下一步
+                        </button>
                     </div>
                 </div>
             </div>
@@ -256,6 +316,7 @@
         </div>
     </footer>
     <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../ctrl/layer/layer.js"></script>
     <script src="../../ctrl/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="../../js/comm/base.js"></script>
     <script src="../../js/user/HK_AftersaleApplyfor_Setpv1.js"></script>

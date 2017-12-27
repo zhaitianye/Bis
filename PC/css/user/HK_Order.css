@@ -376,6 +376,7 @@
 .col-268fffi{color: #268fff !important;}
 .col-268fffiv2{color: #268fff !important;}
 .hovcol-47A0FF:hover{color: #47A0FF;}
+.hovbg-47A0FF:hover{background-color: #47A0FF;}
 .bor-l-2px-959595{border-left: 2px solid #959595;}
 .h-80{height: 80px;}
 .h-150{height: 150px;}
@@ -386,6 +387,7 @@
 .bor-col-63AEFFi{border-color:#63AEFF !important;}
 .bor-col-63AEFFiv2{border-color:#63AEFF !important;}
 .resize_none{resize:none;}
+.opacity-0{opacity:0;}
 /* 售后部分响应式 */
 @media (min-width:768px) and (max-width:991px) {
 	.pr-40-20-ipad{padding-right: 20px;}
