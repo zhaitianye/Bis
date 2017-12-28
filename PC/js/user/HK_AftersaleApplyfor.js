@@ -1,9 +1,15 @@
 $(document).ready(function() {
 	$(".applyfor_product").mouseenter(function() {
-        $(this).find(".applyfor_btn_dofor").show();
+        var applyfor_in_val = parseInt($(this).find(".applyfor_in_dofor").val());
+        if (applyfor_in_val == 0) {
+            $(this).find(".applyfor_btn_dofor_ing").show();
+        }else{
+            $(this).find(".applyfor_btn_dofor").show();
+        };
     });
     $(".applyfor_product").mouseleave(function() {
         $(this).find(".applyfor_btn_dofor").hide();
+        $(this).find(".applyfor_btn_dofor_ing").hide();
     });
     /*控制宽高*/
     set_h_w();
