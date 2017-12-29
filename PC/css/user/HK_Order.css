@@ -400,6 +400,10 @@
 .bg-e0e0e0{background-color: #e0e0e0;}
 .line-h-33{line-height: 33px;}
 .line-h-38{line-height: 38px;}
+.w-700{width: 700px;}
+.w-270{width: 270px;}
+.bor-col-aaa{border-color: #aaa;}
+.line-h-23{line-height: 23px;}
 /* 售后部分响应式 */
 @media (min-width:768px) and (max-width:991px) {
 	.pr-40-20-ipad{padding-right: 20px;}

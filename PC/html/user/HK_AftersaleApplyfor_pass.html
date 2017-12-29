@@ -130,10 +130,14 @@
                         联系电话：<span class="col-757575">13800138000</span>
                     </p>
                     <p class="clear f-18 col-757575 mb-20 tracking_num_box dis-n">
-                        物流单号：<span class="col-757575">15487954515456</span>
+                        物流单号：
+                        <span class="col-757575 tracking_num_val">213213213213123412</span>
+                        <span class="ml-20">物流公司：</span>
+                        <span class="col-757575 tracking_company">邮政</span>
                     </p>
                     <p class="mt-20 mb-30 h-40 line-h-40 tracking_control_box">
-                        <a class="dis-ib col-white f-18 text-center pl-25 pr-25 h-40 line-h-40 bg-268fff t-nonehove hovbg-47A0FF" href="">填写物流单号</a>
+                        <span class="dis-ib col-white f-18 text-center pl-25 pr-25 h-40 line-h-40 bg-268fff t-nonehove hovbg-47A0FF cur-p tracking_content_empty" href="">填写物流单号</span>
+                        <span class="dis-ib col-white f-18 text-center pl-25 pr-25 h-40 line-h-40 bg-268fff t-nonehove hovbg-47A0FF cur-p tracking_content_not_empty dis-n" href="">修改物流单号</span>
                     </p>
                     <div class="clear full-w bor bor-t bor-col-e0e0e0">
                     </div>
@@ -328,6 +332,70 @@
                     <div class="clear full-w bor bor-t bor-col-e0e0e0">
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- 弹出层部分 -->
+    <!-- 添加物流单号弹出层 -->
+    <div class="clear show_add_tracking affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
+        <div class="pos-a t-30s l-0 full-w">
+            <div class="w-700 mg-0-auto clear pos-r bg-5BC0DE show_add_tracking_content radius-0 t--300 modal-content">
+                <div class="pt-15 pb-15 line-h-30 pos-r f-22 pl-20 pr-20 col-757575 full-w radius-5 cur-d bg-f5f5f5">
+                    填写回寄物流信息
+                    <img class="pos-a t-20 r-20 img-20 close-mod cur-p" src="../../img/user/Order/close.png" alt="">
+                </div>
+                <form class="clear pos-r" action="">
+                    <div class="clear pt-50 pl-50 pr-50">
+                        <p class="h-50 line-h-50">
+                            <select class="h-50 line-h-50 f-18 col-757575 col-sm-6 pd-10">
+                                <option selected="selected" class="dis-n">请选择物流公司</option>
+                                <option value ="顺丰">顺丰</option>
+                                <option value="圆通">圆通</option>
+                                <option value="邮政">邮政</option>
+                            </select>
+                        </p>
+                        <p class="h-50 line-h-50 mt-20 mb-50">
+                            <input class="h-50 line-h-50 f-18 col-sm-6 pd-10 bor bor-col-aaa col-b0b0b0" type="text" placeholder="物流单号">
+                        </p>
+                    </div>
+                    <div class="clear text-center bg-f5f5f5 h-80 pt-20 pb-20">
+                        <p class="h-40 clear text-center">
+                            <button type="button" class="h-40 line-h-38 bor bor-col-b0b0b0 pl-60 pr-60 f-18 col-757575 bg-white hovbg-757575 hovecol-white close-mod">取消</button>
+                            <button type="submit" class="h-40 line-h-38 ml-20 bor bor-col-309DE2 pl-60 pr-60 f-18 col-white bg-309DE2 hovbg-47A0FF">确定</button>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- 修改物流单号弹出层 -->
+    <div class="clear show_edit_tracking affix t-0 l-0 z-999 full-wh rgba-60 dis-n">
+        <div class="pos-a t-30s l-0 full-w">
+            <div class="w-700 mg-0-auto clear pos-r bg-5BC0DE show_edit_tracking_content radius-0 t--300 modal-content">
+                <div class="pt-15 pb-15 line-h-30 pos-r f-22 pl-20 pr-20 col-757575 full-w radius-5 cur-d bg-f5f5f5">
+                    修改回寄物流信息
+                    <img class="pos-a t-20 r-20 img-20 close-mod cur-p" src="../../img/user/Order/close.png" alt="">
+                </div>
+                <form class="clear pos-r" action="">
+                    <div class="clear pt-50 pl-50 pr-50">
+                        <p class="h-50 line-h-50">
+                            <select class="h-50 line-h-50 f-18 col-757575 col-sm-6 pd-10 edit_tracking_company_sel">
+                                <option value="顺丰">顺丰</option>
+                                <option value="圆通">圆通</option>
+                                <option value="邮政">邮政</option>
+                            </select>
+                        </p>
+                        <p class="h-50 line-h-50 mt-20 mb-50">
+                            <input class="h-50 line-h-50 f-18 col-sm-6 pd-10 bor bor-col-aaa col-b0b0b0 edit_tracking_val_in" type="text" placeholder="物流单号">
+                        </p>
+                    </div>
+                    <div class="clear text-center bg-f5f5f5 h-80 pt-20 pb-20">
+                        <p class="h-40 clear text-center">
+                            <button type="button" class="h-40 line-h-38 bor bor-col-b0b0b0 pl-60 pr-60 f-18 col-757575 bg-white hovbg-757575 hovecol-white close-mod">取消</button>
+                            <button type="submit" class="h-40 line-h-38 ml-20 bor bor-col-309DE2 pl-60 pr-60 f-18 col-white bg-309DE2 hovbg-47A0FF">确定</button>
+                        </p>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
