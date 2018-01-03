@@ -45,8 +45,9 @@ $(document).ready(function() {
             var layEvent = obj.event; //获得 lay-event 对应的值
             var tr = obj.tr; //获得当前行 tr 的DOM对象
 
-            if (layEvent === 'detail') { //删除
-                 layer.alert(data.id +"的查看操作");
+            if (layEvent === 'detail') {
+                window.location.href='HK_AdminMsgDetail.html';
+                //layer.alert(data.id +"的查看操作");
             }else if (obj.event === 'newsremarkmsg') {
                 layer.alert(data.newremark,{
                     title: 'ID 为 &nbsp;' + data.id + '&nbsp; 的最新备注信息',

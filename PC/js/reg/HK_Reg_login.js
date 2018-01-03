@@ -156,10 +156,6 @@ $(document).ready(function() {
                     notEmpty: {
                         message: '密码不能为空值.'
                     },
-                    different: {
-                        field: 'username',
-                        message: '密码和用户名不能一样'
-                    },
                     regexp: {
                         regexp: /^[a-zA-Z0-9_]+$/,
                         message: '密码只能包含大写、小写、数字和下划线'

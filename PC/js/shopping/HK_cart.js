@@ -303,6 +303,7 @@ $(document).ready(function() {
         var JSONcartsubmit = JSON.stringify(cartsubmitjson);
         $(".HK-cartsubmitinput").val(JSONcartsubmit);
         console.log(JSONcartsubmit);
+        window.location.href='HK_Order.html';
     });
     /*当页面加载完毕之后，判断有没有购买悉心平安服务进行的一系列操作*/
     charfuwuisbuy();

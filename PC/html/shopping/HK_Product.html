@@ -75,20 +75,22 @@
 
 <body>
     <header class="clear full-w min-h-120 header">
-        <div class="containerv2">
+        <div class="container">
             <div class="col-xs-2 pt-35 pb-35 pl-0 pr-0">
                 <img src="../../img/index/logov1.png" alt="">
             </div>
             <div class="clear col-xs-10 pl-0 pr-0">
                 <div class="col-xs-12 pt-20 pl-0 pr-0">
                     <ul class="clear h-30 line-h-30 pull-right">
-                        <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">注册</a></li>
-                        <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">登录</a></li>
+                        <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="../reg/register.html">注册</a></li>
+                        <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="../reg/login.html">登录</a></li>
                         <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">简</a></li>
                         <li class="pull-left pr-10"><a class="col-333 hovecol-black" href="">繁</a></li>
                         <li class="pull-left pr-5 col-333 cur-d hovecol-black">
-                            <i class="icon-shopping-cart pr-5 f-14 col-333 hovecol-black"></i> 购物车(
-                            <a class="col-333" href="">0</a> )
+                        <i class="icon-shopping-cart pr-5 f-14 col-333 hovecol-black"></i>
+                            购物车(
+                        <a class="col-333" href="../shopping/HK_Cart.html">0</a>
+                        )
                         </li>
                         <li class="pull-left pr-5 pl-5 bg-eee hovebg-ddd mainsearch">
                             <input type="text" class="h-26 line-h-26 w-100 mt--2 mb-2 bor bor-col-ccc dis-n mainsearchinput">
@@ -99,11 +101,11 @@
                 <div class="col-xs-12 pt-15 pl-0 pr-0">
                     <ul class="col-xs-10 clo-md-9 pull-left mainnav clear dis-ib pl-0 pr-0">
                         <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7 " href="../index.html">首页</a></li>
-                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7" href="">关于碧沙</a></li>
-                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7 navborpitch" href="HK_shopping.html">网上商城</a></li>
-                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7" href="">健康咨询</a></li>
-                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7" href="">购物指南</a></li>
-                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7" href="">联系我们</a></li>
+                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7" href="../about/HK_About.html">关于碧沙</a></li>
+                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7 navborpitch" href="../shopping/HK_shopping.html">网上商城</a></li>
+                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7" href="../news/HK_NewsIndex.html">健康咨询</a></li>
+                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7" href="../news/HK_HowToShop.html">购物指南</a></li>
+                        <li class="col-xs-2 text-center f-14 cur-p pd-10 f-w"><a class="col-309DE2 t-nonehove pb-7" href="../about/HK_ContactUs.html">联系我们</a></li>
                     </ul>
                 </div>
             </div>
@@ -113,18 +115,18 @@
         <div class="containerv2 pt-10 pb-10 clear line-h-30 plr-0-10-ipad">
             <span class="col-black family-h pull-left cur-d f-20 ">HC3A250 悉心心电仪器</span>
             <span class="col-black family-h pull-right f-12">
-                <span class="t-nonehove hovecol-309DE2 col-black cur-p">概述</span>
+                <span class="t-nonehove hovecol-309DE2 col-black cur-p" onclick="document.location='HK_Pro_details.html';">概述</span>
             <span>|</span>
             <span class="t-nonehove hovecol-309DE2 col-black cur-p sf-pointer">参数</span>
             <span>|</span>
-            <span class="t-nonehove hovecol-309DE2 col-black cur-p">用户评价</span>
+            <span class="t-nonehove hovecol-309DE2 col-black cur-p"onclick="document.location='../user/HK_AppraiseList.html';" >用户评价</span>
             </span>
         </div>
     </div>
     <div class="clear full-w bor bor-t bor-col-D6D6D6 sha-float-titlev1 affix t-0 l-0 bg-white z-999 dis-n flo-menuv2-aff">
         <div class="containerv2 pt-10 pb-10 clear line-h-30 plr-0-10-ipad">
             <span class="col-black family-h pull-left cur-d f-20 ">HC3A250 悉心心电仪器</span>
-            <button class="pull-right f-20 line-h-30 h-30 text-center bor-none bg-309DE2 hovbg-2D90CF col-white pl-20 pr-20">
+            <button class="pull-right f-20 line-h-30 h-30 text-center bor-none bg-309DE2 hovbg-2D90CF col-white pl-20 pr-20" onclick="document.location='HK_Order.html';">
                 立即购买
             </button>
         </div>
@@ -317,7 +319,6 @@
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="clear ptb-20-10-ipad bor bor-l-none bor-r-none bor-col-B2B2B2">
                             <!-- 这里是需要提交的相关信息 -->
                             <!-- 获取套餐的id -->
