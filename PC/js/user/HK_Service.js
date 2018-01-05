@@ -2,7 +2,7 @@ $(document).ready(function() {
 	/*激活服务部分的校验*/
     $.validator.setDefaults({
         submitHandler: function() {
-            alert("提交事件!");
+            window.location.href='HK_ServiceActivateSuccessv1.html';
         }
     });
     $().ready(function() {

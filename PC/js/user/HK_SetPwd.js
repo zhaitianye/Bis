@@ -251,6 +251,10 @@ $(document).ready(function() {
             $(".btn-sure-sub").attr({"disabled":"disabled"});
         }
     };
+    /*关闭验证弹出层*/
+    $(".show-editpwd-success").on("click", function(event) {
+        window.location.href='HK_UserCenter.html';
+    });
     function aftersuccessforemail(){
         var ishasoldpwd = parseInt($(".is-has-oldpwd").val());
         $(".verifyemail-content").removeClass("ani-selhead-logoin");

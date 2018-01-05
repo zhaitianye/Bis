@@ -2,7 +2,7 @@ $(document).ready(function() {
 	/*修改密码部分的校验*/
     $.validator.setDefaults({
         submitHandler: function() {
-            alert("提交事件!");
+            window.location.href='HK_UserCenter.html';
         }
     });
     $().ready(function() {

@@ -477,9 +477,9 @@ $(document).ready(function() {
     /*添加绑定邮箱弹出层END*/
     /*修改密码，绑定密码相关操作*/
     $(".add-bound-pwd").click(function() {
-        alert("设置密码相关的操作");
+        window.location.href='HK_SetPwd.html';
     });
     $(".edit-bound-pwd").click(function() {
-        alert("修改密码相关的操作");
+        window.location.href='HK_SetPwd.html';
     });
 });
