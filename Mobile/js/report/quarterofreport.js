@@ -1427,4 +1427,114 @@ $(document).ready(function() {
         var t=setTimeout(full_next_load,500);
     };
     });
+/*动态心电概况与技术参数和其他参数的提示层部分*/
+$(".ecg_parameter_v1").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准平均心率范围：70~110', '.ecg_parameter_v1', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".ecg_parameter_v2").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准PR范围：160ms~200ms', '.ecg_parameter_v2', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".ecg_parameter_v3").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准P波范围：260ms~370ms', '.ecg_parameter_v3', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".ecg_parameter_v4").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准QRS范围：40ms~90ms', '.ecg_parameter_v4', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".ecg_parameter_v5").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准QT范围：320ms~480ms', '.ecg_parameter_v5', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".ecg_parameter_v6").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准QT/QTc范围：200ms~330ms', '.ecg_parameter_v6', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".ecg_parameter_v7").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准P/QRS/T范围：20/20/16deg~60/55/30deg', '.ecg_parameter_v7', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".ecg_parameter_v8").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准RII/SVI范围：1.8/0.9mV~3.3/1.68mV', '.ecg_parameter_v8', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".heart_abnormal_v1").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准PVC范围：3000(28.8%)~7000(79.6%)', '.heart_abnormal_v1', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".heart_abnormal_v2").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准AF范围：3000(28.8%)~7000(79.6%)', '.heart_abnormal_v2', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".heart_abnormal_v3").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准VT范围：3000(28.8%)~7000(79.6%)', '.heart_abnormal_v3', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".heart_abnormal_v4").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准PAC范围：3000(28.8%)~7000(79.6%)', '.heart_abnormal_v4', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".heart_abnormal_v5").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准SVT范围：3000(28.8%)~7000(79.6%)', '.heart_abnormal_v5', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".stqtc_abnormal_v1").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准TS范围：3000(28.8%)~7000(79.6%)', '.stqtc_abnormal_v1', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(".stqtc_abnormal_v2").click(function(event){
+    event.stopPropagation();
+    layer.tips('标准QTc范围：3000(28.8%)~7000(79.6%)', '.stqtc_abnormal_v2', {
+      tips: [1, '#53a6ff'],
+      time: 4000
+    });
+});
+$(document).click(function(){
+    layer.closeAll('tips');
+});
+
 });

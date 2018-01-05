@@ -151,15 +151,29 @@
 .z--1{z-index: -1;}
 .transform_scale_05{-webkit-transform:scale(0.5);}
 .transform_scale_07{-webkit-transform:scale(0.6);}
+.w-8{width: 8px;}
+.w-10{width: 10px;}
+.w-15{width: 15px;}
 .w-10p{width: 10%}
 .w-90p{width: 90%}
 .w-06p{width: 6.666%}
+.h-12{height: 12px;}
+.h-15{height: 15px;}
+.h-22{height: 22px;}
 .ml--2{margin-left: -2px;}
 .ml--5{margin-left: -5px;}
 .html_body_over_h{
     position: relative;
     height: 100%;
     overflow: hidden !important;
+}
+.bg_qudate_rise{
+  background: url(../../img/report/quarterofreport_rise.png) 0px 0px no-repeat;
+  background-size:8px 12px;
+}
+.bg_qudate_deciline{
+  background: url(../../img/report/quarterofreport_deciline.png) 0px 0px no-repeat;
+  background-size:8px 12px;
 }
 @media (min-width:350px) {
   .pt-30-20-iphone5{padding-top: 30px;}

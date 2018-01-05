@@ -99,7 +99,7 @@
             <!-- 15分钟心率曲线 -->
             <div class="clear full-w bg-white pd-10 h-245">
                 <p class="line-h-25 h-25">
-                    <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">15分钟心率曲线</span>
+                    <span class="col-white f-16 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">15分钟心率曲线</span>
                 </p>
                 <div class="clear full-w quarter_eccentricity_box pos-r h-200">
                     <canvas id="quarter_eccentricity" class="full-w h-200">
@@ -107,77 +107,103 @@
                     </canvas>
                 </div>
             </div>
-            <!-- 动态心电概况 -->
-            <div class="clear full-w bg-white pd-10 h-200">
+            <!-- 动态心电概况与技术参数 -->
+            <div class="clear full-w bg-white pt-10 pb-10 pl-10 pr-0">
                 <p class="line-h-25">
-                    <span class="col-white f-18 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">动态心电概况</span>
+                    <span class="col-white f-16 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">动态心电概况与技术参数</span>
                 </p>
                 <div class="clear">
-                    <div class="clear col-xs-6 mt-10 mb-10 pl-0 pr-10">
-                        <div class="clear h-35">
-                            <div class="clear col-xs-7 pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
-                                平均心率：
+                    <div class="clear">
+                        <div class="clear col-xs-6 mt-10 pl-0 pr-0 pull-left">
+                            <div class="clear h-35">
+                                <div class="clear pull-left ecg_parameter_v1">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        平均心率：
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">76</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3 bg_qudate_rise"></span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="clear col-xs-5 pl-0 pr-0 h-35 line-h-35">
-                                <span class="col-53a6ff f-16-14-iphone5 f-w">76</span>
+                            <div class="clear h-35">
+                                <div class="clear pull-left ecg_parameter_v2">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        PR：
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">160ms</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3 bg_qudate_deciline"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear h-35">
+                                <div class="clear pull-left ecg_parameter_v3">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        P波：
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">300ms</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="clear h-35">
-                            <div class="clear col-xs-7 pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
-                                PR：
+                        <div class="clear col-xs-6 mt-10 pl-0 pr-0 pull-left">
+                            <div class="clear h-35">
+                                <div class="clear pull-left ecg_parameter_v4">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        QRS：
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">76ms</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3"></span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="clear col-xs-5 pl-0 pr-0 h-35 line-h-35">
-                                <span class="col-53a6ff f-16-14-iphone5 f-w">160ms</span>
+                            <div class="clear h-35">
+                                <div class="clear pull-left ecg_parameter_v5">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        QT：
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">400ms</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3"></span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="clear h-35">
-                            <div class="clear col-xs-7 pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
-                                QTC：
-                            </div>
-                            <div class="clear col-xs-5 pl-0 pr-0 h-35 line-h-35">
-                                <span class="col-53a6ff f-16-14-iphone5 f-w">430ms</span>
-                            </div>
-                        </div>
-                        <div class="clear h-35">
-                            <div class="clear col-xs-7 pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
-                                SDSD：
-                            </div>
-                            <div class="clear col-xs-5 pl-0 pr-0 h-35 line-h-35">
-                                <span class="col-53a6ff f-16-14-iphone5 f-w">134ms</span>
+                            <div class="clear h-35">
+                                <div class="clear pull-left ecg_parameter_v6">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        QT/QTc： 
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">265ms</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="clear col-xs-6 mt-10 mb-10 pl-10 pr-0">
-                        <div class="clear h-35">
-                            <div class="clear col-xs-7 pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
-                                QRS：
+                    <div class="clear h-35 full-w">
+                        <div class="clear pull-left ecg_parameter_v7">
+                            <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                P/QRS/T：
                             </div>
-                            <div class="clear col-xs-5 pl-0 pr-0 h-35 line-h-35">
-                                <span class="col-53a6ff f-16-14-iphone5 f-w">76ms</span>
-                            </div>
-                        </div>
-                        <div class="clear h-35">
-                            <div class="clear col-xs-7 pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
-                                QT：
-                            </div>
-                            <div class="clear col-xs-5 pl-0 pr-0 h-35 line-h-35">
-                                <span class="col-53a6ff f-16-14-iphone5 f-w">400ms</span>
+                            <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                <span class="col-53a6ff f-16-14-iphone5 f-w">30/35/29deg</span>
+                                <spanw-8 h-12 pos-r t-1 ml-3 bg_qudate_rise"></span>
                             </div>
                         </div>
-                        <div class="clear h-35">
-                            <div class="clear col-xs-7 pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
-                                ST：
+                    </div>
+                    <div class="clear h-35 full-w">
+                        <div class="clear pull-left ecg_parameter_v8">
+                            <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                RII/SVI： 
                             </div>
-                            <div class="clear col-xs-5 pl-0 pr-0 h-35 line-h-35">
-                                <span class="col-53a6ff f-16-14-iphone5 f-w">0.07mV</span>
-                            </div>
-                        </div>
-                        <div class="clear h-35">
-                            <div class="clear col-xs-7 pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
-                                rMSSD：
-                            </div>
-                            <div class="clear col-xs-5 pl-0 pr-0 h-35 line-h-35">
-                                <span class="col-53a6ff f-16-14-iphone5 f-w">41.52ms</span>
+                            <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                <span class="col-53a6ff f-16-14-iphone5 f-w">2.5/0.12mV</span>
+                                <spanw-8 h-12 pos-r t-1 ml-3 bg_qudate_rise"></span>
                             </div>
                         </div>
                     </div>
@@ -208,6 +234,111 @@
                     </canvas>
                     <div class="clear pos-a z-99 r-10 b-5 cur-p hrmin_conver_screen">
                         <img class="img-30" src="../../img/quarterofreport/conversion_screen.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- 心率异常 -->
+            <div class="clear full-w bg-white pd-10">
+                <p class="line-h-25">
+                    <span class="col-white f-16 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">心律异常</span>
+                </p>
+                <div class="clear">
+                    <div class="clear">
+                        <div class="clear col-xs-6 mt-10 pl-0 pr-0 pull-left">
+                            <div class="clear h-35">
+                                <div class="clear pull-left heart_abnormal_v1">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        PVC：
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">5545(50%)</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear h-35">
+                                <div class="clear pull-left heart_abnormal_v2">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        AF：
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">524(10%)</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear h-35">
+                                <div class="clear pull-left heart_abnormal_v3">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        VT：
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">50(2%)</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear col-xs-6 mt-10 pl-0 pr-0 pull-left">
+                            <div class="clear h-35">
+                                <div class="clear pull-left heart_abnormal_v4">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        PAC：
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">5487(22%)</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear h-35">
+                                <div class="clear pull-left heart_abnormal_v5">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        SVT：
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">174(4%)</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ST/QTC 异常 -->
+            <div class="clear full-w bg-white pd-10">
+                <p class="line-h-25">
+                    <span class="col-white f-16 f-w-600 dis-ib pl-10 pr-10 line-h-27 h-25 bg-53A6FF radius-10">ST/QTC 异常</span>
+                </p>
+                <div class="clear">
+                    <div class="clear">
+                        <div class="clear col-xs-6 mt-10 pl-0 pr-0 pull-left">
+                            <div class="clear h-35">
+                                <div class="clear pull-left stqtc_abnormal_v1">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        TS：
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">5545</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear col-xs-6 mt-10 pl-0 pr-0 pull-left">
+                            <div class="clear h-35">
+                                <div class="clear pull-left stqtc_abnormal_v2">
+                                    <div class="clear pull-left pl-0 pr-0 col-a2cffe f-16-14-iphone5 f-w h-35 line-h-35">
+                                        QTc：
+                                    </div>
+                                    <div class="clear pull-left pl-0 pr-0 h-35 line-h-35">
+                                        <span class="col-53a6ff f-16-14-iphone5 f-w">5487</span>
+                                        <span class="dis-ib w-8 h-12 pos-r t-1 ml-3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
