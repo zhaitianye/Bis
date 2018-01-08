@@ -61,14 +61,15 @@ $(document).ready(function() {
 
 /*滚动部分js*/
 /*滚动部分的高度*/
-var wrapperheight = $("body").height() - $("header").height() - $(".select_munu").height();
+$("body").height($(document).height());
+var wrapperheight = $(document).height() - $(".select_munu").height();
 $("#mescroll").css("height", wrapperheight);
 $(document).ready(function() {
     $(function() {
         //创建MeScroll对象,内部已默认开启下拉刷新,自动执行up.callback,重置列表数据;
         var mescroll = new MeScroll("mescroll", {
             up: {
-                page: { size: 3 }, //每次加载1条数据,模拟loadFull
+                page: { size: 8 }, //每次加载1条数据,模拟loadFull
                 loadFull: {
                     use: true, //列表数据过少,不足以滑动触发上拉加载,是否自动加载下一页,直到满屏或者无更多数据为止;默认false,因为可通过调高page.size避免这个情况
                     delay: 500 //延时执行的毫秒数; 延时是为了保证列表数据或占位的图片都已初始化完成,且下拉刷新上拉加载中区域动画已执行完毕;
