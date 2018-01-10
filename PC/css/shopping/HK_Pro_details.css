@@ -28,6 +28,21 @@
 .mainnav div a:hover{color: #309DE2;}
 .navbor{border-bottom: 3px solid #309DE2;}
 .navborpitch{border-bottom: 3px solid #309DE2;}
+/* 头部二维码部分 */
+.h-120{height: 120px;}
+.z--1{z-index: -1}
+.t-28{top: 28px;}
+.bor-col-fff{border-color: #fff;}
+.app_down_btn{}
+.app_down_btn:hover{
+    border: 1px solid #ccc;
+    border-bottom: none;
+
+}
+.app_down_btn:hover > div{
+    display: block;
+    -webkit-box-shadow: 0px 2px 10px 0px rgba(0,0,0,.2);-moz-box-shadow: 0px 2px 10px 0px rgba(0,0,0,.2);box-shadow: 0px 2px 10px 0px rgba(0,0,0,.2);
+}
 /* 尾部 */
 .bg-E9E9E9{background-color: #E9E9E9;}
 .col-8c8c8c{color: #8c8c8c;}
