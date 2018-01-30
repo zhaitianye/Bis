@@ -115,3 +115,7 @@
 	.f-50-40-ipad{font-size: 50px;}
 	.line-h-70-50-ipad{line-height: 70px;}
 }
+/* 使用说明部分css */
+.col-0190ff{color: #0190ff;}
+.hovecol-FF1C1C:hover{color: #FF1C1C !important;}
+.img-180{width: 180px;height: 180px;}
