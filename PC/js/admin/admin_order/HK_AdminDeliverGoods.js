@@ -43,13 +43,13 @@ $(document).ready(function() {
                     { field: 'address', title: '收货地址', width: 240 },
                     { field: 'time', title: '下单时间', width: 180 },
                     { field: 'logistics', title: '物流公司', width: 120, sort: true },
-                    { fixed: 'right', title: '查看详细', width: 180, align: 'center', toolbar: '#barDemo' }
+                    { fixed: 'right', title: '查看详细', width: 220, align: 'center', toolbar: '#barDemo' }
                 ]
             ],
             /*在这里使用的是静态数据，参考layui文档，使用服务器上的数据进行更替*/
             data: [
-                { "id": 10000, "ordernum": "SDJHJ5418524541541", "waybillnum": "HAHGUBUN54185245415", "goodscontent": "HC3A250 悉心心电仪", "consignee": "李小姐", "phone": "18623695862", "address": "香港国宏大道305号", "time": "2017/10/12 9:55:52", "status": "未发货", "logistics": "顺丰空运", },
-                { "id": 10002, "ordernum": "SSDFF5141424541541", "waybillnum": "", "goodscontent": "电极片（*3）", "consignee": "王先森", "phone": "14851155415", "address": "深圳宝安后亭社区456号", "time": "2017/10/12 9:55:52", "status": "已发货", "logistics": "EMS", },
+                { "id": 10000, "ordernum": "SDJHJ5418524541541", "waybillnum": "HAHGUBUN54185245415", "goodscontent": "HC3A250 悉心心电仪", "consignee": "李小姐", "phone": "18623695862", "address": "香港国宏大道305号", "time": "2017/10/12 9:55:52", "status": "待发货", "logistics": "顺丰空运", },
+                { "id": 10002, "ordernum": "SSDFF5141424541541", "waybillnum": "", "goodscontent": "电极片（*3）", "consignee": "王先森", "phone": "14851155415", "address": "深圳宝安后亭社区456号", "time": "2017/10/12 9:55:52", "status": "待配货", "logistics": "EMS", },
                 { "id": 10003, "ordernum": "GRECBEW41424541541", "waybillnum": "ETTYCCXBF418524541541", "goodscontent": "血压计(*3)", "consignee": "李先森", "phone": "16698569854", "address": "深圳罗湖区34716号", "time": "2017/10/12 9:55:52", "status": "已发货", "logistics": "顺丰空运", },
             ],
             page: true,
@@ -88,6 +88,22 @@ $(document).ready(function() {
                     content: $('.detailwaybill'),
                 });
             };
+            if (layEvent === 'cargo') { //备货
+                var data_status = data.status;
+                var data_ordernum = data.ordernum;
+                if (data_status == "待配货") {
+                    /*----------获取到了订单号，进行后台处理-------*/
+                    console.log(data_ordernum);
+                    layer.alert(data_ordernum, {
+                        title: '提示',
+                    });
+                } else {
+                    layer.alert("订单状态只有为 <span style='color:red;'>待配货</span> 的订单才能配货!", {
+                        title: '提示',
+                    });
+                }
+            };
+            /*进行单元格查看操作*/
             if (obj.event === 'ordernum_e') {
                 layer.alert(data.ordernum, {
                     title: 'ID 为 &nbsp;' + data.id + '&nbsp; 订单号',
@@ -291,9 +307,8 @@ $(document).ready(function() {
     /*页面方面js*/
     $(".btn-sidebar").click(function() {
         $(".btn-sidebar").removeClass("layui-btn-primary");
+        $(".btn-sidebar").removeClass("bor-009688");
         $(this).siblings().addClass("layui-btn-primary");
-    });
-    $(".wwwwww").click(function() {
-        $(".aaaaaa").print();
+        $(this).addClass("bor-009688");
     });
 });
