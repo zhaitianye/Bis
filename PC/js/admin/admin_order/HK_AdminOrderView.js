@@ -1,87 +1,56 @@
 $(document).ready(function() {
-    /*模拟数据*/
-    var cargodata ={"objnum":"SDJHJ54185245415412","commodity":[{"name":"心电仪HC3A250","inventory":"30","val":"1000001","state":"0"},{"name":"电极片一包(20片)","inventory":"10","val":"1000002","state":"1"},{"name":"电极片一包(40片)","inventory":"0","val":"1000003","state":"1"},{"name":"心电仪数据线","inventory":"80","val":"1000004","state":"1"}]};
-    /*选择框被选中的值*/
-    var sel_val;
     /*layui方面js*/
     layui.use(['form', 'table', 'element'], function() {
         var form = layui.form,
             layer = layui.layer,
             element = layui.element,
             table = layui.table;
-        /*初始化下拉框和订单号*/
-        sle_initialize();
-        function sle_initialize(){
-            var objnum = cargodata.objnum;
-            $(".span_order_numbox").text(objnum);
-            var data_commodity_length = cargodata.commodity.length;
-            for (var i = 0; i < data_commodity_length; i++) {
-                var opt_key_one = cargodata.commodity[i].val;
-                var opt_key_two = cargodata.commodity[i].name + "（库存" + cargodata.commodity[i].inventory+ "件）";
-                var optionVar="";
-                    optionVar += "<option value=\""+opt_key_one+"\">"+opt_key_two+"<\/option>";
-                $(".sle_type_c").append(optionVar);
-            };
-            form.render('select');
-        };
-        /*选择产品时表单的变换*/
-        form.on('select(sle_type_f)', function(data){
-            sel_val = data.value;//得到被选中的值
-            var data_commodity_length = cargodata.commodity.length;
-            for (var i = 0; i < data_commodity_length; i++) {
-                var opt_key_one = cargodata.commodity[i].val;
-                if (sel_val == opt_key_one) {
-                    var pot_key_state = parseInt(cargodata.commodity[i].state);
-                    if (pot_key_state == 0) {
-                        $('.cargo_v2_input').val("");
-                        $('.cargo_v2_box').removeClass('bounceInRight');
-                        $('.cargo_v2_box').addClass('fadeOutRightBig');
-                        setTimeout(function(){
-                            $(".cargo_v2_box").hide();
-                            $('.cargo_v2_box').removeClass('fadeOutRightBig');
-                            $('.cargo_v2_box').addClass('bounceInRight');
-                            $(".cargo_v1_box").show();
-                        }, 200);
-                    } else if(pot_key_state == 1){
-                        $('.cargo_v1_input').val("");
-                        $('.cargo_v1_box').removeClass('bounceInRight');
-                        $('.cargo_v1_box').addClass('fadeOutRightBig');
-                        setTimeout(function(){
-                            $(".cargo_v1_box").hide();
-                            $('.cargo_v1_box').removeClass('fadeOutRightBig');
-                            $('.cargo_v1_box').addClass('bounceInRight');
-                            $(".cargo_v2_box").show();
-                        }, 200);
-                    };
-                }
-            };
+        //监听提交
+        form.on('submit(search1)', function(data) {
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            })
+            //console.log(JSON.stringify(data.field));
+            return false;
         });
-        $(".cargo_v1_box_add").click(function(){
-            var cargo_ipt_val = $(".cargo_v1_input").val();
-            if (cargo_ipt_val == null || cargo_ipt_val==""|| typeof(cargo_ipt_val) == "undefined" || isNaN(cargo_ipt_val)) {
-                console.log(1);
-            }else{
-                console.log(2);
+        //执行渲染
+        table.render({
+            elem: '#orderlist', //指定原始表格元素选择器（推荐id选择器）
+            height: 400, //容器高度
+            cols: [
+                [ //标题栏
+                    { field: 'id', title: 'ID', width: 80, sort: true },
+                    { field: 'orderid', title: '订单号', width: 240 , event: 'orderidabout', },
+                    { field: 'goodscontent', title: '商品内容', width: 180, event: 'goodsabout', },
+                    { field: 'ordertime', title: '下单时间', width: 180 },
+                    { field: 'state', title: '状态', width: 120, sort: true },
+                    { field: 'logistics', title: '物流公司', width: 120 },
+                    { field: 'wid', title: '运单号', width: 240, event: 'widabout', },
+                    { field: 'receipttime', title: '收货时间', width: 180, sort: true },
+                ]
+            ],
+            /*在这里使用的是静态数据，参考layui文档，使用服务器上的数据进行更替*/
+            data: [
+                { "id": "10000", "orderid": "KSD1514515461SD414541", "goodscontent": "套餐A*1 </br>服务B（3个月）*1</br> 套餐B*5 套餐C*3</br>", "ordertime": "2017/10/12 9:55:52", "state": "正常", "logistics": "顺丰", "wid": "WEDCJHI545174ADF", "receipttime": "2017/10/18 14:30:10", },
+            ],
+            page: true,
+        });
+        //监听单元格事件
+        table.on('tool(test)', function(obj) {
+            var data = obj.data;
+            if (obj.event === 'goodsabout') {
+                layer.alert(data.goodscontent,{
+                    title: 'ID 为 &nbsp;' + data.id + '&nbsp; 的商品内容',
+                });
+            }else if (obj.event === 'orderidabout') {
+                layer.alert(data.orderid,{
+                    title: 'ID 为 &nbsp;' + data.id + '&nbsp; 的订单号',
+                });
+            }else if (obj.event === 'widabout') {
+                layer.alert(data.wid,{
+                    title: 'ID 为 &nbsp;' + data.id + '&nbsp; 的运单号',
+                });
             }
-            console.log(cargo_ipt_val);
-            for (var i = 0; i < cargodata.commodity.length; i++) {
-                var opt_key_one = cargodata.commodity[i].val;
-                if (sel_val == opt_key_one) {
-                    //console.log(cargodata.commodity[i].state);
-                }
-            };
-        });
-        $(".cargo_v2_box_add").click(function(){
-            console.log(sel_val);
-            for (var i = 0; i < cargodata.commodity.length; i++) {
-                var opt_key_one = cargodata.commodity[i].val;
-                if (sel_val == opt_key_one) {
-                    //console.log(cargodata.commodity[i].state);
-                }
-            };
         });
     });
-
-    
-
 });
