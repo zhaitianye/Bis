@@ -3,8 +3,8 @@ $(document).ready(function() {
     var cargodata_in = { "objnum": "SDJHJ54185245415412", "commodity": [{ "name": "心电仪HC3A250", "inventory": "30", "val": "1000001", "state": "0" }, { "name": "电极片一包(20片)", "inventory": "10", "val": "1000002", "state": "1" }, { "name": "电极片一包(40片)", "inventory": "1", "val": "1000003", "state": "1" }, { "name": "心电仪数据线", "inventory": "80", "val": "1000004", "state": "1" }] };
     var server_data_out = { "treeroot": [] };
     /*主变量初始化*/
-    var cargodata = cargodata_in;
-    var server_data = server_data_out;
+    var cargodata = $.extend(true,{},cargodata_in);
+    var server_data = $.extend(true,{},server_data_out);
     /*全局变量 选择框被选中的值*/
     var sel_val;
     /*-------------------------------------------------
@@ -218,10 +218,12 @@ $(document).ready(function() {
         $(".cargo_v2_box_add").click(function() {
             if (sel_val == "" || sel_val == null) {
                 layer.msg("请先选择要配货的商品类型", { icon: 5, anim: 6 });
-            } else {
+            }else {
                 var cargo_ipt_val = $(".cargo_v2_input").val();
                 if (cargo_ipt_val == null || cargo_ipt_val == "" || typeof(cargo_ipt_val) == "undefined") {
                     layer.msg("请输入商品的数量", { icon: 5, anim: 6 });
+                } else if(cargo_ipt_val == 0){
+                    layer.msg("配货商品数量最少为1件", { icon: 5, anim: 6 });
                 } else {
                     if (server_data.treeroot.length == 0) { //第一次增加的时候
                         /*验证修改库存，初始化选择框*/
@@ -261,7 +263,6 @@ $(document).ready(function() {
                                 }
                             }
                         };
-                        console.log(server_data);
                     } else { //后面添加
                         var trueor = false; //添加的内容在框内,有框的情况
                         for (var i = 0; i < server_data.treeroot.length; i++) {
@@ -456,6 +457,39 @@ $(document).ready(function() {
                 }, function() {});
             });
         }
-
+        /*提交事件*/
+        $(".sub_affirm").click(function() {
+            var data_length = server_data.treeroot.length;
+            if (data_length == 0) {
+                layer.msg("请先配置货品内容在做提交", { icon: 5, anim: 6 });
+            } else{
+                layer.confirm('您确定要配货么？', {
+                        btn: ['确定', '我在想想'],
+                        title: '确认配货'
+                }, function() {
+                    layer.closeAll();
+                    //server_data为需要提交的数据
+                    console.log(server_data);  
+                }, function() {});
+            }
+        });
+        /*重置事件*/
+        $(".reset_cargo").click(function() {
+            layer.confirm('您确定要重置目前所配置的配货信息么？', {
+                    btn: ['确定', '我在想想'],
+                    title: '确认重置'
+            }, function() {
+                layer.closeAll();
+                cargodata = $.extend(true,{},cargodata_in);
+                server_data = $.extend(true,{},server_data_out);
+                sel_val = null;
+                sle_initialize();
+                canvas_server_data();
+                $(".cargo_v1_box").hide();
+                $(".cargo_v2_box").hide();
+                $(".cargo_v1_input").val("");
+                $(".cargo_v2_input").val("");
+            }, function() {});
+        });
     });
 });
