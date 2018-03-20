@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- necessary -->
+    <meta name="keywords" content="1,2,3">
+    <meta name="description" content="">
+    <!-- description -->
+    <meta name="renderer" content="webkit">
+    <title>碧沙康健_库存管理</title>
+    <!-- base -->
+    <link href="../../../ctrl/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../../ctrl/layui/css/layui.css" rel="stylesheet">
+    <link href="../../../css/comm/base.css" rel="stylesheet">
+    <link href="../../../css/admin/HK_Admin.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <!-- 头部导航部分 -->
+        <div class="layui-header">
+            <div class="layui-logo pd-10 clear">
+                <img src="../../../img/admin/admin_comm/logov1.png" class="full-w pull-left">
+            </div>
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="../HK_AdminIndex.html">管理中心</a></li>
+                <li class="layui-nav-item"><a href="../admin_user/HK_AdminUserList.html">用户管理</a></li>
+                <li class="layui-nav-item"><a href="">商品管理</a></li>
+                <li class="layui-nav-item"><a href="../admin_Order/HK_AdminOrderView.html">订单管理</a></li>
+                <li class="layui-nav-item"><a href="../admin_news/HK_AdminNewsList.html">新闻管理</a></li>
+                <li class="layui-nav-item"><a href="../admin_comment/HK_AdminCommentList.html">评价管理</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">其它管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">主页管理</a></dd>
+                        <dd><a href="">调价管理</a></dd>
+                        <dd><a href="">发布管理</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="../../../img/admin/admin_comm/admin-header.png" class="layui-nav-img">
+                        管理员
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">退出</a></li>
+            </ul>
+        </div>
+        <!-- 左侧导航区域 -->
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item"><a href="../admin_order/HK_AdminOrderView.html">查看订单</a></li>
+                    <li class="layui-nav-item"><a href="../admin_order/HK_AdminDeliverGoods.html">发货管理</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 内容主体区域 -->
+        <div class="layui-body">
+            <div style="padding: 50px;">
+                <p class="f-18 pt-15 pb-15 col-8d969d">
+                    查看库存
+                </p>
+                <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2">
+                    <!-- 这里用layui的数据表格的重载 -->
+                    <form class="layui-form" action="">
+                        <div class="h-40 line-h-40 mb-15 f-16 pos-r ml-130">
+                            <span class="pos-a l--120" >查看库存量：</span>
+                            <div class="dis-ib w-300 f-14 pull-left">
+                                <select class="sle_type_c" name="inventory_num" lay-filter="sle_type_f">
+                                    <option value="" selected=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="h-40 line-h-40 mb-15 f-16 pos-r ml-130">
+                            <span class="pos-a l--120">SN设备码：</span>
+                            <div class="dis-ib w-300 f-14 pull-left">
+                                <input type="text" name="sn_num" lay-verify="title" autocomplete="off" placeholder="请输入SN设备码" class="layui-input">
+                            </div>
+                            <button type="submit" class="layui-btn pull-left ml-20" lay-submit="" lay-filter="search1">搜索</button>
+                        </div>
+                    </form>
+                </div>
+                <p class="f-18 pt-15 pb-15 col-8d969d demoTable">
+                    <button class="layui-btn" data-type="getCheckData">产品入库</button>
+                </p>
+                <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2">
+                    <table id="DeliverList" lay-filter="DLtest"></table>
+                </div>
+            </div>
+        </div>
+        <!-- 底部固定区域 -->
+        <div class="layui-footer">
+            <p class="text-center">
+                Copyright&copy;2017. 香港碧沙科技有限公司&nbsp;All Rights Reserved.
+            </p>
+        </div>
+    </div>
+    <!-- 弹出层内容-->
+    <!-- 查看信息的弹出层的基本内容，供js调用 -->
+    <div class="detailcontent dis-n">
+        <div class="clear pd-20 f-16">
+            <div class="clear mb-20 h-40 line-h-40 text-center">
+                <div class="clear dis-ib">
+                    <img src="../../../img/admin/admin_comm/logov1.png" class="h-35 mt-3 pull-left">
+                    <span class="f-28 ml-10 f-w family-s pull-left h-40 line-h-40">订单基本信息</span>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field">
+                <legend>收货人信息</legend>
+                <div class="layui-field-box">
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">收货人:</label>
+                        <div class="layui-input-block detail_consignee line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">联系电话:</label>
+                        <div class="layui-input-block detail_phone line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">收货地址:</label>
+                        <div class="layui-input-block detail_address line-h-35 f-16">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="layui-elem-field">
+                <legend>订单信息</legend>
+                <div class="layui-field-box">
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">订单号:</label>
+                        <div class="layui-input-block detail_ordernum line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">运单号:</label>
+                        <div class="layui-input-block detail_waybillnum line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">商品内容:</label>
+                        <div class="layui-input-block detail_goodscontent line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">下单时间:</label>
+                        <div class="layui-input-block detail_time line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">订单状态:</label>
+                        <div class="layui-input-block detail_status line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">物流公司:</label>
+                        <div class="layui-input-block detail_logistics line-h-35 f-16">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <script src="../../../js/comm/jquery.min.js"></script>
+    <script src="../../../js/comm/jQuery.print.js"></script>
+    <script src="../../../ctrl/layui/layui.js"></script>
+    <script src="../../../js/admin/admin_order/HK_AdminStockControl.js"></script>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑运单号</a>
+    </script>
+</body>
+
+</html>
