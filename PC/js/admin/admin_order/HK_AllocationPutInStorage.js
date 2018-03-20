@@ -91,7 +91,7 @@ $(document).ready(function() {
             } else {
                 var cargo_ipt_val = $(".cargo_v1_input").val();
                 if (cargo_ipt_val == null || cargo_ipt_val == "" || typeof(cargo_ipt_val) == "undefined") {
-                    layer.msg("请使用扫描枪或者填写商品唯一ID", { icon: 5, anim: 6 });
+                    layer.msg("请使用扫描枪或者填写商品SN码", { icon: 5, anim: 6 });
                 } else {
                     if (server_data.treeroot.length == 0) { //第一次增加的时候
                         /*验证修改库存，初始化选择框*/
@@ -116,35 +116,53 @@ $(document).ready(function() {
                             }
                         };
                         if (trueor) { //添加的内容在框内,有框的情况
-                            /*验证修改库存，初始化选择框*/
-                            for (var k = 0; k < cargodata.commodity.length; k++) {
-                                var opt_key_one = cargodata.commodity[k].val;
-                                if (sel_val == opt_key_one) {
-                                    var index_ser;
-                                    for (var m = 0; m < server_data.treeroot.length; m++) {
-                                        if (sel_val == server_data.treeroot[m].name) {
-                                            index_ser = m;
-                                        };
+                            var soletrue = false;
+                            for (var i = 0; i < server_data.treeroot.length; i++) {
+                                var s_name = server_data.treeroot[i].name;
+                                if (sel_val == s_name) {
+                                    for (var j = 0; j < server_data.treeroot[i].des.length; j++) {
+                                        var soleval = server_data.treeroot[i].des[j].val;
+                                        if (cargo_ipt_val == soleval) {
+                                            soletrue = true;
+                                        }
                                     };
-                                    /*推入des*/
-                                    var des_obj = { val: cargo_ipt_val };
-                                    server_data.treeroot[index_ser].des.push(des_obj);
-                                    canvas_server_data(); //重载
-                                    $(".cargo_v1_input").val("");
                                 }
                             };
+                            if (soletrue) {
+                                $(".cargo_v1_input").val("");
+                                layer.msg("SN码为不能重复的设备码，请勿重复添加！", { icon: 5, anim: 6 });
+                            } else{
+                                /*验证修改库存，初始化选择框*/
+                                for (var k = 0; k < cargodata.commodity.length; k++) {
+                                    var opt_key_one = cargodata.commodity[k].val;
+                                    if (sel_val == opt_key_one) {
+                                        var index_ser;
+                                        for (var m = 0; m < server_data.treeroot.length; m++) {
+                                            if (sel_val == server_data.treeroot[m].name) {
+                                                index_ser = m;
+                                            };
+                                        };
+                                        /*推入des*/
+                                        var des_obj = { val: cargo_ipt_val };
+                                        server_data.treeroot[index_ser].des.push(des_obj);
+                                        canvas_server_data(); //重载
+                                        $(".cargo_v1_input").val("");
+                                    }
+                                };
+                            }
+
                         } else { //没有框的情况
                             /*验证修改库存，初始化选择框*/
                             for (var i = 0; i < cargodata.commodity.length; i++) {
                                 var opt_key_one = cargodata.commodity[i].val;
                                 if (sel_val == opt_key_one) {
-                                        /*定义内部对象 推入des 推入treeroot*/
-                                        var tree_obj = { name: sel_val, state: 0, des: [] };
-                                        var des_obj = { val: cargo_ipt_val };
-                                        tree_obj.des.push(des_obj);
-                                        server_data.treeroot.push(tree_obj);
-                                        canvas_server_data(); //重载
-                                        $(".cargo_v1_input").val("");
+                                    /*定义内部对象 推入des 推入treeroot*/
+                                    var tree_obj = { name: sel_val, state: 0, des: [] };
+                                    var des_obj = { val: cargo_ipt_val };
+                                    tree_obj.des.push(des_obj);
+                                    server_data.treeroot.push(tree_obj);
+                                    canvas_server_data(); //重载
+                                    $(".cargo_v1_input").val("");
                                 }
                             };
                         }
