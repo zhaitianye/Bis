@@ -70,7 +70,7 @@
         </div>
         <!-- 内容主体区域 -->
         <div class="layui-body">
-            <div style="padding: 50px;">
+            <div class="pd-50">
                 <p class="f-18 pt-15 pb-15 col-8d969d">
                     查看库存
                 </p>
@@ -82,6 +82,10 @@
                             <div class="dis-ib w-300 f-14 pull-left">
                                 <select class="sle_type_c" name="inventory_num" lay-filter="sle_type_f">
                                     <option value="" selected=""></option>
+                                    <option value="0">电极片一包(20片) * 5</option>
+                                    <option value="1">电极片一包(40片) * 20</option>
+                                    <option value="2">心电仪HC3A250 * 20</option>
+                                    <option value="3">心电仪数据线 * 150</option>
                                 </select>
                             </div>
                         </div>
@@ -116,45 +120,30 @@
             <div class="clear mb-20 h-40 line-h-40 text-center">
                 <div class="clear dis-ib">
                     <img src="../../../img/admin/admin_comm/logov1.png" class="h-35 mt-3 pull-left">
-                    <span class="f-28 ml-10 f-w family-s pull-left h-40 line-h-40">订单基本信息</span>
+                    <span class="f-28 ml-10 f-w family-s pull-left h-40 line-h-40">产品基本信息</span>
                 </div>
             </div>
             <fieldset class="layui-elem-field">
-                <legend>收货人信息</legend>
-                <div class="layui-field-box">
+                <legend>已售产品信息</legend>
+                <div class="layui-field-box pt-20 pb-20">
                     <div class="layui-form-item mb-0">
-                        <label class="layui-form-label pl-0 pr-0">收货人:</label>
-                        <div class="layui-input-block detail_consignee line-h-35 f-16">
+                        <label class="layui-form-label pl-0 pr-0">SN码:</label>
+                        <div class="layui-input-block detail_snnum line-h-35 f-16">
                         </div>
                     </div>
                     <div class="layui-form-item mb-0">
-                        <label class="layui-form-label pl-0 pr-0">联系电话:</label>
-                        <div class="layui-input-block detail_phone line-h-35 f-16">
+                        <label class="layui-form-label pl-0 pr-0">产品类型:</label>
+                        <div class="layui-input-block detail_goodsstatus line-h-35 f-16">
                         </div>
                     </div>
-                    <div class="layui-form-item mb-0">
-                        <label class="layui-form-label pl-0 pr-0">收货地址:</label>
-                        <div class="layui-input-block detail_address line-h-35 f-16">
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-            <fieldset class="layui-elem-field">
-                <legend>订单信息</legend>
-                <div class="layui-field-box">
                     <div class="layui-form-item mb-0">
                         <label class="layui-form-label pl-0 pr-0">订单号:</label>
                         <div class="layui-input-block detail_ordernum line-h-35 f-16">
                         </div>
                     </div>
                     <div class="layui-form-item mb-0">
-                        <label class="layui-form-label pl-0 pr-0">运单号:</label>
-                        <div class="layui-input-block detail_waybillnum line-h-35 f-16">
-                        </div>
-                    </div>
-                    <div class="layui-form-item mb-0">
-                        <label class="layui-form-label pl-0 pr-0">商品内容:</label>
-                        <div class="layui-input-block detail_goodscontent line-h-35 f-16">
+                        <label class="layui-form-label pl-0 pr-0">用户名:</label>
+                        <div class="layui-input-block detail_username line-h-35 f-16">
                         </div>
                     </div>
                     <div class="layui-form-item mb-0">
@@ -163,13 +152,23 @@
                         </div>
                     </div>
                     <div class="layui-form-item mb-0">
-                        <label class="layui-form-label pl-0 pr-0">订单状态:</label>
-                        <div class="layui-input-block detail_status line-h-35 f-16">
+                        <label class="layui-form-label pl-0 pr-0">收货人:</label>
+                        <div class="layui-input-block detail_consignee line-h-35 f-16">
                         </div>
                     </div>
                     <div class="layui-form-item mb-0">
-                        <label class="layui-form-label pl-0 pr-0">物流公司:</label>
-                        <div class="layui-input-block detail_logistics line-h-35 f-16">
+                        <label class="layui-form-label pl-0 pr-0">收货电话:</label>
+                        <div class="layui-input-block detail_phone line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">收货地址:</label>
+                        <div class="layui-input-block detail_address line-h-35 f-16">
+                        </div>
+                    </div>
+                    <div class="layui-form-item mb-0">
+                        <label class="layui-form-label pl-0 pr-0">保修状态:</label>
+                        <div class="layui-input-block detail_warrantystatus line-h-35 f-16">
                         </div>
                     </div>
                 </div>
@@ -181,8 +180,8 @@
     <script src="../../../ctrl/layui/layui.js"></script>
     <script src="../../../js/admin/admin_order/HK_AdminStockControl.js"></script>
     <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
-        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑运单号</a>
+        <a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
     </script>
 </body>
 
