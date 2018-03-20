@@ -90,9 +90,16 @@
                             </div>
                         </div>
                         <div class="h-40 line-h-40 mb-15 f-16 pos-r ml-130">
-                            <span class="pos-a l--120">SN设备码：</span>
-                            <div class="dis-ib w-300 f-14 pull-left">
-                                <input type="text" name="sn_num" lay-verify="title" autocomplete="off" placeholder="请输入SN设备码" class="layui-input">
+                            <span class="pos-a l--120">选择搜索：</span>
+                            <div class="layui-inline pull-left">
+                                <select name="searchabout" lay-verify="required" lay-search="">
+                                    <option value="">请选择您要查询的内容</option>
+                                    <option value="1">SN码</option>
+                                    <option value="2">生产批号</option>
+                                </select>
+                            </div>
+                            <div class="dis-ib w-300 f-14 pull-left ml-20">
+                                <input type="text" name="sn_num" lay-verify="title" autocomplete="off" placeholder="请输入SN设备码或者生产批号" class="layui-input">
                             </div>
                             <button type="submit" class="layui-btn pull-left ml-20" lay-submit="" lay-filter="search1">搜索</button>
                         </div>
