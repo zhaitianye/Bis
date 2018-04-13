@@ -1,18 +1,4 @@
 $(document).ready(function() {
-	tracking_num();
-	function tracking_num(){
-		var tracking_num_val = $(".tracking_num_box").find(".tracking_num_val").text();
-		if (tracking_num_val == "" || tracking_num_val == undefined || tracking_num_val == NaN) {
-			/*当物流单号值为空的时候*/
-			$(".tracking_num_box").hide();
-			$(".tracking_content_empty").show();
-			$(".tracking_content_not_empty").hide();
-		}else{
-			$(".tracking_num_box").show();
-			$(".tracking_content_not_empty").show();
-			$(".tracking_content_empty").hide();
-		};
-	};
 	$(".serve_control_show").click(function(){
 	    $(".serve_content").slideDown();
 	    $(this).hide();
@@ -23,30 +9,34 @@ $(document).ready(function() {
 	    $(this).hide();
 	    $(".serve_control_show").show();
 	});
-	/*添加物流单号弹出层*/
-    $(".tracking_content_empty").click(function() {
-        $(".show_add_tracking").show();
-    });
-    $(".show_add_tracking").on("click", function(event) {
-        event.stopPropagation();
-        var target = event.target;
-        if (!$(target).closest(".show_add_tracking_content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
-            $(".show_add_tracking").hide();
-        };
-    });
-    /*修改物流单号弹出层*/
-    $(".tracking_content_not_empty").click(function() {
-    	var tracking_num_val = $(".tracking_num_box").find(".tracking_num_val").text();
-    	var tracking_company_val = $(".tracking_num_box").find(".tracking_company").text();
-    	$(".edit_tracking_company_sel").val(tracking_company_val);
-    	$(".edit_tracking_val_in").val(tracking_num_val);
-        $(".show_edit_tracking").show();
-    });
-    $(".show_edit_tracking").on("click", function(event) {
-        event.stopPropagation();
-        var target = event.target;
-        if (!$(target).closest(".show_edit_tracking_content").length > 0 || $(target).attr("class").indexOf("close-mod") != -1) {
-            $(".show_edit_tracking").hide();
-        };
-    });
+	/*根据条目的多少动态绘制左边图*/
+	canvas_ridio();
+	function canvas_ridio(){
+		var num_length =  $(".num_state").length;
+		if (num_length == 1) {
+			var num_one="";
+				num_one += "<div class=\"clear\"> ";
+				num_one += "	<div class=\"clear img-12 full-radius bg-83c441 pull-right\"><\/div>";
+				num_one += "<\/div>";
+		$(".state_left_ridio").empty();
+		$(".state_left_ridio").html(num_one);
+		} else if(num_length > 1) {
+			var num_other="";
+			num_other += "<div class=\"clear\"> ";
+			num_other += "	<div class=\"clear img-12 full-radius bg-83c441 pull-right\"><\/div>";
+			num_other += "<\/div>";
+			for (var i = 1; i < num_length; i++) {
+				num_other += "<div class=\"clear\"> ";
+				num_other += "	<div class=\"clear h-33 bor bor-r bor-2px bor-col-e0e0e0 pull-right mr-5\"><\/div>";
+				num_other += "<\/div>";
+				num_other += "<div class=\"clear\"> ";
+				num_other += "	<div class=\"clear img-12 full-radius bg-e0e0e0 pull-right\"><\/div>";
+				num_other += "<\/div>";
+			}
+			$(".state_left_ridio").empty();
+			$(".state_left_ridio").html(num_other);
+			
+		}
+	};
+	
 });
