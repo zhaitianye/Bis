@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- necessary -->
+    <meta name="keywords" content="1,2,3">
+    <meta name="description" content="">
+    <!-- description -->
+    <meta name="renderer" content="webkit">
+    <title>碧沙康健_售后仓库列表</title>
+    <!-- base -->
+    <link href="../../../ctrl/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../../ctrl/layui/css/layui.css" rel="stylesheet">
+    <link href="../../../css/comm/base.css" rel="stylesheet">
+    <link href="../../../css/admin/HK_Admin.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <!-- 头部导航部分 -->
+        <div class="layui-header">
+            <div class="layui-logo pd-10 clear">
+                <img src="../../../img/admin/admin_comm/logov1.png" class="full-w pull-left">
+            </div>
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="../HK_AdminIndex.html">管理中心</a></li>
+                <li class="layui-nav-item"><a href="../admin_user/HK_AdminUserList.html">用户管理</a></li>
+                <li class="layui-nav-item"><a href="">商品管理</a></li>
+                <li class="layui-nav-item"><a href="../admin_Order/HK_AdminOrderView.html">订单管理</a></li>
+                <li class="layui-nav-item"><a href="../admin_news/HK_AdminNewsList.html">新闻管理</a></li>
+                <li class="layui-nav-item"><a href="../admin_comment/HK_AdminCommentList.html">评价管理</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">其它管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">主页管理</a></dd>
+                        <dd><a href="">调价管理</a></dd>
+                        <dd><a href="">发布管理</a></dd>
+                        <dd><a href="">售后管理</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="../../../img/admin/admin_comm/admin-header.png" class="layui-nav-img">
+                        管理员
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">退出</a></li>
+            </ul>
+        </div>
+        <!-- 左侧导航区域 -->
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item"><a href="../admin_order/HK_AdminOrderView.html">仓库查看售后列表</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 内容主体区域 -->
+        <div class="layui-body">
+            <div style="padding: 50px;">
+                <p class="f-18 pt-15 pb-15 col-8d969d">
+                    仓库售后列表查看
+                </p>
+                <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2">
+                    <!-- 这里用layui的数据表格的重载 -->
+                    <form class="layui-form" action="">
+                        <div class="layui-form-item mb-0" pane="">
+                            <label class="layui-form-label f-14">搜索：</label>
+                            <div class="layui-input-block">
+                                <div class="layui-inline">
+                                    <select name="searchabout" lay-verify="required" lay-search="">
+                                        <option value="">请选择您要查询的内容</option>
+                                        <option value="1">服务单号</option>
+                                        <option value="2">用户名</option>
+                                        <option value="3">订单号</option>
+                                        <option value="4">SN码</option>
+                                    </select>
+                                </div>
+                                <div class="layui-inline">
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="incontent" lay-verify="required" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <button type="submit" class="layui-btn layui-btn-sm" lay-submit="" lay-filter="search1">搜索</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <p class="f-18 pt-15 pb-15 col-8d969d demoTable">
+                    <button class="layui-btn" data-type="getCheckData">打印服务单</button>
+                </p>
+                <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2">
+                    <table id="DeliverList" lay-filter="DLtest"></table>
+                </div>
+            </div>
+        </div>
+        <!-- 底部固定区域 -->
+        <div class="layui-footer">
+            <p class="text-center">
+                Copyright&copy;2017. 香港碧沙科技有限公司&nbsp;All Rights Reserved.
+            </p>
+        </div>
+    </div>
+    <!-- 弹出层内容-->
+    <!-- 查看信息的弹出层的基本内容，供js调用 -->
+    <div class="detailcontent dis-n">
+        <div class="clear pd-20 f-16">
+            <div class="clear mb-30 h-40 line-h-40 text-center">
+                <div class="clear dis-ib">
+                    <img src="../../../img/admin/admin_comm/logov1.png" class="h-35 mt-3 pull-left">
+                    <span class="f-28 ml-10 f-w family-s pull-left h-40 line-h-40">产品维修记录</span>
+                </div>
+            </div>
+            <div class="clear full-w">
+                <table class="layui-table" lay-size="sm" >
+                    <colgroup>
+                        <col width="120">
+                        <col width="120">
+                        <col width="180">
+                        <col width="180">
+                        <col width="180">
+                        <col width="120">
+                        <col width="180">
+                        <col width="100">
+                        <col width="180">
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>操作内容</th>
+                            <th>操作时间</th>
+                            <th>SN码</th>
+                            <th>新SN码</th>
+                            <th>涉及金额</th>
+                            <th>申请时间</th>
+                            <th>售后状态</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_service_log">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- 确认打印以下发货单的基本内容，供js调用 -->
+    <div class="sureprint dis-n">
+        <div class="clear pd-20 f-16">
+            <p class="f-16 col-red mb-20 pl-20">
+                温馨提示：请仔细核对需要打印的服务单。
+            </p>
+            <form class="layui-form" action="">
+                <input type="hidden" class="ipt_waybill_id" value="">
+                <div class="clear mb-20 h-40">
+                    <div class="clear h-40 line-h-40 pl-20">
+                        当前已选中的售后服务单号：
+                    </div>
+                </div>
+                <div class="clear manifest_box pl-40">
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 打印相关的弹出层，供js调用 -->
+    <div class="clear dis-n">
+        <div id="print_content">
+            <!-- 这里面的内容可以删除，因为是用js动态计算生成的，保留在这里方面后期修改 -->
+            <div class="clear">
+                <div class="clear h-40 mb-5 line-h-40 text-center f-16">
+                    <div class="clear dis-ib">
+                        <span class="f-28 ml-10 f-w family-s pull-left h-40 line-h-40 col-black family-s">BISA</span>
+                        <span class="f-28 ml-10 f-w family-s pull-left h-40 line-h-40 col-black">售后服务单</span>
+                    </div>
+                </div>
+                <fieldset class="layui-elem-field layui-field-title bor-col-black mt-30">
+                    <legend class="col-black bg-white">售后信息</legend>
+                </fieldset>
+                <div class="clear full-w f-12 mb-15">
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs4 pr-0 col-black">
+                        售后单号：
+                        </div>
+                        <div class="clear layui-col-xs8 pl-0 col-black">
+                            HDCKL10005356
+                        </div>
+                    </div>
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs4 pr-0 col-black">
+                        订单号：
+                        </div>
+                        <div class="clear layui-col-xs8 pl-0 col-black">
+                            HAHGUBUN54185245415
+                        </div>
+                    </div>
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs4 pr-0 col-black">
+                            产品类型：
+                        </div>
+                        <div class="clear layui-col-xs8 pl-0 col-black">
+                            悉心心电仪
+                        </div>
+                    </div>
+                </div>
+                <div class="clear full-w f-12 mb-15">
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs4 pr-0 col-black">
+                        SN码：
+                        </div>
+                        <div class="clear layui-col-xs8 pl-0 col-black">
+                            SN4818435868461
+                        </div>
+                    </div>
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs4 pr-0 col-black">
+                        保修状态：
+                        </div>
+                        <div class="clear layui-col-xs8 pl-0 col-black">
+                            保修中
+                        </div>
+                    </div>
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs4 pr-0 col-black">
+                            申请时间：
+                        </div>
+                        <div class="clear layui-col-xs8 pl-0 col-black">
+                            2017/10/12 15:30:20
+                        </div>
+                    </div>
+                </div>
+                <div class="clear full-w f-12 mb-15">
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs4 pr-0 col-black">
+                        售后类别：
+                        </div>
+                        <div class="clear layui-col-xs8 pl-0 col-black">
+                            维修
+                        </div>
+                    </div>
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs4 pr-0 col-black">
+                        服务方式：
+                        </div>
+                        <div class="clear layui-col-xs8 pl-0 col-black">
+                            寄修
+                        </div>
+                    </div>
+                </div>
+                <div class="clear full-w f-12 mb-15">
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs4 pr-0 col-black">
+                        问题描述：
+                        </div>
+                    </div>
+                </div>
+                <div class="clear full-w f-12 mb-15 line-h-20 text-ind col-black">
+                    一般快递的物流时间为省内1-3天左右，省外3-6天左右，偏远地区7-10天左右。超过这些时间段没有收到货，或没有新的物流信息更新的订单，物流时间异常，就需要客服去打电话查询包裹的情况。
+                </div>
+                <fieldset class="layui-elem-field layui-field-title bor-col-black mt-30">
+                    <legend class="col-black bg-white">收货信息</legend>
+                </fieldset>
+                <div class="clear full-w f-12 mb-15">
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs3 pr-0 col-black">
+                        姓名：
+                        </div>
+                        <div class="clear layui-col-xs9 pl-0 col-black">
+                            张先森
+                        </div>
+                    </div>
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs3 pr-0 col-black">
+                        手机号：
+                        </div>
+                        <div class="clear layui-col-xs9 pl-0 col-black">
+                            18580808081
+                        </div>
+                    </div>
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs3 pr-0 col-black">
+                            地址：
+                        </div>
+                        <div class="clear layui-col-xs9 pl-0 col-black">
+                            深圳市南山区深云路9号(沙河建工村对面)
+                        </div>
+                    </div>
+                </div>
+                <fieldset class="layui-elem-field layui-field-title bor-col-black mt-30">
+                    <legend class="col-black bg-white">回访信息</legend>
+                </fieldset>
+                <div class="clear full-w f-12 mb-15">
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs3 pr-0 col-black">
+                        姓名：
+                        </div>
+                        <div class="clear layui-col-xs9 pl-0 col-black">
+                            凯先森
+                        </div>
+                    </div>
+                    <div class="clear layui-col-xs4 pl-0 pr-0">
+                        <div class="clear layui-col-xs3 pr-0 col-black">
+                        手机号：
+                        </div>
+                        <div class="clear layui-col-xs9 pl-0 col-black">
+                            13684951542
+                        </div>
+                    </div>
+                </div>
+                <div class="clear full-w mt-60 pt-60 f-12 col-black text-center">
+                    扫描 二维码 进入碧沙商城
+                </div>
+                <div class="clear full-w mt-15 text-center">
+                    <img class="img-100" src="../../../img/admin/admin_comm/shop_qr.png" alt="">
+                </div>
+                <div class="clear pd-15" style="page-break-after: always;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../js/comm/jquery.min.js"></script>
+    <script src="../../../js/comm/jQuery.print.js"></script>
+    <script src="../../../ctrl/layui/layui.js"></script>
+    <script src="../../../js/admin/admin_aftersale/HK_AdminWarehouseList.js"></script>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="detail">查看详情</a>
+        <a class="layui-btn layui-btn-xs" lay-event="repair_record">维修记录</a>
+    </script>
+</body>
+
+</html>
