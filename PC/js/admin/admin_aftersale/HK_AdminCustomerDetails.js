@@ -1,6 +1,6 @@
 $(document).ready(function() {
     /*layui方面js*/
-    layui.use(['element'], function() {
+    layui.use(['layer', 'element'], function() {
         var layer = layui.layer,
             element = layui.element;
         $(".print_this").click(function(){
@@ -193,7 +193,6 @@ $(document).ready(function() {
             //清楚文字前后空格
             remark_content=remark_content.replace(/^\s+|\s+$/g,"");
             $(".text_edit_remark").val(remark_content);
-            console.log(remark_content);
             layer.open({
                 type: 1,
                 title: "编辑备注",
