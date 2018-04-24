@@ -72,6 +72,76 @@
         <div class="layui-body">
             <div class="pd-50">
                 <fieldset class="layui-elem-field">
+                    <legend class="">控制部分（测试）</legend>
+                    <input type="hidden" id="control_val_sncode">
+                    <input type="hidden" id="control_val_exchange_goods">
+                    <input type="hidden" id="control_val_maintain">
+                    <input type="hidden" id="control_val_waybill">
+                    <div class="layui-form mt-20">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                              <label class="layui-form-label">按钮类：</label>
+                              <div class="layui-input-inline">
+                                <input id="control_ipt_btn_class" type="text" class="layui-input">
+                              </div>
+                            </div>
+                            <div class="clear layui-inline">
+                                 <button id="control_btn_btn_class" class="layui-btn">确定</button>
+                                 <span class="f-16 col-black">（12）</span>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                              <label class="layui-form-label">SN码：</label>
+                              <div class="layui-input-inline">
+                                <input id="control_ipt_sncode" type="text" class="layui-input">
+                              </div>
+                            </div>
+                            <div class="clear layui-inline">
+                                 <button id="control_btn_sncode" class="layui-btn">确定</button>
+                                 <span class="f-16 col-black">（12）</span>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                              <label class="layui-form-label">换货：</label>
+                              <div class="layui-input-inline">
+                                <input id="control_ipt_exchange_goods" type="text" class="layui-input">
+                              </div>
+                            </div>
+                            <div class="clear layui-inline">
+                                 <button id="control_btn_exchange_goods" class="layui-btn">确定</button>
+                                 <span class="f-16 col-black">（12）</span>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                              <label class="layui-form-label">维修：</label>
+                              <div class="layui-input-inline">
+                                <input id="control_ipt_maintain" type="text" class="layui-input">
+                              </div>
+                            </div>
+                            <div class="clear layui-inline">
+                                 <button id="control_btn_maintain" class="layui-btn">确定</button>
+                                 <span class="f-16 col-black">（123）</span>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                              <label class="layui-form-label">运单：</label>
+                              <div class="layui-input-inline">
+                                <input id="control_ipt_waybill" type="text" class="layui-input">
+                              </div>
+                            </div>
+                            <div class="clear layui-inline">
+                                 <button id="control_btn_waybill" class="layui-btn">确定</button>
+                                 <span class="f-16 col-black">（12）</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+                <fieldset class="layui-elem-field">
                     <legend class="">售后信息</legend>
                     <div class="layui-field-box pt-15 pb-15">
                         <div class="clear f-16 line-h-25">
@@ -82,7 +152,7 @@
                                 订单号：123456789
                             </div>
                             <div class="layui-col-xs4 col-black mb-10">
-                                SN码：<span class="sn_code">ss123456789</span>
+                                SN码：<span class="sn_code col-black">ss123456789</span>
                             </div>
                             <div class="layui-col-xs4 col-black mb-10">
                                 保修状态：保修中
@@ -358,6 +428,9 @@
             <p class="mb-10">
                 <input type="text"  placeholder="请输入新产品的SN码" class="layui-input re_new_sncode">
             </p>
+            <div class="clear full-w">
+                <textarea placeholder="备注 选填" class="layui-textarea f-14" rows="6"></textarea>
+            </div>
         </div>
     </div>
     <!--维修报价弹出层，供js调用 -->
@@ -369,6 +442,9 @@
             <p class="mb-10">
                 <input type="text"  placeholder="请输入维修所需要的金额(人民币)" class="layui-input ipt_money">
             </p>
+            <div class="clear full-w">
+                <textarea placeholder="备注 选填" class="layui-textarea f-14" rows="6"></textarea>
+            </div>
         </div>
     </div>
     <!--填写运单号弹出层，供js调用 -->
@@ -395,6 +471,31 @@
                 </div>
                 <div class="full-w mb-20">
                     <input type="text"  placeholder="请输入运单号" class="layui-input ipt_racking_num">
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    <!--退款返库弹出层，供js调用 -->
+    <div id="show_refund" class="clear dis-n pd-20">
+        <div class="clear">
+            <form class="layui-form" lay-filter="lay_show_refund">
+                <p class="col-black f-14 mb-20">
+                    请填写退款返库金额，默认为产品原价：
+                </p>
+                <div class="clear mb-20">
+                    <div class="layui-col-xs6">
+                        <input type="checkbox" lay-filter="lay_show_refund_checkbox_v1" lay-skin="primary" title="自定义金额">
+                    </div>
+                    <div class="layui-col-xs6">
+                        <input type="checkbox" lay-filter="lay_show_refund_checkbox_v2"  lay-skin="primary" title="不返还库存">
+                    </div>
+                </div>
+                <div class="full-w mb-20 dis-n lay_show_refund_money_box">
+                    <input type="text"  placeholder="请输入金额" class="layui-input ipt_racking_num ipt_money">
+                </div>
+                <div class="clear full-w">
+                    <textarea placeholder="备注 选填" class="layui-textarea f-14" rows="6"></textarea>
                 </div>
                 
             </form>

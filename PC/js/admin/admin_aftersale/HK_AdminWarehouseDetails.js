@@ -215,52 +215,135 @@ $(document).ready(function() {
         });
         /*重录sn码*/
         $(".btn_re_enter_sn").click(function(){
-            var sn_code = $(".sn_code").text();
-            layer.prompt({ title: '修改原来的SN码，原SN码将删除。', formType: 0 , value: sn_code}, function(enter_sn, index) {
-                layer.close(index);
-                /*enter_sn就是录入的sn码*/
-                console.log(enter_sn);
-            });
+            var a = $("#control_val_sncode").val();
+            if (a==1) {
+                layer.confirm('SN码已经录入过，请问是否重新录入？', {
+                  btn: ['确定','取消'] //按钮
+                }, function(){
+                    layer.closeAll();
+                    var sn_code = $(".sn_code").text();
+                    layer.prompt({ title: '修改原来的SN码，原SN码将删除。', formType: 0 , value: sn_code}, function(enter_sn, index) {
+                        layer.close(index);
+                        /*enter_sn就是录入的sn码*/
+                        console.log(enter_sn);
+                    });
+                });
+            }else if (a == 2) {
+                layer.alert('当前进度无法录入SN码！')
+            }            
         });
         /*换货登记*/
         $(".btn_exchanges").click(function(){
-            $(".re_new_sncode").val("");
-            var sn_code = $(".sn_code").text();
-            $(".old_sn_code").text(sn_code);
-            layer.open({
-                type: 1,
-                title: "换货登记",
-                area: ['360px', '300px'], //宽高
-                btn: ['确定', '取消'],
-                btn1: function(index, layero) {
-                    var re_new_sn_code = $(".re_new_sncode").val();
-                    if (re_new_sn_code == "") {
-                        layer.msg('输入新SN码不能为空', {icon: 5,anim: 6});
-                    } else {
-                        console.log(re_new_sn_code);
-                    }
-                    
-                },
-                content: $('#show_exchanges'),
-            });
+            var a = $("#control_val_exchange_goods").val();
+            if (a==1) {
+               $(".re_new_sncode").val("");
+                var sn_code = $(".sn_code").text();
+                $(".old_sn_code").text(sn_code);
+                layer.open({
+                    type: 1,
+                    title: "换货登记",
+                    area: ['360px', '450px'], //宽高
+                    btn: ['确定', '取消'],
+                    btn1: function(index, layero) {
+                        var re_new_sn_code = $(".re_new_sncode").val();
+                        if (re_new_sn_code == "") {
+                            layer.msg('输入新SN码不能为空', {icon: 5,anim: 6});
+                        } else {
+                            console.log(re_new_sn_code);
+                        }
+                        
+                    },
+                    content: $('#show_exchanges'),
+                }); 
+            }else if (a == 2) {
+                layer.confirm('该服务单已经登记新产品SN码，是否再次登记？（再次登记后新产品SN码将被覆盖）', {
+                  btn: ['确定','取消'] //按钮
+                }, function(){
+                    layer.closeAll();
+                    $(".re_new_sncode").val("");
+                    var sn_code = $(".sn_code").text();
+                    $(".old_sn_code").text(sn_code);
+                    layer.open({
+                        type: 1,
+                        title: "换货登记",
+                        area: ['360px', '450px'], //宽高
+                        btn: ['确定', '取消'],
+                        btn1: function(index, layero) {
+                            var re_new_sn_code = $(".re_new_sncode").val();
+                            if (re_new_sn_code == "") {
+                                layer.msg('输入新SN码不能为空', {icon: 5,anim: 6});
+                            } else {
+                                console.log(re_new_sn_code);
+                            }
+                            
+                        },
+                        content: $('#show_exchanges'),
+                    });
+                });
+            }      
         }); 
         /*维修报价*/
         $(".btn_repair_quo").click(function(){
-            layer.open({
-                type: 1,
-                title: "换货登记",
-                area: ['360px', '230px'], //宽高
-                btn: ['确定', '取消'],
-                btn1: function(index, layero) {
-                    var re_money = $(".ipt_money").val();
-                    if (re_money == "") {
-                        layer.msg('输入金额不能为空', {icon: 5,anim: 6});
-                    } else {
-                        console.log(re_money);
-                    }
-                },
-                content: $('#show_repair_quo'),
-            });
+            var a = $("#control_val_maintain").val();
+            if (a==1) {
+               layer.open({
+                    type: 1,
+                    title: "换货登记",
+                    area: ['360px', '400px'], //宽高
+                    btn: ['确定', '取消'],
+                    btn1: function(index, layero) {
+                        var re_money = $(".ipt_money").val();
+                        if (re_money == "") {
+                            layer.msg('输入金额不能为空', {icon: 5,anim: 6});
+                        } else {
+                            console.log(re_money);
+                        }
+                    },
+                    content: $('#show_repair_quo'),
+                }); 
+            }else if (a == 2) {
+                layer.confirm('该服务单已经包过价，用户还未支付，是否重新报价？（重新报价后，未支付订单报废）', {
+                  btn: ['确定','取消'] //按钮
+                }, function(){
+                    layer.closeAll();
+                    layer.open({
+                        type: 1,
+                        title: "换货登记",
+                        area: ['360px', '400px'], //宽高
+                        btn: ['确定', '取消'],
+                        btn1: function(index, layero) {
+                            var re_money = $(".ipt_money").val();
+                            if (re_money == "") {
+                                layer.msg('输入金额不能为空', {icon: 5,anim: 6});
+                            } else {
+                                console.log(re_money);
+                            }
+                        },
+                        content: $('#show_repair_quo'),
+                    });
+                });
+            }else if (a == 3) {
+                layer.confirm('该服务单已经包过价，用户已完成支付，是否重新报价？（再次报价后，用户需要再次支付费用）', {
+                  btn: ['确定','取消'] //按钮
+                }, function(){
+                    layer.closeAll();
+                    layer.open({
+                        type: 1,
+                        title: "换货登记",
+                        area: ['360px', '400px'], //宽高
+                        btn: ['确定', '取消'],
+                        btn1: function(index, layero) {
+                            var re_money = $(".ipt_money").val();
+                            if (re_money == "") {
+                                layer.msg('输入金额不能为空', {icon: 5,anim: 6});
+                            } else {
+                                console.log(re_money);
+                            }
+                        },
+                        content: $('#show_repair_quo'),
+                    });
+                });
+            }  
         });
         /*输入框只能输入金额的校验*/
         $(".ipt_money").keyup(function () {
@@ -280,52 +363,144 @@ $(document).ready(function() {
         });
         /*退款返库*/
         $(".btn_refund").click(function(){
-            layer.confirm('是否同意退款并返还库存？', {
-                title: '退款返库',
-                btn: ['确定','取消']
-            }, function(){
-              /*在这里执行确定的操作*/
-              layer.closeAll();
+            form.on('checkbox(lay_show_refund_checkbox_v1)', function(data){
+                if (data.elem.checked) {
+                    $(".lay_show_refund_money_box").slideDown();
+                }else{
+                    $(".lay_show_refund_money_box").slideUp();
+                }
+            }); 
+            form.on('checkbox(lay_show_refund_checkbox_v2)', function(data){
+                console.log(data.elem.checked); //是否被选中，true或者false
+            });   
+            layer.open({
+                type: 1,
+                title: "退款返库",
+                area: ['300px', '430px'], //宽高
+                btn: ['确定', '取消'],
+                btn1: function(index, layero) {
+                    
+                },
+                content: $('#show_refund'),
             });
         });
         /*填写运单号*/
         $(".btn_take_waybill").click(function(){
-            /*初始化请空所有表单内的值*/
-            $(".aft_sal_situ").val("");
-            $(".cour_company").val("");
-            form.render('select', 'lay_take_waybill');
-            $(".ipt_racking_num").val("");
-            layer.open({
-                type: 1,
-                title: "填写运单号",
-                area: ['600px', '450px'], //宽高
-                btn: ['确定', '取消'],
-                btn1: function(index, layero) {
-                    var aft_sal_situ_val = $(".aft_sal_situ").val();
-                    var cour_company_val = $(".cour_company").val();
-                    var ipt_racking_num_val = $(".ipt_racking_num").val();
-                    if (aft_sal_situ_val == "") {
-                        layer.msg('售后情况不能为空', {icon: 5,anim: 6});
-                    } else if(cour_company_val == ""){
-                        layer.msg('快递公司不能为空', {icon: 5,anim: 6});
-                    } else if(ipt_racking_num_val == ""){
-                        layer.msg('运单号不能为空', {icon: 5,anim: 6});
-                    }else{
-                        /*进行非空验证后在这里获取数据进行提交*/
-                        console.log(aft_sal_situ_val);
-                        console.log(cour_company_val);
-                        console.log(ipt_racking_num_val);
-                    }
-                },
-                content: $('#show_take_waybill'),
-            });
+            var a = $("#control_val_waybill").val();
+            if (a==1) {
+               /*初始化请空所有表单内的值*/
+                $(".aft_sal_situ").val("");
+                $(".cour_company").val("");
+                form.render('select', 'lay_take_waybill');
+                $(".ipt_racking_num").val("");
+                layer.open({
+                    type: 1,
+                    title: "填写运单号",
+                    area: ['600px', '450px'], //宽高
+                    btn: ['确定', '取消'],
+                    btn1: function(index, layero) {
+                        var aft_sal_situ_val = $(".aft_sal_situ").val();
+                        var cour_company_val = $(".cour_company").val();
+                        var ipt_racking_num_val = $(".ipt_racking_num").val();
+                        if (aft_sal_situ_val == "") {
+                            layer.msg('售后情况不能为空', {icon: 5,anim: 6});
+                        } else if(cour_company_val == ""){
+                            layer.msg('快递公司不能为空', {icon: 5,anim: 6});
+                        } else if(ipt_racking_num_val == ""){
+                            layer.msg('运单号不能为空', {icon: 5,anim: 6});
+                        }else{
+                            /*进行非空验证后在这里获取数据进行提交*/
+                            console.log(aft_sal_situ_val);
+                            console.log(cour_company_val);
+                            console.log(ipt_racking_num_val);
+                        }
+                    },
+                    content: $('#show_take_waybill'),
+                });
+            }else if (a == 2) {
+                layer.confirm('运单号已填写过，请问是否重新填写？', {
+                  btn: ['确定','取消'] //按钮
+                }, function(){
+                    layer.closeAll();
+                    /*初始化请空所有表单内的值*/
+                    $(".aft_sal_situ").val("");
+                    $(".cour_company").val("");
+                    form.render('select', 'lay_take_waybill');
+                    $(".ipt_racking_num").val("");
+                    layer.open({
+                        type: 1,
+                        title: "填写运单号",
+                        area: ['600px', '450px'], //宽高
+                        btn: ['确定', '取消'],
+                        btn1: function(index, layero) {
+                            var aft_sal_situ_val = $(".aft_sal_situ").val();
+                            var cour_company_val = $(".cour_company").val();
+                            var ipt_racking_num_val = $(".ipt_racking_num").val();
+                            if (aft_sal_situ_val == "") {
+                                layer.msg('售后情况不能为空', {icon: 5,anim: 6});
+                            } else if(cour_company_val == ""){
+                                layer.msg('快递公司不能为空', {icon: 5,anim: 6});
+                            } else if(ipt_racking_num_val == ""){
+                                layer.msg('运单号不能为空', {icon: 5,anim: 6});
+                            }else{
+                                /*进行非空验证后在这里获取数据进行提交*/
+                                console.log(aft_sal_situ_val);
+                                console.log(cour_company_val);
+                                console.log(ipt_racking_num_val);
+                            }
+                        },
+                        content: $('#show_take_waybill'),
+                    });
+                });
+            } 
+            
         });
-
-        
-        
+        /*---------------测试部分--------------*/
+        $("#control_btn_btn_class").click(function(){
+            var a = $("#control_ipt_btn_class").val();
+            if (a==1) {
+                $(".send_back").show();
+                $(".serviceing").hide();
+            }else if (a == 2) {
+                $(".send_back").hide();
+                $(".serviceing").show();
+            }
+        });
+        $("#control_btn_sncode").click(function(){
+            var a = $("#control_ipt_sncode").val();
+            if (a==1) {
+                $("#control_val_sncode").val(1);
+            }else if (a == 2) {
+                $("#control_val_sncode").val(2);
+            }
+        });
+        $("#control_btn_exchange_goods").click(function(){
+            var a = $("#control_ipt_exchange_goods").val();
+            if (a==1) {
+                $("#control_val_exchange_goods").val(1);
+            }else if (a == 2) {
+                $("#control_val_exchange_goods").val(2);
+            }
+        });
+        $("#control_btn_maintain").click(function(){
+            var a = $("#control_ipt_maintain").val();
+            if (a==1) {
+                $("#control_val_maintain").val(1);
+            }else if (a == 2) {
+                $("#control_val_maintain").val(2);
+            }else if (a == 3) {
+                $("#control_val_maintain").val(3);
+            }
+        });
+        $("#control_btn_waybill").click(function(){
+            var a = $("#control_ipt_waybill").val();
+            if (a==1) {
+                $("#control_val_waybill").val(1);
+            }else if (a == 2) {
+                $("#control_val_waybill").val(2);
+            }
+        });
+  
     });
-    
-    
-
 });
 
