@@ -242,7 +242,7 @@ $(document).ready(function() {
                 layer.open({
                     type: 1,
                     title: "换货登记",
-                    area: ['360px', '450px'], //宽高
+                    area: ['360px', '500px'], //宽高
                     btn: ['确定', '取消'],
                     btn1: function(index, layero) {
                         var re_new_sn_code = $(".re_new_sncode").val();
@@ -266,7 +266,7 @@ $(document).ready(function() {
                     layer.open({
                         type: 1,
                         title: "换货登记",
-                        area: ['360px', '450px'], //宽高
+                        area: ['360px', '500px'], //宽高
                         btn: ['确定', '取消'],
                         btn1: function(index, layero) {
                             var re_new_sn_code = $(".re_new_sncode").val();

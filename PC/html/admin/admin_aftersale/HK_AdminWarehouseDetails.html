@@ -416,11 +416,16 @@
     </div>
     <!-- 换货登记弹出层，供js调用 -->
     <div id="show_exchanges" class="clear dis-n pd-20">
-        <div class="clear">
+        <div class="clear layui-form">
             <p class="f-14 col-black line-h-25 mb-10">
                 原产品SN码：
             </p>
             <p class="f-14 col-black line-h-25 mb-20 old_sn_code">
+            </p>
+            <p class="f-14 col-black line-h-30 mb-20">
+                <span class="col-black pos-r t-3">原产品去向：</span>
+                <input type="radio" name="gone" value="regood" title="返库" checked="">
+                <input type="radio" name="gone" value="scrap" title="报废">
             </p>
             <p class="f-14 col-black line-h-25 mb-10">
                 请输入新SN码：
