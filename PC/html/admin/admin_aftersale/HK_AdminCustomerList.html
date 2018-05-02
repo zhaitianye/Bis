@@ -72,35 +72,8 @@
         <div class="layui-body">
             <div style="padding: 50px;">
                 <p class="f-18 pt-15 pb-15 col-8d969d">
-                    客服售后列表查看
+                    待审核服务单列表
                 </p>
-                <div class="clear pd-15 bg-fafafa bor bor-col-e8ebf2">
-                    <!-- 这里用layui的数据表格的重载 -->
-                    <form class="layui-form" action="">
-                        <div class="layui-form-item mb-0" pane="">
-                            <label class="layui-form-label f-14">搜索：</label>
-                            <div class="layui-input-block">
-                                <div class="layui-inline">
-                                    <select name="searchabout" lay-verify="required" lay-search="">
-                                        <option value="">请选择您要查询的内容</option>
-                                        <option value="1">服务单号</option>
-                                        <option value="2">用户名</option>
-                                        <option value="3">订单号</option>
-                                        <option value="4">SN码</option>
-                                    </select>
-                                </div>
-                                <div class="layui-inline">
-                                    <div class="layui-input-inline">
-                                        <input type="text" name="incontent" lay-verify="required" autocomplete="off" class="layui-input">
-                                    </div>
-                                </div>
-                                <div class="layui-inline">
-                                    <button type="submit" class="layui-btn layui-btn-sm" lay-submit="" lay-filter="search1">搜索</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
                 <p class="f-18 pt-15 pb-15 col-8d969d demoTable">
                     <button class="layui-btn" data-type="getCheckData">打印服务单</button>
                 </p>

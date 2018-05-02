@@ -115,8 +115,10 @@
                     </div>
                 </fieldset>
                 <div class="clear mt-30">
-                    <button class="layui-btn layui-btn-primary pull-right">关闭售后</button>
-                    <button class="layui-btn pull-right mr-20">通过审核</button>
+                    <button class="layui-btn layui-btn-primary pull-right btn_close_aftersale">关闭售后</button>
+                    <!-- 下面两个按钮根据情况隐藏一个，到时候给dis-n类就行 -->
+                    <button class="layui-btn pull-right mr-20 btn_pass_aftersale">通过审核</button>
+                    <button class="layui-btn pull-right mr-20 btn_quote">客服报价</button>
                 </div>
                 <fieldset class="layui-elem-field mt-20">
                     <legend class="">收货信息</legend>
@@ -333,6 +335,36 @@
                 <div class="clear pd-15" style="page-break-after: always;">
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- 弹出层内容-->
+    <!-- 换货登记弹出层，供js调用 -->
+    <div id="show_close_aftersale" class="clear dis-n pd-20">
+        <div class="clear layui-form">
+            <p class="f-14 col-black line-h-25 mb-20">
+                是否确认关闭该服务单？
+            </p>
+            <div class="clear full-w">
+                <textarea id="close_aftersale_remark" placeholder="备注 选填" class="layui-textarea f-14" rows="6"></textarea>
+            </div>
+        </div>
+    </div>
+    <!-- 客服报价弹出层，供js调用 -->
+    <div id="show_quote" class="clear dis-n pd-20">
+        <div class="clear layui-form">
+            <p class="f-14 col-black line-h-25 mb-10">
+                维修金额(总价)：
+            </p>
+            <p class="f-14 col-black line-h-25 mb-40">
+                170 元
+            </p>
+            <p class="f-14 col-black line-h-25 mb-10">
+                报价备注：
+            </p>
+            <p class="f-14 col-black line-h-25 mb-10">
+                外壳：50元<br>
+                芯片：120元
+            </p>
         </div>
     </div>
     <script src="../../../js/comm/jquery.min.js"></script>

@@ -203,8 +203,56 @@ $(document).ready(function() {
                 },
                 content: $('.show_edit_remark'),
             });
-
         });
+        /*关闭售后按钮操作*/
+        $(".btn_close_aftersale").click(function(){
+            $("#close_aftersale_remark").val("");
+            layer.open({
+                type: 1,
+                title: "确认关闭售后",
+                area: ['360px', '350px'], //宽高
+                btn: ['确定', '取消'],
+                btn1: function(index, layero) {
+                    layer.closeAll();
+                    var remark_val = $("#close_aftersale_remark").val();
+                    console.log(remark_val);                    
+                },
+                content: $('#show_close_aftersale'),
+            }); 
+        });
+        /*通过审核按钮操作*/
+        $(".btn_pass_aftersale").click(function(){
+            layer.confirm('是否确认通过服务单审核？', {
+                title: '确认通过审核',
+                btn: ['确定','取消'] //按钮
+            }, function(){
+                layer.closeAll();
+            });
+        });
+        /*客服报价操作*/
+        $(".btn_quote").click(function(){
+            $("#close_aftersale_remark").val("");
+            layer.open({
+                type: 1,
+                title: "报价详细",
+                area: ['400px', '450px'], //宽高
+                btn: ['完成报价', '取消'],
+                btn1: function(index, layero) {
+                    layer.confirm('是否完成报价？', {
+                        title: '确认报价',
+                        btn: ['确定','取消'] //按钮
+                    }, function(){
+                        /*确认的回调*/
+                        layer.closeAll();
+                    }, function(){
+                        /*取消的回调*/
+                        layer.closeAll();
+                    });
+                },
+                content: $('#show_quote'),
+            }); 
+        });
+
         
     });
     
